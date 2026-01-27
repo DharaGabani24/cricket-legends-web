@@ -83,7 +83,7 @@ const Hero = () => {
         else {
           // EXIT: Circle moves up and shrinks
           const p = (progress - 0.55) / 0.45;
-          circleY = 50 - (p * 100);    // 50% → -50%
+          circleY = 50 - (p * 150);    // 50% → -50%
           circleSize = 200 - (p * 200); // 200% → 0%
         }
 
@@ -246,6 +246,36 @@ const Hero = () => {
       
       // Create a separate ScrollTrigger for the radial wipe
       // that maps scroll progress to mask animation
+      // ScrollTrigger.create({
+      //   trigger: hero,
+      //   start: 'top top',
+      //   end: '100% top',
+      //   scrub: 0.5,
+      //   onUpdate: (self) => {
+      //     const scrollProgress = self.progress;
+          
+      //     // Map scroll 42%-92% to radial wipe 0-1
+      //     if (scrollProgress >= 0.42 && scrollProgress <= 0.92) {
+      //       const wipeProgress = (scrollProgress - 0.42) / 0.50; // 0 to 1
+      //       updateRadialMasks(wipeProgress);
+            
+      //       // Platforms visibility
+      //       if (wipeProgress > 0.35 && wipeProgress < 0.65) {
+      //         gsap.to(platforms, { opacity: 1, duration: 0.2, overwrite: true });
+      //       } else {
+      //         gsap.to(platforms, { opacity: 0, duration: 0.2, overwrite: true });
+      //       }
+      //     } else if (scrollProgress < 0.42) {
+      //       updateRadialMasks(0);
+      //       gsap.set(platforms, { opacity: 0 });
+      //     } else {
+      //       updateRadialMasks(1);
+      //       gsap.set(platforms, { opacity: 0 });
+      //     }
+      //   }
+      // });
+
+      //circular fade with shrinking text 
       ScrollTrigger.create({
         trigger: hero,
         start: 'top top',
@@ -254,10 +284,26 @@ const Hero = () => {
         onUpdate: (self) => {
           const scrollProgress = self.progress;
           
+          // Get dim layer element
+          const dimLayer = document.querySelector('.hero__text-dim');
+          
           // Map scroll 42%-92% to radial wipe 0-1
           if (scrollProgress >= 0.42 && scrollProgress <= 0.92) {
             const wipeProgress = (scrollProgress - 0.42) / 0.50; // 0 to 1
             updateRadialMasks(wipeProgress);
+            
+            // EXIT phase (wipeProgress 0.55 to 1.0) - fade AND shrink
+            if (wipeProgress > 0.55) {
+              const fadeProgress = (wipeProgress - 0.55) / 0.45; // 0 to 1
+              if (dimLayer) dimLayer.style.opacity = String(1 - fadeProgress);
+              
+              // Shrink from scale 1 to 0.7
+              const scale = 1 - (fadeProgress * 0.2);
+              releaseInfo.style.transform = `translate(-50%, -25%) scale(${scale})`;
+            } else {
+              if (dimLayer) dimLayer.style.opacity = '1';
+              releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+            }
             
             // Platforms visibility
             if (wipeProgress > 0.35 && wipeProgress < 0.65) {
@@ -268,9 +314,14 @@ const Hero = () => {
           } else if (scrollProgress < 0.42) {
             updateRadialMasks(0);
             gsap.set(platforms, { opacity: 0 });
+            if (dimLayer) dimLayer.style.opacity = '1';
+            releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
           } else {
+            // After 92% - everything hidden
             updateRadialMasks(1);
             gsap.set(platforms, { opacity: 0 });
+            if (dimLayer) dimLayer.style.opacity = '0';
+            releaseInfo.style.transform = 'translate(-50%, -25%) scale(0.7)';
           }
         }
       });
@@ -278,19 +329,21 @@ const Hero = () => {
       // ============================================
       // PHASE 12: CRICKET LEGENDS exits (93% - 98%)
       // ============================================
-      tl.to(textGroup, {
-        y: -400,
-        opacity: 0,
-        duration: 0.05,
-        ease: 'none'
-      }, 0.93);
+      
 
       // Hide release info
       tl.to(releaseInfo, {
         opacity: 0,
-        duration: 0.03,
+        duration: 0.04,
         ease: 'none'
       }, 0.92);
+
+      tl.to(textGroup, {
+        y: -500,
+        opacity: 0,
+        duration: 0.05,
+        ease: 'none'
+      }, 0.93);
 
       // Scroll indicator fades out immediately
       tl.to(scrollIndicator, {
@@ -312,7 +365,7 @@ const Hero = () => {
         <div ref={imageWrapperRef} className="hero__image">
           <img 
             ref={imageRef} 
-            src={process.env.PUBLIC_URL + '/img/cric4.webp'} 
+            src={process.env.PUBLIC_URL + '/img/HighresScreenshot00002.webp'} 
             alt="Cricket Stadium" 
           />
         </div>

@@ -21,7 +21,7 @@ const Preloader = ({ onComplete }) => {
 
   return (
     <div className="preloader">
-      <div className="preloader__text">CRICKET LEGENDS</div>
+      <div className="preloader__text">GODS OF CRICKET</div>
       <div className="preloader__bar">
         <div className="preloader__progress"></div>
       </div>

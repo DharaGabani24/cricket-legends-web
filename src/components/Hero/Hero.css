@@ -60,9 +60,7 @@
   height: 100%;
 }
 
-/* ============================================
-   RELEASE INFO - CIRCULAR RADIAL WIPE CONTAINER
-   ============================================ */
+
 .hero__release-info {
   position: fixed;
   top: 50%;
@@ -77,9 +75,6 @@
   visibility: hidden;
 }
 
-/* ============================================
-   DIM LAYER - Always visible dark base
-   ============================================ */
 .hero__text-dim {
   position: relative;
   z-index: 1;
@@ -90,7 +85,7 @@
 
 .hero__text-dim .hero__coming {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-size: clamp(2rem, 2.5vw, 1.5rem);
   letter-spacing: 0.5em;
   text-transform: uppercase;
   line-height: 1.5;
@@ -127,9 +122,7 @@
   background-clip: text;
 }
 
-/* ============================================
-   BRIGHT LAYER - Revealed by circular mask
-   ============================================ */
+
 .hero__text-bright {
   position: absolute;
   top: 0;
@@ -140,7 +133,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Initial mask - nothing revealed */
   -webkit-mask-image: radial-gradient(
     circle at 50% 150%,
     black 0%,
@@ -157,7 +149,7 @@
 
 .hero__text-bright .hero__coming {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-size: clamp(2rem, 2.5vw, 1.5rem);
   letter-spacing: 0.5em;
   text-transform: uppercase;
   line-height: 1.5;
@@ -194,9 +186,7 @@
   background-clip: text;
 }
 
-/* ============================================
-   GLOW LAYER - Warm edge at circle boundary
-   ============================================ */
+
 .hero__text-glow {
   position: absolute;
   top: 0;
@@ -208,7 +198,6 @@
   flex-direction: column;
   align-items: center;
   pointer-events: none;
-  /* Initial mask - ring at edge */
   -webkit-mask-image: radial-gradient(
     circle at 50% 150%,
     transparent 0%,
@@ -227,7 +216,7 @@
 
 .hero__text-glow .hero__coming {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-size: clamp(2rem, 2.5vw, 1.5rem);
   letter-spacing: 0.5em;
   text-transform: uppercase;
   line-height: 1.5;
@@ -264,9 +253,7 @@
   background-clip: text;
 }
 
-/* ============================================
-   PLATFORMS
-   ============================================ */
+
 .hero__platforms {
   display: flex;
   align-items: center;
@@ -292,9 +279,6 @@
   color: rgba(255, 255, 255, 0.2);
 }
 
-/* ============================================
-   SCROLL INDICATOR
-   ============================================ */
 .hero__scroll {
   position: absolute;
   bottom: 2rem;
@@ -324,9 +308,7 @@
   }
 }
 
-/* ============================================
-   RESPONSIVE STYLES
-   ============================================ */
+
 @media (max-width: 768px) {
   .hero {
     height: 700vh;
@@ -404,9 +386,7 @@
   }
 }
 
-/* ============================================
-   SMOOTH RENDERING
-   ============================================ */
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
