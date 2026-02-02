@@ -2,6 +2,7 @@
 export { default as Preloader } from './Preloader';
 export { default as Navbar } from './Navbar';
 export { default as Hero } from './Hero';
+export { default as Story } from './Story';
 export { default as Features } from './Features';
 export { default as Gallery } from './Gallery';
 export { default as Stats } from './Stats';

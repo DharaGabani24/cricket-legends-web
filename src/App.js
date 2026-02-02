@@ -3,8 +3,9 @@ import {
   Preloader,
   Navbar,
   Hero,
+  Story,
   Features,
-  Gallery,
+  // Gallery,
   Stats,
   CTA,
   Footer
@@ -29,12 +30,15 @@ function App() {
       <main>
         {/* Hero Section - GTA VI Style Effect */}
         <Hero />
+        {/* Story Section */}
+        <Story />
 
         {/* Features Section */}
         <Features />
 
+
         {/* Horizontal Gallery */}
-        <Gallery />
+        {/* <Gallery /> */}
 
         {/* Stats Section */}
         <Stats />
