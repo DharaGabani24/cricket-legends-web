@@ -1835,6 +1835,304 @@
 }
 
 /* ========================================
+   LUCIA CHARACTER SECTION
+   ======================================== */
+
+
+   /* //// */
+
+   
+   .lucia-char-section {
+    position: relative;
+    width: 100%;
+    height: 1000vh;
+    background: #0a0a0a;
+  }
+  
+  .lucia-char-section__sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+  
+  /* Background Image */
+  .lucia-char__bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0;
+    will-change: opacity;
+  }
+  
+  .lucia-char__bg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+  
+  /* Dark overlay */
+  .lucia-char__bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0);
+    z-index: 3;
+    will-change: background;
+    pointer-events: none;
+  }
+  
+  /* Content Container */
+  .lucia-char {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 20;
+    pointer-events: none;
+    will-change: transform;
+  }
+  
+  /* Name - Right side */
+  .lucia-char__name {
+    position: absolute;
+    right: auto;
+    left: 57vw;
+    top: 0;
+    font-family: 'Oswald', 'Impact', sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #f5d5a0;
+    /* color:#ffffff; */
+    margin: 0;
+    line-height: 1;
+    text-shadow: 0 4px 60px rgba(0, 0, 0, 0.9), 0 2px 30px rgba(0, 0, 0, 0.7);
+    will-change: transform, opacity;
+  }
+  
+  /* Quote - Right side */
+  .lucia-char__quote {
+    position: absolute;
+    right: auto;
+    left: 57vw;
+    top: 9vh;
+    max-width: 270px;
+    /* font-family: 'Cormorant Garamond', Georgia, serif; */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: 0.02em;
+    font-size: clamp(2.1rem, 2.1vw, 2.1rem);
+    /* font-style: italic; */
+    font-weight: 700;
+    color: #48cdb0;
+    margin: 0;
+    line-height: 1.2;
+    text-align: left;
+    will-change: transform, opacity;
+  }
+  
+  /* Description - Right side */
+  .lucia-char__desc {
+    position: absolute;
+    right: auto;
+    left: 57vw;
+    top: 14vh;
+    max-width: 300px;
+    letter-spacing: 0.05em;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(1.3rem, 1.1vw, 1.8rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    line-height: 1.3;
+    text-align: left;
+    will-change: transform, opacity;
+  }
+  
+  /* Second Description - Right side */
+  .lucia-char__desc2 {
+    position: absolute;
+    right: auto;
+    left: 55vw;
+    top: 122vh;
+    max-width: 320px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(1.3rem, 1.1vw, 2.1rem);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    line-height: 1.6;
+    text-align: left;
+    will-change: transform, opacity;
+  }
+  
+  /* Images */
+  .lucia-char__img {
+    position: absolute;
+    top: 0;
+    /* border-radius: 4px; */
+    overflow: hidden;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), 0 12px 35px rgba(0, 0, 0, 0.4);
+    will-change: transform, opacity;
+    z-index: 25;
+  }
+  
+  .lucia-char__img img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+    /* object-position: center center; */
+  }
+  
+  /* Image 1 - Left side, large (boxing) */
+  .lucia-char__img--1 {
+    left: 0vw;
+    top: 40vh;
+    width: clamp(710px, 38vw, 700px);
+    height: clamp(700px, 45vh, 700px);
+  }
+  
+  /* Image 2 - Right side (pool) */
+  .lucia-char__img--2 {
+    right: auto;
+    left: 51vw;
+    top: 63vh;
+    width: clamp(450px, 32vw, 550px);
+    height: clamp(550px, 30vh, 450px);
+    object-fit: cover;
+    object-position: left left;
+
+
+  }
+  
+  /* Image 3 - Left side bottom (prison) */
+  .lucia-char__img--3 {
+    left: 19.2vw;
+    top: 100vh;
+    align-items: right;
+    width: clamp(420px, 30vw, 500px);
+    height: clamp(650px, 45vh, 650px);
+  }
+  
+  /* ========================================
+     LUCIA CHARACTER RESPONSIVE
+     ======================================== */
+  
+  @media (max-width: 1200px) {
+    .lucia-char__name {
+      right: 8vw;
+    }
+    
+    .lucia-char__quote,
+    .lucia-char__desc,
+    .lucia-char__desc2 {
+      right: 8vw;
+      max-width: 350px;
+    }
+    
+    .lucia-char__img--1 {
+      left: 3vw;
+      width: clamp(400px, 35vw, 550px);
+    }
+    
+    .lucia-char__img--2 {
+      right: 3vw;
+      width: clamp(350px, 30vw, 450px);
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .lucia-char__name {
+      right: 5vw;
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+    }
+    
+    .lucia-char__quote {
+      right: 5vw;
+      font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+    }
+    
+    .lucia-char__desc,
+    .lucia-char__desc2 {
+      right: 5vw;
+      max-width: 320px;
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .lucia-char-section {
+      height: 800vh;
+    }
+    
+    .lucia-char__name {
+      right: auto;
+      left: 5vw;
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+    
+    .lucia-char__quote {
+      right: auto;
+      left: 5vw;
+      text-align: left;
+      max-width: 80vw;
+    }
+    
+    .lucia-char__desc,
+    .lucia-char__desc2 {
+      right: auto;
+      left: 5vw;
+      text-align: left;
+      max-width: 90vw;
+    }
+    
+    .lucia-char__img--1 {
+      left: 5vw;
+      width: 55vw;
+      height: 35vh;
+    }
+    
+    .lucia-char__img--2,
+    .lucia-char__img--3 {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .lucia-char-section {
+      height: 700vh;
+    }
+    
+    .lucia-char__name {
+      font-size: 2rem;
+    }
+    
+    .lucia-char__quote {
+      font-size: 1.1rem;
+    }
+    
+    .lucia-char__desc,
+    .lucia-char__desc2 {
+      font-size: 0.9rem;
+    }
+    
+    .lucia-char__img--1 {
+      width: 70vw;
+      height: 30vh;
+    }
+  }
+
+/* ========================================
    PERFORMANCE
    ======================================== */
 

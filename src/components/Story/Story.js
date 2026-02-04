@@ -624,6 +624,20 @@ const Story = () => {
   const luciaImg1Ref = useRef(null);
   const luciaImg2Ref = useRef(null);
   const luciaImg3Ref = useRef(null);
+
+  // Lucia Character section refs (new section)
+  const luciaCharSectionRef = useRef(null);
+  const luciaCharStickyRef = useRef(null);
+  const luciaCharBgImageRef = useRef(null);
+  const luciaCharBgOverlayRef = useRef(null);
+  const luciaCharWrapperRef = useRef(null);
+  const luciaCharNameRef = useRef(null);
+  const luciaCharQuoteRef = useRef(null);
+  const luciaCharDescRef = useRef(null);
+  const luciaCharDesc2Ref = useRef(null);
+  const luciaCharImg1Ref = useRef(null);
+  const luciaCharImg2Ref = useRef(null);
+  const luciaCharImg3Ref = useRef(null);  
   
   // Gallery refs
   const galleryRef = useRef(null);
@@ -1142,7 +1156,242 @@ const Story = () => {
           }
         }
       });
+
       
+
+
+          // ========================================
+          // LUCIA CHARACTER SECTION ANIMATION
+          // ========================================
+
+          const luciaCharSection = luciaCharSectionRef.current;
+          const luciaCharSticky = luciaCharStickyRef.current;
+          const luciaCharBgImage = luciaCharBgImageRef.current;
+          const luciaCharBgOverlay = luciaCharBgOverlayRef.current;
+          const luciaCharName = luciaCharNameRef.current;
+          const luciaCharQuote = luciaCharQuoteRef.current;
+          const luciaCharDesc = luciaCharDescRef.current;
+          const luciaCharDesc2 = luciaCharDesc2Ref.current;
+          const luciaCharImg1 = luciaCharImg1Ref.current;
+          const luciaCharImg2 = luciaCharImg2Ref.current;
+          const luciaCharImg3 = luciaCharImg3Ref.current;
+
+          // Initial states - ALL start below viewport
+          gsap.set(luciaCharBgImage, { opacity: 0 });
+          gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+          gsap.set(luciaCharName, { y: '100vh' });
+          gsap.set(luciaCharQuote, { y: '100vh' });
+          gsap.set(luciaCharDesc, { y: '100vh' });
+          gsap.set(luciaCharDesc2, { y: '100vh' });
+          gsap.set(luciaCharImg1, { opacity: 0 });
+          gsap.set(luciaCharImg2, { opacity: 0 });
+          gsap.set(luciaCharImg3, { opacity: 0 });
+
+          ScrollTrigger.create({
+            trigger: luciaCharSection,
+            start: 'top top',
+            end: '100% top',
+            scrub: 1.5,
+            pin: luciaCharSticky,
+            pinSpacing: false,
+            onUpdate: (self) => {
+              const p = self.progress;
+              
+              // ========================================
+              // LUCIA CHAR PHASE 1: BG FADES IN (0 - 0.10)
+              // ========================================
+              if (p < 0.10) {
+                const phase1 = p / 0.10;
+                
+                gsap.set(luciaCharBgImage, { opacity: phase1 });
+                gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+                
+                // All content hidden below
+                gsap.set(luciaCharName, { y: '100vh' });
+                gsap.set(luciaCharQuote, { y: '100vh' });
+                gsap.set(luciaCharDesc, { y: '100vh' });
+                gsap.set(luciaCharDesc2, { y: '100vh' });
+                gsap.set(luciaCharImg1, { y: '100vh', opacity: 0 });
+                gsap.set(luciaCharImg2, { y: '100vh', opacity: 0 });
+                gsap.set(luciaCharImg3, { y: '100vh', opacity: 0 });
+              }
+              
+              // ========================================
+              // LUCIA CHAR PHASE 2: NAME SCROLLS UP (0.10 - 0.20)
+              // ========================================
+              else if (p >= 0.10 && p < 0.20) {
+                const phase2 = (p - 0.10) / 0.10;
+                
+                gsap.set(luciaCharBgImage, { opacity: 1 });
+                gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${phase2 * 0.75})` });
+
+                
+                const baseScroll = phase2 * 600;
+                
+                gsap.set(luciaCharName, { y: 800 - baseScroll });
+                gsap.set(luciaCharQuote, { y: 900 - baseScroll });
+                gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
+                gsap.set(luciaCharDesc2, { y: '100vh' });
+                gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+              }
+              
+              // ========================================
+              // LUCIA CHAR PHASE 3: QUOTE ENTERS (0.20 - 0.30)
+              // ========================================
+              else if (p >= 0.20 && p < 0.30) {
+                const phase3 = (p - 0.20) / 0.10;
+                
+                // const bgOpacity = 1 - (phase3 * 0.3);
+                // gsap.set(luciaCharBgImage, { opacity: bgOpacity });
+                // gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${phase3 * 0.3})` });
+                
+
+                gsap.set(luciaCharBgImage, { opacity: 1 });
+                // Continue darkening
+                gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.75 + (phase3 * 0.2)})` });
+                
+
+                const baseScroll = 600 + (phase3 * 400);
+                
+                gsap.set(luciaCharName, { y: 800 - baseScroll });
+                gsap.set(luciaCharQuote, { y: 900 - baseScroll });
+                gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
+                gsap.set(luciaCharDesc2, { y: 1200 - baseScroll });
+                gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+              }
+              
+              // ========================================
+              // LUCIA CHAR PHASE 4: DESC + IMAGES VISIBLE (0.30 - 0.42)
+              // ========================================
+              else if (p >= 0.30 && p < 0.42) {
+                const phase4 = (p - 0.30) / 0.12;
+                
+                // const bgOpacity = 0.7 - (phase4 * 0.3);
+                // gsap.set(luciaCharBgImage, { opacity: bgOpacity });
+                // gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase4 * 0.3)})` });
+                
+                gsap.set(luciaCharBgImage, { opacity: 1 });
+                // Continue darkening
+                gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.9 + (phase4 * 0.15)})` });
+                
+
+                const baseScroll = 1000 + (phase4 * 300);
+                
+                gsap.set(luciaCharName, { y: 800 - baseScroll });
+                gsap.set(luciaCharQuote, { y: 900 - baseScroll });
+                gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
+                gsap.set(luciaCharDesc2, { y: 1200 - baseScroll });
+                gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+              }
+              
+              // ========================================
+              // LUCIA CHAR PHASE 5: BG FADES (0.42 - 0.55)
+              // ========================================
+              else if (p >= 0.42 && p < 0.55) {
+                const phase5 = (p - 0.42) / 0.13;
+                
+                // const bgOpacity = 0.4 - (phase5 * 0.4);
+                // gsap.set(luciaCharBgImage, { opacity: bgOpacity });
+                // gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.6 + (phase5 * 0.4)})` });
+                
+                gsap.set(luciaCharBgImage, { opacity: 1 });
+                // Continue darkening
+                gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.95 + (phase5 * 0.1)})` });
+  
+                const baseScroll = 1300 + (phase5 * 250);
+                
+                gsap.set(luciaCharName, { y: 800 - baseScroll });
+                gsap.set(luciaCharQuote, { y: 900 - baseScroll });
+                gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
+                gsap.set(luciaCharDesc2, { y: 1200 - baseScroll });
+                gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+              }
+              
+              // ========================================
+              // LUCIA CHAR PHASE 6: BG BLACK, TEXT FADES (0.55 - 0.68)
+              // ========================================
+              else if (p >= 0.55 && p < 0.68) {
+                const phase6 = (p - 0.55) / 0.13;
+                
+                // gsap.set(luciaCharBgImage, { opacity: 0 });
+                // gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+                
+
+                gsap.set(luciaCharBgImage, { opacity: 0 });
+                // Almost fully dark
+                // gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, 1)` });
+                gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+
+                
+                const baseScroll = 1550 + (phase6 * 200);
+                const textOpacity = 1 - phase6;
+                
+                gsap.set(luciaCharName, { y: 800 - baseScroll, opacity: textOpacity });
+                gsap.set(luciaCharQuote, { y: 900 - baseScroll, opacity: textOpacity });
+                gsap.set(luciaCharDesc, { y: 1050 - baseScroll, opacity: textOpacity });
+                gsap.set(luciaCharDesc2, { y: 1200 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+              }
+              
+              // ========================================
+              // LUCIA CHAR PHASE 7: IMAGES ONLY (0.68 - 0.82)
+              // ========================================
+              else if (p >= 0.68 && p < 0.82) {
+                const phase7 = (p - 0.68) / 0.14;
+                
+                gsap.set(luciaCharBgImage, { opacity: 0 });
+                gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+                
+                const baseScroll = 1750 + (phase7 * 200);
+                
+                gsap.set(luciaCharName, { opacity: 0 });
+                gsap.set(luciaCharQuote, { opacity: 0 });
+                gsap.set(luciaCharDesc, { opacity: 0 });
+                // gsap.set(luciaCharDesc2, { opacity: 0 });
+                gsap.set(luciaCharDesc2, { y: 1200 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+              }
+              
+              // ========================================
+              // LUCIA CHAR PHASE 8: EXIT (0.82 - 1.0)
+              // ========================================
+              else if (p >= 0.82) {
+                const phase8 = (p - 0.82) / 0.18;
+                
+                // gsap.set(luciaCharBgImage, { opacity: 0 });
+                // gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+                
+                gsap.set(luciaCharBgImage, { opacity: 1 });
+                // Stay fully dark
+                gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+                
+
+                const baseScroll = 1950 + (phase8 * 800);
+                
+                gsap.set(luciaCharName, { opacity: 0 });
+                gsap.set(luciaCharQuote, { opacity: 0 });
+                gsap.set(luciaCharDesc, { opacity: 0 });
+                // gsap.set(luciaCharDesc2, { opacity: 0 });
+                gsap.set(luciaCharDesc2, { y: 1200 - baseScroll, opacity: 1 }); 
+                gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+                gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+              }
+            }
+          });
+
       // ========================================
       // GALLERY SECTION
       // ========================================
@@ -1358,6 +1607,75 @@ const Story = () => {
           
         </div>
       </section>
+{/* ============ LUCIA CHARACTER SECTION ============ */}
+<section ref={luciaCharSectionRef} className="lucia-char-section">
+  <div ref={luciaCharStickyRef} className="lucia-char-section__sticky">
+    
+    {/* Background Image */}
+    <div ref={luciaCharBgImageRef} className="lucia-char__bg-image">
+      <img 
+        src={process.env.PUBLIC_URL + '/img/HighresScreenshot00002.webp'} 
+        alt="Lucia and Jason"
+      />
+    </div>
+    
+    {/* Dark overlay */}
+    <div ref={luciaCharBgOverlayRef} className="lucia-char__bg-overlay"></div>
+    
+    {/* Content */}
+    <div ref={luciaCharWrapperRef} className="lucia-char">
+      
+      {/* Name - Right side */}
+      <h1 ref={luciaCharNameRef} className="lucia-char__name">LUCIA CAMINOS</h1>
+      
+      {/* Quote - Right side */}
+      <p ref={luciaCharQuoteRef} className="lucia-char__quote">
+        Lucia's father taught her to fight as soon as she could walk.
+      </p>
+      
+      {/* Description - Right side */}
+      <p ref={luciaCharDescRef} className="lucia-char__desc">
+        Life has been coming at her swinging ever since. Fighting for 
+        her family landed her in the Leonida Penitentiary. Sheer luck 
+        got her out. Lucia's learned her lesson — only smart moves from here.
+      </p>
+      
+      {/* Second Description */}
+      <p ref={luciaCharDesc2Ref} className="lucia-char__desc2">
+        More than anything, Lucia wants the good life her mom has 
+        dreamed of since their days in Liberty City — but instead of half-baked 
+        fantasies, Lucia is prepared to take matters into her own hands.
+      </p>
+      
+      {/* Image 1 - Left side, large (boxing) */}
+      <div ref={luciaCharImg1Ref} className="lucia-char__img lucia-char__img--1">
+        <img 
+          src={process.env.PUBLIC_URL + '/img/HighresScreenshot00009.webp'} 
+          alt="Lucia boxing"
+        />
+      </div>
+      
+      {/* Image 2 - Right side (pool) */}
+      <div ref={luciaCharImg2Ref} className="lucia-char__img lucia-char__img--2">
+        <img 
+          src={process.env.PUBLIC_URL + '/img/HighresScreenshot00007.webp'} 
+          alt="Lucia pool"
+        />
+      </div>
+      
+      {/* Image 3 - Left side bottom (prison) */}
+      <div ref={luciaCharImg3Ref} className="lucia-char__img lucia-char__img--3">
+        <img 
+          src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'} 
+          alt="Lucia prison"
+        />
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+      
       
       {/* ============ GALLERY SECTION ============ */}
       <section ref={galleryRef} className="story__gallery">
