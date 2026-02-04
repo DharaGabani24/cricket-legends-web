@@ -13,9 +13,9 @@ const Navbar = () => {
         />
       </a>
       <ul className="nav__menu">
-        <li><a href="#features" className="nav__link">Features</a></li>
-        <li><a href="#stadiums" className="nav__link">Stadiums</a></li>
-        <li><a href="#preorder" className="nav__link">Pre-Order</a></li>
+        {/* <li><a href="#features" className="nav__link">Features</a></li> */}
+        {/* <li><a href="#stadiums" className="nav__link">Stadiums</a></li> */}
+        {/* <li><a href="#preorder" className="nav__link">Pre-Order</a></li> */}
       </ul>
       <button className="nav__menu-btn" aria-label="Menu">
         <span></span>

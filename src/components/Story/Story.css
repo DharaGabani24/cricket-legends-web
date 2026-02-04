@@ -574,13 +574,11 @@
 
 
 /* /// New modified D5 */
-
+/* 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap');
 
-/* ========================================
-   WRAPPER
-   ======================================== */
+
 
 .story-wrapper {
   position: relative;
@@ -588,9 +586,7 @@
   overflow-x: hidden;
 }
 
-/* ========================================
-   MAIN STORY SECTION
-   ======================================== */
+
 
 .story {
   position: relative;
@@ -608,9 +604,6 @@
   background: #0a0a0a;
 }
 
-/* ========================================
-   BACKGROUND IMAGE
-   ======================================== */
 
 .story__bg-image {
   position: absolute;
@@ -645,9 +638,6 @@
   );
 }
 
-/* ========================================
-   VICE CITY TEXT
-   ======================================== */
 
 .story__exit-container {
   position: absolute;
@@ -692,7 +682,6 @@
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(2.8rem, 5.5vw, 4.5rem);
   font-weight: 500;
-  /* font-style: italic; */
   line-height: 1.15;
   letter-spacing: 0.02em;
   margin: 0 0 1.8rem 0;
@@ -721,7 +710,6 @@
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(2.8rem, 5.5vw, 4.5rem);
   font-weight: 500;
-  /* font-style: italic; */
   line-height: 1.15;
   letter-spacing: 0.02em;
   margin: 0 0 1.8rem 0;
@@ -757,7 +745,6 @@
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(2.8rem, 5.5vw, 4.5rem);
   font-weight: 500;
-  /* font-style: italic; */
   line-height: 1.15;
   letter-spacing: 0.02em;
   margin: 0 0 1.8rem 0;
@@ -793,16 +780,10 @@
   50% { transform: translateX(-50%) translateY(12px); opacity: 0.5; }
 }
 
-/* ========================================
-   JASON CONTENT - All elements positioned absolutely
-   They scroll from bottom (100vh) upward
-   ======================================== */
+
 
 .jason {
-  /* position: absolute;
-  inset: 0;
-  z-index: 20;
-  pointer-events: none; */
+
   position: absolute;
   left: 0;
   top: 0;
@@ -814,7 +795,6 @@
 
 }
 
-/* Name - positioned at left */
 .jason__name {
   position: absolute;
   left: 18vw;
@@ -832,7 +812,6 @@
   will-change: transform, opacity;
 }
 
-/* Quote - positioned at left, below name */
 .jason__quote {
   position: absolute;
   left: 18vw;
@@ -842,15 +821,13 @@
   font-size: clamp(2.5rem, 2vw, 1.8rem);
   font-style: italic;
   font-weight: 800;
-  /* color: #e07050; */
-  color: #e85a9c;  
+  color: #70F1EE;
 
   margin: 0;
   line-height: 1.2;
   will-change: transform, opacity;
 }
 
-/* Description - positioned at left, below quote */
 .jason__desc {
   position: absolute;
   left: 18vw;
@@ -865,7 +842,6 @@
   will-change: transform, opacity;
 }
 
-/* Images - positioned absolutely */
 .jason__img {
   position: absolute;
   top: 0;
@@ -883,35 +859,28 @@
 
 }
 
-/* Image 1 - Right side, large (car closeup) */
 .jason__img--1 {
   left: 53vw;
-  /* right: 4vh; */
-  top: 30vh;
-  width: clamp(640px, 42vw, 580px);
-  height: clamp(700px, 40vh, 400px);
+  top: 35vh;
+  width: clamp(660px, 42vw, 900px);
+  height: clamp(700px, 40vh, 900px);
 }
 
-/* Image 2 - Left side, tall vertical (gym) */
 .jason__img--2 {
   left: 18vw;
-  top: 70vh;
-  width: clamp(450px, 30vw, 420px);
-  height: clamp(750px, 65vh, 620px);
+  top: 80vh;
+  width: clamp(450px, 30vw, 650px);
+  height: clamp(750px, 65vh, 950px);
 }
 
-/* Image 3 - Right side bottom (bar) */
 .jason__img--3 {
   left: 53vw;
-  /* right: 4vh; */
-  top: 93vh;
+  top: 98vh;
   width: clamp(350px, 32vw, 460px);
-  height: clamp(400px, 35vh, 340px);
+  height: clamp(400px, 35vh, 520px);
 }
 
-/* ========================================
-   GALLERY SECTION
-   ======================================== */
+
 
 .story__gallery {
   position: relative;
@@ -948,9 +917,6 @@
   object-fit: cover;
 }
 
-/* ========================================
-   RESPONSIVE
-   ======================================== */
 
 @media (max-width: 1200px) {
   .jason__name {
@@ -1076,9 +1042,7 @@
   }
 }
 
-/* ========================================
-   PERFORMANCE
-   ======================================== */
+
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -1107,6 +1071,804 @@
   .story__scroll-hint {
     animation: none;
   }
-}
+} */
+
+
 /* //// */
+
+
+/* //new lucia d5 */
+
+/* /// New modified D5 - With Lucia Section */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap');
+
+/* ========================================
+   WRAPPER
+   ======================================== */
+
+.story-wrapper {
+  position: relative;
+  background: #0a0a0a;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   MAIN STORY SECTION
+   ======================================== */
+
+.story {
+  position: relative;
+  width: 100%;
+  height: 700vh;
+  background: #0a0a0a;
+}
+
+.story__sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+/* ========================================
+   BACKGROUND IMAGE
+   ======================================== */
+
+.story__bg-image {
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 115%;
+  z-index: 1;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.story__bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.story__bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 10, 10, 0.6) 0%,
+    rgba(10, 10, 10, 0.35) 30%,
+    rgba(10, 10, 10, 0.1) 50%,
+    transparent 70%
+  );
+}
+
+/* ========================================
+   VICE CITY TEXT
+   ======================================== */
+
+.story__exit-container {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: mask-image, -webkit-mask-image;
+}
+
+.story__text-wrapper {
+  position: relative;
+  max-width: 900px;
+  width: 90%;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+}
+
+.story__text-layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 850px;
+  padding: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story__text-dim {
+  z-index: 1;
+}
+
+.story__text-dim .story__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  margin: 0 0 1.8rem 0;
+  color: rgba(80, 40, 55, 0.4);
+}
+
+.story__text-dim .story__paragraph {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.85;
+  letter-spacing: 0.015em;
+  margin: 0;
+  color: rgba(80, 40, 55, 0.35);
+}
+
+.story__text-bright {
+  z-index: 2;
+  -webkit-mask-image: radial-gradient(circle at 50% 150%, black 0%, black 0%, transparent 0%);
+  mask-image: radial-gradient(circle at 50% 150%, black 0%, black 0%, transparent 0%);
+  will-change: mask-image, -webkit-mask-image;
+}
+
+.story__text-bright .story__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  margin: 0 0 1.8rem 0;
+  background: linear-gradient(95deg, #e84393 0%, #fd79a8 25%, #e17055 55%, #f39c12 85%, #e17055 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.story__text-bright .story__paragraph {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.85;
+  letter-spacing: 0.015em;
+  margin: 0;
+  background: linear-gradient(95deg, #e84393 0%, #fd79a8 20%, #e17055 50%, #f39c12 80%, #e17055 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.story__text-glow {
+  z-index: 3;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle at 50% 150%, transparent 0%, transparent 0%, black 0%, transparent 0%);
+  mask-image: radial-gradient(circle at 50% 150%, transparent 0%, transparent 0%, black 0%, transparent 0%);
+  will-change: mask-image, -webkit-mask-image;
+}
+
+.story__text-glow .story__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  margin: 0 0 1.8rem 0;
+  color: rgb(255, 200, 140);
+  text-shadow: 0 0 40px rgba(255, 150, 100, 0.9), 0 0 80px rgba(255, 120, 80, 0.6), 0 0 120px rgba(255, 100, 60, 0.3);
+}
+
+.story__text-glow .story__paragraph {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.85;
+  letter-spacing: 0.015em;
+  margin: 0;
+  color: rgb(255, 180, 120);
+  text-shadow: 0 0 35px rgba(255, 140, 90, 0.8), 0 0 70px rgba(255, 100, 70, 0.5), 0 0 100px rgba(255, 80, 50, 0.25);
+}
+
+.story__scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 32px;
+  animation: storyBounce 1.8s ease-in-out infinite;
+  z-index: 100;
+}
+
+@keyframes storyBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.2; }
+  50% { transform: translateX(-50%) translateY(12px); opacity: 0.5; }
+}
+
+/* ========================================
+   JASON CONTENT - All elements positioned absolutely
+   They scroll from bottom (100vh) upward
+   ======================================== */
+
+.jason {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Name - positioned at left */
+.jason__name {
+  position: absolute;
+  left: 18vw;
+  top: 0;
+  font-family: 'Oswald', 'Impact', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 500;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 4px 60px rgba(0, 0, 0, 0.9), 0 2px 30px rgba(0, 0, 0, 0.7);
+  will-change: transform, opacity;
+}
+
+/* Quote - positioned at left, below name */
+.jason__quote {
+  position: absolute;
+  left: 18vw;
+  top: 10vh;
+  max-width: 400px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.5rem, 2vw, 1.8rem);
+  font-style: italic;
+  font-weight: 800;
+  color: #70F1EE;
+  margin: 0;
+  line-height: 1.2;
+  will-change: transform, opacity;
+}
+
+/* Description - positioned at left, below quote */
+.jason__desc {
+  position: absolute;
+  left: 18vw;
+  top: 12vh;
+  max-width: 400px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.75rem, 1.15vw, 1.1rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  line-height: 1.5;
+  will-change: transform, opacity;
+}
+
+/* Images - positioned absolutely */
+.jason__img {
+  position: absolute;
+  top: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), 0 12px 35px rgba(0, 0, 0, 0.4);
+  will-change: transform, opacity;
+}
+
+.jason__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Image 1 - Right side, large (car closeup) */
+.jason__img--1 {
+  left: 53vw;
+  top: 35vh;
+  width: clamp(660px, 42vw, 900px);
+  height: clamp(700px, 40vh, 900px);
+}
+
+/* Image 2 - Left side, tall vertical (gym) */
+.jason__img--2 {
+  left: 18vw;
+  top: 80vh;
+  width: clamp(450px, 30vw, 650px);
+  height: clamp(750px, 65vh, 950px);
+}
+
+/* Image 3 - Right side bottom (bar) */
+.jason__img--3 {
+  left: 53vw;
+  top: 98vh;
+  width: clamp(350px, 32vw, 460px);
+  height: clamp(400px, 35vh, 520px);
+}
+
+/* ========================================
+   LUCIA SECTION - New section after Jason
+   Background + content scrolling up
+   ======================================== */
+
+.lucia-section {
+  position: relative;
+  width: 100%;
+  height: 1500vh;
+  background: #0a0a0a;
+  /* overflow: hidden; */
+}
+
+.lucia-section__sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+/* Lucia Background Image */
+/* .lucia__bg-image {
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 115%;
+  z-index: 1;
+  opacity: 0;
+  will-change: transform, opacity;
+} */
+.lucia__bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.lucia__bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Dark overlay for background */
+.lucia__bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0);
+  z-index: 2;
+  will-change: background;
+  pointer-events: none;
+}
+
+/* Lucia Content Container */
+.lucia {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Main Quote - Large centered text */
+.lucia__main-quote {
+  position: absolute;
+  left: 20vw;
+  top: 50vh;
+  max-width: 700px;
+  font-family: 'Oswald', 'Impact', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #f5e6d3;
+  margin: 0;
+  line-height: 1.1;
+  text-shadow: 0 4px 60px rgba(0, 0, 0, 0.9), 0 2px 30px rgba(0, 0, 0, 0.7);
+  will-change: transform, opacity;
+}
+
+/* Secondary Quote - Italic cyan text */
+.lucia__sub-quote {
+  position: absolute;
+  left: 20vw;
+  top: 58vh;
+  max-width: 420px;
+  /* font-family: 'Cormorant Garamond', Georgia, serif; */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-size: clamp(2.4rem, 2.0vw, 3.2rem);
+  /* font-style: italic; */
+  font-weight: 500;
+  /* color: #E85A9C; */
+  color: #9c9bf2;
+  margin: 0;
+  line-height: 1.2;
+  will-change: transform, opacity;
+}
+
+/* Description - Right side */
+.lucia__desc {
+  position: absolute;
+  right: 16vw;
+  top: 55vh;
+  max-width: 350px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2rem, 2.2vw, 2.15rem);
+  font-weight: 500;
+  /* color: rgba(35, 210, 207, 0.85); */
+  color: #70F1EE;
+  margin: 0;
+  line-height: 1.2;
+  text-align: left;
+  will-change: transform, opacity;
+}
+
+/* Lucia Images - Opposite layout to Jason */
+.lucia__img {
+  position: absolute;
+  top: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), 0 12px 35px rgba(0, 0, 0, 0.4);
+  will-change: transform, opacity;
+}
+
+.lucia__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Image 1 - Left side, large (opposite to Jason) */
+.lucia__img--1 {
+  left: 1vw;
+  top: 92vh;
+  width: clamp(700px, 38vw, 700px);
+  height: clamp(720px, 35vh, 550px);
+}
+
+/* Image 2 - Left side below img1 */
+.lucia__img--2 {
+  left: 15vw;
+  top: 165vh;
+  /* max-width: 450; */
+  width: clamp(497px, 30vw, 550px);
+  height: clamp(420px, 30vh, 450px);
+}
+
+/* Image 3 - Right side, tall vertical (opposite to Jason) */
+.lucia__img--3 {
+  right: 12vw;
+  top: 102vh;
+  width: clamp(500px, 32vw, 550px);
+  height: clamp(800px, 55vh, 800px);
+}
+
+/* ========================================
+   GALLERY SECTION
+   ======================================== */
+
+.story__gallery {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0a0a0a;
+}
+
+.story__gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  width: 78vw;
+  max-width: 1200px;
+  height: 70vh;
+  max-height: 800px;
+}
+
+.story__gallery-item {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  will-change: transform, opacity;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.story__gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 1200px) {
+  .jason__name {
+    left: 6vw;
+  }
+  
+  .jason__quote,
+  .jason__desc {
+    left: 6vw;
+    max-width: 420px;
+  }
+  
+  .jason__img--1 {
+    right: 3vw;
+    width: clamp(300px, 38vw, 500px);
+  }
+  
+  .jason__img--2 {
+    left: 16vw;
+    width: clamp(220px, 26vw, 360px);
+    height: clamp(350px, 55vh, 520px);
+  }
+  
+  .jason__img--3 {
+    right: 6vw;
+    width: clamp(240px, 28vw, 400px);
+  }
+  
+  /* Lucia responsive */
+  .lucia__main-quote {
+    left: 8vw;
+    max-width: 550px;
+  }
+  
+  .lucia__sub-quote {
+    left: 8vw;
+  }
+  
+  .lucia__desc {
+    right: 8vw;
+    max-width: 350px;
+  }
+  
+  .lucia__img--1 {
+    left: 3vw;
+    width: clamp(350px, 35vw, 500px);
+  }
+  
+  .lucia__img--3 {
+    right: 3vw;
+    width: clamp(320px, 28vw, 450px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .jason__name {
+    left: 5vw;
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
+  }
+  
+  .jason__quote,
+  .jason__desc {
+    left: 5vw;
+    max-width: 380px;
+  }
+  
+  .jason__img--1 {
+    width: clamp(260px, 35vw, 420px);
+    height: clamp(180px, 35vh, 320px);
+  }
+  
+  .jason__img--2 {
+    left: 12vw;
+    width: clamp(200px, 24vw, 320px);
+    height: clamp(300px, 50vh, 460px);
+  }
+  
+  .jason__img--3 {
+    width: clamp(220px, 26vw, 360px);
+    height: clamp(160px, 30vh, 280px);
+  }
+  
+  /* Lucia responsive */
+  .lucia__main-quote {
+    left: 5vw;
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  }
+  
+  .lucia__sub-quote {
+    left: 5vw;
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+  }
+  
+  .lucia__desc {
+    right: 5vw;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .story {
+    height: 550vh;
+  }
+  
+  .lucia-section {
+    height: 550vh;
+  }
+  
+  .jason__name {
+    left: 5vw;
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .jason__quote {
+    left: 5vw;
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    max-width: 60vw;
+  }
+  
+  .jason__desc {
+    left: 5vw;
+    max-width: 60vw;
+  }
+  
+  .jason__img--1 {
+    right: 5vw;
+    width: 50vw;
+    height: 30vh;
+  }
+  
+  .jason__img--2,
+  .jason__img--3 {
+    display: none;
+  }
+  
+  /* Lucia responsive */
+  .lucia__main-quote {
+    left: 5vw;
+    max-width: 90vw;
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+  
+  .lucia__sub-quote {
+    left: 5vw;
+    max-width: 80vw;
+  }
+  
+  .lucia__desc {
+    right: auto;
+    left: 5vw;
+    top: auto;
+    bottom: 15vh;
+    max-width: 90vw;
+  }
+  
+  .lucia__img--1 {
+    left: 5vw;
+    width: 55vw;
+    height: 28vh;
+  }
+  
+  .lucia__img--2,
+  .lucia__img--3 {
+    display: none;
+  }
+  
+  .story__gallery-grid {
+    width: 94vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .story {
+    height: 500vh;
+  }
+  
+  .lucia-section {
+    height: 500vh;
+  }
+  
+  .jason__name {
+    font-size: 2rem;
+  }
+  
+  .jason__quote {
+    font-size: 1.1rem;
+  }
+  
+  .jason__desc {
+    font-size: 0.9rem;
+  }
+  
+  .jason__img--1 {
+    width: 60vw;
+    height: 25vh;
+  }
+  
+  /* Lucia responsive */
+  .lucia__main-quote {
+    font-size: 1.6rem;
+  }
+  
+  .lucia__sub-quote {
+    font-size: 1.1rem;
+  }
+  
+  .lucia__desc {
+    font-size: 0.85rem;
+  }
+  
+  .story__gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    height: 80vh;
+    gap: 10px;
+  }
+}
+
+/* ========================================
+   PERFORMANCE
+   ======================================== */
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.story__text-dim,
+.story__text-bright,
+.story__text-glow,
+.story__exit-container {
+  will-change: mask-image, -webkit-mask-image, transform, opacity;
+  backface-visibility: hidden;
+}
+
+.story__bg-image,
+.story__gallery-item,
+.jason__name,
+.jason__quote,
+.jason__desc,
+.jason__img,
+.lucia__bg-image,
+.lucia__main-quote,
+.lucia__sub-quote,
+.lucia__desc,
+.lucia__img {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story__scroll-hint {
+    animation: none;
+  }
+}
 

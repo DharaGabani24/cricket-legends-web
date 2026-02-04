@@ -568,13 +568,17 @@
 
 
 
-// D5 
+// 
 
 
 
-////////
 
-//new modified D5
+
+// ////
+
+
+//new jason +  lucia d5 
+//new modified D5 - With Lucia Section
 import React, { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -607,6 +611,19 @@ const Story = () => {
   const jasonImg1Ref = useRef(null); // Right - large (car closeup)
   const jasonImg2Ref = useRef(null); // Left - tall (gym)
   const jasonImg3Ref = useRef(null); // Right bottom (bar)
+  
+  // Lucia section refs
+  const luciaSectionRef = useRef(null);
+  const luciaStickyRef = useRef(null);
+  const luciaBgImageRef = useRef(null);
+  const luciaBgOverlayRef = useRef(null);
+  const luciaWrapperRef = useRef(null);
+  const luciaMainQuoteRef = useRef(null);
+  const luciaSubQuoteRef = useRef(null);
+  const luciaDescRef = useRef(null);
+  const luciaImg1Ref = useRef(null);
+  const luciaImg2Ref = useRef(null);
+  const luciaImg3Ref = useRef(null);
   
   // Gallery refs
   const galleryRef = useRef(null);
@@ -649,9 +666,6 @@ const Story = () => {
       gsap.set(jasonName, { y: '100vh' });
       gsap.set(jasonQuote, { y: '100vh' });
       gsap.set(jasonDesc, { y: '100vh' });
-      // gsap.set(jasonImg1, { y: '100vh', opacity: 0 });
-      // gsap.set(jasonImg2, { y: '100vh', opacity: 0 });
-      // gsap.set(jasonImg3, { y: '100vh', opacity: 0 });
       gsap.set(jasonImg1, { opacity: 0 });
       gsap.set(jasonImg2, { opacity: 0 });
       gsap.set(jasonImg3, { opacity: 0 });
@@ -763,339 +777,369 @@ const Story = () => {
           }
           
           // ========================================
-          // PHASE 3: BG VISIBLE - JASON NAME SCROLLS UP (0.25 - 0.35)
-          // Name comes from bottom of screen
+          // PHASE 3: JASON NAME SCROLLS UP (0.25 - 0.35)
           // ========================================
-          // else if (p >= 0.25 && p < 0.35) {
-          //   const phase3 = (p - 0.25) / 0.10;
+          else if (p >= 0.25 && p < 0.35) {
+            const phase3 = (p - 0.25) / 0.10;
             
-          //   if (exitContainer) {
-          //     exitContainer.style.webkitMaskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
-          //     exitContainer.style.maskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
-          //   }
+            if (exitContainer) {
+              exitContainer.style.webkitMaskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
+              exitContainer.style.maskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
+            }
             
-          //   gsap.set(bgImage, { opacity: 1, scale: 1.05 });
+            // BG starts fading immediately and faster
+            const bgOpacity = 1 - (phase3 * 0.7);
+            gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
+              
+            // All elements share the same base scroll position
+            const baseScroll = phase3 * 600;
             
-          //   // Name scrolls up from bottom (100vh -> final position at bottom-left)
-          //   // Final position is around 70vh from top (30vh from bottom)
-          //   const nameY = 100 - (phase3 * 30); // 100vh -> 70vh
-          //   gsap.set(jasonName, { y: `${nameY}vh` });
+            gsap.set(jasonName, { y: 800 - baseScroll });
+            gsap.set(jasonQuote, { y: 900 - baseScroll });
+            gsap.set(jasonDesc, { y: 1050 - baseScroll });
+            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
+            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
+            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
+          }
+
+          // ========================================
+          // PHASE 4: QUOTE ENTERS (0.35 - 0.45)
+          // ========================================
+          else if (p >= 0.35 && p < 0.45) {
+            const phase4 = (p - 0.35) / 0.10;
             
-          //   gsap.set(jasonQuote, { y: '100vh' });
-          //   gsap.set(jasonDesc, { y: '100vh' });
-          //   gsap.set(jasonImg1, { y: '100vh', opacity: 0 });
-          // }
+            // BG continues fading
+            const bgOpacity = 0.3 - (phase4 * 0.3); 
+            gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
+
+            const baseScroll = 600 + (phase4 * 400);
+            
+            gsap.set(jasonName, { y: 800 - baseScroll });
+            gsap.set(jasonQuote, { y: 900 - baseScroll });
+            gsap.set(jasonDesc, { y: 1050 - baseScroll });
+            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
+            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
+            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
+          }
+
+          // ========================================
+          // PHASE 5: DESC + IMG1 VISIBLE (0.45 - 0.55)
+          // ========================================
+          else if (p >= 0.45 && p < 0.55) {
+            const phase5 = (p - 0.45) / 0.10;
+            
+            gsap.set(bgImage, { opacity: 0 });
+
+            const baseScroll = 1000 + (phase5 * 300);
+            
+            gsap.set(jasonName, { y: 800 - baseScroll });
+            gsap.set(jasonQuote, { y: 900 - baseScroll });
+            gsap.set(jasonDesc, { y: 1050 - baseScroll });
+            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
+            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
+            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
+          }
+
+          // ========================================
+          // PHASE 6: BG FADES, IMG2 VISIBLE (0.55 - 0.65)
+          // ========================================
+          else if (p >= 0.55 && p < 0.65) {
+            const phase6 = (p - 0.55) / 0.10;
+            
+            gsap.set(bgImage, { opacity: 0 });  
+
+            const baseScroll = 1300 + (phase6 * 250);
+            
+            gsap.set(jasonName, { y: 800 - baseScroll });
+            gsap.set(jasonQuote, { y: 900 - baseScroll });
+            gsap.set(jasonDesc, { y: 1050 - baseScroll });
+            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
+            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
+            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
+          }
+
+          // ========================================
+          // PHASE 7: BG BLACK, ALL VISIBLE (0.65 - 0.75)
+          // ========================================
+          else if (p >= 0.65 && p < 0.75) {
+            const phase7 = (p - 0.65) / 0.10;
+            
+            gsap.set(bgImage, { opacity: 0 });
+
+            const baseScroll = 1550 + (phase7 * 200);
+            
+            // Text starts fading
+            const textOpacity = 1 - phase7;
+            gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
+            gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
+            gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
+            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
+            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
+            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
+          }
+
+          // ========================================
+          // PHASE 8: IMAGES ONLY (0.75 - 0.85)
+          // ========================================
+          else if (p >= 0.75 && p < 0.85) {
+            const phase8 = (p - 0.75) / 0.10;
+            
+            gsap.set(bgImage, { opacity: 0 });
+            
+            const baseScroll = 1750 + (phase8 * 200);
+            
+            gsap.set(jasonName, { opacity: 0 });
+            gsap.set(jasonQuote, { opacity: 0 });
+            gsap.set(jasonDesc, { opacity: 0 });
+            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
+            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
+            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
+
+
+
+             // START fading in Lucia BG here
+             gsap.set(luciaBgImageRef.current, { opacity: phase8 * 0.4 });
+
+
+            }
+
+          // ========================================
+          // PHASE 9: EXIT (0.85 - 1.0)
+          // ========================================
+          else if (p >= 0.85) {
+            const phase9 = (p - 0.85) / 0.15;
+            
+            gsap.set(bgImage, { opacity: 0 });
+            
+            const baseScroll = 1950 + (phase9 * 400);
+            const exitOpacity = 1 - phase9;
+            
+            gsap.set(jasonName, { opacity: 0 });
+            gsap.set(jasonQuote, { opacity: 0 });
+            gsap.set(jasonDesc, { opacity: 0 });
+            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: exitOpacity });
+            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: exitOpacity });
+            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: exitOpacity });
+
+
+              // Continue fading in Lucia BG
+              gsap.set(luciaBgImageRef.current, { opacity: 0.4 + (phase9 * 0.4) });
+
+          }
+        }
+      });
+      
+      // ========================================
+      // LUCIA SECTION ANIMATION
+      // ========================================
+      
+      const luciaSection = luciaSectionRef.current;
+      const luciaSticky = luciaStickyRef.current;
+      const luciaBgImage = luciaBgImageRef.current;
+      const luciaBgOverlay = luciaBgOverlayRef.current;
+      const luciaMainQuote = luciaMainQuoteRef.current;
+      const luciaSubQuote = luciaSubQuoteRef.current;
+      const luciaDesc = luciaDescRef.current;
+      const luciaImg1 = luciaImg1Ref.current;
+      const luciaImg2 = luciaImg2Ref.current;
+      const luciaImg3 = luciaImg3Ref.current;
+      
+      // Initial states for Lucia
+      gsap.set(luciaBgImage, { opacity: 0, scale: 1.1 });
+      gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+      gsap.set(luciaMainQuote, { y: '100vh', opacity: 0 });
+      gsap.set(luciaSubQuote, { y: '100vh', opacity: 0 });
+      gsap.set(luciaDesc, { y: '100vh', opacity: 0 });
+      gsap.set(luciaImg1, { y: '100vh', opacity: 0 });
+      gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
+      gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
+      
+      ScrollTrigger.create({
+        trigger: luciaSection,
+        start: 'top top',
+        end: '100% top',
+        scrub: 1.5,
+        pin: luciaSticky,
+        pinSpacing: false,
+        onUpdate: (self) => {
+          const p = self.progress;
           
-          // // ========================================
-          // // PHASE 4: QUOTE SCROLLS UP (0.35 - 0.45)
-          // // ========================================
-          // else if (p >= 0.35 && p < 0.45) {
-          //   const phase4 = (p - 0.35) / 0.10;
+          // ========================================
+          // LUCIA PHASE 1: BG FADES IN (0 - 0.12)
+          // ========================================
+          if (p < 0.12) {
+            const bgProgress = p / 0.12;
+
+            gsap.set(luciaBgImage, { opacity: 0.8 + (bgProgress * 0.2) });
+            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+            // gsap.set(luciaBgImage, { opacity: bgProgress, scale: 1.1 - (bgProgress * 0.05) });
+            // gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
             
-          //   gsap.set(bgImage, { opacity: 1, scale: 1.05 });
-            
-          //   // Name continues scrolling up
-          //   const nameY = 70 - (phase4 * 25); // 70vh -> 45vh
-          //   gsap.set(jasonName, { y: `${nameY}vh` });
-            
-          //   // Quote scrolls up from bottom
-          //   const quoteY = 100 - (phase4 * 35); // 100vh -> 65vh
-          //   gsap.set(jasonQuote, { y: `${quoteY}vh` });
-            
-          //   gsap.set(jasonDesc, { y: '100vh' });
-          //   gsap.set(jasonImg1, { y: '100vh', opacity: 0 });
-          // }
+            // Content still hidden
+            gsap.set(luciaMainQuote, { y: '100vh', opacity: 0 });
+            gsap.set(luciaSubQuote, { y: '100vh', opacity: 0 });
+            gsap.set(luciaDesc, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg1, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
+          }
           
-          // // ========================================
-          // // PHASE 5: DESC + IMG1 SCROLL UP (0.45 - 0.55)
-          // // ========================================
-          // else if (p >= 0.45 && p < 0.55) {
-          //   const phase5 = (p - 0.45) / 0.10;
+          // ========================================
+          // LUCIA PHASE 2: MAIN QUOTE FADES IN (0.12 - 0.25)
+          // Quote appears with fade effect (light to dark)
+          // ========================================
+          else if (p >= 0.12 && p < 0.25) {
+            const phase2 = (p - 0.12) / 0.13;
             
-          //   gsap.set(bgImage, { opacity: 1, scale: 1.05 });
+             gsap.set(luciaBgImage, { opacity: 1, scale: 1.05 });
+            // const bgOpacity = 1 - (phase2 * 0.3);
+            // gsap.set(luciaBgImage, { opacity: bgOpacity });
+            // gsap.set(luciaBgOverlay, { background: `rgba(10, 10, 10, ${phase2 * 0.3})` });
             
-          //   // Name at top area
-          //   const nameY = 45 - (phase5 * 25); // 45vh -> 20vh
-          //   gsap.set(jasonName, { y: `${nameY}vh` });
+            // Main quote fades in (light to fully visible)
+            const quoteOpacity = phase2;
+            const baseScroll = phase2 * 400;
             
-          //   // Quote continues up
-          //   const quoteY = 65 - (phase5 * 30); // 65vh -> 35vh
-          //   gsap.set(jasonQuote, { y: `${quoteY}vh` });
-            
-          //   // Desc scrolls up
-          //   const descY = 100 - (phase5 * 45); // 100vh -> 55vh
-          //   gsap.set(jasonDesc, { y: `${descY}vh` });
-            
-          //   // Image 1 (right) scrolls up and fades in
-          //   const img1Y = 100 - (phase5 * 50); // 100vh -> 50vh
-          //   gsap.set(jasonImg1, { y: `${img1Y}vh`, opacity: phase5 });
-            
-          //   gsap.set(jasonImg2, { y: '100vh', opacity: 0 });
-          //   gsap.set(jasonImg3, { y: '100vh', opacity: 0 });
-          // }
+            gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: quoteOpacity });
+            gsap.set(luciaSubQuote, { y: '100vh', opacity: 0 });
+            gsap.set(luciaDesc, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg1, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
+          }
           
-          // // ========================================
-          // // PHASE 6: BG STARTS FADING, IMG2 APPEARS (0.55 - 0.65)
-          // // ========================================
-          // else if (p >= 0.55 && p < 0.65) {
-          //   const phase6 = (p - 0.55) / 0.10;
+          // ========================================
+          // LUCIA PHASE 3: SUB-QUOTE + DESC ENTER (0.25 - 0.38)
+          // ========================================
+          else if (p >= 0.25 && p < 0.38) {
+            const phase3 = (p - 0.25) / 0.13;
             
-          //   // Background starts fading to black
-          //   const bgOpacity = 1 - (phase6 * 0.7); // 1 -> 0.3
-          //   gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
+            // BG continues darkening
+      
+            const bgOpacity = 1 - (phase3 * 0.4);
+            gsap.set(luciaBgImage, { opacity: bgOpacity });
+            gsap.set(luciaBgOverlay, { background: `rgba(10, 10, 10, ${0.4+ (phase3 * 0.4)})` });
+                                  
+            const baseScroll = 400 + (phase3 * 350);
             
-          //   // All text continues up
-          //   const nameY = 20 - (phase6 * 10); // 20vh -> 10vh
-          //   gsap.set(jasonName, { y: `${nameY}vh` });
-            
-          //   const quoteY = 35 - (phase6 * 15); // 35vh -> 20vh
-          //   gsap.set(jasonQuote, { y: `${quoteY}vh` });
-            
-          //   const descY = 55 - (phase6 * 20); // 55vh -> 35vh
-          //   gsap.set(jasonDesc, { y: `${descY}vh` });
-            
-          //   // Img1 continues up
-          //   const img1Y = 50 - (phase6 * 25); // 50vh -> 25vh
-          //   gsap.set(jasonImg1, { y: `${img1Y}vh`, opacity: 1 });
-            
-          //   // Image 2 (left tall) scrolls up
-          //   const img2Y = 100 - (phase6 * 50); // 100vh -> 50vh
-          //   gsap.set(jasonImg2, { y: `${img2Y}vh`, opacity: phase6 });
-            
-          //   gsap.set(jasonImg3, { y: '100vh', opacity: 0 });
-          // }
+            gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
+            gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: phase3 });
+            gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: phase3 });
+            gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: phase3 });
+            gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
+          }
           
-          // // ========================================
-          // // PHASE 7: BG ALMOST BLACK, IMG3 APPEARS (0.65 - 0.75)
-          // // ========================================
-          // else if (p >= 0.65 && p < 0.75) {
-          //   const phase7 = (p - 0.65) / 0.10;
+          // ========================================
+          // LUCIA PHASE 4: IMAGES ENTER (0.38 - 0.52)
+          // ========================================
+          else if (p >= 0.38 && p < 0.52) {
+            const phase4 = (p - 0.38) / 0.14;
             
-          //   // Background fades to black
-          //   const bgOpacity = 0.3 - (phase7 * 0.3); // 0.3 -> 0
-          //   gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
+            const bgOpacity = 0.6 - (phase4 * 0.3); 
+            gsap.set(luciaBgImage, { opacity: bgOpacity });
+            gsap.set(luciaBgOverlay, { background: `rgba(10, 10, 10, ${0.8 + (phase4 * 0.1)})` }); 
+               
+            gsap.set(luciaBgImage, { opacity: 0 });
+            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+
+            const baseScroll = 750 + (phase4 * 300);
             
-          //   // Text continues up and starts fading
-          //   const textOpacity = 1 - (phase7 * 0.5);
-          //   const nameY = 10 - (phase7 * 15); // 10vh -> -5vh
-          //   gsap.set(jasonName, { y: `${nameY}vh`, opacity: textOpacity });
-            
-          //   const quoteY = 20 - (phase7 * 15); // 20vh -> 5vh
-          //   gsap.set(jasonQuote, { y: `${quoteY}vh`, opacity: textOpacity });
-            
-          //   const descY = 35 - (phase7 * 20); // 35vh -> 15vh
-          //   gsap.set(jasonDesc, { y: `${descY}vh`, opacity: textOpacity });
-            
-          //   // Images continue up
-          //   const img1Y = 25 - (phase7 * 15); // 25vh -> 10vh
-          //   gsap.set(jasonImg1, { y: `${img1Y}vh`, opacity: 1 });
-            
-          //   const img2Y = 50 - (phase7 * 25); // 50vh -> 25vh
-          //   gsap.set(jasonImg2, { y: `${img2Y}vh`, opacity: 1 });
-            
-          //   // Image 3 scrolls up
-          //   const img3Y = 100 - (phase7 * 45); // 100vh -> 55vh
-          //   gsap.set(jasonImg3, { y: `${img3Y}vh`, opacity: phase7 });
-          // }
+            gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
+            gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: 1 });
+            gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: phase4 });
+            gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: phase4 });
+          }
           
-          // // ========================================
-          // // PHASE 8: BLACK BG, ALL IMAGES VISIBLE (0.75 - 0.85)
-          // // ========================================
-          // else if (p >= 0.75 && p < 0.85) {
-          //   const phase8 = (p - 0.75) / 0.10;
+          // ========================================
+          // LUCIA PHASE 5: BG STARTS DARKENING (0.52 - 0.65)
+          // ========================================
+          else if (p >= 0.52 && p < 0.65) {
+            const phase5 = (p - 0.52) / 0.13;
             
-          //   // BG fully black
-          //   gsap.set(bgImage, { opacity: 0, scale: 1.05 });
+            // BG starts to darken with overlay
+            const bgOpacity = 0.3 - (phase5 * 0.15); // 0.4 -> 0.15
+            gsap.set(luciaBgImage, { opacity: bgOpacity });
+            gsap.set(luciaBgOverlay, { background: `rgba(10, 10, 10, ${0.9 + (phase5 * 0.05)})` }); 
+            // gsap.set(luciaBgImage, { opacity: 0 });
+            // gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
             
-          //   // Text faded out
-          //   gsap.set(jasonName, { y: '-10vh', opacity: 0 });
-          //   gsap.set(jasonQuote, { y: '0vh', opacity: 0 });
-          //   gsap.set(jasonDesc, { y: '10vh', opacity: 0 });
+            const baseScroll = 1050 + (phase5 * 250);
             
-          //   // All 3 images visible, scrolling up together
-          //   const img1Y = 10 - (phase8 * 15); // 10vh -> -5vh
-          //   gsap.set(jasonImg1, { y: `${img1Y}vh`, opacity: 1 });
-            
-          //   const img2Y = 25 - (phase8 * 20); // 25vh -> 5vh
-          //   gsap.set(jasonImg2, { y: `${img2Y}vh`, opacity: 1 });
-            
-          //   const img3Y = 55 - (phase8 * 25); // 55vh -> 30vh
-          //   gsap.set(jasonImg3, { y: `${img3Y}vh`, opacity: 1 });
-          // }
+            gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
+            gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: 1 });
+            gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
+          }
           
-          // // ========================================
-          // // PHASE 9: IMAGES EXIT UP (0.85 - 1.0)
-          // // ========================================
-          // else if (p >= 0.85) {
-          //   const phase9 = (p - 0.85) / 0.15;
+          // ========================================
+          // LUCIA PHASE 6: BG FADES TO BLACK, TEXT FADES (0.65 - 0.78)
+          // ========================================
+          else if (p >= 0.65 && p < 0.78) {
+            const phase6 = (p - 0.65) / 0.13;
             
-          //   gsap.set(bgImage, { opacity: 0 });
-          //   gsap.set(jasonName, { opacity: 0 });
-          //   gsap.set(jasonQuote, { opacity: 0 });
-          //   gsap.set(jasonDesc, { opacity: 0 });
+            // // BG continues darkening
+            const bgOpacity = 0.15 - (phase6 * 0.15); // 0.15 -> 0
+            gsap.set(luciaBgImage, { opacity: bgOpacity });
+            gsap.set(luciaBgOverlay, { background: `rgba(10, 10, 10, ${0.95 + (phase6 * 0.05)})` }); // 0.7 -> 1
             
-          //   // Images exit upward
-          //   const exitOpacity = 1 - phase9;
+            // gsap.set(luciaBgImage, { opacity: 0 });
+            // gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
             
-          //   const img1Y = -5 - (phase9 * 40); // -5vh -> -45vh
-          //   gsap.set(jasonImg1, { y: `${img1Y}vh`, opacity: exitOpacity });
+          
+            const baseScroll = 1300 + (phase6 * 200);
+            const textOpacity = 1 - phase6;
             
-          //   const img2Y = 5 - (phase9 * 45); // 5vh -> -40vh
-          //   gsap.set(jasonImg2, { y: `${img2Y}vh`, opacity: exitOpacity });
+            gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: textOpacity });
+            gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: textOpacity });
+            gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: textOpacity });
+            gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
+          }
+          
+          // ========================================
+          // LUCIA PHASE 7: IMAGES ONLY (0.78 - 0.88)
+          // ========================================
+          else if (p >= 0.78 && p < 0.88) {
+            const phase7 = (p - 0.78) / 0.10;
             
-          //   const img3Y = 30 - (phase9 * 50); // 30vh -> -20vh
-          //   gsap.set(jasonImg3, { y: `${img3Y}vh`, opacity: exitOpacity });
-          // }
-
-          // ==========================================
-// PHASE 3: JASON NAME SCROLLS UP (0.25 - 0.35)
-// ========================================
-else if (p >= 0.25 && p < 0.35) {
-  const phase3 = (p - 0.25) / 0.10;
-  
-  if (exitContainer) {
-    exitContainer.style.webkitMaskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
-    exitContainer.style.maskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
-  }
-  
-  // gsap.set(bgImage, { opacity: 1, scale: 1.05 });
-  // BG starts fading immediately and faster
-  const bgOpacity = 1 - (phase3 * 0.7); // 1 -> 0.5
-  gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
-    
-  // All elements share the same base scroll position
-  const baseScroll = phase3 * 600; // pixels scrolled
-  
-  gsap.set(jasonName, { y: 800 - baseScroll }); // starts at 800px, name appears first
-  gsap.set(jasonQuote, { y: 900 - baseScroll }); // 100px below name
-  gsap.set(jasonDesc, { y: 1050 - baseScroll }); // 150px below quote
-  gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-  gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-  gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-}
-
-// ========================================
-// PHASE 4: QUOTE ENTERS (0.35 - 0.45)
-// ========================================
-else if (p >= 0.35 && p < 0.45) {
-  const phase4 = (p - 0.35) / 0.10;
-  
-  // gsap.set(bgImage, { opacity: 1, scale: 1.05 });
-  // BG continues fading
-  const bgOpacity = 0.3 - (phase4 * 0.3); 
-  gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
-
-  const baseScroll = 600 + (phase4 * 400); // continue scrolling
-  
-  gsap.set(jasonName, { y: 800 - baseScroll });
-  gsap.set(jasonQuote, { y: 900 - baseScroll });
-  gsap.set(jasonDesc, { y: 1050 - baseScroll });
-  gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 }); // fades in
-  gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-  gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-}
-
-// ========================================
-// PHASE 5: DESC + IMG1 VISIBLE (0.45 - 0.55)
-// ========================================
-else if (p >= 0.45 && p < 0.55) {
-  const phase5 = (p - 0.45) / 0.10;
-  
-  // gsap.set(bgImage, { opacity: 0.65, scale: 1.05 });
-  // const bgOpacity = 0.2 - (phase5 * 0.2); // 0.2 -> 0
-  // gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
-  gsap.set(bgImage, { opacity: 0 });
-
-  const baseScroll = 1000 + (phase5 * 300);
-  
-  gsap.set(jasonName, { y: 800 - baseScroll });
-  gsap.set(jasonQuote, { y: 900 - baseScroll });
-  gsap.set(jasonDesc, { y: 1050 - baseScroll });
-  gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-  gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 }); // fades in
-  gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-}
-
-// ========================================
-// PHASE 6: BG FADES, IMG2 VISIBLE (0.55 - 0.65)
-// ========================================
-else if (p >= 0.55 && p < 0.65) {
-  const phase6 = (p - 0.55) / 0.10;
-  
-  // BG fades to black
-  // gsap.set(bgImage, { opacity: 1 - (phase6 * 0.7), scale: 1.05 });
-  // BG fully gone
-  gsap.set(bgImage, { opacity: 0 });  
-
-  const baseScroll = 1300 + (phase6 * 250);
-  
-  gsap.set(jasonName, { y: 800 - baseScroll });
-  gsap.set(jasonQuote, { y: 900 - baseScroll });
-  gsap.set(jasonDesc, { y: 1050 - baseScroll });
-  gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-  gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-  gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 }); // fades in
-}
-
-// ========================================
-// PHASE 7: BG BLACK, ALL VISIBLE (0.65 - 0.75)
-// ========================================
-else if (p >= 0.65 && p < 0.75) {
-  const phase7 = (p - 0.65) / 0.10;
-  
-  // gsap.set(bgImage, { opacity: 0.3 - (phase7 * 0.3), scale: 1.05 });
-  // BG fully gone
-  // BG fully gone
-  gsap.set(bgImage, { opacity: 0 });
-
-  const baseScroll = 1550 + (phase7 * 200);
-  
-  // Text starts fading
-  const textOpacity = 1 - phase7;
-  gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
-  gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
-  gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
-  gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-  gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-  gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-}
-
-// ========================================
-// PHASE 8: IMAGES ONLY (0.75 - 0.85)
-// ========================================
-else if (p >= 0.75 && p < 0.85) {
-  const phase8 = (p - 0.75) / 0.10;
-  
-  gsap.set(bgImage, { opacity: 0 });
-  
-  const baseScroll = 1750 + (phase8 * 200);
-  
-  gsap.set(jasonName, { opacity: 0 });
-  gsap.set(jasonQuote, { opacity: 0 });
-  gsap.set(jasonDesc, { opacity: 0 });
-  gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-  gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-  gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-}
-
-// ========================================
-// PHASE 9: EXIT (0.85 - 1.0)
-// ========================================
-else if (p >= 0.85) {
-  const phase9 = (p - 0.85) / 0.15;
-  
-  gsap.set(bgImage, { opacity: 0 });
-  
-  const baseScroll = 1950 + (phase9 * 400);
-  const exitOpacity = 1 - phase9;
-  
-  gsap.set(jasonName, { opacity: 0 });
-  gsap.set(jasonQuote, { opacity: 0 });
-  gsap.set(jasonDesc, { opacity: 0 });
-  gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: exitOpacity });
-  gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: exitOpacity });
-  gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: exitOpacity });
-}
+            gsap.set(luciaBgImage, { opacity: 0 });
+            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+            
+            const baseScroll = 1500 + (phase7 * 500);
+            
+            gsap.set(luciaMainQuote, { opacity: 0 });
+            gsap.set(luciaSubQuote, { opacity: 0 });
+            gsap.set(luciaDesc, { opacity: 0 });
+            gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
+          }
+          
+          // ========================================
+          // LUCIA PHASE 8: EXIT (0.88 - 1.0)
+          // ========================================
+          else if (p >= 0.88) {
+            const phase8 = (p - 0.88) / 0.12;
+            
+            gsap.set(luciaBgImage, { opacity: 0 });
+            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+            
+            const baseScroll = 2000 + (phase8 * 1000);
+            // const exitOpacity = 1 - phase8;
+            
+            gsap.set(luciaMainQuote, { opacity: 0 });
+            gsap.set(luciaSubQuote, { opacity: 0 });
+            gsap.set(luciaDesc, { opacity: 0 });
+            gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
+          }
         }
       });
       
@@ -1146,7 +1190,7 @@ else if (p >= 0.85) {
   return (
     <div ref={containerRef} className="story-wrapper">
       
-      {/* ============ MAIN STORY SECTION ============ */}
+      {/* ============ MAIN STORY SECTION (JASON) ============ */}
       <section ref={storyRef} className="story">
         <div ref={stickyContainerRef} className="story__sticky">
           
@@ -1163,7 +1207,7 @@ else if (p >= 0.85) {
           <div ref={exitContainerRef} className="story__exit-container">
             <div ref={storyTextRef} className="story__text-wrapper">
               <div className="story__text-layer story__text-dim" ref={textDimRef}>
-                <h2 className="story__title" >Vice City, USA.</h2>
+                <h2 className="story__title">Vice City, USA.</h2>
                 <p className="story__paragraph">
                   Jason and Lucia have always known the deck is stacked against
                   them. But when an easy score goes wrong, they find themselves
@@ -1250,20 +1294,85 @@ else if (p >= 0.85) {
         </div>
       </section>
       
+      {/* ============ LUCIA SECTION ============ */}
+      <section ref={luciaSectionRef} className="lucia-section">
+        <div ref={luciaStickyRef} className="lucia-section__sticky">
+          
+          {/* Lucia Background Image */}
+          <div ref={luciaBgImageRef} className="lucia__bg-image">
+            <img 
+              src={process.env.PUBLIC_URL + '/img/HighresScreenshot00006.webp'} 
+              alt="Jason in store"
+            />
+          </div>
+          
+          {/* Dark overlay for fade effect */}
+          <div ref={luciaBgOverlayRef} className="lucia__bg-overlay"></div>
+          
+          {/* Lucia Content - scrolls up from bottom */}
+          <div ref={luciaWrapperRef} className="lucia">
+            
+            {/* Main Quote - Large text */}
+            <h2 ref={luciaMainQuoteRef} className="lucia__main-quote">
+              "IF ANYTHING HAPPENS,<br />
+              I'M RIGHT BEHIND YOU."
+            </h2>
+            
+            {/* Sub Quote - Cyan italic */}
+            <p ref={luciaSubQuoteRef} className="lucia__sub-quote">
+              Another day in<br />
+              paradise, right?
+            </p>
+            
+            {/* Description - Right side */}
+            <p ref={luciaDescRef} className="lucia__desc">
+              Meeting Lucia could be the best or worst thing to ever happen to him. 
+              Jason knows how he'd like it to turn out but right now, it's hard to tell.
+            </p>
+            
+            {/* Image 1 - Left side, large */}
+            <div ref={luciaImg1Ref} className="lucia__img lucia__img--1">
+              <img 
+                src={process.env.PUBLIC_URL + '/img/HighresScreenshot00010.webp'} 
+                alt="Jason and Lucia"
+              />
+            </div>
+            
+            {/* Image 2 - Left side below img1 */}
+            <div ref={luciaImg2Ref} className="lucia__img lucia__img--2">
+              <img 
+                src={process.env.PUBLIC_URL + '/img/HighresScreenshot00015.webp'} 
+                alt="Jason fishing"
+              />
+            </div>
+            
+            {/* Image 3 - Right side, tall */}
+            <div ref={luciaImg3Ref} className="lucia__img lucia__img--3">
+              <img 
+                src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'} 
+                alt="Jason portrait"
+              />
+            </div>
+            
+          </div>
+          
+        </div>
+      </section>
+      
       {/* ============ GALLERY SECTION ============ */}
       <section ref={galleryRef} className="story__gallery">
         <div className="story__gallery-grid">
           <div ref={galleryImg1Ref} className="story__gallery-item">
-            <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00005.webp'} alt="Scene 1" />
+            <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00005.png'} alt="Scene 1" />
           </div>
           <div ref={galleryImg2Ref} className="story__gallery-item">
-            <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00007.webp'} alt="Scene 2" />
+            <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00007.png'} alt="Scene 2" />
           </div>
           <div ref={galleryImg3Ref} className="story__gallery-item">
-            <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00009.webp'} alt="Scene 3" />
+            <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00009.png'} alt="Scene 3" />
           </div>
           <div ref={galleryImg4Ref} className="story__gallery-item">
-            <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00010.webp'} alt="Scene 4" />
+            <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00010.png'} alt="Scene 4" />
           </div>
         </div>
       </section>
@@ -1273,4 +1382,3 @@ else if (p >= 0.85) {
 };
 
 export default Story;
-////
