@@ -577,7 +577,7 @@
 // ////
 
 
-//new jason +  lucia d5 
+//new jason +  lucia d5  + lucia char + leonida
 //new modified D5 - With Lucia Section
 import React, { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
@@ -638,7 +638,13 @@ const Story = () => {
   const luciaCharImg1Ref = useRef(null);
   const luciaCharImg2Ref = useRef(null);
   const luciaCharImg3Ref = useRef(null);  
+
   
+
+  const leonidaTextSectionRef = useRef(null);
+  const leonidaTitleRef = useRef(null);
+  const leonidaDescRef = useRef(null);
+    
   // Gallery refs
   const galleryRef = useRef(null);
   const galleryImg1Ref = useRef(null);
@@ -1362,6 +1368,9 @@ const Story = () => {
                 gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
                 gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
                 gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+
+                 // Start fading in Leonida BG
+                // gsap.set(leonidaBgImageRef.current, { opacity: phase7 * 0.5 });
               }
               
               // ========================================
@@ -1388,9 +1397,131 @@ const Story = () => {
                 gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
                 gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
                 gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+
+                // Continue fading in Leonida BG
+                // gsap.set(leonidaBgImageRef.current, { opacity: 0.5 + (phase8 * 0.5) });
+
+
               }
             }
           });
+
+
+// // ========================================
+// // LEONIDA SECTION ANIMATION
+// // ========================================
+
+// const leonidaSection = leonidaSectionRef.current;
+// const leonidaSticky = leonidaStickyRef.current;
+// const leonidaBgImage = leonidaBgImageRef.current;
+// const leonidaBgOverlay = leonidaBgOverlayRef.current;
+// const leonidaTitle = leonidaTitleRef.current;
+// const leonidaDesc = leonidaDescRef.current;
+
+// // Initial states
+// gsap.set(leonidaBgImage, { y: 0 });
+// gsap.set(leonidaBgOverlay, { opacity: 0 });
+// gsap.set(leonidaTitle, { opacity: 0 });
+// gsap.set(leonidaDesc, { opacity: 0 });
+
+// ScrollTrigger.create({
+//   trigger: leonidaSection,
+//   start: 'top top',
+//   end: '100% top',
+//   scrub: 1.5,
+//   pin: leonidaSticky,
+//   pinSpacing: false,
+//   onUpdate: (self) => {
+//     const p = self.progress;
+    
+//     // ========================================
+//     // LEONIDA PHASE 1: IMAGE SCROLLS UP (0 - 0.50)
+//     // ========================================
+//     if (p < 0.50) {
+//       const phase1 = p / 0.50;
+      
+//       // Image scrolls up (moves from 0 to -100vh)
+//       const imageScroll = phase1 * 200; // vh units
+//       gsap.set(leonidaBgImage, { y: `-${imageScroll}vh`, opacity: 1  });
+      
+//       // Dark overlay fades in as image scrolls
+//       gsap.set(leonidaBgOverlay, { opacity: 1 });
+      
+//       // Text not visible yet
+//       gsap.set(leonidaTitle, { opacity: 0 });
+//       gsap.set(leonidaDesc, { opacity: 0 });
+//     }
+    
+//     // ========================================
+//     // LEONIDA PHASE 2: TEXT VISIBLE (0.50 - 0.85)
+//     // Image is gone, text section shown
+//     // ========================================
+//     else if (p >= 0.50 && p < 0.85) {
+//       const phase2 = (p - 0.50) / 0.35;
+      
+//       // Image fully scrolled out
+//       gsap.set(leonidaBgImage, { y: '-200vh', opacity: 1  });
+      
+//       // Dark overlay fully visible
+//       gsap.set(leonidaBgOverlay, { opacity: 1 });
+      
+//       // Text fades in quickly then stays visible
+//       const textOpacity = Math.min(phase2 * 3, 1); // Fade in fast
+//       gsap.set(leonidaTitle, { opacity: textOpacity });
+//       gsap.set(leonidaDesc, { opacity: textOpacity });
+//     }
+    
+//     // ========================================
+//     // LEONIDA PHASE 3: TEXT EXITS (0.85 - 1.0)
+//     // ========================================
+//     else if (p >= 0.85) {
+//       const phase3 = (p - 0.85) / 0.15;
+      
+//       gsap.set(leonidaBgImage, { y: '-200vh', opacity: 1  });
+//       gsap.set(leonidaBgOverlay, { opacity: 1 });
+      
+//       // Text fades out
+//       gsap.set(leonidaTitle, { opacity: 1 - phase3 });
+//       gsap.set(leonidaDesc, { opacity: 1 - phase3 });
+//     }
+//   }
+// });
+
+// ========================================
+// LEONIDA TEXT COLOR SCROLL ANIMATION
+// ========================================
+
+const leonidaTextSection = leonidaTextSectionRef.current;
+const leonidaTitle = leonidaTitleRef.current;
+const leonidaDesc = leonidaDescRef.current;
+
+if (leonidaTextSection && leonidaTitle && leonidaDesc) {
+  ScrollTrigger.create({
+    trigger: leonidaTextSection,
+    start: 'top 80%',   // starts when section is 80% from top of viewport
+    end: 'top 10%',     // ends when section reaches 10% from top
+    scrub: true,
+    onUpdate: (self) => {
+      const p = self.progress; // 0 to 1
+
+      // Lerp helper
+      const lerp = (a, b, t) => Math.round(a + (b - a) * t);
+
+      // Title: light #a9e7e5 (169,231,229) → dark #3a6b69 (58,107,105)
+      const tR = lerp(60, 169, p);
+      const tG = lerp(110, 231, p);
+      const tB = lerp(112, 229, p);
+      leonidaTitle.style.color = `rgb(${tR},${tG},${tB})`;
+
+      // Desc: light #8aedeb (138,237,235) → dark #325857 (50,88,87)
+      const dR = lerp(50, 138, p);
+      const dG = lerp(88, 237, p);
+      const dB = lerp(87, 235, p);
+      leonidaDesc.style.color = `rgb(${dR},${dG},${dB})`;
+    }
+  });
+}
+
 
       // ========================================
       // GALLERY SECTION
@@ -1675,6 +1806,47 @@ const Story = () => {
     
   </div>
 </section>
+
+
+
+    {/* ============ LEONIDA SECTION - Natural scroll, NO GSAP ============ */}
+
+
+      <section className="leonida-section">
+        
+        <div className="leonida__artwork">
+          <img 
+            src={process.env.PUBLIC_URL + '/img/HighresScreenshot00013.webp'} 
+            alt="Jason and Lucia artwork"
+          />
+        </div>
+        
+
+        <div className="leonida__text-section" ref={leonidaTextSectionRef}>
+          <h1 className="leonida__title" ref={leonidaTitleRef}>
+            Only in<br />
+            Leonida
+          </h1>
+          
+          <p className="leonida__desc" ref={leonidaDescRef}>
+            When the sun fades and the neon glows, everyone has 
+            something to gain — and more to lose.
+          </p>
+        </div>
+
+          {/* <div className="leonida__artwork2">
+            <img 
+              src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'} 
+              alt="Jason and Lucia artwork"
+            />
+          </div> */}
+
+        
+      </section>
+
+
+
+
       
       
       {/* ============ GALLERY SECTION ============ */}
@@ -1694,6 +1866,7 @@ const Story = () => {
           </div>
         </div>
       </section>
+
       
     </div>
   );

@@ -1083,7 +1083,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap');
 /* ========================================
    WRAPPER
    ======================================== */
@@ -1847,6 +1847,7 @@
     width: 100%;
     height: 1000vh;
     background: #0a0a0a;
+    /* background: transparent; */
   }
   
   .lucia-char-section__sticky {
@@ -1856,8 +1857,10 @@
     height: 100vh;
     overflow: hidden;
     background: #0a0a0a;
+    /* background: transparent; */
   }
   
+
   /* Background Image */
   .lucia-char__bg-image {
     position: fixed;
@@ -2132,41 +2135,167 @@
     }
   }
 
+
+
+
+
+
 /* ========================================
-   PERFORMANCE
+   LEONIDA SECTION - Natural scroll
    ======================================== */
 
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.story__text-dim,
-.story__text-bright,
-.story__text-glow,
-.story__exit-container {
-  will-change: mask-image, -webkit-mask-image, transform, opacity;
-  backface-visibility: hidden;
-}
-
-.story__bg-image,
-.story__gallery-item,
-.jason__name,
-.jason__quote,
-.jason__desc,
-.jason__img,
-.lucia__bg-image,
-.lucia__main-quote,
-.lucia__sub-quote,
-.lucia__desc,
-.lucia__img {
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .story__scroll-hint {
-    animation: none;
+   .leonida-section {
+    position: relative;
+    width: 100%;
+    background: #0a0a0a;
   }
-}
+  
+  /* Big artwork image - fills width, natural height */
+  .leonida__artwork {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .leonida__artwork2{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .leonida__artwork2 img{
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .leonida__artwork img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  /* Text section - dark background, centered content */
+ 
+   .leonida__text-section {
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10vh 20vw;
+  }
+  
+  /* Angled top edge - slants from left-low to right-high */
+  .leonida__text-section::before {
+    content: '';
+    position: absolute;
+    top: -7vh;
+    left: 0;
+    width: 100%;
+    height:7vh;
+    background: #0a0a0a;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    z-index: 2;
+  }
+  
+  /* Angled bottom edge - slants from left-high to right-low */
+  .leonida__text-section::after {
+    content: '';
+    position: absolute;
+    bottom: -7vh;
+    left: 0;
+    width: 100%;
+    height: 7vh;
+    background: #0a0a0a;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    z-index: 2;
+  }
+  
+  /* Title - Left side */
+  .leonida__title {
+    /* font-family: 'Oswald', 'Impact', sans-serif; */
+    /* font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; */
+    /* font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; */
+    font-family: 'Outfit', sans-serif;
 
+    font-size: clamp(4rem, 8vw, 6rem);
+    font-weight: 600;
+    /* font-style: italic; */
+    text-transform: none;
+    /* letter-spacing: 0.00em; */
+    color: #3a6b69;
+    margin: 0;
+    line-height: 1;
+  }
+  
+  /* Description - Right side */
+  .leonida__desc {
+    max-width: 300px;
+    /* font-family: 'Cormorant Garamond', Georgia, serif; */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(1.8rem, 1.8vw, 2rem);
+    letter-spacing: 0.03em;
+
+    /* font-style: italic; */
+    font-weight: 600;
+    color: #325857;
+    margin: 0;
+    line-height: 1.4;
+    text-align: left;
+  }
+  
+  /* ========================================
+     LEONIDA RESPONSIVE
+     ======================================== */
+  
+  @media (max-width: 1024px) {
+    .leonida__text-section {
+      padding: 10vh 10vw;
+    }
+    
+    .leonida__title {
+      font-size: clamp(3rem, 7vw, 5rem);
+    }
+    
+    .leonida__desc {
+      max-width: 300px;
+      font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .leonida__text-section {
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 10vh 8vw;
+    }
+    
+    .leonida__title {
+      font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+    
+    .leonida__desc {
+      max-width: 90vw;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .leonida__text-section {
+      padding: 8vh 5vw;
+    }
+    
+    .leonida__title {
+      font-size: 2.5rem;
+    }
+    
+    .leonida__desc {
+      font-size: 1.1rem;
+    }
+  }
+
+  /*  */
