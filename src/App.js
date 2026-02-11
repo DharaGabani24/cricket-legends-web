@@ -6,9 +6,9 @@ import {
   Story,
   Features,
   // Gallery,
-  Stats,
-  CTA,
-  Footer
+  // Stats,
+  // CTA,
+  // Footer
 } from './components';
 
 function App() {
@@ -34,21 +34,21 @@ function App() {
         <Story />
 
         {/* Features Section */}
-        <Features />
+        {/* <Features /> */}
 
 
         {/* Horizontal Gallery */}
         {/* <Gallery /> */}
 
         {/* Stats Section */}
-        <Stats />
+        {/* <Stats /> */}
 
         {/* Call to Action */}
-        <CTA />
+        {/* <CTA /> */}
       </main>
 
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

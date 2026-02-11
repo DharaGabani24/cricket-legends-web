@@ -1,1089 +1,13 @@
-/* //1    /*/
-   
-
-
-/* 
-   .story {
-    position: relative;
-    background: #0a0a0a;
-  }
-  
- 
-  .story__intro {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background: linear-gradient(180deg, 
-      #0a0a0a 0%, 
-      #0c0810 50%,
-      #0a0608 100%
-    );
-  }
-  
-  .story__intro-inner {
-    padding-left: 12vw;
-    padding-right: 10vw;
-    max-width: 800px;
-  }
-  
-  .story__title {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 400;
-    font-style: italic;
-    color: #d64d8a;
-    margin: 0 0 30px 0;
-    line-height: 1.2;
-    will-change: transform, opacity;
-  }
-  
-  .story__paragraph-wrapper {
-    position: relative;
-    will-change: transform, opacity;
-  }
-  
-  .story__paragraph {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.65;
-    margin: 0;
-  }
-  
-  .story__paragraph--dim {
-    color: rgba(120, 70, 90, 0.5);
-  }
-  
-  .story__paragraph--bright {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(
-      180deg,
-      #e86a45 0%,
-      #d85570 40%,
-      #c94d88 70%,
-      #a54080 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    clip-path: inset(100% 0% 0% 0%);
-    will-change: clip-path;
-  }
-  
-  .story__scroll-hint {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.25);
-    font-size: 28px;
-    animation: bounce 1.5s ease-in-out infinite;
-  }
-  
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.25; }
-    50% { transform: translateX(-50%) translateY(8px); opacity: 0.5; }
-  }
-  
- 
-  
-  .story__character {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: #0a0a0a;
-    overflow: hidden;
-  }
-  
-  .story__char-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    will-change: transform, opacity;
-  }
-  
-  .story__char-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .story__char-bg-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      rgba(10, 10, 10, 0.9) 0%,
-      rgba(10, 10, 10, 0.6) 35%,
-      rgba(10, 10, 10, 0.2) 55%,
-      transparent 75%
-    );
-  }
-  
-  .story__char-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-  }
-  
-  .story__char-text {
-    position: absolute;
-    left: 12vw;
-    bottom: 12vh;
-    max-width: 480px;
-  }
-  
-  .story__char-name {
-    font-family: 'Oswald', 'Impact', sans-serif;
-    font-size: clamp(4.2rem, 4.5vw, 3.5rem);
-    font-weight: 400;
-    font-style: italic;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: #ffffff;
-    margin: 0 0 16px 0;
-    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-    will-change: transform, opacity;
-  }
-  
-  .story__char-quote {
-    font-family: 'Georgia', serif;
-    font-size: clamp(1.5rem, 1.6vw, 1.3rem);
-    font-style: italic;
-    color: #e07050;
-    margin: 0 0 20px 0;
-    line-height: 1.5;
-    will-change: transform, opacity;
-  }
-  
-  .story__char-desc {
-    font-family: 'Inter', -apple-system, sans-serif;
-    font-size: clamp(0.85rem, 1.2vw, 1rem);
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.75);
-    margin: 0;
-    line-height: 1.7;
-    will-change: transform, opacity;
-  }
-  
-  .story__char-img2 {
-    position: absolute;
-    right: 8vw;
-    bottom: 12vh;
-    width: clamp(220px, 28vw, 380px);
-    aspect-ratio: 16 / 10;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 
-      0 20px 60px rgba(0, 0, 0, 0.5),
-      0 8px 25px rgba(0, 0, 0, 0.4);
-    will-change: transform, opacity;
-  }
-  
-  .story__char-img2 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .story__gallery {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #0a0a0a;
-  }
-  
-  .story__gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 16px;
-    width: 75vw;
-    max-width: 1100px;
-    height: 65vh;
-  }
-  
-  .story__gallery-item {
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-    will-change: transform, opacity;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-  }
-  
-  .story__gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-  
-  .story__gallery-item:hover img {
-    transform: scale(1.03);
-  }
-  
-  .story__gallery-item--1 { grid-area: 1 / 1 / 2 / 2; }
-  .story__gallery-item--2 { grid-area: 1 / 2 / 2 / 3; }
-  .story__gallery-item--3 { grid-area: 2 / 1 / 3 / 2; }
-  .story__gallery-item--4 { grid-area: 2 / 2 / 3 / 3; }
-  
-
-  @media (max-width: 1024px) {
-    .story__intro-inner {
-      padding-left: 8vw;
-      padding-right: 8vw;
-    }
-    
-    .story__char-text {
-      left: 8vw;
-      max-width: 420px;
-    }
-    
-    .story__char-img2 {
-      right: 4vw;
-      width: clamp(180px, 32vw, 320px);
-    }
-    
-    .story__gallery-grid {
-      width: 85vw;
-      gap: 12px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .story__intro-inner {
-      padding-left: 6vw;
-      padding-right: 6vw;
-    }
-    
-    .story__char-bg-overlay {
-      background: linear-gradient(
-        180deg,
-        transparent 0%,
-        rgba(10, 10, 10, 0.4) 40%,
-        rgba(10, 10, 10, 0.9) 70%,
-        rgba(10, 10, 10, 0.95) 100%
-      );
-    }
-    
-    .story__char-text {
-      left: 6vw;
-      right: 6vw;
-      bottom: 8vh;
-      max-width: none;
-    }
-    
-    .story__char-img2 {
-      display: none;
-    }
-    
-    .story__gallery-grid {
-      width: 92vw;
-      height: auto;
-      gap: 10px;
-    }
-    
-    .story__gallery-item {
-      aspect-ratio: 16 / 10;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .story__title {
-      font-size: 2rem;
-    }
-    
-    .story__paragraph {
-      font-size: 1rem;
-    }
-    
-    .story__char-name {
-      font-size: 1.8rem;
-    }
-    
-    .story__gallery-grid {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(4, 1fr);
-      height: 75vh;
-    }
-    
-    .story__gallery-item--1 { grid-area: 1 / 1 / 2 / 2; }
-    .story__gallery-item--2 { grid-area: 2 / 1 / 3 / 2; }
-    .story__gallery-item--3 { grid-area: 3 / 1 / 4 / 2; }
-    .story__gallery-item--4 { grid-area: 4 / 1 / 5 / 2; }
-  }
-  
-  
-  
-  @media (prefers-reduced-motion: reduce) {
-    .story__scroll-hint {
-      animation: none;
-    }
-    
-    .story__gallery-item img {
-      transition: none;
-    }
-  } */
-
-
-
-/* //3  with the text design only */
-
-/* Story Section - GTA VI Style Radial Reveal Animation */
-/* 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&display=swap');
-
-
-.story-section {
-  position: relative;
-  width: 100%;
-  height: 400vh;
-  background: #0a0a0a;
-}
-
-
-.story-content {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: #0a0a0a;
-}
-
-
-.story-container {
-  position: relative;
-  max-width: 900px;
-  width: 90%;
-  padding: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform-origin: center center;
-  will-change: transform, opacity;
-}
-
-
-.story-text-layer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 800px;
-  padding: 40px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-.story-text-dim {
-  z-index: 1;
-}
-
-.story-text-dim .story-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-  margin: 0 0 1.5rem 0;
-  color: rgb(70, 30, 50);
-}
-
-.story-text-dim .story-paragraph {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.8;
-  letter-spacing: 0.01em;
-  margin: 0;
-  color: rgb(29, 23, 26);
-}
-
-
-.story-text-bright {
-  z-index: 2;
-  -webkit-mask-image: radial-gradient(circle at 50% 120%, black 0%, black 0%, transparent 0%);
-  mask-image: radial-gradient(circle at 50% 120%, black 0%, black 0%, transparent 0%);
-  will-change: mask-image, -webkit-mask-image;
-}
-
-.story-text-bright .story-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-  margin: 0 0 1.5rem 0;
-  background: linear-gradient(
-    90deg,
-    #e84393 0%,
-    #fd79a8 30%,
-    #e17055 70%,
-    #f39c12 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.story-text-bright .story-paragraph {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.8;
-  letter-spacing: 0.01em;
-  margin: 0;
-  background: linear-gradient(
-    90deg,
-    #e84393 0%,
-    #fd79a8 25%,
-    #e17055 55%,
-    #f39c12 85%,
-    #e17055 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-
-.story-text-glow {
-  z-index: 3;
-  pointer-events: none;
-  -webkit-mask-image: radial-gradient(circle at 50% 120%, transparent 0%, transparent 0%, black 0%, transparent 0%);
-  mask-image: radial-gradient(circle at 50% 120%, transparent 0%, transparent 0%, black 0%, transparent 0%);
-  will-change: mask-image, -webkit-mask-image;
-}
-
-.story-text-glow .story-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-  margin: 0 0 1.5rem 0;
-  color: rgb(255, 180, 120);
-  text-shadow: 0 0 30px rgba(255, 150, 100, 0.8),
-               0 0 60px rgba(255, 120, 80, 0.5);
-}
-
-.story-text-glow .story-paragraph {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.8;
-  letter-spacing: 0.01em;
-  margin: 0;
-  color: rgb(255, 160, 100);
-  text-shadow: 0 0 25px rgba(255, 140, 90, 0.7),
-               0 0 50px rgba(255, 100, 70, 0.4);
-}
-
-
-@media (max-width: 768px) {
-  .story-section {
-    height: 350vh;
-  }
-
-  .story-container {
-    padding: 40px 20px;
-  }
-
-  .story-text-layer {
-    padding: 30px 20px;
-  }
-
-  .story-text-dim .story-title,
-  .story-text-bright .story-title,
-  .story-text-glow .story-title {
-    margin-bottom: 1.25rem;
-  }
-
-  .story-text-dim .story-paragraph,
-  .story-text-bright .story-paragraph,
-  .story-text-glow .story-paragraph {
-    line-height: 1.7;
-  }
-}
-
-@media (max-width: 480px) {
-  .story-section {
-    height: 300vh;
-  }
-
-  .story-container {
-    padding: 30px 15px;
-  }
-
-  .story-text-layer {
-    padding: 20px 15px;
-  }
-
-  .story-text-dim .story-title,
-  .story-text-bright .story-title,
-  .story-text-glow .story-title {
-    margin-bottom: 1rem;
-  }
-}
-
-
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.story-text-dim,
-.story-text-bright,
-.story-text-glow {
-  will-change: mask-image, -webkit-mask-image, opacity;
-} */
-
-
-
-
-
-/* /// New modified D5 */
-/* 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap');
-
-
-
-.story-wrapper {
-  position: relative;
-  background: #0a0a0a;
-  overflow-x: hidden;
-}
-
-
-
-.story {
-  position: relative;
-  width: 100%;
-  height: 700vh;
-  background: #0a0a0a;
-}
-
-.story__sticky {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background: #0a0a0a;
-}
-
-
-.story__bg-image {
-  position: absolute;
-  top: -5%;
-  left: -5%;
-  width: 110%;
-  height: 115%;
-  z-index: 1;
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
-.story__bg-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-}
-
-.story__bg-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(10, 10, 10, 0.6) 0%,
-    rgba(10, 10, 10, 0.35) 30%,
-    rgba(10, 10, 10, 0.1) 50%,
-    transparent 70%
-  );
-}
-
-
-.story__exit-container {
-  position: absolute;
-  inset: 0;
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  will-change: mask-image, -webkit-mask-image;
-}
-
-.story__text-wrapper {
-  position: relative;
-  max-width: 900px;
-  width: 90%;
-  padding: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  will-change: transform, opacity;
-}
-
-.story__text-layer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 850px;
-  padding: 50px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.story__text-dim {
-  z-index: 1;
-}
-
-.story__text-dim .story__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: 0.02em;
-  margin: 0 0 1.8rem 0;
-  color: rgba(80, 40, 55, 0.4);
-}
-
-.story__text-dim .story__paragraph {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.85;
-  letter-spacing: 0.015em;
-  margin: 0;
-  color: rgba(80, 40, 55, 0.35);
-}
-
-.story__text-bright {
-  z-index: 2;
-  -webkit-mask-image: radial-gradient(circle at 50% 150%, black 0%, black 0%, transparent 0%);
-  mask-image: radial-gradient(circle at 50% 150%, black 0%, black 0%, transparent 0%);
-  will-change: mask-image, -webkit-mask-image;
-}
-
-.story__text-bright .story__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: 0.02em;
-  margin: 0 0 1.8rem 0;
-  background: linear-gradient(95deg, #e84393 0%, #fd79a8 25%, #e17055 55%, #f39c12 85%, #e17055 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.story__text-bright .story__paragraph {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.85;
-  letter-spacing: 0.015em;
-  margin: 0;
-  background: linear-gradient(95deg, #e84393 0%, #fd79a8 20%, #e17055 50%, #f39c12 80%, #e17055 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.story__text-glow {
-  z-index: 3;
-  pointer-events: none;
-  -webkit-mask-image: radial-gradient(circle at 50% 150%, transparent 0%, transparent 0%, black 0%, transparent 0%);
-  mask-image: radial-gradient(circle at 50% 150%, transparent 0%, transparent 0%, black 0%, transparent 0%);
-  will-change: mask-image, -webkit-mask-image;
-}
-
-.story__text-glow .story__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: 0.02em;
-  margin: 0 0 1.8rem 0;
-  color: rgb(255, 200, 140);
-  text-shadow: 0 0 40px rgba(255, 150, 100, 0.9), 0 0 80px rgba(255, 120, 80, 0.6), 0 0 120px rgba(255, 100, 60, 0.3);
-}
-
-.story__text-glow .story__paragraph {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.85;
-  letter-spacing: 0.015em;
-  margin: 0;
-  color: rgb(255, 180, 120);
-  text-shadow: 0 0 35px rgba(255, 140, 90, 0.8), 0 0 70px rgba(255, 100, 70, 0.5), 0 0 100px rgba(255, 80, 50, 0.25);
-}
-
-.story__scroll-hint {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 32px;
-  animation: storyBounce 1.8s ease-in-out infinite;
-  z-index: 100;
-}
-
-@keyframes storyBounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.2; }
-  50% { transform: translateX(-50%) translateY(12px); opacity: 0.5; }
-}
-
-
-
-.jason {
-
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 20;
-  pointer-events: none;
-  will-change: transform;
-
-}
-
-.jason__name {
-  position: absolute;
-  left: 18vw;
-  top: 0;
-  font-family: 'Oswald', 'Impact', sans-serif;
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 500;
-  font-style: italic;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: #ffffff;
-  margin: 0;
-  line-height: 1;
-  text-shadow: 0 4px 60px rgba(0, 0, 0, 0.9), 0 2px 30px rgba(0, 0, 0, 0.7);
-  will-change: transform, opacity;
-}
-
-.jason__quote {
-  position: absolute;
-  left: 18vw;
-  top: 10vh;
-  max-width: 400px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.5rem, 2vw, 1.8rem);
-  font-style: italic;
-  font-weight: 800;
-  color: #70F1EE;
-
-  margin: 0;
-  line-height: 1.2;
-  will-change: transform, opacity;
-}
-
-.jason__desc {
-  position: absolute;
-  left: 18vw;
-  top: 12vh;
-  max-width: 400px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.75rem, 1.15vw, 1.1rem);
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 0;
-  line-height: 1.5;
-  will-change: transform, opacity;
-}
-
-.jason__img {
-  position: absolute;
-  top: 0;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), 0 12px 35px rgba(0, 0, 0, 0.4);
-  will-change: transform, opacity;
-}
-
-.jason__img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-
-}
-
-.jason__img--1 {
-  left: 53vw;
-  top: 35vh;
-  width: clamp(660px, 42vw, 900px);
-  height: clamp(700px, 40vh, 900px);
-}
-
-.jason__img--2 {
-  left: 18vw;
-  top: 80vh;
-  width: clamp(450px, 30vw, 650px);
-  height: clamp(750px, 65vh, 950px);
-}
-
-.jason__img--3 {
-  left: 53vw;
-  top: 98vh;
-  width: clamp(350px, 32vw, 460px);
-  height: clamp(400px, 35vh, 520px);
-}
-
-
-
-.story__gallery {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #0a0a0a;
-}
-
-.story__gallery-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 20px;
-  width: 78vw;
-  max-width: 1200px;
-  height: 70vh;
-  max-height: 800px;
-}
-
-.story__gallery-item {
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-  will-change: transform, opacity;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 5px 20px rgba(0, 0, 0, 0.4);
-}
-
-.story__gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-@media (max-width: 1200px) {
-  .jason__name {
-    left: 6vw;
-  }
-  
-  .jason__quote,
-  .jason__desc {
-    left: 6vw;
-    max-width: 420px;
-  }
-  
-  .jason__img--1 {
-    right: 3vw;
-    width: clamp(300px, 38vw, 500px);
-  }
-  
-  .jason__img--2 {
-    left: 16vw;
-    width: clamp(220px, 26vw, 360px);
-    height: clamp(350px, 55vh, 520px);
-  }
-  
-  .jason__img--3 {
-    right: 6vw;
-    width: clamp(240px, 28vw, 400px);
-  }
-}
-
-@media (max-width: 1024px) {
-  .jason__name {
-    left: 5vw;
-    font-size: clamp(2.5rem, 5.5vw, 4rem);
-  }
-  
-  .jason__quote,
-  .jason__desc {
-    left: 5vw;
-    max-width: 380px;
-  }
-  
-  .jason__img--1 {
-    width: clamp(260px, 35vw, 420px);
-    height: clamp(180px, 35vh, 320px);
-  }
-  
-  .jason__img--2 {
-    left: 12vw;
-    width: clamp(200px, 24vw, 320px);
-    height: clamp(300px, 50vh, 460px);
-  }
-  
-  .jason__img--3 {
-    width: clamp(220px, 26vw, 360px);
-    height: clamp(160px, 30vh, 280px);
-  }
-}
-
-@media (max-width: 768px) {
-  .story {
-    height: 550vh;
-  }
-  
-  .jason__name {
-    left: 5vw;
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
-  
-  .jason__quote {
-    left: 5vw;
-    font-size: clamp(1.1rem, 4vw, 1.4rem);
-    max-width: 60vw;
-  }
-  
-  .jason__desc {
-    left: 5vw;
-    max-width: 60vw;
-  }
-  
-  .jason__img--1 {
-    right: 5vw;
-    width: 50vw;
-    height: 30vh;
-  }
-  
-  .jason__img--2,
-  .jason__img--3 {
-    display: none;
-  }
-  
-  .story__gallery-grid {
-    width: 94vw;
-  }
-}
-
-@media (max-width: 480px) {
-  .story {
-    height: 500vh;
-  }
-  
-  .jason__name {
-    font-size: 2rem;
-  }
-  
-  .jason__quote {
-    font-size: 1.1rem;
-  }
-  
-  .jason__desc {
-    font-size: 0.9rem;
-  }
-  
-  .jason__img--1 {
-    width: 60vw;
-    height: 25vh;
-  }
-  
-  .story__gallery-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    height: 80vh;
-    gap: 10px;
-  }
-}
-
-
-
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.story__text-dim,
-.story__text-bright,
-.story__text-glow,
-.story__exit-container {
-  will-change: mask-image, -webkit-mask-image, transform, opacity;
-  backface-visibility: hidden;
-}
-
-.story__bg-image,
-.story__gallery-item,
-.jason__name,
-.jason__quote,
-.jason__desc,
-.jason__img {
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .story__scroll-hint {
-    animation: none;
-  }
-} */
-
-
-/* //// */
-
-
-/* //new lucia d5 */
 
 /* /// New modified D5 - With Lucia Section */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap');
+
+
+
 /* ========================================
    WRAPPER
    ======================================== */
@@ -1163,6 +87,7 @@
   align-items: center;
   justify-content: center;
   will-change: mask-image, -webkit-mask-image;
+  pointer-events: none;
 }
 
 .story__text-wrapper {
@@ -1205,10 +130,11 @@
 }
 
 .story__text-dim .story__paragraph {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  /* font-family: 'Cormorant Garamond', Georgia, serif; */
+  font-family: 'Outfit', sans-serif;
+
   font-size: clamp(1.2rem, 2.3vw, 1.55rem);
   font-weight: 400;
-  font-style: italic;
   line-height: 1.85;
   letter-spacing: 0.015em;
   margin: 0;
@@ -1236,10 +162,10 @@
 }
 
 .story__text-bright .story__paragraph {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  /* font-family: 'Cormorant Garamond', Georgia, serif; */
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(1.2rem, 2.3vw, 1.55rem);
   font-weight: 400;
-  font-style: italic;
   line-height: 1.85;
   letter-spacing: 0.015em;
   margin: 0;
@@ -1269,10 +195,10 @@
 }
 
 .story__text-glow .story__paragraph {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  /* font-family: 'Cormorant Garamond', Georgia, serif; */
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(1.2rem, 2.3vw, 1.55rem);
   font-weight: 400;
-  font-style: italic;
   line-height: 1.85;
   letter-spacing: 0.015em;
   margin: 0;
@@ -1308,7 +234,7 @@
   width: 100%;
   height: 100vh;
   z-index: 20;
-  pointer-events: none;
+  pointer-events: auto;
   will-change: transform;
 }
 
@@ -1365,10 +291,11 @@
 .jason__img {
   position: absolute;
   top: 0;
-  border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), 0 12px 35px rgba(0, 0, 0, 0.4);
   will-change: transform, opacity;
+  pointer-events: auto;
+  /* z-index: 25; */
 }
 
 .jason__img img {
@@ -1536,7 +463,6 @@
 .lucia__img {
   position: absolute;
   top: 0;
-  border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), 0 12px 35px rgba(0, 0, 0, 0.4);
   will-change: transform, opacity;
@@ -2156,17 +1082,8 @@
     width: 100%;
     overflow: hidden;
   }
-  .leonida__artwork2{
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
-  .leonida__artwork2 img{
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-  }
+  
+ 
   
   .leonida__artwork img {
     width: 100%;
@@ -2211,21 +1128,18 @@
     height: 7vh;
     background: #0a0a0a;
     clip-path: polygon(0 0, 100% 0, 0 100%);
+    /* clip-path: polygon(0 0, 100% 0, 100% var(--clip-after, 0%), 0 100%); */
     z-index: 2;
   }
   
   /* Title - Left side */
   .leonida__title {
-    /* font-family: 'Oswald', 'Impact', sans-serif; */
-    /* font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; */
-    /* font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; */
+ 
     font-family: 'Outfit', sans-serif;
 
     font-size: clamp(4rem, 8vw, 6rem);
     font-weight: 600;
-    /* font-style: italic; */
     text-transform: none;
-    /* letter-spacing: 0.00em; */
     color: #3a6b69;
     margin: 0;
     line-height: 1;
@@ -2234,7 +1148,6 @@
   /* Description - Right side */
   .leonida__desc {
     max-width: 300px;
-    /* font-family: 'Cormorant Garamond', Georgia, serif; */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: clamp(1.8rem, 1.8vw, 2rem);
     letter-spacing: 0.03em;
@@ -2299,3 +1212,2451 @@
   }
 
   /*  */
+
+  /* ========================================
+   CAL HAMPTON SECTION - GSAP Pinned
+   ======================================== */
+
+.cal-section {
+  position: relative;
+  height: 700vh;
+  width: 100%;
+  background: #0a0a0a;
+}
+
+.cal-section__sticky {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.cal__bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.cal__bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cal__bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.cal__name {
+  position: absolute;
+  left: 5%;
+  top: 25%;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 0.95;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.cal__quote {
+  position: absolute;
+  left: 5%;
+  top: 52%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #e8a84c;
+  line-height: 1.3;
+  margin: 0;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+.cal__desc {
+  position: absolute;
+  left: 5%;
+  top: 72%;
+  max-width: 360px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 0;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.cal__img--1 {
+  position: absolute;
+  left: 13%;
+  top: 20%;
+  width: 35%;
+  height: 70%;
+  overflow: hidden;
+}
+
+.cal__img--1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cal__img--2 {
+  position: absolute;
+  right: 0%;
+  top: 10%;
+  width: 50%;
+  height: 90%;
+  overflow: hidden;
+}
+
+.cal__img--2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cal__img--3 {
+  position: absolute;
+  left: 0;
+  top: 5%;
+  width: 48%;
+  height: 85%;
+  overflow: hidden;
+}
+
+.cal__img--3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark overlay for image 3 - dark to light transition */
+.cal__img-3-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 1);
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.cal__big-quote {
+  position: absolute;
+  right: 5%;
+  top: 25%;
+  width: 40%;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #e8c84c;
+  line-height: 1.15;
+  margin: 0;
+  text-align: left;
+}
+
+
+
+@media (max-width: 1024px) {
+  .cal__name {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .cal__quote {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+  }
+
+  .cal__desc {
+    max-width: 350px;
+    font-size: 0.95rem;
+  }
+
+  .cal__big-quote {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .cal__name {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    top: 30%;
+  }
+
+  .cal__quote {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    top: 55%;
+  }
+
+  .cal__desc {
+    top: 70%;
+    max-width: 85vw;
+    font-size: 0.9rem;
+  }
+
+  .cal__img--1 {
+    left: 2%;
+    width: 48%;
+  }
+
+  .cal__img--2 {
+    right: 2%;
+    width: 48%;
+  }
+
+  .cal__img--3 {
+    width: 55%;
+    height: 75%;
+  }
+
+  .cal__big-quote {
+    right: 3%;
+    width: 38%;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    top: 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cal__name {
+    font-size: 2rem;
+    left: 4%;
+  }
+
+  .cal__quote {
+    font-size: 1.1rem;
+    left: 4%;
+  }
+
+  .cal__desc {
+    font-size: 0.85rem;
+    left: 4%;
+  }
+
+  .cal__img--3 {
+    width: 60%;
+    height: 70%;
+  }
+
+  .cal__big-quote {
+    width: 35%;
+    font-size: 1.2rem;
+  }
+}
+
+/*  */
+
+
+
+  /* /// */
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap');
+  /* ========================================
+     VISIT LEONIDA SECTION
+     ======================================== */
+  
+  .visit-leonida-section {
+    position: relative;
+    width: 100%;
+    height: 500vh;
+    background: #0a0a0a;
+  }
+  
+  .visit-leonida__sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* ---- Background gradient layer ---- */
+  /* .visit-leonida__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    background: 
+      radial-gradient(ellipse 120% 80% at 20% 80%, rgba(25, 80, 95, 0.5) 0%, transparent 55%),
+      radial-gradient(ellipse 100% 70% at 80% 20%, rgba(30, 70, 90, 0.4) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(20, 55, 75, 0.3) 0%, transparent 60%),
+      linear-gradient(180deg, #0d1f2d 0%, #122a3a 25%, #1a3a4a 50%, #1e4555 75%, #1a3848 100%);
+    will-change: opacity;
+  } 
+   */
+   
+   .visit-leonida__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+   
+    /* background: 
+    radial-gradient(ellipse 130% 90% at 15% 85%, rgba(130, 120, 190, 0.45) 0%, transparent 50%),
+    radial-gradient(ellipse 90% 70% at 85% 15%, rgba(110, 140, 210, 0.35) 0%, transparent 45%),
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(150, 140, 220, 0.15) 0%, transparent 50%),
+    linear-gradient(140deg, #8578b8 0%, #918ac8 20%, #a098d8 40%, #98a0dd 55%, #9090d0 70%, #8882c2 85%, #7e78b5 100%);
+      */
+      /* background: 
+      radial-gradient(ellipse 90% 80% at 20% 85%, rgba(180, 120, 150, 0.35) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 60% at 85% 20%, rgba(140, 120, 180, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(160, 130, 170, 0.12) 0%, transparent 45%),
+      radial-gradient(ellipse 120% 100% at 70% 60%, rgba(100, 80, 130, 0.2) 0%, transparent 50%),
+      linear-gradient(140deg, 
+        #1a1225 0%, 
+        #221830 15%, 
+        #2a1e38 30%, 
+        #2e2040 45%, 
+        #2a1e3a 60%, 
+        #221830 75%, 
+        #1a1228 90%, 
+        #120e1e 100%
+      ); */
+ 
+      
+  /* background: 
+  radial-gradient(ellipse 90% 80% at 20% 85%, rgba(210, 160, 200, 0.45) 0%, transparent 55%),
+  radial-gradient(ellipse 80% 60% at 85% 20%, rgba(180, 160, 220, 0.4) 0%, transparent 50%),
+  radial-gradient(ellipse 50% 40% at 50% 50%, rgba(200, 175, 215, 0.18) 0%, transparent 45%),
+  radial-gradient(ellipse 120% 100% at 70% 60%, rgba(160, 140, 190, 0.25) 0%, transparent 50%),
+  linear-gradient(140deg, 
+    #382850 0%, 
+    #483868 15%, 
+    #554578 30%, 
+    #5e4d85 45%, 
+    #554578 60%, 
+    #483868 75%, 
+    #382855 90%, 
+    #2e2048 100%
+  ); */
+  background: 
+  radial-gradient(ellipse 90% 80% at 20% 85%, rgba(230, 185, 210, 0.5) 0%, transparent 55%),
+  radial-gradient(ellipse 80% 60% at 85% 20%, rgba(200, 185, 240, 0.45) 0%, transparent 50%),
+  radial-gradient(ellipse 50% 40% at 50% 50%, rgba(220, 200, 235, 0.22) 0%, transparent 45%),
+  radial-gradient(ellipse 120% 100% at 70% 60%, rgba(190, 165, 215, 0.28) 0%, transparent 50%),
+  linear-gradient(140deg, 
+    #483870 0%, 
+    #5a4888 15%, 
+    #6a5898 30%, 
+    #7562a5 45%, 
+    #6a5898 60%, 
+    #5a4888 75%, 
+    #483875 90%, 
+    #3e3068 100%
+  );
+    will-change: opacity;
+  }
+  
+  /* Animated noise grain texture */
+  /* .visit-leonida__grain {
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: 2;
+    opacity: 0.035;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    animation: vlGrain 0.5s steps(3) infinite;
+  }
+  
+  @keyframes vlGrain {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(-10px, 5px); }
+    66% { transform: translate(5px, -8px); }
+  }
+   */
+  /* ---- Floating particles canvas ---- */
+  .visit-leonida__particles {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+  
+  /* ---- Ambient light orbs ---- */
+  .visit-leonida__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 2;
+    opacity: 0;
+    will-change: transform, opacity;
+    pointer-events: none;
+  }
+  
+  .visit-leonida__orb--1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(40, 140, 160, 0.25) 0%, transparent 70%);
+    left: -10%;
+    top: 20%;
+  }
+  
+  .visit-leonida__orb--2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(30, 100, 130, 0.2) 0%, transparent 70%);
+    right: -5%;
+    bottom: 10%;
+  }
+  
+  .visit-leonida__orb--3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(60, 180, 180, 0.15) 0%, transparent 70%);
+    left: 40%;
+    top: 60%;
+  }
+  
+/*  */
+/* ========================================
+   UNIVERSAL IMAGE HOVER + EXPAND
+   Reusable across all sections
+   ======================================== */
+
+   .img-expandable {
+    /* position: relative; */
+    cursor: pointer;
+    transition: padding 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                background 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .img-expandable:hover {
+    background: #ffffff;
+    padding: 2px;
+    /* outline: 4px solid #ffffff; */
+    /* outline-offset: -4px; */
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      0 8px 20px rgba(0, 0, 0, 0.25);
+      
+    /* box-sizing: border-box; */
+
+  }
+
+  
+  .img-expandable img {
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.36, 1);
+  }
+  
+  .img-expandable:hover img {
+    transform: scale(0.98);
+  }
+  
+  .img-expandable__btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(114, 109, 112, 0.65);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 5;
+    color: #ffffff;
+    pointer-events: none;
+    transition: opacity 0.3s ease, background 0.3s ease, transform 0.3s ease;
+
+    /* box-sizing: border-box; */
+    
+    /* opacity: 0; */
+    transition: opacity 0.3s ease, background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .img-expandable:hover .img-expandable__btn {
+    opacity: 1;
+    background: rgba(197, 180, 180, 0.85);
+    color: #1a1a1a;
+    transform: scale(1.05);
+  }
+  
+  .img-expandable__btn:hover {
+    background: rgba(200, 140, 180, 0.9);
+    transform: scale(1.1);
+  }
+
+  /* ========================================
+     VISIT LEONIDA HEADER (Logo + Tagline)
+     ======================================== */
+  
+  .visit-leonida__header {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(50px, 8vw, 120px);
+    padding: 0 8vw;
+    will-change: transform, opacity;
+  }
+  
+  .visit-leonida__logo-group {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    will-change: transform, opacity;
+  }
+  
+  /* Sun icon */
+  .visit-leonida__icon {
+    width: clamp(65px, 7vw, 100px);
+    height: auto;
+    flex-shrink: 0;
+    will-change: transform;
+  }
+  
+  .visit-leonida__icon svg {
+    width: 100%;
+    height: auto;
+    color: #ffffff;
+    filter: drop-shadow(0 0 20px rgba(120, 200, 200, 0.2));
+  }
+  
+  .visit-leonida__logo-text {
+    font-family: 'Outfit', sans-serif;
+    line-height: 1;
+    will-change: transform, opacity;
+  }
+  
+  .visit-leonida__logo-text .visit {
+    display: block;
+    font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+  
+  .visit-leonida__logo-text .leonida {
+    display: block;
+    font-size: clamp(2.8rem, 4.8vw, 4.8rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-top: -4px;
+  }
+  
+  .visit-leonida__tagline {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1.3rem, 2vw, 1.9rem);
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1.4;
+    max-width: 320px;
+    margin: 0;
+    will-change: transform, opacity;
+  }
+  
+  /* Divider line */
+  .visit-leonida__divider {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(180deg, transparent 0%, rgba(160, 212, 212, 0.3) 30%, rgba(160, 212, 212, 0.3) 70%, transparent 100%);
+    flex-shrink: 0;
+    will-change: transform, opacity;
+  }
+  
+  /* ========================================
+     VICE CITY POSTCARD
+     ======================================== */
+  
+  .visit-leonida__postcard-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+    will-change: transform, opacity;
+    pointer-events: none;
+  }
+  
+  .visit-leonida__postcard {
+    position: relative;
+    width: clamp(620px, 68vw, 980px);
+    background: #ffffff;
+    border-radius: 5px;
+    overflow: visible;
+    transform-style: preserve-3d;
+    transform: translateY(100vh) rotate(-2deg);
+    will-change: transform, opacity;
+    pointer-events: auto;
+    cursor: default;
+  }
+  
+  /* Postcard outer shadow */
+  .visit-leonida__postcard::before {
+    content: '';
+    position: absolute;
+    inset: 0px;
+    /* border-radius: 5px; */
+    background: transparent;
+    box-shadow: 
+      0 40px 100px rgba(0, 0, 0, 0.5),
+      0 15px 40px rgba(0, 0, 0, 0.35),
+      0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  /* White border */
+  .visit-leonida__postcard::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* border-radius: 5px; */
+    border: 12px solid #ffffff;
+    z-index: 4;
+    pointer-events: none;
+  }
+  
+  /* Postcard image */
+  .visit-leonida__postcard-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 13/ 9;
+    overflow: hidden;
+    /* border-radius: 3px 3px 0 0; */
+    border-radius: 0px;
+  }
+  
+  .visit-leonida__postcard-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .visit-leonida__postcard:hover .visit-leonida__postcard-image img {
+    transform: scale(1.03);
+  }
+  
+  /* Image overlay */
+  .visit-leonida__postcard-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(180deg, rgba(0, 40, 80, 0.15) 0%, transparent 40%, transparent 60%, rgba(0, 20, 40, 0.2) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* Vice City script text */
+  .visit-leonida__postcard-title {
+    position: absolute;
+    top: 12%;
+    /* //75% if using img 03 and 60% for img 04*/
+    left: 60%;
+    transform: translate(-50%, -50%);
+    /* font-family: 'Dancing Script', 'Brush Script MT', cursive; */
+    /* font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; */
+    font-family: 'Outfit', sans-serif;
+
+    font-size: clamp(3.0rem, 7vw, 4rem);
+    font-weight: 600;
+    color: #ffffff;
+    white-space: nowrap;
+    letter-spacing:normal;
+    z-index: 3;
+    pointer-events: none;
+    /* text-shadow: 
+      0 0 30px rgba(100, 180, 240, 0.5),
+      0 0 60px rgba(80, 160, 220, 0.25),
+      0 2px 8px rgba(0, 40, 80, 0.4); */
+    filter: drop-shadow(0 0 15px rgba(120, 200, 255, 0.3));
+    will-change: transform, opacity;
+  }
+  
+  /* Swash underline */
+  .visit-leonida__postcard-swash {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(200px, 40vw, 400px);
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.6) 20%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.6) 80%, transparent 100%);
+    z-index: 3;
+    pointer-events: none;
+    filter: drop-shadow(0 0 8px rgba(100, 180, 240, 0.4));
+  }
+  
+ 
+  
+  /* Overlay footer on image */
+.visit-leonida__postcard-overlay-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  padding: 20px 28px;
+  z-index: 5;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+}
+
+.visit-leonida__postcard-overlay-footer .visit-leonida__postcard-logo {
+  position: absolute;
+  bottom: 20px;
+  left: 28px;
+}
+
+.visit-leonida__postcard-overlay-footer .visit-leonida__explore-btn {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.visit-leonida__postcard-overlay-footer .visit-leonida__postcard-logo-icon svg {
+  color: #ffffff;
+}
+
+.visit-leonida__postcard-overlay-footer .visit-sm {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.visit-leonida__postcard-overlay-footer .leonida-sm {
+  color: #ffffff !important;
+}
+
+.visit-leonida__postcard-overlay-footer .visit-leonida__explore-btn {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.visit-leonida__postcard-overlay-footer .visit-leonida__explore-btn::before {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.visit-leonida__postcard-overlay-footer .visit-leonida__explore-btn:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+  .visit-leonida__postcard-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .visit-leonida__postcard-logo-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .visit-leonida__postcard-logo-icon svg {
+    width: 100%;
+    height: auto;
+    color: #1a3a4a;
+  }
+  
+  .visit-leonida__postcard-logo-text {
+    font-family: 'Outfit', sans-serif;
+    line-height: 1;
+  }
+  
+  .visit-leonida__postcard-logo-text .visit-sm {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #1a3a4a;
+  }
+  
+  .visit-leonida__postcard-logo-text .leonida-sm {
+    display: block;
+    font-size: 2.15rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #1a3a4a;
+    margin-top: -1px;
+  }
+  
+  /* Explore button */
+  .visit-leonida__explore-btn {
+    position: relative;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #1a3a4a;
+    background: transparent;
+    border: 2px solid #1a3a4a;
+    border-radius: 30px;
+    padding: 11px 32px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.4s ease, border-color 0.4s ease, transform 0.3s ease;
+    pointer-events: auto;
+    z-index: 1;
+  }
+  
+  .visit-leonida__explore-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #1a3a4a;
+    border-radius: 28px;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+    z-index: -1;
+  }
+  
+  .visit-leonida__explore-btn:hover {
+    color: #ffffff;
+    /* transform: translateY(-2px); */
+    transform: translateX(-50%) translateY(-2px);
+
+  }
+  
+  .visit-leonida__explore-btn:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .visit-leonida__explore-btn:active {
+    /* transform: translateY(0px) scale(0.97); */
+    transform: translateX(-50%) translateY(0px) scale(0.97);
+
+  }
+  
+
+
+  /* ========================================
+   VICE CITY DETAIL OVERLAY - HORIZONTAL SCROLL
+   ======================================== */
+
+
+   .vice-city-detail {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    visibility: hidden;
+  }
+  
+  .vice-city-detail.active {
+    pointer-events: auto;
+    visibility: visible;
+  }
+  
+  /* Animated gradient background */
+  .vice-city-detail__bg {
+    position: fixed;
+    inset: 0;
+    opacity: 0;
+    will-change: opacity;
+    background: 
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(168, 109, 156, 0.6) 0%, transparent 50%),
+      radial-gradient(ellipse 70% 50% at 85% 25%, rgba(147, 96, 159, 0.4) 0%, transparent 50%),
+      linear-gradient(135deg, #6f3a67 0%, #8d6187 15%, #5d355b 30%, #834080 45%, #7a3c7a 55%, #6a3870 70%, #5a3062 85%, #4a2850 100%);
+    z-index: 1;
+  }
+  /* .vice-city-detail__bg {
+    position: fixed;
+    background: 
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(190, 115, 165, 0.55) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 50% at 85% 25%, rgba(145, 115, 200, 0.45) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(170, 120, 185, 0.15) 0%, transparent 50%),
+    linear-gradient(135deg, #9068a0 0%, #a078b0 12%, #b088b8 25%, #b890c0 38%, #c098c8 50%, #b890c2 62%, #b088b8 75%, #a078a8 88%, #9068a0 100%);
+  
+  
+    inset: 0;
+    opacity: 0;
+    will-change: opacity;
+ 
+    z-index: 1;
+  } */
+  
+  /* Diagonal stripes */
+  .vice-city-detail__bg::before {
+    content: '';
+    position: absolute;
+    inset: -100%;
+    width: 300%;
+    height: 300%;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent 0px,
+      transparent 80px,
+      rgba(255, 255, 255, 0.015) 80px,
+      rgba(255, 255, 255, 0.015) 81px
+    );
+    z-index: 1;
+    pointer-events: none;
+    animation: vlStripes 20s linear infinite;
+  }
+  
+  /* Grain */
+  .vice-city-detail__bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 2;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+  
+  /* Back button */
+  .vice-city-detail__back {
+    position: fixed;
+    top: 32px;
+    left: 32px;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    padding: 10px 26px 10px 18px;
+    cursor: pointer;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: background 0.3s ease, color 0.3s ease;
+    will-change: transform, opacity;
+    pointer-events: auto;
+  }
+  
+  .vice-city-detail__back:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+  }
+  
+  .vice-city-detail__back svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+  
+  .vice-city-detail__back:hover svg {
+    transform: translateX(-3px);
+  }
+  
+  /* ========================================
+     HORIZONTAL SCROLL SYSTEM
+     
+     .vc-hscroll       = scrollable wrapper (overflow-y: scroll)
+     .vc-hscroll__height = invisible spacer (creates scroll room)
+     .vc-hscroll__track = fixed horizontal row (translateX via JS)
+     ======================================== */
+  
+  .vc-hscroll {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .vc-hscroll__height {
+    width: 1px;
+    pointer-events: none;
+    /* height is set dynamically by JS */
+  }
+  
+  .vc-hscroll__track {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    /* gap: clamp(10px, 4vw, 20px); */
+    padding: 0 0 0 4vw;
+    will-change: transform;
+    z-index: 51;
+    pointer-events: none;
+  }
+  
+  /* Allow clicks on children */
+  .vc-hscroll__track > * {
+    pointer-events: auto;
+    /* pointer-events: none; */
+
+  }
+  
+  
+  /* Intro panel: postcard + text side by side */
+  .vc-hscroll__panel--intro {
+    display: flex;
+    align-items: center;
+    gap: clamp(50px, 7vw, 100px);
+    flex-shrink: 0;
+    min-width: 100vw;
+    /* padding: 0 4vw; */
+    padding-right: 16vw;
+
+    justify-content: center;
+  }
+  
+  /* Detail postcard */
+  .vice-city-detail__postcard {
+    position: relative;
+    width: clamp(380px, 36vw, 530px);
+    background: #ffffff;
+    /* border-radius: 9px; */
+    overflow: visible;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: rotate(-6deg) translateY(60px) scale(0.9);
+    will-change: transform, opacity;
+  }
+  
+  .vice-city-detail__postcard::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    /* border-radius: 7px; */
+    box-shadow: 
+      0 35px 80px rgba(0, 0, 0, 0.55),
+      0 12px 30px rgba(0, 0, 0, 0.35);
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .vice-city-detail__postcard::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* border-radius: 5px; */
+    border: 9px solid #ffffff;
+    z-index: 4;
+    pointer-events: none;
+  }
+  
+  .vice-city-detail__postcard-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 12/9;
+    overflow: hidden;
+    border-radius: 3px 3px 0 0;
+  }
+  
+  .vice-city-detail__postcard-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .vice-city-detail__postcard-title {
+    position: absolute;
+    top: 15%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    /* font-family: 'Dancing Script', 'Brush Script MT', cursive; */
+    font-family: 'Outfit', sans-serif;
+
+    font-size: clamp(1.2rem, 2.8vw, 2.5rem);
+    font-weight: 600;
+    color: #ffffff;
+    white-space: nowrap;
+    z-index: 3;
+    pointer-events: none;
+    /* text-shadow: 
+      0 0 25px rgba(100, 180, 240, 0.45),
+      0 2px 6px rgba(0, 40, 80, 0.4); */
+  }
+  
+  .vice-city-detail__postcard-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    background: #ffffff;
+  }
+  
+  .vice-city-detail__postcard-footer-icon {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .vice-city-detail__postcard-footer-icon svg {
+    width: 100%;
+    height: auto;
+    color: #1a3a4a;
+  }
+  
+  .vice-city-detail__postcard-footer-text {
+    font-family: 'Outfit', sans-serif;
+    line-height: 1;
+  }
+  
+  .vice-city-detail__postcard-footer-text .visit-xs {
+    display: block;
+    font-size: 0.5rem;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #1a3a4a;
+  }
+  
+  .vice-city-detail__postcard-footer-text .leonida-xs {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #1a3a4a;
+    margin-top: -1px;
+  }
+  
+  /* Detail info */
+  .vice-city-detail__info {
+    max-width: 480px;
+    flex-shrink: 0;
+  }
+  
+  .vice-city-detail__heading {
+    font-family: 'Oswald', 'Impact', sans-serif;
+    font-size: clamp(3.2rem, 6vw, 5.5rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin: 0 0 30px 0;
+    opacity: 0;
+    transform: translateY(40px);
+    will-change: transform, opacity;
+    color: rgba(255, 170, 196, 0.987);
+  }
+  
+  .vice-city-detail__subheading {
+    font-family: 'Oswald', 'Impact', sans-serif;
+    font-size: clamp(0.85rem, 1.15vw, 1.05rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(252, 255, 195, 0.899);
+    line-height: 1.55;
+    margin: 0 0 26px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: transform, opacity;
+  }
+  
+  .vice-city-detail__description {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1rem, 1.25vw, 1.12rem);
+    font-weight: 300;
+    color: rgba(255, 215, 230, 0.913);
+    line-height: 1.75;
+    margin: 0;
+    letter-spacing: 0.015em;
+    opacity: 0;
+    transform: translateY(25px);
+    will-change: transform, opacity;
+  }
+  
+  /* ========================================
+     GALLERY IMAGES IN HORIZONTAL TRACK
+     ======================================== */
+     .vc-hscroll__img {
+      position: relative;
+      flex-shrink: 0;
+      border-radius: 0;
+      overflow: hidden;
+      background: transparent;
+      padding: 0;
+      box-shadow: none;
+      transition: padding 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                  background 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: pointer;
+    }
+    
+    .vc-hscroll__img:hover {
+      background: #ffffff;
+      padding: 4px;
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .vc-hscroll__stack {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(30px, 3vh, 35px);
+      flex-shrink: 0;
+    }
+  /* Stagger vertical positions */
+  .vc-hscroll__img:nth-child(odd) {
+    align-self: flex-start;
+    margin-top: 8vh;
+  }
+  
+  .vc-hscroll__img:nth-child(even) {
+    align-self: flex-end;
+    margin-bottom: 5vh;
+  }
+  
+  /* Size variants */
+  .vc-hscroll__img--tall {
+    width: clamp(280px, 24vw, 400px);
+    height: clamp(420px, 58vh, 680px);
+  }
+  
+  .vc-hscroll__img--wide {
+    width: clamp(380px, 32vw, 520px);
+    height: clamp(320px, 45vh, 520px);
+  }
+  
+  .vc-hscroll__img--large {
+    width: clamp(590px, 38vw, 600px);
+    height: clamp(600px, 52vh, 640px);
+  }
+  
+  /* Pink border */
+  .vc-hscroll__img--pink {
+    padding: 0px;
+    background: transparent
+  }
+  
+  .vc-hscroll__img--pink:hover {
+    background: linear-gradient(135deg, #e8a0c0, #d080a8);
+    padding: 4px;
+  }
+
+  .vc-hscroll__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0px;
+    display: block;
+    /* transition: transform 0.6s ease; */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.36, 1),
+                border-radius 0.5s ease;
+  }
+  
+  .vc-hscroll__img:hover img {
+    transform: scale(0.98);
+    /* border-radius: 4px; */
+  }
+  
+  /* Expand button */
+  .vc-hscroll__expand {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(200, 140, 180, 0.65);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    /* transition: background 0.3s ease, transform 0.3s ease; */
+    transition: opacity 0.3s ease, background 0.3s ease, transform 0.3s ease;
+
+    z-index: 5;
+    color: #ffffff;
+    pointer-events: none;
+  }
+  .vc-hscroll__img:hover .vc-hscroll__expand {
+    opacity: 1;
+    background: rgba(222, 205, 205, 0.85);
+    color: #1a1a1a;
+    transform: scale(1.05);
+  }
+  
+  .vc-hscroll__expand:hover {
+    background: rgba(200, 140, 180, 0.9);
+    transform: scale(1.1);
+  }
+  
+
+/* ========================================
+   IMAGE LIGHTBOX
+   ======================================== */
+
+   .vc-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .vc-lightbox__img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    cursor: default;
+    will-change: transform, opacity;
+  }
+  
+  .vc-lightbox__close {
+    position: fixed;
+    top: 28px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 20001;
+  }
+  
+  .vc-lightbox__close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 768px) {
+    .vc-lightbox__img {
+      max-width: 95vw;
+      max-height: 85vh;
+    }
+  
+    .vc-lightbox__close {
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  /* ========================================
+     VICE CITY DETAIL — RESPONSIVE
+     ======================================== */
+  
+  @media (max-width: 1024px) {
+    .vc-hscroll__panel--intro {
+      gap: 40px;
+      padding: 0 3vw;
+    }
+  
+    .vice-city-detail__postcard {
+      width: clamp(300px, 42vw, 420px);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .vc-hscroll__panel--intro {
+      flex-direction: column;
+      min-width: 100vw;
+      padding: 12vh 5vw 5vh;
+      gap: 30px;
+    }
+  
+    .vice-city-detail__postcard {
+      width: 80vw;
+    }
+  
+    .vice-city-detail__info {
+      max-width: 85vw;
+    }
+  
+    .vice-city-detail__back {
+      top: 20px;
+      left: 16px;
+    }
+  
+    .vc-hscroll__img--tall {
+      width: 65vw;
+      height: 55vh;
+    }
+  
+    .vc-hscroll__img--wide {
+      width: 75vw;
+      height: 45vh;
+    }
+  
+    .vc-hscroll__img--large {
+      width: 80vw;
+      height: 50vh;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .vice-city-detail__heading {
+      font-size: 2.8rem;
+    }
+  }
+  
+  
+  
+  
+  
+
+     /*  */
+  
+  @media (max-width: 1200px) {
+    .visit-leonida__postcard {
+      width: clamp(550px, 75vw, 850px);
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .visit-leonida__header {
+      gap: 30px;
+      padding: 0 6vw;
+    }
+    
+    .visit-leonida__postcard {
+      width: clamp(480px, 82vw, 750px);
+    }
+    
+    /* .vice-city-detail__content {
+      gap: 40px;
+      padding: 10vh 5vw;
+    }
+    
+    .vice-city-detail__postcard {
+      width: clamp(300px, 42vw, 420px);
+    } */
+  }
+  
+  @media (max-width: 768px) {
+    .visit-leonida-section {
+      height: 400vh;
+    }
+    
+    .visit-leonida__header {
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+    }
+    
+    .visit-leonida__logo-group {
+      flex-direction: column;
+    }
+    
+    .visit-leonida__logo-text {
+      text-align: center;
+    }
+    
+    .visit-leonida__divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(160, 212, 212, 0.3) 30%, rgba(160, 212, 212, 0.3) 70%, transparent 100%);
+    }
+    
+    .visit-leonida__tagline {
+      text-align: center;
+      max-width: 85vw;
+    }
+    
+    .visit-leonida__postcard {
+      width: 90vw;
+    }
+    
+    .visit-leonida__postcard-title {
+      font-size: clamp(2.8rem, 10vw, 4.5rem);
+    }
+    
+    .visit-leonida__postcard-footer {
+      padding: 14px 18px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    /* .vice-city-detail__content {
+      flex-direction: column;
+      padding: 14vh 5vw 8vh;
+      gap: 30px;
+    }
+    
+    .vice-city-detail__postcard {
+      width: 85vw;
+    }
+    
+    .vice-city-detail__info {
+      max-width: 90vw;
+    }
+    
+    .vice-city-detail__back {
+      top: 20px;
+      left: 16px;
+    } */
+  }
+  
+  @media (max-width: 480px) {
+    .visit-leonida-section {
+      height: 350vh;
+    }
+    
+    .visit-leonida__postcard-title {
+      font-size: 2.5rem;
+    }
+    
+    .visit-leonida__explore-btn {
+      font-size: 0.85rem;
+      padding: 9px 22px;
+    }
+    
+    /* .vice-city-detail__heading {
+      font-size: 2.8rem;
+    } */
+  }
+
+/* */
+/* ========================================
+   WORLD OF LEONIDA SECTION
+   ======================================== */
+
+   .world-section {
+    position: relative;
+    width: 100%;
+    height: 1500vh;
+    background: #0a0a0a;
+    /* background: transparent;   */
+  }
+  
+  .world-section__sticky {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Full-bleed artwork */
+  .world__bg {
+    position: absolute;
+    top: -8%;
+    left: -4%;
+    width: 108%;
+    height: 116%;
+    z-index: 1;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+  
+  .world__bg img {
+    width: 100%;
+    height: 100%;
+    overflow :hidden;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+/*   
+  .lucia__img {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), 0 12px 35px rgba(0, 0, 0, 0.4);
+    will-change: transform, opacity;
+  }
+  
+  .lucia__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+  
+  .lucia__img--1 {
+    left: 1vw;
+    top: 92vh;
+    width: clamp(700px, 38vw, 700px);
+    height: clamp(720px, 35vh, 550px);
+  } */
+  
+  
+  /* Warm gradient BG (like GTA VI Raul section — pink/lavender/warm) */
+  .world__gradient-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0;
+    will-change: opacity;
+    background: 
+      radial-gradient(ellipse 90% 80% at 20% 85%, rgba(180, 120, 150, 0.35) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 60% at 85% 20%, rgba(140, 120, 180, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(160, 130, 170, 0.12) 0%, transparent 45%),
+      radial-gradient(ellipse 120% 100% at 70% 60%, rgba(100, 80, 130, 0.2) 0%, transparent 50%),
+      linear-gradient(140deg, 
+        #1a1225 0%, 
+        #221830 15%, 
+        #2a1e38 30%, 
+        #2e2040 45%, 
+        #2a1e3a 60%, 
+        #221830 75%, 
+        #1a1228 90%, 
+        #120e1e 100%
+      );
+  }
+  
+  /* Content container */
+  .world__content {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+  }
+  
+  /* Character name — right side */
+  .world__name {
+    position: absolute;
+    left: 65vw;
+    top: 22%;
+    font-family: 'Oswald', 'Impact', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 0.95;
+    margin: 0;
+    letter-spacing: -0.01em;
+    text-shadow: 
+      0 4px 40px rgba(0, 0, 0, 0.6),
+      0 0 80px rgba(150, 100, 180, 0.15);
+    text-align: left;
+    will-change: transform, opacity;
+  }
+  
+  .world__quote {
+    position: absolute;
+    left: 65vw;
+    top: 48%;
+    max-width: 380px;
+    /* font-family: 'Cormorant Garamond', Georgia, serif; */
+    font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+    font-weight: 600;
+    color: #d74c88;
+    line-height: 1.2;
+    margin: 0;
+    text-align: left;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    will-change: transform, opacity;
+  }
+  
+  .world__desc {
+    position: absolute;
+    left: 65vw;
+    top: 64%;
+    max-width: 340px;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.65;
+    margin: 0;
+    text-align: left;
+    /* text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5); */
+    will-change: transform, opacity;
+  }
+
+  .world__desc {
+    position: absolute;
+  }
+
+  /* ========================================
+     GALLERY IMAGES — HOVER + EXPAND
+     ======================================== */
+  
+  .world__img {
+    
+    position: absolute;
+    overflow: hidden;
+    will-change: transform, opacity;
+    z-index: 15;
+    
+    /* cursor: pointer; */
+    /* pointer-events: auto; */
+    /* border: 3px solid transparent; */
+    /* transition: border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                background 0.4s cubic-bezier(0.22, 1, 0.36, 1); */
+  }
+
+  
+  .world__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); */
+  }
+  
+
+  
+  /* ========================================
+     IMAGE POSITIONS — STAGGERED LAYOUTS
+     ======================================== */
+  
+  /* Left, large — occupies left half */
+  .world__img--1 {
+    left: 0vw;
+    top: 0%;
+    width: 48%;
+    height: 97%;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Right, offset higher */
+  .world__img--2 {
+    left:50%;
+    top: 15%;
+    width: 35%;
+    height: 67%;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+  }
+  
+  /* Portrait — full left for quote phase */
+ 
+.world__img--3 {
+  right: 0;
+  left: auto;
+  top: 0%;
+  width: 50%;
+  height: 100%;
+}
+
+/* Img 4 — LEFT column (final pair) */
+.world__img--4 {
+  left: 12%;
+  /* right: auto; */
+  top: 40%;
+  width: 35%;
+  height: 55%;
+}
+
+/* Img 5 — RIGHT column (final pair) */
+.world__img--5 {
+  right: 22%;
+  /* left: auto; */
+  align-self: center;
+  top: 20%;
+  width: 28%;
+  height: 100%;
+}
+  
+  /* ========================================
+     BIG QUOTE SECTION
+     ======================================== */
+/*   
+  .world__quote-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    opacity: 0;
+    background: 
+      radial-gradient(ellipse 90% 80% at 75% 50%, rgba(50, 35, 25, 0.6) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 40%, rgba(80, 50, 30, 0.15) 0%, transparent 50%),
+      #0a0a0a;
+    will-change: opacity;
+  } */
+  .world__quote-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    opacity: 0;
+    background: transparent
+    ;
+    /* background: 
+      radial-gradient(ellipse 90% 80% at 25% 50%, rgba(50, 35, 25, 0.6) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 20% 40%, rgba(80, 50, 30, 0.15) 0%, transparent 50%),
+      #0a0a0a; */
+    will-change: opacity;
+  }
+
+
+  .world__big-quote {
+    position: absolute;
+    left: 6%;
+    right: auto;
+    top: 28%;
+    width: 42%;
+    z-index: 20;
+    font-family: 'Oswald', 'Impact', sans-serif;
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #e8c84c;
+    line-height: 1.15;
+    margin: 0;
+    text-align: left;
+    letter-spacing: -0.01em;
+    will-change: transform, opacity;
+  }
+  
+  /* ========================================
+     WORLD RESPONSIVE
+     ======================================== */
+  
+  @media (max-width: 1024px) {
+    .world__name {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      right: 5vw;
+    }
+  
+    .world__quote {
+      right: 5vw;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+    }
+  
+    .world__desc {
+      right: 5vw;
+      max-width: 320px;
+    }
+  
+    .world__big-quote {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .world-section {
+      height: 800vh;
+    }
+  
+    .world__name {
+      right: auto;
+      left: 5vw;
+      text-align: left;
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      top: 30%;
+    }
+  
+    .world__quote {
+      right: auto;
+      left: 5vw;
+      text-align: left;
+      max-width: 80vw;
+      top: 55%;
+    }
+  
+    .world__desc {
+      right: auto;
+      left: 5vw;
+      text-align: left;
+      max-width: 85vw;
+      top: 68%;
+    }
+  
+    .world__img--1 { left: 2%; width: 48%; }
+    .world__img--2 { right: 2%; width: 48%; }
+    .world__img--3 { width: 55%; height: 80%; }
+    .world__img--4 { left: 2%; width: 46%; }
+    .world__img--5 { right: 2%; width: 46%; }
+  
+    .world__big-quote {
+      right: 3%;
+      width: 40%;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      top: 25%;
+    }
+  
+    .world__expand {
+      width: 36px;
+      height: 36px;
+      bottom: 12px;
+      right: 12px;
+    }
+  
+    .world__expand svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .world-section {
+      height: 650vh;
+    }
+  
+    .world__name { font-size: 2rem; }
+    .world__quote { font-size: 1.2rem; }
+    .world__desc { font-size: 0.85rem; }
+    .world__img--3 { width: 60%; height: 70%; }
+    .world__big-quote { width: 35%; font-size: 1.3rem; }
+  }
+  
+/* ========================================
+   CINEMATIC FINALE SECTION
+   ======================================== */
+
+   .finale-section {
+    position: relative;
+    width: 100%;
+    height: 450vh;
+    background: #0a0a0a;
+  }
+  
+  .finale-section__sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #0a0a0a;
+    /* z-index: 2; */
+  }
+  
+  /* Full-bleed cinematic background */
+  .finale__bg {
+    position: absolute;
+    top: -8%;
+    left: -4%;
+    width: 108%;
+    height: 116%;
+    z-index: 1;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+  
+  .finale__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+  
+  /* Dark overlay for fade to black */
+  .finale__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: #0a0a0a;
+    opacity: 0;
+    will-change: opacity;
+  }
+  
+  /* Release content wrapper */
+  .finale__content {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none;
+  }
+  
+
+
+
+   .finale__logo {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22%;
+    z-index: 15;
+    will-change: transform, opacity;
+  }
+  
+  .finale__logo img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 30px rgba(255, 120, 80, 0.3));
+  }
+  
+  .finale__text-layer {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    pointer-events: none;
+  }
+  
+ 
+  .finale__text-dim {
+    z-index: 11;
+  }
+  
+  .finale__text-dim .finale__coming {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+    letter-spacing: 0.5em;
+    color: rgba(180, 80, 100, 0.35);
+    margin-bottom: 8px;
+  }
+  
+  .finale__text-dim .finale__date {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgba(200, 90, 90, 0.3);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  
+  .finale__text-dim .finale__year {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: rgba(180, 100, 80, 0.3);
+    line-height: 1;
+  }
+  
+  /* BRIGHT layer — full color, revealed by radial mask */
+  .finale__text-bright {
+    z-index: 12;
+    will-change: mask-image, -webkit-mask-image;
+  }
+  
+  .finale__text-bright .finale__coming {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+    letter-spacing: 0.5em;
+    background: linear-gradient(95deg, hsla(331, 60%, 57%, 0.66) 0%, #fd79a8 40%, #e17055 70%, #f39c12 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 8px;
+  }
+  
+  .finale__text-bright .finale__date {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    background: linear-gradient(95deg, #e84393 0%, #fd79a8 25%, #e17055 55%, #f39c12 85%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  
+  .finale__text-bright .finale__year {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    background: linear-gradient(95deg, #f39c12 0%, #e17055 40%, #fd79a8 70%, #e84393 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+  }
+  
+  /* GLOW layer — warm edge during wipe */
+  .finale__text-glow {
+    z-index: 13;
+    pointer-events: none;
+    will-change: mask-image, -webkit-mask-image;
+  }
+  
+  .finale__text-glow .finale__coming {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+    letter-spacing: 0.5em;
+    color: rgb(255, 200, 140);
+    text-shadow: 0 0 40px rgba(255, 150, 100, 0.9), 0 0 80px rgba(255, 120, 80, 0.5);
+    margin-bottom: 8px;
+  }
+  
+  .finale__text-glow .finale__date {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgb(255, 180, 120);
+    text-shadow: 0 0 50px rgba(255, 140, 90, 0.9), 0 0 100px rgba(255, 100, 70, 0.5);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  
+  .finale__text-glow .finale__year {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: rgb(255, 190, 130);
+    text-shadow: 0 0 45px rgba(255, 150, 100, 0.8), 0 0 90px rgba(255, 110, 70, 0.4);
+    line-height: 1;
+  }
+  
+  /* Platforms */
+  .finale__platforms {
+    position: absolute;
+    bottom: 18vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    will-change: transform, opacity;
+    pointer-events: auto;
+  }
+  
+  .finale__platform {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(0.75rem, 1.2vw, 1rem);
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+  }
+  
+  .finale__platform-divider {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 1.2rem;
+  }
+  
+  /* ========================================
+     FINALE RESPONSIVE
+     ======================================== */
+  
+  @media (max-width: 768px) {
+    .finale-section {
+      height: 600vh;
+    }
+  
+    .finale__logo {
+      width: clamp(80px, 25vw, 140px);
+      margin-bottom: 25px;
+    }
+  
+    .finale__platforms {
+      bottom: 12vh;
+      gap: 12px;
+    }
+  
+    .finale__platform {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .finale-section {
+      height: 500vh;
+    }
+  
+    .finale__logo {
+      width: 70px;
+    }
+  
+    .finale__platforms {
+      bottom: 8vh;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  /* ========================================
+   FOOTER SECTION
+   ======================================== */
+
+/* .footer-section {
+  position: relative;
+  width: 100%;
+  background: #141418;
+  padding: 80px 0 60px;
+  z-index: 5;
+} */
+
+.footer-section {
+  position: relative;
+  width: 100%;
+  background: #0a0a0a;
+  padding: 80px 0 60px;
+  /* z-index: 5; */
+}
+
+.footer__content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Wishlist */
+.footer__wishlist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.footer__wishlist-title {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.footer__wishlist-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.footer__platform-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.footer__platform-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.footer__platform-icon {
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+
+/* Newsletter */
+.footer__newsletter {
+  margin-bottom: 50px;
+}
+
+.footer__newsletter-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 30px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 80px;
+  flex-wrap: wrap;
+}
+
+.footer__newsletter-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer__newsletter-logo {
+  font-family: 'Oswald', 'Impact', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.02em;
+}
+
+.footer__newsletter-title {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer__newsletter-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 400px;
+}
+
+/* Footer Links */
+.footer__links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.footer__links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+}
+
+.footer__links a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Rating */
+.footer__rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.footer__rating-badge {
+  width: 50px;
+  height: 65px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+
+.footer__rating-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.footer__rating-text a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+}
+
+/* Footer Responsive */
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 50px 0 40px;
+  }
+
+  .footer__wishlist {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer__newsletter-inner {
+    flex-direction: column;
+    border-radius: 24px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .footer__newsletter-left {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer__links {
+    gap: 16px;
+  }
+
+  .footer__rating {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ========================================
+   PERFORMANCE
+   ======================================== */
+
+   * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .story__text-dim,
+  .story__text-bright,
+  .story__text-glow,
+  .story__exit-container {
+    will-change: mask-image, -webkit-mask-image, transform, opacity;
+    backface-visibility: hidden;
+  }
+  
+  .story__bg-image,
+  .story__gallery-item,
+  .jason__name,
+  .jason__quote,
+  .jason__desc,
+  .jason__img {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .story__scroll-hint {
+      animation: none;
+    }
+  }
+  /* ////// */
+  /* /////// */
