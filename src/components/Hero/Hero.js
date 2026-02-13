@@ -898,7 +898,8 @@ const Hero = () => {
 //   }
 // });
 
-//4
+//4 // original and currently this is working on 13feb
+
 ScrollTrigger.create({
   trigger: hero,
   start: 'top top',
@@ -943,35 +944,132 @@ ScrollTrigger.create({
       }
     }
     // EXIT PHASE (0.67 - 0.85) - Logo AND text exit together
-    else if (scrollProgress >= 0.67) {
-      updateRadialMasks(1);
-      gsap.set(platforms, { opacity: 0 });
-      if (dimLayer) dimLayer.style.opacity = '0';
+    // else if (scrollProgress >= 0.67) {
+    //   updateRadialMasks(1);
+    //   gsap.set(platforms, { opacity: 0 });
+    //   if (dimLayer) dimLayer.style.opacity = '0';
       
-      // Calculate exit progress (0 to 1 over 0.67 to 0.85 range)
-      const exitProgress = Math.min(1, (scrollProgress - 0.67) / 0.18);
+    //   // Calculate exit progress (0 to 1 over 0.67 to 0.85 range)
+    //   const exitProgress = Math.min(1, (scrollProgress - 0.67) / 0.18);
       
-      // Scale down release info during exit
-      const scale = 1 - (exitProgress * 0.6);
-      releaseInfo.style.transform = `translate(-50%, -25%) scale(${scale})`;
+    //   // Scale down release info during exit
+    //   const scale = 1 - (exitProgress * 0.6);
+    //   releaseInfo.style.transform = `translate(-50%, -25%) scale(${scale})`;
       
-      // Apply exit mask to BOTH logo and text
-      if (exitContainer) {
-        const size = Math.max(0, 300 - (exitProgress * 330));
-        const yPos = 30 - (exitProgress * 20);
+    //   // Apply exit mask to BOTH logo and text
+    //   if (exitContainer) {
+    //     const size = Math.max(0, 300 - (exitProgress * 330));
+    //     const yPos = 30 - (exitProgress * 20);
         
-        if (size <= 5) {
-          exitContainer.style.webkitMaskImage = 'radial-gradient(ellipse 0% 0% at 50% 10%, black 0%, transparent 0%)';
-          exitContainer.style.maskImage = 'radial-gradient(ellipse 0% 0% at 50% 10%, black 0%, transparent 0%)';
-        } else {
-          const mask = `radial-gradient(ellipse ${size}% ${size * 2}% at 50% ${yPos}%, black 0%, black 50%, transparent 100%)`;
-          exitContainer.style.webkitMaskImage = mask;
-          exitContainer.style.maskImage = mask;
-        }
-      }
-    }
+    //     if (size <= 5) {
+    //       exitContainer.style.webkitMaskImage = 'radial-gradient(ellipse 0% 0% at 50% 10%, black 0%, transparent 0%)';
+    //       exitContainer.style.maskImage = 'radial-gradient(ellipse 0% 0% at 50% 10%, black 0%, transparent 0%)';
+    //     } else {
+    //       const mask = `radial-gradient(ellipse ${size}% ${size * 2}% at 50% ${yPos}%, black 0%, black 50%, transparent 100%)`;
+    //       exitContainer.style.webkitMaskImage = mask;
+    //       exitContainer.style.maskImage = mask;
+    //     }
+    //   }
+    // }
+    //new exit phase 
+    else if (scrollProgress >= 0.67) {
+            // 1. Keep the previous reveal mask fully open
+            updateRadialMasks(1);
+            gsap.set(platforms, { opacity: 0 });
+            if (dimLayer) dimLayer.style.opacity = '0';
+            
+            // 2. Calculate exit progress (0 to 1)
+            const exitProgress = Math.min(1, (scrollProgress - 0.67) / 0.18);
+            
+            // 3. REMOVE MASK: Reset the mask so it stays fully visible
+            if (exitContainer) {
+              exitContainer.style.webkitMaskImage = 'none';
+              exitContainer.style.maskImage = 'none';
+              
+              // 4. ADD SIMPLE FADE: Instead of shrinking, just lower the opacity
+              exitContainer.style.opacity = String(1 - exitProgress);
+            }
+          
+            // 5. OPTIONAL: Keep the logo position steady (No scaling down)
+            releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+          }
+        
   }
 });
+
+
+
+//gemini version with change in this the reveal text is coming properly but the exit is getting changed , the completer screeen is moving upward 
+
+
+// ScrollTrigger.create({
+//   trigger: hero,
+//   start: 'top top',
+//   end: '150% top', //100
+//   scrub: 0.5,
+//   onUpdate: (self) => {
+//     const scrollProgress = self.progress;
+//     const dimLayer = document.querySelector('.hero__text-dim');
+//     const exitContainer = exitContainerRef.current;
+    
+//     // BEFORE RELEASE TEXT APPEARS (< 0.42)
+//     if (scrollProgress < 0.40) {
+//       updateRadialMasks(0);
+//       gsap.set(platforms, { opacity: 0 });
+//       if (dimLayer) dimLayer.style.opacity = '1';
+//       releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+      
+//       // Reset exit mask
+//       if (exitContainer) {
+//         exitContainer.style.webkitMaskImage = 'none';
+//         exitContainer.style.maskImage = 'none';
+//       }
+//     }
+//     // GLOW PHASE (0.42 - 0.67) - Original text reveal animation
+//     else if (scrollProgress >= 0.42 && scrollProgress < 0.67) {
+//       const wipeProgress = (scrollProgress - 0.42) / 0.25; // Adjusted range
+//       updateRadialMasks(wipeProgress);
+      
+//       if (dimLayer) dimLayer.style.opacity = String(1 - (wipeProgress * 0.5));
+//       releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+      
+//       if (wipeProgress > 0.35 && wipeProgress < 0.85) {
+//         gsap.to(platforms, { opacity: 1, duration: 0.2, overwrite: true });
+//       } else {
+//         gsap.to(platforms, { opacity: 0, duration: 0.2, overwrite: true });
+//       }
+      
+//       // Reset exit mask
+//       if (exitContainer) {
+//         exitContainer.style.webkitMaskImage = 'none';
+//         exitContainer.style.maskImage = 'none';
+//       }
+//     }
+//     // EXIT PHASE (0.67 - 0.85) - Logo AND text exit together
+   
+//     else if (scrollProgress >= 0.67) {
+//       // 1. Keep the previous reveal mask fully open
+//       updateRadialMasks(1);
+//       gsap.set(platforms, { opacity: 0 });
+//       if (dimLayer) dimLayer.style.opacity = '0';
+      
+//       // 2. Calculate exit progress (0 to 1)
+//       const exitProgress = Math.min(1, (scrollProgress - 0.67) / 0.18);
+      
+//       // 3. REMOVE MASK: Reset the mask so it stays fully visible
+//       if (exitContainer) {
+//         exitContainer.style.webkitMaskImage = 'none';
+//         exitContainer.style.maskImage = 'none';
+        
+//         // 4. ADD SIMPLE FADE: Instead of shrinking, just lower the opacity
+//         exitContainer.style.opacity = String(1 - exitProgress);
+//       }
+    
+//       // 5. OPTIONAL: Keep the logo position steady (No scaling down)
+//       releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+//     }
+//   }
+// });
       // tl.to(releaseInfo, { opacity: 0, duration: 0.04, ease: 'none' }, 0.92);
       // tl.to(textGroup, { y: -500, opacity: 0, duration: 0.05, ease: 'none' }, 0.93);
 

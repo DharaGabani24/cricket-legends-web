@@ -142,18 +142,6 @@ const Story = () => {
 
   
   
-// // Cinematic Outro section refs
-// const outroSectionRef = useRef(null);
-// const outroStickyRef = useRef(null);
-// const outroImageRef = useRef(null);
-// const outroOverlayRef = useRef(null);
-
-// // Logo Reveal section refs
-// const logoRevealSectionRef = useRef(null);
-// const logoRevealStickyRef = useRef(null);
-// const logoRevealBgRef = useRef(null);
-// const logoRevealLogoRef = useRef(null);
-// const logoRevealDateRef = useRef(null);
 
 
 // Cinematic Finale refs
@@ -186,13 +174,41 @@ const worldBigQuoteBgRef = useRef(null);
 const worldImg4Ref = useRef(null);
 const worldImg5Ref = useRef(null);
 const worldContentRef = useRef(null);
+const worldQuote2Ref = useRef(null);
+const worldDesc2Ref = useRef(null);
 
-  // Gallery refs
-  // const galleryRef = useRef(null);
-  // const galleryImg1Ref = useRef(null);
-  // const galleryImg2Ref = useRef(null);
-  // const galleryImg3Ref = useRef(null);
-  // const galleryImg4Ref = useRef(null);
+
+// Discover/Ambrosia section refs
+const discoverSectionRef = useRef(null);
+const discoverStickyRef = useRef(null);
+const discoverBgRef = useRef(null);
+const discoverHeaderRef = useRef(null);
+const discoverIconRef = useRef(null);
+const discoverLogoTextRef = useRef(null);
+const discoverDividerRef = useRef(null);
+const discoverTaglineRef = useRef(null);
+const discoverOrb1Ref = useRef(null);
+const discoverOrb2Ref = useRef(null);
+const discoverOrb3Ref = useRef(null);
+const discoverPostcardWrapperRef = useRef(null);
+const discoverPostcardRef = useRef(null);
+const discoverPostcardTitleRef = useRef(null);
+const discoverParticlesRef = useRef(null);
+
+// Discover detail overlay refs
+const discoverDetailRef = useRef(null);
+const discoverDetailBgRef = useRef(null);
+const discoverDetailBackRef = useRef(null);
+const discoverDetailPostcardRef = useRef(null);
+const discoverDetailHeadingRef = useRef(null);
+const discoverDetailSubheadingRef = useRef(null);
+const discoverDetailDescRef = useRef(null);
+const discoverHscrollRef = useRef(null);
+const discoverHscrollHeightRef = useRef(null);
+const discoverGalleryTrackRef = useRef(null);
+const discoverScrollHandlerRef = useRef(null);
+
+const [discoverDetailOpen, setDiscoverDetailOpen] = useState(false);
 
   // Lightbox handlers
 const openLightbox = (imageSrc) => {
@@ -285,78 +301,78 @@ const closeLightbox = () => {
       // MAIN SCROLL ANIMATION
       // ========================================
       
-      ScrollTrigger.create({
-        trigger: story,
-        start: 'top top',
-        end: '100% top',
-        scrub: 1.5,
-        pin: stickyContainer,
-        pinSpacing: false,
-        onUpdate: (self) => {
-          const p = self.progress;
+//       ScrollTrigger.create({
+//         trigger: story,
+//         start: 'top top',
+//         end: '100% top',
+//         scrub: 1.5,
+//         pin: stickyContainer,
+//         pinSpacing: false,
+//         onUpdate: (self) => {
+//           const p = self.progress;
           
-          // ========================================
-          // PHASE 1: VICE CITY TEXT REVEAL (0 - 0.10)
-          // ========================================
-          if (p < 0.10) {
-            const revealProgress = p / 0.10;
-            updateRadialMasks(revealProgress * 0.5);
-            if (textDim) textDim.style.opacity = String(1 - (revealProgress * 0.7));
-            storyText.style.transform = 'scale(1)';
-            storyText.style.opacity = '1';
-            gsap.set(bgImage, { opacity: 0, scale: 1.1 });
-            if (exitContainer) {
-              exitContainer.style.webkitMaskImage = 'none';
-              exitContainer.style.maskImage = 'none';
-            }
-            // Jason hidden below
-            gsap.set(jasonName, { y: '100vh' });
-            gsap.set(jasonQuote, { y: '100vh' });
-            gsap.set(jasonDesc, { y: '100vh' });
-            gsap.set(jasonImg1, { y: '100vh', opacity: 0 });
-            gsap.set(jasonImg2, { y: '100vh', opacity: 0 });
-            gsap.set(jasonImg3, { y: '100vh', opacity: 0 });
-          }
+//           // ========================================
+//           // PHASE 1: VICE CITY TEXT REVEAL (0 - 0.10)
+//           // ========================================
+//           if (p < 0.10) {
+//             const revealProgress = p / 0.10;
+//             updateRadialMasks(revealProgress * 0.5);
+//             if (textDim) textDim.style.opacity = String(1 - (revealProgress * 0.7));
+//             storyText.style.transform = 'scale(1)';
+//             storyText.style.opacity = '1';
+//             gsap.set(bgImage, { opacity: 0, scale: 1.1 });
+//             if (exitContainer) {
+//               exitContainer.style.webkitMaskImage = 'none';
+//               exitContainer.style.maskImage = 'none';
+//             }
+//             // Jason hidden below
+//             gsap.set(jasonName, { y: '100vh' });
+//             gsap.set(jasonQuote, { y: '100vh' });
+//             gsap.set(jasonDesc, { y: '100vh' });
+//             gsap.set(jasonImg1, { y: '100vh', opacity: 0 });
+//             gsap.set(jasonImg2, { y: '100vh', opacity: 0 });
+//             gsap.set(jasonImg3, { y: '100vh', opacity: 0 });
+//           }
           
        
-          // ========================================
-          // PHASE 2: TEXT EXIT + BG FADE IN (0.10 - 0.25)
-          // ========================================
-          // else if (p >= 0.10 && p < 0.25) {
-          //   const exitProgress = (p - 0.10) / 0.15;
-          //   updateRadialMasks(0.5 + (exitProgress * 0.5));
-          //   if (textDim) textDim.style.opacity = '0';
-          //   const textScale = 1 - (exitProgress * 0.08);
-          //   storyText.style.transform = `scale(${Math.max(0.92, textScale)})`;
+//           // ========================================
+//           // PHASE 2: TEXT EXIT + BG FADE IN (0.10 - 0.25)
+//           // ========================================
+//           // else if (p >= 0.10 && p < 0.25) {
+//           //   const exitProgress = (p - 0.10) / 0.15;
+//           //   updateRadialMasks(0.5 + (exitProgress * 0.5));
+//           //   if (textDim) textDim.style.opacity = '0';
+//           //   const textScale = 1 - (exitProgress * 0.08);
+//           //   storyText.style.transform = `scale(${Math.max(0.92, textScale)})`;
             
-          //   if (exitContainer) {
-          //     const size = Math.max(0, 300 - (exitProgress * 330));
-          //     const yPos = 50 - (exitProgress * 30);
-          //     if (size <= 5) {
-          //       exitContainer.style.webkitMaskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
-          //       exitContainer.style.maskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
-          //     } else {
-          //       const mask = `radial-gradient(ellipse ${size}% ${size * 1.5}% at 50% ${yPos}%, black 0%, black 60%, transparent 100%)`;
-          //       exitContainer.style.webkitMaskImage = mask;
-          //       exitContainer.style.maskImage = mask;
-          //     }
-          //   }
+//           //   if (exitContainer) {
+//           //     const size = Math.max(0, 300 - (exitProgress * 330));
+//           //     const yPos = 50 - (exitProgress * 30);
+//           //     if (size <= 5) {
+//           //       exitContainer.style.webkitMaskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
+//           //       exitContainer.style.maskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
+//           //     } else {
+//           //       const mask = `radial-gradient(ellipse ${size}% ${size * 1.5}% at 50% ${yPos}%, black 0%, black 60%, transparent 100%)`;
+//           //       exitContainer.style.webkitMaskImage = mask;
+//           //       exitContainer.style.maskImage = mask;
+//           //     }
+//           //   }
             
-          //   // BG fades in (delayed)
-          //   const bgDelay = 0.5;
-          //   const bgProgress = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
-          //   gsap.set(bgImage, { opacity: Math.min(1, bgProgress), scale: 1.1 - (bgProgress * 0.05) });
+//           //   // BG fades in (delayed)
+//           //   const bgDelay = 0.5;
+//           //   const bgProgress = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
+//           //   gsap.set(bgImage, { opacity: Math.min(1, bgProgress), scale: 1.1 - (bgProgress * 0.05) });
             
-          //   // Jason still hidden
-          //   gsap.set(jasonName, { y: '100vh' });
-          // }
+//           //   // Jason still hidden
+//           //   gsap.set(jasonName, { y: '100vh' });
+//           // }
           
 
 
-          // ========================================
-// PHASE 2: TEXT EXIT + BG FADE IN (0.10 - 0.25)
-// Smooth scale-down + opacity fade, BG crossfades underneath
-// ========================================
+//       //    ========================================
+// //PHASE 2: TEXT EXIT + BG FADE IN (0.10 - 0.25)
+// //Smooth scale-down + opacity fade, BG crossfades underneath
+// //========================================
 // else if (p >= 0.10 && p < 0.25) {
 //   const exitProgress = (p - 0.10) / 0.15;
   
@@ -406,203 +422,518 @@ const closeLightbox = () => {
 
 
 
-// ========================================
-// PHASE 2: TEXT EXIT — RADIAL WIPE REVERSES (0.10 - 0.25)
-// Same luminance wipe but in reverse (bright → dim)
-// ========================================
-else if (p >= 0.10 && p < 0.25) {
-  const exitProgress = (p - 0.10) / 0.15;
+// // // ========================================
+// // // PHASE 2: TEXT EXIT — RADIAL WIPE REVERSES (0.10 - 0.25)
+// // // Same luminance wipe but in reverse (bright → dim)
+// // // ========================================
+// // else if (p >= 0.10 && p < 0.25) {
+// //   const exitProgress = (p - 0.10) / 0.15;
   
-  // Easing — fast start, slow end
-  const eased = 1 - Math.pow(1 - exitProgress, 3);
+// //   // Easing — fast start, slow end
+// //   const eased = 1 - Math.pow(1 - exitProgress, 3);
   
-  // Reverse the radial mask: from 0.5 back to 1.0 (sweeps back down)
-  // 0.5 = fully revealed, 1.0 = fully hidden (circle collapsed to top)
-  updateRadialMasks(0.5 + (eased * 0.5));
+// //   // Reverse the radial mask: from 0.5 back to 1.0 (sweeps back down)
+// //   // 0.5 = fully revealed, 1.0 = fully hidden (circle collapsed to top)
+// //   updateRadialMasks(0.5 + (eased * 0.5));
   
-  // Dim layer comes back as bright leaves
-  if (textDim) textDim.style.opacity = String(0.3 + (eased * 0.7));
+// //   // Dim layer comes back as bright leaves
+// //   if (textDim) textDim.style.opacity = String(0.3 + (eased * 0.7));
   
-  // Overall container fades out toward end
-  if (exitContainer) {
-    const containerFade = exitProgress > 0.7 
-      ? 1 - ((exitProgress - 0.7) / 0.3) 
-      : 1;
-    exitContainer.style.opacity = String(Math.max(0, containerFade));
-  }
+// //   // Overall container fades out toward end
+// //   if (exitContainer) {
+// //     const containerFade = exitProgress > 0.7 
+// //       ? 1 - ((exitProgress - 0.7) / 0.3) 
+// //       : 1;
+// //     exitContainer.style.opacity = String(Math.max(0, containerFade));
+// //   }
   
-  // BG fades in (delayed)
-  const bgDelay = 0.45;
-  const bgProgress = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
-  const bgEased = 1 - Math.pow(1 - bgProgress, 2);
-  gsap.set(bgImage, { opacity: Math.min(1, bgEased), scale: 1.1 - (bgEased * 0.05) });
+// //   // BG fades in (delayed)
+// //   const bgDelay = 0.45;
+// //   const bgProgress = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
+// //   const bgEased = 1 - Math.pow(1 - bgProgress, 2);
+// //   gsap.set(bgImage, { opacity: Math.min(1, bgEased), scale: 1.1 - (bgEased * 0.05) });
   
-  // Jason hidden
-  gsap.set(jasonName, { y: '100vh' });
-  gsap.set(jasonQuote, { y: '100vh' });
-  gsap.set(jasonDesc, { y: '100vh' });
-  gsap.set(jasonImg1, { y: '100vh', opacity: 0 });
-  gsap.set(jasonImg2, { y: '100vh', opacity: 0 });
-  gsap.set(jasonImg3, { y: '100vh', opacity: 0 });
-}
+// //   // Jason hidden
+// //   gsap.set(jasonName, { y: '100vh' });
+// //   gsap.set(jasonQuote, { y: '100vh' });
+// //   gsap.set(jasonDesc, { y: '100vh' });
+// //   gsap.set(jasonImg1, { y: '100vh', opacity: 0 });
+// //   gsap.set(jasonImg2, { y: '100vh', opacity: 0 });
+// //   gsap.set(jasonImg3, { y: '100vh', opacity: 0 });
+// // }
 
 
-// new latest for checking
+// // new latest for checking
 
 
-          // ========================================
-          // PHASE 3: JASON NAME SCROLLS UP (0.25 - 0.35)
-          // ========================================
-          else if (p >= 0.25 && p < 0.35) {
-            const phase3 = (p - 0.25) / 0.10;
+//           // ========================================
+//           // PHASE 3: JASON NAME SCROLLS UP (0.25 - 0.35)
+//           // ========================================
+//           else if (p >= 0.25 && p < 0.35) {
+//             const phase3 = (p - 0.25) / 0.10;
             
-            if (exitContainer) {
-              exitContainer.style.webkitMaskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
-              exitContainer.style.maskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
-            }
+//             if (exitContainer) {
+//               exitContainer.style.webkitMaskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
+//               exitContainer.style.maskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
+//             }
             
-            // BG starts fading immediately and faster
-            const bgOpacity = 1 - (phase3 * 0.7);
-            gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
+//             // BG starts fading immediately and faster
+//             const bgOpacity = 1 - (phase3 * 0.7);
+//             gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
               
-            // All elements share the same base scroll position
-            const baseScroll = phase3 * 600;
+//             // All elements share the same base scroll position
+//             const baseScroll = phase3 * 600;
             
-            gsap.set(jasonName, { y: 800 - baseScroll });
-            gsap.set(jasonQuote, { y: 900 - baseScroll });
-            gsap.set(jasonDesc, { y: 1050 - baseScroll });
-            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-          }
+//             gsap.set(jasonName, { y: 800 - baseScroll });
+//             gsap.set(jasonQuote, { y: 900 - baseScroll });
+//             gsap.set(jasonDesc, { y: 1050 - baseScroll });
+//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
+//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
+//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
+//           }
           
-          // ========================================
-          // PHASE 4: QUOTE ENTERS (0.35 - 0.45)
-          // ========================================
-          else if (p >= 0.35 && p < 0.45) {
-            const phase4 = (p - 0.35) / 0.10;
+//           // ========================================
+//           // PHASE 4: QUOTE ENTERS (0.35 - 0.45)
+//           // ========================================
+//           else if (p >= 0.35 && p < 0.45) {
+//             const phase4 = (p - 0.35) / 0.10;
             
-            // BG continues fading
-            const bgOpacity = 0.3 - (phase4 * 0.3); 
-            gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
+//             // BG continues fading
+//             const bgOpacity = 0.3 - (phase4 * 0.3); 
+//             gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
 
-            const baseScroll = 600 + (phase4 * 400);
+//             const baseScroll = 600 + (phase4 * 400);
             
-            gsap.set(jasonName, { y: 800 - baseScroll });
-            gsap.set(jasonQuote, { y: 900 - baseScroll });
-            gsap.set(jasonDesc, { y: 1050 - baseScroll });
-            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-          }
+//             gsap.set(jasonName, { y: 800 - baseScroll });
+//             gsap.set(jasonQuote, { y: 900 - baseScroll });
+//             gsap.set(jasonDesc, { y: 1050 - baseScroll });
+//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
+//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
+//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
+//           }
 
-          // ========================================
-          // PHASE 5: DESC + IMG1 VISIBLE (0.45 - 0.55)
-          // ========================================
-          else if (p >= 0.45 && p < 0.55) {
-            const phase5 = (p - 0.45) / 0.10;
+//           // ========================================
+//           // PHASE 5: DESC + IMG1 VISIBLE (0.45 - 0.55)
+//           // ========================================
+//           else if (p >= 0.45 && p < 0.55) {
+//             const phase5 = (p - 0.45) / 0.10;
             
-            gsap.set(bgImage, { opacity: 0 });
+//             gsap.set(bgImage, { opacity: 0 });
 
-            const baseScroll = 1000 + (phase5 * 300);
+//             const baseScroll = 1000 + (phase5 * 300);
             
-            gsap.set(jasonName, { y: 800 - baseScroll });
-            gsap.set(jasonQuote, { y: 900 - baseScroll });
-            gsap.set(jasonDesc, { y: 1050 - baseScroll });
-            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-          }
+//             gsap.set(jasonName, { y: 800 - baseScroll });
+//             gsap.set(jasonQuote, { y: 900 - baseScroll });
+//             gsap.set(jasonDesc, { y: 1050 - baseScroll });
+//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
+//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
+//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
+//           }
 
-          // ========================================
-          // PHASE 6: BG FADES, IMG2 VISIBLE (0.55 - 0.65)
-          // ========================================
-          else if (p >= 0.55 && p < 0.65) {
-            const phase6 = (p - 0.55) / 0.10;
+//           // ========================================
+//           // PHASE 6: BG FADES, IMG2 VISIBLE (0.55 - 0.65)
+//           // ========================================
+//           else if (p >= 0.55 && p < 0.65) {
+//             const phase6 = (p - 0.55) / 0.10;
             
-            gsap.set(bgImage, { opacity: 0 });  
+//             gsap.set(bgImage, { opacity: 0 });  
 
-            const baseScroll = 1300 + (phase6 * 250);
+//             const baseScroll = 1300 + (phase6 * 250);
             
-            gsap.set(jasonName, { y: 800 - baseScroll });
-            gsap.set(jasonQuote, { y: 900 - baseScroll });
-            gsap.set(jasonDesc, { y: 1050 - baseScroll });
-            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-          }
+//             gsap.set(jasonName, { y: 800 - baseScroll });
+//             gsap.set(jasonQuote, { y: 900 - baseScroll });
+//             gsap.set(jasonDesc, { y: 1050 - baseScroll });
+//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
+//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
+//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
+//           }
 
-          // ========================================
-          // PHASE 7: BG BLACK, ALL VISIBLE (0.65 - 0.75)
-          // ========================================
-          else if (p >= 0.65 && p < 0.75) {
-            const phase7 = (p - 0.65) / 0.10;
+//           // ========================================
+//           // PHASE 7: BG BLACK, ALL VISIBLE (0.65 - 0.75)
+//           // ========================================
+//           else if (p >= 0.65 && p < 0.75) {
+//             const phase7 = (p - 0.65) / 0.10;
             
-            gsap.set(bgImage, { opacity: 0 });
+//             gsap.set(bgImage, { opacity: 0 });
 
-            const baseScroll = 1550 + (phase7 * 200);
+//             const baseScroll = 1550 + (phase7 * 200);
             
-            // Text starts fading
-            const textOpacity = 1 - phase7;
-            gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
-            gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
-            gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
-            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-          }
+//             // Text starts fading
+//             const textOpacity = 1 - phase7;
+//             gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
+//             gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
+//             gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
+//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
+//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
+//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
+//           }
 
-          // ========================================
-          // PHASE 8: IMAGES ONLY (0.75 - 0.85)
-          // ========================================
-          else if (p >= 0.75 && p < 0.85) {
-            const phase8 = (p - 0.75) / 0.10;
+//           // ========================================
+//           // PHASE 8: IMAGES ONLY (0.75 - 0.85)
+//           // ========================================
+//           else if (p >= 0.75 && p < 0.85) {
+//             const phase8 = (p - 0.75) / 0.10;
             
-            gsap.set(bgImage, { opacity: 0 });
+//             gsap.set(bgImage, { opacity: 0 });
             
-            const baseScroll = 1750 + (phase8 * 200);
+//             const baseScroll = 1750 + (phase8 * 200);
             
-            gsap.set(jasonName, { opacity: 0 });
-            gsap.set(jasonQuote, { opacity: 0 });
-            gsap.set(jasonDesc, { opacity: 0 });
-            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
+//             gsap.set(jasonName, { opacity: 0 });
+//             gsap.set(jasonQuote, { opacity: 0 });
+//             gsap.set(jasonDesc, { opacity: 0 });
+//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
+//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
+//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
 
 
 
-             // START fading in Lucia BG here
-             gsap.set(luciaBgImageRef.current, { opacity: phase8 * 0.4 });
+//              // START fading in Lucia BG here
+//              gsap.set(luciaBgImageRef.current, { opacity: phase8 * 0.4 });
 
 
-            }
+//             }
 
-          // ========================================
-          // PHASE 9: EXIT (0.85 - 1.0)
-          // ========================================
-          else if (p >= 0.85) {
-            const phase9 = (p - 0.85) / 0.15;
+//           // ========================================
+//           // PHASE 9: EXIT (0.85 - 1.0)
+//           // ========================================
+//           else if (p >= 0.85) {
+//             const phase9 = (p - 0.85) / 0.15;
             
-            gsap.set(bgImage, { opacity: 0 });
+//             gsap.set(bgImage, { opacity: 0 });
             
-            const baseScroll = 1950 + (phase9 * 400);
-            const exitOpacity = 1 - phase9;
+//             const baseScroll = 1950 + (phase9 * 400);
+//             const exitOpacity = 1 - phase9;
             
-            gsap.set(jasonName, { opacity: 0 });
-            gsap.set(jasonQuote, { opacity: 0 });
-            gsap.set(jasonDesc, { opacity: 0 });
-            gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: exitOpacity });
-            gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: exitOpacity });
-            gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: exitOpacity });
+//             gsap.set(jasonName, { opacity: 0 });
+//             gsap.set(jasonQuote, { opacity: 0 });
+//             gsap.set(jasonDesc, { opacity: 0 });
+//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: exitOpacity });
+//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: exitOpacity });
+//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: exitOpacity });
 
 
-              // Continue fading in Lucia BG
-              gsap.set(luciaBgImageRef.current, { opacity: 0.4 + (phase9 * 0.4) });
+//               // Continue fading in Lucia BG
+//               gsap.set(luciaBgImageRef.current, { opacity: 0.4 + (phase9 * 0.4) });
 
-          }
-        }
+//           }
+//         }
+//       });
+// ////
+
+
+//gemini version 2  currently working 
+
+// ScrollTrigger.create({
+//   trigger: story,
+//   start: 'top top',
+//   end: '100% top',
+//   scrub: 1.5,
+//   pin: stickyContainer,
+//   pinSpacing: false,
+//   onUpdate: (self) => {
+//     const p = self.progress;
+
+//     // PHASE 1: VICE CITY TEXT REVEAL (0 - 0.10)
+//     if (p < 0.10) {
+//       const revealProgress = p / 0.10;
+//       updateRadialMasks(revealProgress * 0.5);
+//       if (textDim) textDim.style.opacity = String(1 - (revealProgress * 0.7));
+      
+      
+//       // gsap.set(storyText, { opacity: 1, scale: 1, y: 0 });
+
+//       //////
+//       gsap.set(storyText, { 
+//         opacity: 1, 
+//         scale: 1, 
+//         y: 0,
+//         position: 'absolute',
+//         top: '50%',
+//         left: '50%',
+//         xPercent: -50,
+//         yPercent: -50
+//       });
+
+//       gsap.set(bgImage, { opacity: 0, scale: 1.1 });
+      
+//       // Keep Jason hidden
+//       gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh', opacity: 0 });
+//     }
+
+//     // PHASE 2: TEXT EXIT + BG FADE IN (0.10 - 0.25)
+//     else if (p >= 0.10 && p < 0.25) {
+//       const exitProgress = (p - 0.10) / 0.15;
+      
+//       // Smooth out the progress variable itself
+//       const eased = gsap.parseEase("power2.inOut")(exitProgress);
+
+//       // Finish Masks
+//       updateRadialMasks(eased < 0.2 ? 0.5 + (eased / 0.2 * 0.5) : 1);
+      
+//       // Text Exit Logic (Shrink and Fade)
+//       const scale = 1 - (eased * 0.45);
+//       const yMove = -(eased * 200);
+//       const textOpacity = 1 - (eased * 1.2); // Fades slightly faster for smoothness
+
+//       // gsap.set(storyText, { 
+//       //   scale: Math.max(0.3, scale), 
+//       //   y: yMove, 
+//       //   opacity: Math.max(0, textOpacity) 
+//       // });
+
+//       gsap.set(storyText, { 
+//         // YOU MUST KEEP THESE HERE TOO
+//         top: '50%',
+//         left: '50%',
+//         xPercent: -50,
+//         yPercent: -50,
+//         // Then apply your movement
+//         y: yMove, 
+//         scale: Math.max(0.3, scale),
+//         opacity: Math.max(0, textOpacity) 
+//       });
+
+//       // BG Fade In
+//       const bgDelay = 0.4;
+//       const bgProg = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
+//       const bgEased = gsap.parseEase("power2.out")(bgProg);
+      
+//       gsap.set(bgImage, { 
+//         opacity: bgEased, 
+//         scale: 1.1 - (bgEased * 0.05) 
+//       });
+
+//       // Reset Exit Container
+//       if (exitContainer) {
+//         exitContainer.style.opacity = String(Math.max(0, textOpacity));
+//         exitContainer.style.webkitMaskImage = 'none';
+//       }
+      
+//       gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh' });
+//     }
+
+//     // PHASE 3 - 9: JASON CONTENT (0.25 - 1.0)
+//     // We use a unified calculation for all Jason phases to prevent "jumping"
+//     else if (p >= 0.25) {
+//       // Clear Phase 2 artifacts
+//       gsap.set(storyText, { opacity: 0 });
+//       if (exitContainer) exitContainer.style.webkitMaskImage = 'none';
+
+//       // Unified Scroll Logic
+//       let baseScroll = 0;
+//       let bgOpacity = 0;
+//       let textOpacity = 1;
+//       let imagesOpacity = 1;
+//       let luciaOpacity = 0;
+
+//       if (p < 0.35) { // Phase 3
+//         const ph = (p - 0.25) / 0.10;
+//         baseScroll = ph * 600;
+//         bgOpacity = 1 - (ph * 0.7);
+//       } 
+//       else if (p < 0.45) { // Phase 4
+//         const ph = (p - 0.35) / 0.10;
+//         baseScroll = 600 + (ph * 400);
+//         bgOpacity = 0.3 - (ph * 0.3);
+//       }
+//       else if (p < 0.55) { // Phase 5
+//         const ph = (p - 0.45) / 0.10;
+//         baseScroll = 1000 + (ph * 300);
+//         bgOpacity = 0;
+//       }
+//       else if (p < 0.65) { // Phase 6
+//         const ph = (p - 0.55) / 0.10;
+//         baseScroll = 1300 + (ph * 250);
+//         bgOpacity = 0;
+//       }
+//       else if (p < 0.75) { // Phase 7
+//         const ph = (p - 0.65) / 0.10;
+//         baseScroll = 1550 + (ph * 200);
+//         textOpacity = 1 - ph;
+//         bgOpacity = 0;
+//       }
+//       else if (p < 0.85) { // Phase 8
+//         const ph = (p - 0.75) / 0.10;
+//         baseScroll = 1750 + (ph * 200);
+//         textOpacity = 0;
+//         luciaOpacity = ph * 0.4;
+//       }
+//       else { // Phase 9
+//         const ph = (p - 0.85) / 0.15;
+//         baseScroll = 1950 + (ph * 400);
+//         imagesOpacity = 1 - ph;
+//         textOpacity = 0;
+//         luciaOpacity = 0.4 + (ph * 0.4);
+//       }
+
+      
+
+//       // Apply all values via GSAP set (much smoother than .style)
+//       gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
+//       gsap.set(luciaBgImageRef.current, { opacity: luciaOpacity });
+
+//       // Jason Text
+//       gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
+//       gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
+//       gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
+
+//       // Jason Images
+//       gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: imagesOpacity });
+//       gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: imagesOpacity });
+//       gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: imagesOpacity });
+//     }
+//   }
+// });
+      
+
+
+//gemini version 3 for checkiing with more scroll and slower reveal
+
+
+
+ScrollTrigger.create({
+  trigger: story,
+  start: 'top top',
+  end: '100% top',
+  scrub: 1.5,
+  pin: stickyContainer,
+  pinSpacing: false,
+  onUpdate: (self) => {
+    const p = self.progress;
+
+    // ========================================
+    // PHASE 1: SLOW VICE CITY REVEAL (0 - 0.20)
+    // We increased this from 0.10 to 0.20 for a slower reveal
+    // ========================================
+    if (p < 0.20) {
+      const revealProgress = p / 0.20; // Math adjusted to the new 20% range
+      
+      updateRadialMasks(revealProgress * 0.5);
+      
+      if (textDim) textDim.style.opacity = String(1 - (revealProgress * 0.7));
+      
+      gsap.set(storyText, { 
+        opacity: 1, 
+        scale: 1, 
+        y: 0,
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        xPercent: -50,
+        yPercent: -50
       });
       
+      gsap.set(bgImage, { opacity: 0, scale: 1.1 });
+      gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh', opacity: 0 });
+    }
+
+    // ========================================
+    // PHASE 2: TEXT EXIT (0.20 - 0.35)
+    // Shifted start to 0.20 to match Phase 1's new end
+    // ========================================
+    else if (p >= 0.20 && p < 0.35) {
+      const exitProgress = (p - 0.20) / 0.15; // Still takes 15% of scroll
+      const eased = gsap.parseEase("power2.inOut")(exitProgress);
+
+      updateRadialMasks(eased < 0.2 ? 0.5 + (eased / 0.2 * 0.5) : 1);
+      
+      const scale = 1 - (eased * 0.45);
+      const yMove = -(eased * 200);
+      const textOpacity = 1 - (eased * 1.2);
+
+      gsap.set(storyText, { 
+        top: '50%',
+        left: '50%',
+        xPercent: -50,
+        yPercent: -50,
+        y: yMove, 
+        scale: Math.max(0.3, scale),
+        opacity: Math.max(0, textOpacity) 
+      });
+
+      const bgDelay = 0.4;
+      const bgProg = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
+      const bgEased = gsap.parseEase("power2.out")(bgProg);
+      
+      gsap.set(bgImage, { opacity: bgEased, scale: 1.1 - (bgEased * 0.05) });
+      gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh' });
+    }
+
+    // PHASE 3 - 9: JASON CONTENT (0.25 - 1.0)
+    // We use a unified calculation for all Jason phases to prevent "jumping"
+    else if (p >= 0.35) {
+      // Clear Phase 2 artifacts
+      gsap.set(storyText, { opacity: 0 });
+      if (exitContainer) exitContainer.style.webkitMaskImage = 'none';
+
+      // Unified Scroll Logic
+      let baseScroll = 0;
+      let bgOpacity = 0;
+      let textOpacity = 1;
+      let imagesOpacity = 1;
+      let luciaOpacity = 0;
+
+      if (p < 0.45) { // Phase 3
+        const ph = (p - 0.35) / 0.10;
+        baseScroll = ph * 600;
+        bgOpacity = 1 - (ph * 0.7);
+      } 
+      else if (p < 0.55) { // Phase 4
+        const ph = (p - 0.45) / 0.10;
+        baseScroll = 600 + (ph * 400);
+        bgOpacity = 0.3 - (ph * 0.3);
+      }
+      else if (p < 0.55) { // Phase 5
+        const ph = (p - 0.45) / 0.10;
+        baseScroll = 1000 + (ph * 300);
+        bgOpacity = 0;
+      }
+      else if (p < 0.65) { // Phase 6
+        const ph = (p - 0.55) / 0.10;
+        baseScroll = 1300 + (ph * 250);
+        bgOpacity = 0;
+      }
+      else if (p < 0.75) { // Phase 7
+        const ph = (p - 0.65) / 0.10;
+        baseScroll = 1550 + (ph * 200);
+        textOpacity = 1 - ph;
+        bgOpacity = 0;
+      }
+      else if (p < 0.85) { // Phase 8
+        const ph = (p - 0.75) / 0.10;
+        baseScroll = 1750 + (ph * 200);
+        textOpacity = 0;
+        luciaOpacity = ph * 0.4;
+      }
+      else { // Phase 9
+        const ph = (p - 0.85) / 0.15;
+        baseScroll = 1950 + (ph * 400);
+        imagesOpacity = 1 - ph;
+        textOpacity = 0;
+        luciaOpacity = 0.4 + (ph * 0.4);
+      }
+
+      
+
+      // Apply all values via GSAP set (much smoother than .style)
+      gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
+      gsap.set(luciaBgImageRef.current, { opacity: luciaOpacity });
+
+      // Jason Text
+      gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
+      gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
+      gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
+
+      // Jason Images
+      gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: imagesOpacity });
+      gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: imagesOpacity });
+      gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: imagesOpacity });
+    }
+  }
+});
+      
+
+
       // ========================================
       // LUCIA SECTION ANIMATION
       // ========================================
@@ -1664,6 +1995,7 @@ const worldImg5 = worldImg5Ref.current;
 const worldBigQuote = worldBigQuoteRef.current;
 const worldBigQuoteBg = worldBigQuoteBgRef.current;
 
+
 // Initial states
 gsap.set(worldBg, { opacity: 0, scale: 1.15 });
 gsap.set(worldBgOverlay, { opacity: 0 });
@@ -1673,6 +2005,8 @@ gsap.set(worldDesc, { opacity: 0, y: 50 });
 gsap.set([worldImg1, worldImg2, worldImg3, worldImg4, worldImg5], { opacity: 0, y: '100vh' });
 gsap.set(worldBigQuote, { opacity: 0, y: 40 });
 gsap.set(worldBigQuoteBg, { opacity: 0 });
+const worldQuote2 = worldQuote2Ref.current;
+const worldDesc2 = worldDesc2Ref.current;
 
 ScrollTrigger.create({
   trigger: worldSection,
@@ -1696,7 +2030,10 @@ ScrollTrigger.create({
       gsap.set([worldImg1, worldImg2, worldImg3, worldImg4, worldImg5], { opacity: 0, y: '100vh' });
       gsap.set(worldBigQuote, { opacity: 0 });
       gsap.set(worldBigQuoteBg, { opacity: 0 });
+      gsap.set(worldQuote2, { opacity: 0});
+      gsap.set(worldDesc2, { opacity: 0 });
     }
+    // /
 
     // PHASE 2: NAME + QUOTE ENTER OVER ARTWORK (0.08 - 0.18)
     else if (p < 0.18) {
@@ -1710,6 +2047,8 @@ ScrollTrigger.create({
       gsap.set([worldImg1, worldImg2, worldImg3, worldImg4, worldImg5], { opacity: 0, y: '100vh' });
       gsap.set(worldBigQuote, { opacity: 0 });
       gsap.set(worldBigQuoteBg, { opacity: 0 });
+      gsap.set(worldQuote2, { opacity: 0});
+      gsap.set(worldDesc2, { opacity: 0 });
     }
 
     // PHASE 3: DESC APPEARS + HOLD (0.18 - 0.26)
@@ -1723,6 +2062,8 @@ ScrollTrigger.create({
       gsap.set([worldImg1, worldImg2, worldImg3, worldImg4, worldImg5], { opacity: 0, y: '100vh' });
       gsap.set(worldBigQuote, { opacity: 0 });
       gsap.set(worldBigQuoteBg, { opacity: 0 });
+      gsap.set(worldQuote2, { opacity: 0 });
+      gsap.set(worldDesc2, { opacity: 0 });
     }
 
 // PHASE 4: TEXT FADES + FIRST TWO IMAGES ENTER (0.26 - 0.40)
@@ -1755,6 +2096,8 @@ else if (p < 0.40) {
   gsap.set(worldImg5, { opacity: 0, y: '100vh' });
   gsap.set(worldBigQuote, { opacity: 0 });
   gsap.set(worldBigQuoteBg, { opacity: 0 });
+  gsap.set(worldQuote2, { opacity: 0});
+  gsap.set(worldDesc2, { opacity: 0 });
 }
 
 
@@ -1773,6 +2116,8 @@ else if (p < 0.50) {
   gsap.set(worldImg5, { opacity: 0, y: '100vh' });
   gsap.set(worldBigQuote, { opacity: 0 });
   gsap.set(worldBigQuoteBg, { opacity: 0 });
+  gsap.set(worldQuote2, { opacity: 0 });
+  gsap.set(worldDesc2, { opacity: 0 });
 }
 
 
@@ -1796,6 +2141,8 @@ else if (p < 0.62) {
   gsap.set(worldImg5, { opacity: 0, y: '100vh' });
   gsap.set(worldBigQuoteBg, { opacity: Math.min(0.3, t * 0.5) });
   gsap.set(worldBigQuote, { opacity: 0 });
+  gsap.set(worldQuote2, { opacity: 0});
+  gsap.set(worldDesc2, { opacity: 0});
 }
 
 
@@ -1816,7 +2163,8 @@ else if (p < 0.76) {
   gsap.set(worldImg3.querySelector('img'), { scale: 1 + (t * 0.08) });
   gsap.set(worldImg4, { opacity: 0, y: '100vh' });
   gsap.set(worldImg5, { opacity: 0, y: '100vh' });
-  
+  gsap.set(worldQuote2, { opacity: 0, y: 40 });
+  gsap.set(worldDesc2, { opacity: 0, y: 30 });
   // Quote starts at 800px below and scrolls up via baseScroll
   const baseScroll = t * 800;
   
@@ -1848,6 +2196,8 @@ else if (p < 0.80) {
   gsap.set(worldImg5, { opacity: 0, y: '100vh' });
   gsap.set(worldBigQuoteBg, { opacity: 0.9 });
   gsap.set(worldBigQuote, { opacity: 1, y: 0, color: '#e8c84c' });
+  gsap.set(worldQuote2, { opacity: 0, y: 40 });
+  gsap.set(worldDesc2, { opacity: 0, y: 30 });
 }
 
 
@@ -1860,12 +2210,7 @@ else if (p < 0.90) {
   gsap.set(worldImg1, { opacity: 0 });
   gsap.set(worldImg2, { opacity: 0 });
   
-  // Img3 starts at scale:1.08, y:0 — scrolls up
-  // gsap.set(worldImg3, { 
-  //   y: `${-(t * 120)}vh`, 
-  //   opacity: Math.max(0, 1 - (t * 1.5)), 
-  //   scale: 1.08 
-  // });
+ 
   gsap.set(worldImg3, { 
     y: `${-(t * 120)}vh`, 
     opacity: Math.max(0, 1 - (t * 1.5))
@@ -1883,7 +2228,17 @@ else if (p < 0.90) {
   // Img 4+5 enter from below
   gsap.set(worldImg4, { y: `${100 - (t * 100)}vh`, opacity: Math.min(1, t * 2) });
   gsap.set(worldImg5, { y: `${80 - (t * 80)}vh`, opacity: Math.min(1, t * 2) });
+
+  // Second quote + desc fade in after images are halfway in
+  // const textDelay = Math.max(0, (t - 0.5) / 0.5);
+  // const textEase = 1 - Math.pow(1 - textDelay, 2);
+  // gsap.set(worldQuote2, { opacity: textEase, y: 40 - (textEase * 40) });
+  // gsap.set(worldDesc2, { opacity: textEase * 0.9, y: 30 - (textEase * 30) });
+// AFTER — text moves with img4 (same vh units)
+gsap.set(worldQuote2, { opacity: Math.min(1, t * 2), y: `${100 - (t * 100)}vh` });
+gsap.set(worldDesc2, { opacity: Math.min(0.9, t * 1.8), y: `${100 - (t * 100)}vh` });
 }
+
 // PHASE 9: IMG 4+5 HOLD BRIEFLY + SCROLL UP + EXIT (0.86 - 1.0)
 else {
   const t = (p - 0.86) / 0.14;
@@ -1900,18 +2255,314 @@ else {
     // Hold
     gsap.set(worldImg4, { y: 0, opacity: 1 });
     gsap.set(worldImg5, { y: 0, opacity: 1 });
+    gsap.set(worldQuote2, { opacity: 1, y: 0 });
+    gsap.set(worldDesc2, { opacity: 1, y: 0 });
   } else {
     // Scroll up and fade out
     const exitT = (t - 0.35) / 0.65;
-    gsap.set(worldImg4, { y: `${-(exitT * 100)}vh`, opacity: Math.max(0, 1 - (exitT * 1.5)) });
-    gsap.set(worldImg5, { y: `${-(exitT * 90)}vh`, opacity: Math.max(0, 1 - (exitT * 1.5)) });
+    gsap.set(worldImg4, { y: `${-(exitT * 100)}vh`, opacity: 1 });
+    gsap.set(worldImg5, { y: `${-(exitT * 90)}vh`, opacity: 1 });
+    // gsap.set(worldQuote2, { opacity: Math.max(0, 1 - (exitT * 1.5)), y: -(exitT * 60) });
+    // gsap.set(worldDesc2, { opacity: Math.max(0, 0.9 - (exitT * 1.4)), y: -(exitT * 40) });
+    // AFTER — matches img4's exit exactly
+    gsap.set(worldQuote2, { opacity:1 , y: `${-(exitT * 100)}vh` });
+    gsap.set(worldDesc2, { opacity:0.9, y: `${-(exitT * 100)}vh` });
   }
 }
 
   }
 });
 
+// ========================================
+// DISCOVER SECTION ANIMATION
+// ========================================
 
+const discoverSection = discoverSectionRef.current;
+const discoverSticky = discoverStickyRef.current;
+const discoverBg = discoverBgRef.current;
+const discoverHeader = discoverHeaderRef.current;
+const discoverIcon = discoverIconRef.current;
+const discoverLogoText = discoverLogoTextRef.current;
+const discoverDivider = discoverDividerRef.current;
+const discoverTagline = discoverTaglineRef.current;
+const discoverOrb1 = discoverOrb1Ref.current;
+const discoverOrb2 = discoverOrb2Ref.current;
+const discoverOrb3 = discoverOrb3Ref.current;
+const discoverPostcardWrapper = discoverPostcardWrapperRef.current;
+const discoverPostcard = discoverPostcardRef.current;
+const discoverPostcardTitle = discoverPostcardTitleRef.current;
+
+// Initial states
+gsap.set(discoverBg, { opacity: 0 });
+gsap.set(discoverHeader, { opacity: 0 });
+gsap.set(discoverIcon, { opacity: 0, scale: 0.5, rotation: -90 });
+gsap.set(discoverLogoText, { opacity: 0, x: -30 });
+gsap.set(discoverDivider, { opacity: 0, scaleY: 0 });
+gsap.set(discoverTagline, { opacity: 0, x: 30 });
+gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: 0 });
+gsap.set(discoverPostcardWrapper, { opacity: 0 });
+gsap.set(discoverPostcard, { y: '100vh', rotation: -2, scale: 0.85 });
+if (discoverPostcardTitle) gsap.set(discoverPostcardTitle, { opacity: 0, scale: 0.8 });
+
+// ScrollTrigger.create({
+//   trigger: discoverSection,
+//   start: 'top top',
+//   end: '100% top',
+//   scrub: 1.5,
+//   pin: discoverSticky,
+//   pinSpacing: false,
+//   onUpdate: (self) => {
+//     const p = self.progress;
+
+//     // PHASE 1: BG GRADIENT FADES IN (0 - 0.10)
+//     if (p < 0.10) {
+//       const phase1 = p / 0.10;
+//       gsap.set(discoverBg, { opacity: phase1 });
+//       gsap.set(discoverHeader, { opacity: 0 });
+//       gsap.set(discoverIcon, { opacity: 0, scale: 0.5, rotation: -90 });
+//       gsap.set(discoverLogoText, { opacity: 0, x: -30 });
+//       gsap.set(discoverDivider, { opacity: 0, scaleY: 0 });
+//       gsap.set(discoverTagline, { opacity: 0, x: 30 });
+//       gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: phase1 * 0.5 });
+//       gsap.set(discoverPostcardWrapper, { opacity: 0 });
+//       gsap.set(discoverPostcard, { y: '100vh', rotation: -2, scale: 0.85 });
+//     }
+
+//     // PHASE 2: LOGO + TAGLINE ANIMATE IN (0.10 - 0.25)
+//     else if (p >= 0.10 && p < 0.25) {
+//       const phase2 = (p - 0.10) / 0.15;
+//       const ease = 1 - Math.pow(1 - phase2, 3);
+
+//       gsap.set(discoverBg, { opacity: 1 });
+//       gsap.set(discoverHeader, { opacity: 1 });
+//       gsap.set(discoverIcon, { 
+//         opacity: ease, 
+//         scale: 0.5 + (ease * 0.5), 
+//         rotation: -90 + (ease * 90) 
+//       });
+//       gsap.set(discoverLogoText, { opacity: ease, x: -30 + (ease * 30) });
+//       gsap.set(discoverDivider, { opacity: ease, scaleY: ease });
+
+//       const taglineDelay = Math.max(0, (phase2 - 0.2) / 0.8);
+//       const taglineEase = 1 - Math.pow(1 - taglineDelay, 3);
+//       gsap.set(discoverTagline, { opacity: taglineEase, x: 30 - (taglineEase * 30) });
+
+//       gsap.set(discoverOrb1, { opacity: 0.5 + (ease * 0.5), x: ease * 20, y: ease * -15 });
+//       gsap.set(discoverOrb2, { opacity: 0.5 + (ease * 0.5), x: ease * -15, y: ease * 10 });
+//       gsap.set(discoverOrb3, { opacity: ease * 0.6 });
+
+//       gsap.set(discoverPostcardWrapper, { opacity: 0 });
+//       gsap.set(discoverPostcard, { y: '100vh', rotation: -2, scale: 0.85 });
+//     }
+
+//     // PHASE 3: HOLD LOGO VIEW (0.25 - 0.35)
+//     else if (p >= 0.25 && p < 0.35) {
+//       const phase3 = (p - 0.25) / 0.10;
+
+//       gsap.set(discoverBg, { opacity: 1 });
+//       gsap.set(discoverHeader, { opacity: 1 });
+//       gsap.set(discoverIcon, { opacity: 1, scale: 1, rotation: phase3 * 15 });
+//       gsap.set(discoverLogoText, { opacity: 1, x: 0 });
+//       gsap.set(discoverDivider, { opacity: 1, scaleY: 1 });
+//       gsap.set(discoverTagline, { opacity: 1, x: 0 });
+
+//       gsap.set(discoverOrb1, { opacity: 1, x: 20 + (phase3 * 10), y: -15 - (phase3 * 5) });
+//       gsap.set(discoverOrb2, { opacity: 1, x: -15 - (phase3 * 8), y: 10 + (phase3 * 5) });
+
+//       gsap.set(discoverPostcardWrapper, { opacity: 0 });
+//       gsap.set(discoverPostcard, { y: '100vh', rotation: -2, scale: 0.85 });
+//     }
+
+//     // PHASE 4: HEADER FADES UP + OUT, POSTCARD RISES (0.35 - 0.55)
+//     else if (p >= 0.35 && p < 0.55) {
+//       const phase4 = (p - 0.35) / 0.20;
+//       const ease = 1 - Math.pow(1 - phase4, 3);
+
+//       gsap.set(discoverBg, { opacity: 1 });
+
+//       const headerY = -(phase4 * 150);
+//       const headerOpacity = 1 - (phase4 * 1.5);
+//       gsap.set(discoverHeader, { opacity: Math.max(0, headerOpacity), y: headerY });
+
+//       gsap.set(discoverPostcardWrapper, { opacity: 1 });
+//       const postcardY = (1 - ease) * window.innerHeight;
+//       const postcardRotation = -2 + (ease * 1);
+//       const postcardScale = 0.85 + (ease * 0.15);
+//       gsap.set(discoverPostcard, { 
+//         y: postcardY, 
+//         rotation: postcardRotation, 
+//         scale: postcardScale 
+//       });
+
+//       if (discoverPostcardTitle) {
+//         const titleProgress = Math.max(0, (phase4 - 0.5) / 0.5);
+//         gsap.set(discoverPostcardTitle, { opacity: titleProgress, scale: 0.8 + (titleProgress * 0.2) });
+//       }
+
+//       gsap.set(discoverOrb1, { opacity: 1 - (phase4 * 0.3), x: 30 + (phase4 * 20) });
+//       gsap.set(discoverOrb2, { opacity: 1 - (phase4 * 0.3), x: -23 - (phase4 * 15) });
+//     }
+
+//     // PHASE 5: POSTCARD FULLY VISIBLE (0.55 - 0.72)
+//     else if (p >= 0.55 && p < 0.72) {
+//       const phase5 = (p - 0.55) / 0.17;
+
+//       gsap.set(discoverBg, { opacity: 1 });
+//       gsap.set(discoverHeader, { opacity: 0 });
+
+//       gsap.set(discoverPostcardWrapper, { opacity: 1 });
+//       const floatY = Math.sin(phase5 * Math.PI) * -15;
+//       gsap.set(discoverPostcard, { 
+//         y: floatY, 
+//         rotation: -1 + (phase5 * 0.5), 
+//         scale: 1 
+//       });
+
+//       if (discoverPostcardTitle) gsap.set(discoverPostcardTitle, { opacity: 1, scale: 1 });
+
+//       gsap.set(discoverOrb1, { opacity: 0.7, x: 50 + (phase5 * 10) });
+//       gsap.set(discoverOrb2, { opacity: 0.7, x: -38 - (phase5 * 8) });
+//     }
+
+//     // PHASE 6: POSTCARD STARTS SCALING DOWN (0.72 - 0.88)
+//     else if (p >= 0.72 && p < 0.88) {
+//       const phase6 = (p - 0.72) / 0.16;
+
+//       gsap.set(discoverBg, { opacity: 1 - (phase6 * 0.5) });
+//       gsap.set(discoverHeader, { opacity: 0 });
+
+//       gsap.set(discoverPostcardWrapper, { opacity: 1 });
+//       const exitY = -(phase6 * 300);
+//       const exitScale = 1 - (phase6 * 0.15);
+//       gsap.set(discoverPostcard, { 
+//         y: exitY, 
+//         rotation: -0.5 + (phase6 * 2), 
+//         scale: exitScale,
+//         opacity: 1 - (phase6 * 0.5)
+//       });
+
+//       gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: 0.7 - (phase6 * 0.7) });
+//     }
+
+//     // PHASE 7: EXIT TO BLACK (0.88 - 1.0)
+//     else if (p >= 0.88) {
+//       const phase7 = (p - 0.88) / 0.12;
+
+//       gsap.set(discoverBg, { opacity: 0.5 - (phase7 * 0.5) });
+//       gsap.set(discoverHeader, { opacity: 0 });
+//       gsap.set(discoverPostcardWrapper, { opacity: 0 });
+//       gsap.set(discoverPostcard, { opacity: 0 });
+//       gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: 0 });
+//     }
+//   }
+// });
+
+
+ScrollTrigger.create({
+  trigger: discoverSection,
+  start: 'top top',
+  end: '100% top',
+  scrub: 1.5,
+  pin: discoverSticky,
+  pinSpacing: false,
+  onUpdate: (self) => {
+    const p = self.progress;
+
+    // PHASE 1: BG GRADIENT FADES IN (0 - 0.05) - SHORTER
+    if (p < 0.05) {
+      const phase1 = p / 0.05;
+      gsap.set(discoverBg, { opacity: phase1 });
+      gsap.set(discoverHeader, { opacity: 0 }); // Keep hidden
+      gsap.set(discoverIcon, { opacity: 0, scale: 0.5, rotation: -90 });
+      gsap.set(discoverLogoText, { opacity: 0, x: -30 });
+      gsap.set(discoverDivider, { opacity: 0, scaleY: 0 });
+      gsap.set(discoverTagline, { opacity: 0, x: 30 });
+      gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: phase1 * 0.5 });
+      gsap.set(discoverPostcardWrapper, { opacity: 0 });
+      gsap.set(discoverPostcard, { y: '100vh', rotation: -2, scale: 0.85 });
+    }
+
+    // PHASE 2: POSTCARD RISES (0.05 - 0.30) - HEADER STAYS HIDDEN
+    else if (p >= 0.05 && p < 0.30) {
+      const phase2 = (p - 0.05) / 0.25;
+      const ease = 1 - Math.pow(1 - phase2, 3);
+
+      gsap.set(discoverBg, { opacity: 1 });
+      gsap.set(discoverHeader, { opacity: 0 }); // ALWAYS HIDDEN
+
+      gsap.set(discoverPostcardWrapper, { opacity: 1 });
+      const postcardY = (1 - ease) * window.innerHeight;
+      const postcardRotation = -2 + (ease * 1);
+      const postcardScale = 0.85 + (ease * 0.15);
+      gsap.set(discoverPostcard, { 
+        y: postcardY, 
+        rotation: postcardRotation, 
+        scale: postcardScale 
+      });
+
+      if (discoverPostcardTitle) {
+        const titleProgress = Math.max(0, (phase2 - 0.3) / 0.7);
+        gsap.set(discoverPostcardTitle, { opacity: titleProgress, scale: 0.8 + (titleProgress * 0.2) });
+      }
+
+      gsap.set(discoverOrb1, { opacity: 0.5 + (ease * 0.5), x: ease * 20, y: ease * -15 });
+      gsap.set(discoverOrb2, { opacity: 0.5 + (ease * 0.5), x: ease * -15, y: ease * 10 });
+      gsap.set(discoverOrb3, { opacity: ease * 0.6 });
+    }
+
+    // PHASE 3: POSTCARD FULLY VISIBLE (0.30 - 0.55)
+    else if (p >= 0.30 && p < 0.55) {
+      const phase3 = (p - 0.30) / 0.25;
+
+      gsap.set(discoverBg, { opacity: 1 });
+      gsap.set(discoverHeader, { opacity: 0 }); // ALWAYS HIDDEN
+
+      gsap.set(discoverPostcardWrapper, { opacity: 1 });
+      const floatY = Math.sin(phase3 * Math.PI) * -15;
+      gsap.set(discoverPostcard, { 
+        y: floatY, 
+        rotation: -1 + (phase3 * 0.5), 
+        scale: 1 
+      });
+
+      if (discoverPostcardTitle) gsap.set(discoverPostcardTitle, { opacity: 1, scale: 1 });
+
+      gsap.set(discoverOrb1, { opacity: 0.7, x: 50 + (phase3 * 10) });
+      gsap.set(discoverOrb2, { opacity: 0.7, x: -38 - (phase3 * 8) });
+    }
+
+    // PHASE 4: POSTCARD SCALING DOWN (0.55 - 0.80)
+    else if (p >= 0.55 && p < 0.80) {
+      const phase4 = (p - 0.55) / 0.25;
+
+      gsap.set(discoverBg, { opacity: 1 - (phase4 * 0.5) });
+      gsap.set(discoverHeader, { opacity: 0 });
+
+      gsap.set(discoverPostcardWrapper, { opacity: 1 });
+      const exitY = -(phase4 * 300);
+      const exitScale = 1 - (phase4 * 0.15);
+      gsap.set(discoverPostcard, { 
+        y: exitY, 
+        rotation: -0.5 + (phase4 * 2), 
+        scale: exitScale,
+        opacity: 1 - (phase4 * 0.5)
+      });
+
+      gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: 0.7 - (phase4 * 0.7) });
+    }
+
+    // PHASE 5: EXIT TO BLACK (0.80 - 1.0)
+    else if (p >= 0.80) {
+      const phase5 = (p - 0.80) / 0.20;
+
+      gsap.set(discoverBg, { opacity: 0.5 - (phase5 * 0.5) });
+      gsap.set(discoverHeader, { opacity: 0 });
+      gsap.set(discoverPostcardWrapper, { opacity: 0 });
+      gsap.set(discoverPostcard, { opacity: 0 });
+      gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: 0 });
+    }
+  }
+});
 // ========================================
 // CINEMATIC FINALE SECTION
 // ========================================
@@ -2310,7 +2961,7 @@ ScrollTrigger.create({
       
       gsap.set(finalePlatforms, { opacity: 0 });
     }
-
+//
     // PHASE 6: HOLD — NO TRANSFORMS, CLEAN STATE (0.90 - 1.0)
     // CRITICAL: No y, no scale transforms — everything at natural CSS position
     // When pin releases at progress=1, content is already at its natural position
@@ -2337,251 +2988,7 @@ ScrollTrigger.create({
   }
 });
 
-      // // ========================================
-      // // CINEMATIC OUTRO - Full-screen parallax image
-      // // ========================================
-
-      // const outroSection = outroSectionRef.current;
-      // const outroSticky = outroStickyRef.current;
-      // const outroImage = outroImageRef.current;
-      // const outroOverlay = outroOverlayRef.current;
-
-      // if (outroSection && outroSticky && outroImage && outroOverlay) {
-      //   // Initial states
-      //   gsap.set(outroImage, { scale: 1.15, y: 0 });
-      //   gsap.set(outroOverlay, { opacity: 0 });
-
-      //   ScrollTrigger.create({
-      //     trigger: outroSection,
-      //     start: 'top top',
-      //     end: '100% top',
-      //     scrub: 1.5,
-      //     pin: outroSticky,
-      //     pinSpacing: false,
-      //     onUpdate: (self) => {
-      //       const p = self.progress;
-
-      //       // ========================================
-      //       // OUTRO PHASE 1: Image fully visible, slow parallax zoom (0 - 0.15)
-      //       // ========================================
-      //       if (p < 0.15) {
-      //         const phase1 = p / 0.15;
-      //         gsap.set(outroImage, { 
-      //           scale: 1.15 - (phase1 * 0.05), // 1.15 -> 1.10
-      //           y: -(phase1 * 30),
-      //         });
-      //         gsap.set(outroOverlay, { opacity: 0 });
-      //       }
-
-      //       // ========================================
-      //       // OUTRO PHASE 2: Continue parallax, image pans up slowly (0.15 - 0.40)
-      //       // ========================================
-      //       else if (p >= 0.15 && p < 0.40) {
-      //         const phase2 = (p - 0.15) / 0.25;
-      //         gsap.set(outroImage, { 
-      //           scale: 1.10 - (phase2 * 0.05), // 1.10 -> 1.05
-      //           y: -(30 + (phase2 * 80)), // slow pan up
-      //         });
-      //         gsap.set(outroOverlay, { opacity: phase2 * 0.1 }); // very subtle darkening
-      //       }
-
-      //       // ========================================
-      //       // OUTRO PHASE 3: Roof of car visible, more pan, slight darken (0.40 - 0.60)
-      //       // ========================================
-      //       else if (p >= 0.40 && p < 0.60) {
-      //         const phase3 = (p - 0.40) / 0.20;
-      //         gsap.set(outroImage, { 
-      //           scale: 1.05 - (phase3 * 0.03), // 1.05 -> 1.02
-      //           y: -(110 + (phase3 * 100)),
-      //         });
-      //         gsap.set(outroOverlay, { opacity: 0.1 + (phase3 * 0.15) }); // 0.1 -> 0.25
-      //       }
-
-      //       // ========================================
-      //       // OUTRO PHASE 4: Image continues scrolling, darkening intensifies (0.60 - 0.80)
-      //       // ========================================
-      //       else if (p >= 0.60 && p < 0.80) {
-      //         const phase4 = (p - 0.60) / 0.20;
-      //         gsap.set(outroImage, { 
-      //           scale: 1.02 - (phase4 * 0.02), // 1.02 -> 1.0
-      //           y: -(210 + (phase4 * 120)),
-      //         });
-      //         gsap.set(outroOverlay, { opacity: 0.25 + (phase4 * 0.45) }); // 0.25 -> 0.7
-      //       }
-
-      //       // ========================================
-      //       // OUTRO PHASE 5: Fade to black (0.80 - 1.0)
-      //       // ========================================
-      //       else if (p >= 0.80) {
-      //         const phase5 = (p - 0.80) / 0.20;
-      //         gsap.set(outroImage, { 
-      //           scale: 1.0,
-      //           y: -(330 + (phase5 * 60)),
-      //         });
-      //         gsap.set(outroOverlay, { opacity: 0.7 + (phase5 * 0.3) }); // 0.7 -> 1.0
-      //       }
-      //     }
-      //   });
-      // }
-
-
-      // // ========================================
-      // // LOGO REVEAL SECTION - Logo + Coming Date
-      // // ========================================
-
-      // const logoRevealSection = logoRevealSectionRef.current;
-      // const logoRevealSticky = logoRevealStickyRef.current;
-      // const logoRevealBg = logoRevealBgRef.current;
-      // const logoRevealLogo = logoRevealLogoRef.current;
-      // const logoRevealDate = logoRevealDateRef.current;
-
-      // if (logoRevealSection && logoRevealSticky) {
-      //   // Initial states
-      //   gsap.set(logoRevealBg, { opacity: 0 });
-      //   gsap.set(logoRevealLogo, { opacity: 0, scale: 0.85, y: 40 });
-      //   gsap.set(logoRevealDate, { opacity: 0, y: 60 });
-
-      //   ScrollTrigger.create({
-      //     trigger: logoRevealSection,
-      //     start: 'top top',
-      //     end: '100% top',
-      //     scrub: 1.5,
-      //     pin: logoRevealSticky,
-      //     pinSpacing: false,
-      //     onUpdate: (self) => {
-      //       const p = self.progress;
-
-      //       // ========================================
-      //       // LOGO PHASE 1: Dark screen, subtle gradient appears (0 - 0.10)
-      //       // ========================================
-      //       if (p < 0.10) {
-      //         const phase1 = p / 0.10;
-      //         gsap.set(logoRevealBg, { opacity: phase1 * 0.3 });
-      //         gsap.set(logoRevealLogo, { opacity: 0, scale: 0.85, y: 40 });
-      //         gsap.set(logoRevealDate, { opacity: 0, y: 60 });
-      //       }
-
-      //       // ========================================
-      //       // LOGO PHASE 2: Logo fades in + scales up (0.10 - 0.30)
-      //       // ========================================
-      //       else if (p >= 0.10 && p < 0.30) {
-      //         const phase2 = (p - 0.10) / 0.20;
-      //         const ease = 1 - Math.pow(1 - phase2, 3); // easeOutCubic
-
-      //         gsap.set(logoRevealBg, { opacity: 0.3 + (ease * 0.7) });
-      //         gsap.set(logoRevealLogo, { 
-      //           opacity: ease, 
-      //           scale: 0.85 + (ease * 0.15), // 0.85 -> 1.0
-      //           y: 40 - (ease * 40) // 40 -> 0
-      //         });
-      //         gsap.set(logoRevealDate, { opacity: 0, y: 60 });
-      //       }
-
-      //       // ========================================
-      //       // LOGO PHASE 3: Date text fades in below logo (0.30 - 0.48)
-      //       // ========================================
-      //       else if (p >= 0.30 && p < 0.48) {
-      //         const phase3 = (p - 0.30) / 0.18;
-      //         const ease = 1 - Math.pow(1 - phase3, 3);
-
-      //         gsap.set(logoRevealBg, { opacity: 1 });
-      //         gsap.set(logoRevealLogo, { opacity: 1, scale: 1, y: 0 });
-      //         gsap.set(logoRevealDate, { 
-      //           opacity: ease, 
-      //           y: 60 - (ease * 60) // 60 -> 0
-      //         });
-      //       }
-
-      //       // ========================================
-      //       // LOGO PHASE 4: Hold - everything visible (0.48 - 0.72)
-      //       // ========================================
-      //       else if (p >= 0.48 && p < 0.72) {
-      //         // const phase4 = (p - 0.48) / 0.24;
-              
-      //         gsap.set(logoRevealBg, { opacity: 1 });
-      //         gsap.set(logoRevealLogo, { opacity: 1, scale: 1, y: 0 });
-      //         gsap.set(logoRevealDate, { opacity: 1, y: 0 });
-      //       }
-
-      //       // ========================================
-      //       // LOGO PHASE 5: Very subtle scale + slight upward drift (0.72 - 0.88)
-      //       // ========================================
-      //       else if (p >= 0.72 && p < 0.88) {
-      //         const phase5 = (p - 0.72) / 0.16;
-              
-      //         gsap.set(logoRevealBg, { opacity: 1 });
-      //         gsap.set(logoRevealLogo, { 
-      //           opacity: 1, 
-      //           scale: 1 + (phase5 * 0.03), // subtle grow
-      //           y: -(phase5 * 15) 
-      //         });
-      //         gsap.set(logoRevealDate, { 
-      //           opacity: 1, 
-      //           y: -(phase5 * 10) 
-      //         });
-      //       }
-
-      //       // ========================================
-      //       // LOGO PHASE 6: Fade out (0.88 - 1.0)
-      //       // ========================================
-      //       else if (p >= 0.88) {
-      //         const phase6 = (p - 0.88) / 0.12;
-              
-      //         gsap.set(logoRevealBg, { opacity: 1 - (phase6 * 0.5) });
-      //         gsap.set(logoRevealLogo, { 
-      //           opacity: 1 - phase6, 
-      //           scale: 1.03 + (phase6 * 0.02),
-      //           y: -(15 + (phase6 * 20))
-      //         });
-      //         gsap.set(logoRevealDate, { 
-      //           opacity: 1 - phase6, 
-      //           y: -(10 + (phase6 * 15))
-      //         });
-      //       }
-      //     }
-      //   });
-      // }
-
-
-      // ========================================
-      // GALLERY SECTION
-      // ========================================
-      
-      // const gallery = galleryRef.current;
-      // const gImg1 = galleryImg1Ref.current;
-      // const gImg2 = galleryImg2Ref.current;
-      // const gImg3 = galleryImg3Ref.current;
-      // const gImg4 = galleryImg4Ref.current;
-      
-      // gsap.set([gImg1, gImg2, gImg3, gImg4], { opacity: 0, y: 100 });
-      
-      // const galleryTl = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: gallery,
-      //     start: 'top top',
-      //     end: '+=250%',
-      //     scrub: 1.5,
-      //     pin: true,
-      //   }
-      // });
-      
-      // galleryTl.to(gImg1, { opacity: 1, y: 0, duration: 0.15, ease: 'none' }, 0);
-      // galleryTl.to(gImg2, { opacity: 1, y: 0, duration: 0.15, ease: 'none' }, 0.08);
-      // galleryTl.to(gImg3, { opacity: 1, y: 0, duration: 0.15, ease: 'none' }, 0.18);
-      // galleryTl.to(gImg4, { opacity: 1, y: 0, duration: 0.15, ease: 'none' }, 0.28);
-      
-      // galleryTl.to(gImg1, { y: -35, duration: 0.35, ease: 'none' }, 0.4);
-      // galleryTl.to(gImg2, { y: -55, duration: 0.35, ease: 'none' }, 0.4);
-      // galleryTl.to(gImg3, { y: -25, duration: 0.35, ease: 'none' }, 0.45);
-      // galleryTl.to(gImg4, { y: -45, duration: 0.35, ease: 'none' }, 0.45);
-      
-      // galleryTl.to([gImg1, gImg2, gImg3, gImg4], {
-      //   opacity: 0,
-      //   duration: 0.15,
-      //   ease: 'none',
-      //   stagger: 0.02
-      // }, 0.82);
-
+     
     }, containerRef);
 
     return () => ctx.revert();
@@ -2636,7 +3043,52 @@ ScrollTrigger.create({
     };
   }, []);
 
-
+  const setupDiscoverHorizontalScroll = useCallback(() => {
+    const track = discoverGalleryTrackRef.current;
+    const hscroll = discoverHscrollRef.current;
+    const heightEl = discoverHscrollHeightRef.current;
+  
+    if (!track || !hscroll || !heightEl) return;
+  
+    // Remove old listener
+    if (discoverScrollHandlerRef.current) {
+      discoverScrollHandlerRef.current.kill();
+      discoverScrollHandlerRef.current = null;
+    }
+  
+    // Measure
+    const trackWidth = track.scrollWidth;
+    const viewportWidth = window.innerWidth;
+    const scrollDistance = trackWidth - viewportWidth;
+  
+    if (scrollDistance <= 0) return;
+  
+    // Set spacer height
+    heightEl.style.height = (scrollDistance + viewportWidth) + 'px';
+  
+    // Reset
+    hscroll.scrollTop = 0;
+    gsap.set(track, { x: 0 });
+  
+    // Use wheel event on the detail overlay
+    const detail = discoverDetailRef.current;
+    
+    const onWheel = (e) => {
+      e.preventDefault();
+      hscroll.scrollTop += e.deltaY;
+      
+      const progress = Math.min(hscroll.scrollTop / scrollDistance, 1);
+      gsap.set(track, { x: -(progress * scrollDistance) });
+    };
+  
+    detail.addEventListener('wheel', onWheel, { passive: false });
+  
+    discoverScrollHandlerRef.current = {
+      kill: () => {
+        detail.removeEventListener('wheel', onWheel);
+      }
+    };
+  }, []);
 
   const openViceCityDetail = useCallback(() => {
     setViceCityOpen(true);
@@ -2732,6 +3184,111 @@ ScrollTrigger.create({
     tl.to(vcDetailBgRef.current, { opacity: 0, duration: 0.6, ease: 'power2.inOut' }, 0.2);
   
   }, []);
+
+  const openDiscoverDetail = useCallback(() => {
+    setDiscoverDetailOpen(true);
+    document.body.style.overflow = 'hidden';
+  
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  
+    // BG fades in
+    tl.to(discoverDetailBgRef.current, {
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power2.out',
+    }, 0);
+  
+    // Back button slides in
+    tl.to(discoverDetailBackRef.current, {
+      opacity: 1,
+      x: 0,
+      duration: 0.6,
+      ease: 'power3.out',
+    }, 0.4);
+  
+    // Postcard — swoops in from bottom-left with rotation
+    tl.fromTo(discoverDetailPostcardRef.current,
+      { opacity: 0, y: 120, x: -80, rotation: -12, scale: 0.8 },
+      { opacity: 1, y: 0, x: 0, rotation: -3, scale: 1, duration: 1.2, ease: 'power4.out' },
+    0.2);
+  
+    // Heading — slides up with stagger feel
+    tl.fromTo(discoverDetailHeadingRef.current,
+      { opacity: 0, y: 60, clipPath: 'inset(100% 0 0 0)' },
+      { opacity: 1, y: 0, clipPath: 'inset(0% 0 0 0)', duration: 0.9, ease: 'power3.out' },
+    0.5);
+  
+    // Subheading — fades up smoothly
+    tl.fromTo(discoverDetailSubheadingRef.current,
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
+    0.7);
+  
+    // Description — fades up last
+    tl.fromTo(discoverDetailDescRef.current,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
+    0.85);
+  
+    // Setup horizontal scroll after animation
+    tl.call(() => {
+      setupDiscoverHorizontalScroll();
+    });
+  
+  }, [setupDiscoverHorizontalScroll]);
+  
+  const closeDiscoverDetail = useCallback(() => {
+    if (discoverScrollHandlerRef.current) {
+      discoverScrollHandlerRef.current.kill();
+      discoverScrollHandlerRef.current = null;
+    }
+  
+    if (discoverHscrollRef.current) discoverHscrollRef.current.scrollTop = 0;
+    if (discoverGalleryTrackRef.current) gsap.set(discoverGalleryTrackRef.current, { x: 0 });
+  
+    const tl = gsap.timeline({
+      defaults: { ease: 'power2.in' },
+      onComplete: () => {
+        setDiscoverDetailOpen(false);
+        document.body.style.overflow = '';
+      }
+    });
+  
+    // Text fades out quickly
+    tl.to(discoverDetailDescRef.current, { opacity: 0, y: 15, duration: 0.25 }, 0);
+    tl.to(discoverDetailSubheadingRef.current, { opacity: 0, y: 15, duration: 0.25 }, 0.05);
+    tl.to(discoverDetailHeadingRef.current, { opacity: 0, y: 20, duration: 0.3 }, 0.1);
+  
+    // Postcard swoops out
+    tl.to(discoverDetailPostcardRef.current, {
+      opacity: 0,
+      y: 80,
+      x: -50,
+      rotation: -8,
+      scale: 0.85,
+      duration: 0.5,
+      ease: 'power3.in',
+    }, 0.1);
+  
+    // Back button
+    tl.to(discoverDetailBackRef.current, { opacity: 0, x: -20, duration: 0.3 }, 0.1);
+  
+    // BG fades out last
+    tl.to(discoverDetailBgRef.current, { opacity: 0, duration: 0.6, ease: 'power2.inOut' }, 0.2);
+  
+  }, []);
+  
+  // Reset detail elements when closed
+  useEffect(() => {
+    if (!discoverDetailOpen) {
+      gsap.set(discoverDetailBgRef.current, { opacity: 0 });
+      gsap.set(discoverDetailBackRef.current, { opacity: 0, x: -20 });
+      gsap.set(discoverDetailPostcardRef.current, { opacity: 0, y: 120, x: -80, rotation: -12, scale: 0.8 });
+      gsap.set(discoverDetailHeadingRef.current, { opacity: 0, y: 60 });
+      gsap.set(discoverDetailSubheadingRef.current, { opacity: 0, y: 40 });
+      gsap.set(discoverDetailDescRef.current, { opacity: 0, y: 30 });
+    }
+  }, [discoverDetailOpen]);
 
   // Reset detail elements when closed
   // useEffect(() => {
@@ -3466,7 +4023,120 @@ ScrollTrigger.create({
         </div>
       </div>
 
+{/* ============ DISCOVER DETAIL OVERLAY ============ */}
+<div ref={discoverDetailRef} className={`discover-detail ${discoverDetailOpen ? 'active' : ''}`}>
+  <div ref={discoverDetailBgRef} className="discover-detail__bg"></div>
 
+  <button
+    ref={discoverDetailBackRef}
+    className="discover-detail__back"
+    onClick={closeDiscoverDetail}
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+    Back
+  </button>
+
+  {/* SCROLLABLE WRAPPER */}
+  <div ref={discoverHscrollRef} className="discover-hscroll">
+    <div ref={discoverHscrollHeightRef} className="discover-hscroll__height"></div>
+  </div>
+
+  {/* HORIZONTAL TRACK */}
+  <div ref={discoverGalleryTrackRef} className="discover-hscroll__track">
+
+    {/* Panel 1: Postcard + Text */}
+    <div className="discover-hscroll__panel--intro">
+      <div ref={discoverDetailPostcardRef} className="discover-detail__postcard">
+        <div className="discover-detail__postcard-image">
+          <img
+            src={process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp'}
+            alt="Ambrosia"
+          />
+          <h2 className="discover-detail__postcard-title">Ambrosia</h2>
+        </div>
+      </div>
+
+      <div className="discover-detail__info">
+        <h1 ref={discoverDetailHeadingRef} className="discover-detail__heading">
+          UNDERGROUND<br />
+          CULTURE
+        </h1>
+        <p ref={discoverDetailSubheadingRef} className="discover-detail__subheading">
+          WHERE THE REAL LEONIDA COMES OUT AT NIGHT.
+        </p>
+        <p ref={discoverDetailDescRef} className="discover-detail__description">
+          Ambrosia is where the city's underground scene thrives. Hip-hop venues, 
+          underground art galleries, street food culture, and late-night clubs define 
+          this eclectic neighborhood where creativity never sleeps.
+        </p>
+      </div>
+    </div>
+
+    {/* Gallery Images */}
+    <div className="discover-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00003.webp')} style={{ width: 'clamp(300px, 32vw, 450px)', height: 'clamp(400px, 45vh, 550px)' }}>
+      <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00003.webp'} alt="Scene 1" />
+      <button className="discover-hscroll__expand">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <polyline points="9 21 3 21 3 15"></polyline>
+          <line x1="21" y1="3" x2="14" y2="10"></line>
+          <line x1="3" y1="21" x2="10" y2="14"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div className="discover-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp')} style={{ width: 'clamp(250px, 28vw, 400px)', height: 'clamp(500px, 60vh, 680px)' }}>
+      <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp'} alt="Scene 2" />
+      <button className="discover-hscroll__expand">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <polyline points="9 21 3 21 3 15"></polyline>
+          <line x1="21" y1="3" x2="14" y2="10"></line>
+          <line x1="3" y1="21" x2="10" y2="14"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div className="discover-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00005.webp')} style={{ width: 'clamp(300px, 35vw, 480px)', height: 'clamp(400px, 48vh, 520px)' }}>
+      <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00005.webp'} alt="Scene 3" />
+      <button className="discover-hscroll__expand">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <polyline points="9 21 3 21 3 15"></polyline>
+          <line x1="21" y1="3" x2="14" y2="10"></line>
+          <line x1="3" y1="21" x2="10" y2="14"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div className="discover-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp')} style={{ width: 'clamp(350px, 40vw, 550px)', height: 'clamp(450px, 55vh, 620px)' }}>
+      <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'} alt="Scene 4" />
+      <button className="discover-hscroll__expand">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <polyline points="9 21 3 21 3 15"></polyline>
+          <line x1="21" y1="3" x2="14" y2="10"></line>
+          <line x1="3" y1="21" x2="10" y2="14"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div className="discover-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/player2.webp')} style={{ width: 'clamp(280px, 30vw, 420px)', height: 'clamp(520px, 65vh, 750px)' }}>
+      <img src={process.env.PUBLIC_URL + '/img/player2.webp'} alt="Scene 5" />
+      <button className="discover-hscroll__expand">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <polyline points="9 21 3 21 3 15"></polyline>
+          <line x1="21" y1="3" x2="14" y2="10"></line>
+          <line x1="3" y1="21" x2="10" y2="14"></line>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</div>
 
           {/* ============ WORLD OF LEONIDA SECTION ============ */}
 <section ref={worldSectionRef} className="world-section">
@@ -3545,6 +4215,16 @@ ScrollTrigger.create({
         <ExpandIcon />
       </button>
     </div>
+
+    {/* Second quote + desc — appears with final image pair */}
+      <p ref={worldQuote2Ref} className="world__quote2">
+        A professional<br/>adapts.
+      </p>
+      <p ref={worldDesc2Ref} className="world__desc2">
+        Every corner turned, every deal made — it all 
+        adds up. Sooner or later, his crew will have to 
+        double down or pull their chips from the table.
+      </p>
     
     {/* Big quote */}
     <div ref={worldBigQuoteBgRef} className="world__quote-bg"></div>
@@ -3558,8 +4238,82 @@ ScrollTrigger.create({
   </div>
 
 </section>
+{/* /// */}
 
 
+
+{/* ============ SECOND VISIT SECTION (e.g., "Discover Ambrosia") ============ */}
+<section ref={discoverSectionRef} className="discover-section">
+  <div ref={discoverStickyRef} className="discover__sticky">
+
+    <div ref={discoverBgRef} className="discover__bg"></div>
+
+    <div className="discover__grain"></div>
+
+    <canvas ref={discoverParticlesRef} className="discover__particles"></canvas>
+
+    <div ref={discoverOrb1Ref} className="discover__orb discover__orb--1"></div>
+    <div ref={discoverOrb2Ref} className="discover__orb discover__orb--2"></div>
+    <div ref={discoverOrb3Ref} className="discover__orb discover__orb--3"></div>
+
+    <div ref={discoverHeaderRef} className="discover__header">
+      <div className="discover__logo-group">
+        <div ref={discoverIconRef} className="discover__icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="2"/>
+            <path d="M 50 20 Q 65 35 50 50 Q 35 35 50 20" fill="currentColor" opacity="0.7"/>
+          </svg>
+        </div>
+        <div ref={discoverLogoTextRef} className="discover__logo-text">
+          <span className="discover">Discover</span>
+          <span className="destination">Ambrosia</span>
+        </div>
+      </div>
+
+      <div ref={discoverDividerRef} className="discover__divider"></div>
+
+      <p ref={discoverTaglineRef} className="discover__tagline">
+        Explore the hidden gems and underground culture.
+      </p>
+    </div>
+
+    <div ref={discoverPostcardWrapperRef} className="discover__postcard-wrapper">
+      <div ref={discoverPostcardRef} className="discover__postcard">
+        <div className="discover__postcard-image">
+          <img
+            src={process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp'}
+            alt="Ambrosia"
+          />
+          <h2 ref={discoverPostcardTitleRef} className="discover__postcard-title">Ambrosia</h2>
+          
+          <div className="discover__postcard-overlay-footer">
+            <div className="discover__postcard-logo">
+              <div className="discover__postcard-logo-icon">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M 50 20 Q 65 35 50 50 Q 35 35 50 20" fill="currentColor" opacity="0.7"/>
+                </svg>
+              </div>
+              <div className="discover__postcard-logo-text">
+                <span className="discover-sm">Discover</span>
+                <span className="destination-sm">Ambrosia</span>
+              </div>
+            </div>
+            <button
+              className="discover__explore-btn"
+              onClick={openDiscoverDetail}
+            >
+              Explore Ambrosia
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{/*  */}
       {/* ============ CINEMATIC FINALE SECTION ============ */}
 <section ref={finaleSectionRef} className="finale-section">
   <div ref={finaleStickyRef} className="finale-section__sticky">
@@ -3620,6 +4374,7 @@ ScrollTrigger.create({
     
   </div>
 </section>
+
       
 
       {/* ============ FOOTER SECTION ============ */}
