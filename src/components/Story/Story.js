@@ -3221,30 +3221,27 @@ ScrollTrigger.create({
           <div ref={exitContainerRef} className="story__exit-container">
             <div ref={storyTextRef} className="story__text-wrapper">
               <div className="story__text-layer story__text-dim" ref={textDimRef}>
-                <h2 className="story__title">Three Worlds. One Game.</h2>
+                <h2 className="story__title">Three Worlds. One Legacy.</h2>
                 <p className="story__paragraph">
-                  From dusty streets to sold-out stadiums — Gods of Cricket
-                  takes you on a journey through every level of the beautiful game.
-                  Pick your role. Find your crew. Rise through the ranks.
-                  This is cricket like it's never been played before.
+                  Streets. Stadiums. Glory. Your rise starts here —
+                  from backyard battles to sold-out arenas. Pick your crew.
+                  Prove your worth. Become a god.
                 </p>
               </div>
               <div className="story__text-layer story__text-bright" ref={textBrightRef}>
-                <h2 className="story__title">Three Worlds. One Game.</h2>
+                <h2 className="story__title">Three Worlds. One Legacy.</h2>
                 <p className="story__paragraph">
-                  From dusty streets to sold-out stadiums — Gods of Cricket
-                  takes you on a journey through every level of the beautiful game.
-                  Pick your role. Find your crew. Rise through the ranks.
-                  This is cricket like it's never been played before.
+                  Streets. Stadiums. Glory. Your rise starts here —
+                  from backyard battles to sold-out arenas. Pick your crew.
+                  Prove your worth. Become a god.
                 </p>
               </div>
               <div className="story__text-layer story__text-glow" ref={textGlowRef}>
-                <h2 className="story__title">Three Worlds. One Game.</h2>
+                <h2 className="story__title">Three Worlds. One Legacy.</h2>
                 <p className="story__paragraph">
-                  From dusty streets to sold-out stadiums — Gods of Cricket
-                  takes you on a journey through every level of the beautiful game.
-                  Pick your role. Find your crew. Rise through the ranks.
-                  This is cricket like it's never been played before.
+                  Streets. Stadiums. Glory. Your rise starts here —
+                  from backyard battles to sold-out arenas. Pick your crew.
+                  Prove your worth. Become a god.
                 </p>
               </div>
             </div>
@@ -3258,15 +3255,13 @@ ScrollTrigger.create({
 
             {/* Quote - left side below name */}
             <p ref={jasonQuoteRef} className="jason__quote">
-              Fast. Chaotic. No rules. Pure cricket.
+              No rules. No mercy. Just raw cricket.
             </p>
 
             {/* Description - left side below quote */}
             <p ref={jasonDescRef} className="jason__desc">
-              3v3 street cricket where anything goes. Trick shots,
-              special abilities, and raw talent rule the concrete pitch.
-              This is where legends are born — in the dust, under the lights,
-              with nothing but skill and swagger.
+              3v3 on concrete. Trick shots and special abilities.
+              Where legends are forged — in the dust, under the lights.
             </p>
             
             {/* Image 1 - Right side, large (car closeup) */}
@@ -3331,22 +3326,20 @@ ScrollTrigger.create({
             
             {/* Main Quote - Large text */}
             <h2 ref={luciaMainQuoteRef} className="lucia__main-quote">
-              RANKED MATCHES.<br />
-              REAL TACTICS.<br />
-              REAL CRICKET.
+              RANKED.<br />
+              TACTICAL.<br />
+              RUTHLESS.
             </h2>
 
             {/* Sub Quote */}
             <p ref={luciaSubQuoteRef} className="lucia__sub-quote">
-              1v1 to 5v5.<br />
-              ODI rules.
+              1v1 to 5v5. Full ODI rules.
             </p>
 
             {/* Description - Right side */}
             <p ref={luciaDescRef} className="lucia__desc">
-              Step up from the streets into the real thing.
-              Ranked matches with proper cricket rules, strategic team play,
-              and the pressure of competition. Every over matters. Every wicket counts.
+              Step up from the streets. Ranked matches, real strategy,
+              real pressure. Every over matters. Every wicket counts.
             </p>
             
             {/* Image 1 - Left side, large */}
@@ -3409,21 +3402,19 @@ ScrollTrigger.create({
 
       {/* Quote - Right side */}
       <p ref={luciaCharQuoteRef} className="lucia-char__quote">
-        Where amateurs become athletes and athletes become legends.
+        Amateurs become athletes. Athletes become gods.
       </p>
 
       {/* Description - Right side */}
       <p ref={luciaCharDescRef} className="lucia-char__desc">
-        Full ODI rules. Real-time voice comms with your team.
-        AI backfill means you can always find a match. 12–20 minute games
-        that feel like a World Cup final.
+        Full ODI rules. Voice comms. AI backfill.
+        12-minute matches that feel like a World Cup final.
       </p>
 
       {/* Second Description */}
       <p ref={luciaCharDesc2Ref} className="lucia-char__desc2">
-        From batting to bowling to keeping — every position is
-        playable by a real human. No more controlling both teams alone.
-        This is real cricket, with real teammates.
+        Every position — bat, bowl, keep — played by a real human.
+        No more solo cricket. This is the real thing.
       </p>
       
       {/* Image 1 - Left side, large (boxing) */}
@@ -3481,13 +3472,14 @@ ScrollTrigger.create({
 
         <div className="leonida__text-section" ref={leonidaTextSectionRef}>
           <h1 className="leonida__title" ref={leonidaTitleRef}>
-            Rise Through<br />
-            the Ranks
+            Rise.<br />
+            Dominate.<br />
+            Reign.
           </h1>
 
           <p className="leonida__desc" ref={leonidaDescRef}>
-            Every champion started somewhere. Your journey from
-            street legend to esports icon begins with a single match.
+            Every god started somewhere. Street legend to esports icon —
+            it starts with a single match.
           </p>
         </div>
 
@@ -3523,15 +3515,13 @@ ScrollTrigger.create({
       {/* Quote */}
       <p ref={calQuoteRef} className="cal__quote">
         Clubs. Leagues.<br />
-        Tournaments.<br />
-        Seasons.
+        Seasons. Glory.
       </p>
 
       {/* Description */}
       <p ref={calDescRef} className="cal__desc">
-        The pinnacle of Gods of Cricket. Form your club,
-        recruit your squad, and compete in seasonal tournaments.
-        Invite-only. Earn your way in.
+        The pinnacle. Build your club, recruit your squad,
+        dominate seasonal tournaments. Invite-only. Earn it.
       </p>
       
       {/* Image 1 - Left column */}
@@ -3574,7 +3564,7 @@ ScrollTrigger.create({
       <h2 ref={calBigQuoteRef} className="cal__big-quote">
         THE WORLD'S FIRST<br />
         CRICKET ESPORTS<br />
-        PLATFORM.
+        PLATFORM
       </h2>
       
     </div>
@@ -3632,7 +3622,7 @@ ScrollTrigger.create({
             <div ref={vlDividerRef} className="visit-leonida__divider"></div>
 
             <p ref={vlTaglineRef} className="visit-leonida__tagline">
-              Three worlds. Infinite possibilities. Your legend starts now.
+              Three worlds. Infinite glory. Your legend starts now.
             </p>
           </div>
 
@@ -3723,18 +3713,16 @@ ScrollTrigger.create({
 
             <div className="vice-city-detail__info">
               <h1 ref={vcDetailHeadingRef} className="vice-city-detail__heading">
-                EVERYTHING<br />
-                IN EXCESS
+                BUILT FOR<br />
+                GLORY
               </h1>
               <p ref={vcDetailSubheadingRef} className="vice-city-detail__subheading">
-                WE'RE A LONG WAY FROM THE '80S, BUT VICE CITY IS STILL THE SUN AND FUN CAPITAL OF AMERICA.
+                EVERY PITCH. EVERY FORMAT. EVERY LEVEL OF THE BEAUTIFUL GAME.
               </p>
               <p ref={vcDetailDescRef} className="vice-city-detail__description">
-                The glamour, hustle, and greed of America captured in a single city.
-                Each neighborhood has something to offer, from the pastel art deco hotels
-                and bright white sands of Ocean Beach, to the bustling panaderías of Little Cuba
-                and the bootleg brands of the Tisha-Wocka flea market, out to the VC Port,
-                the cruise ship capital of the world.
+                From the raw chaos of street cricket to the precision of ranked ODIs
+                and the elite drama of pro tournaments — Gods of Cricket delivers
+                three distinct worlds, each with its own rules, culture, and path to legend status.
               </p>
             </div>
           </div>
@@ -3917,16 +3905,16 @@ ScrollTrigger.create({
 
       <div className="discover-detail__info">
         <h1 ref={discoverDetailHeadingRef} className="discover-detail__heading">
-          COMPETITIVE<br />
+          THE<br />
           ARENA
         </h1>
         <p ref={discoverDetailSubheadingRef} className="discover-detail__subheading">
-          WHERE LEGENDS ARE MADE UNDER THE LIGHTS.
+          WHERE GODS ARE MADE UNDER THE LIGHTS.
         </p>
         <p ref={discoverDetailDescRef} className="discover-detail__description">
-          The Arena is where the world's best compete. Ranked ladders,
-          live tournaments, esports leagues, and community events define
-          this competitive ecosystem where every ball counts.
+          Ranked ladders, live tournaments, and esports leagues.
+          The world's best compete here. Every ball is pressure.
+          Every wicket is glory.
         </p>
       </div>
     </div>
@@ -4050,9 +4038,9 @@ ScrollTrigger.create({
 
       {/* Description */}
       <p ref={worldDescRef} className="world__desc">
-        From backyard pitches to world-class stadiums,
-        Gods of Cricket is a universe of cricket built
-        for those who live and breathe the sport.
+        A universe of cricket built for those
+        who live and breathe the sport. Every format.
+        Every feeling. Every moment of glory.
       </p>
       
     </div>
@@ -4111,10 +4099,10 @@ ScrollTrigger.create({
     {/* Big quote */}
     <div ref={worldBigQuoteBgRef} className="world__quote-bg"></div>
     <h2 ref={worldBigQuoteRef} className="world__big-quote">
-      "EVERY OVER<br/>
+      EVERY OVER<br/>
       TELLS A STORY.<br/>
       EVERY WICKET<br/>
-      MAKES A LEGEND."
+      FORGES A GOD.
     </h2>
     
   </div>

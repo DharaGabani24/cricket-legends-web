@@ -112,9 +112,11 @@
 
   .preloader__text {
     margin-top: 30px;
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
-    font-size: 1.5rem;
-    letter-spacing: 0.5em;
+    font-family: 'Barlow Condensed', 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
     color: var(--text-color);
     text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
   }

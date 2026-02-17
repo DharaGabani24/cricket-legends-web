@@ -3,6 +3,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Rajdhani:wght@400;500;600;700&display=swap');
 
 
 
@@ -120,22 +121,24 @@
 }
 
 .story__text-dim .story__title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: 0.02em;
-  margin: 0 0 1.8rem 0;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.06em;
+  margin: 0 0 2rem 0;
+  text-transform: uppercase;
   color: rgba(0, 60, 35, 0.4);
 }
 
 .story__text-dim .story__paragraph {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
-  font-weight: 400;
-  line-height: 1.85;
-  letter-spacing: 0.015em;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
   margin: 0;
+  max-width: 600px;
   color: rgba(0, 60, 35, 0.35);
 }
 
@@ -147,12 +150,13 @@
 } */
 
 .story__text-bright .story__title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: 0.02em;
-  margin: 0 0 1.8rem 0;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.06em;
+  margin: 0 0 2rem 0;
+  text-transform: uppercase;
   background: linear-gradient(95deg, #00FF88 0%, #00CC6A 40%, #00FF88 70%, #00CC6A 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -160,12 +164,13 @@
 }
 
 .story__text-bright .story__paragraph {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
-  font-weight: 400;
-  line-height: 1.85;
-  letter-spacing: 0.015em;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
   margin: 0;
+  max-width: 600px;
   background: linear-gradient(95deg, #00FF88 0%, #00CC6A 35%, #00FF88 65%, #00CC6A 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -217,23 +222,25 @@
 }
 
 .story__text-glow .story__title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: 0.02em;
-  margin: 0 0 1.8rem 0;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.06em;
+  margin: 0 0 2rem 0;
+  text-transform: uppercase;
   color: rgb(0, 255, 136);
   text-shadow: 0 0 40px rgba(0, 255, 136, 0.9), 0 0 80px rgba(0, 204, 106, 0.6), 0 0 120px rgba(0, 255, 136, 0.3);
 }
 
 .story__text-glow .story__paragraph {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
-  font-weight: 400;
-  line-height: 1.85;
-  letter-spacing: 0.015em;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
   margin: 0;
+  max-width: 600px;
   color: rgb(0, 230, 120);
   text-shadow: 0 0 35px rgba(0, 255, 136, 0.8), 0 0 70px rgba(0, 204, 106, 0.5), 0 0 100px rgba(0, 255, 136, 0.25);
 }
@@ -273,31 +280,32 @@
 /* Name - positioned at left */
 .jason__name {
   position: absolute;
-  left: 18vw;
-  top: 0;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 700;
-  font-style: italic;
+  left: 8vw;
+  top: 4vh;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 400;
+  font-style: normal;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
   color: #FF6B35;
   margin: 0;
-  line-height: 1;
+  line-height: 0.9;
   text-shadow: 0 4px 60px rgba(0, 0, 0, 0.9), 0 2px 30px rgba(0, 0, 0, 0.7);
   will-change: transform, opacity;
+  z-index: 30;
 }
 
 /* Quote - positioned at left, below name */
 .jason__quote {
   position: absolute;
-  left: 18vw;
-  top: 10vh;
-  max-width: 400px;
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(1.8rem, 2vw, 2.5rem);
-  font-style: normal;
-  font-weight: 700;
+  left: 8vw;
+  top: 18vh;
+  max-width: 380px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+  font-style: italic;
+  font-weight: 600;
   color: #FF6B35;
   margin: 0;
   line-height: 1.2;
@@ -307,16 +315,18 @@
 /* Description - positioned at left, below quote */
 .jason__desc {
   position: absolute;
-  left: 18vw;
-  top: 12vh;
-  max-width: 400px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.1rem, 1.15vw, 1.75rem);
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
+  left: 8vw;
+  top: 30vh;
+  max-width: 360px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1rem, 1.1vw, 1.3rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
   will-change: transform, opacity;
+  z-index: 30;
 }
 
 /* Images - positioned absolutely */
@@ -337,26 +347,26 @@
   object-position: center center;
 }
 
-/* Image 1 - Right side, large (car closeup) */
+/* Image 1 - Right side, large */
 .jason__img--1 {
-  left: 53vw;
-  top: 35vh;
-  width: clamp(660px, 42vw, 900px);
-  height: clamp(700px, 40vh, 900px);
+  left: 50vw;
+  top: 8vh;
+  width: clamp(500px, 42vw, 750px);
+  height: clamp(500px, 55vh, 700px);
 }
 
-/* Image 2 - Left side, tall vertical (gym) */
+/* Image 2 - Left side, tall vertical */
 .jason__img--2 {
-  left: 18vw;
-  top: 80vh;
-  width: clamp(450px, 30vw, 650px);
-  height: clamp(750px, 65vh, 950px);
+  left: 5vw;
+  top: 85vh;
+  width: clamp(400px, 30vw, 550px);
+  height: clamp(600px, 55vh, 800px);
 }
 
-/* Image 3 - Right side bottom (bar) */
+/* Image 3 - Right side bottom */
 .jason__img--3 {
-  left: 53vw;
-  top: 98vh;
+  left: 50vw;
+  top: 105vh;
   width: clamp(350px, 32vw, 460px);
   height: clamp(400px, 35vh, 520px);
 }
@@ -440,50 +450,56 @@
 /* Main Quote - Large centered text */
 .lucia__main-quote {
   position: absolute;
-  left: 20vw;
-  top: 50vh;
-  max-width: 700px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
+  left: 8vw;
+  top: 8vh;
+  max-width: 600px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
   color: #ffffff;
   margin: 0;
-  line-height: 1.1;
+  line-height: 1;
   text-shadow: 0 4px 60px rgba(0, 0, 0, 0.9), 0 2px 30px rgba(0, 0, 0, 0.7);
   will-change: transform, opacity;
+  z-index: 30;
 }
 
-/* Secondary Quote - Italic cyan text */
+/* Secondary Quote - Italic text */
 .lucia__sub-quote {
   position: absolute;
-  left: 20vw;
-  top: 58vh;
+  left: 8vw;
+  top: 30vh;
   max-width: 420px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2.0rem, 2.0vw, 3.2rem);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.5rem, 2vw, 2rem);
   font-weight: 600;
+  font-style: italic;
   color: #00FF88;
   margin: 0;
   line-height: 1.2;
+  letter-spacing: 0.03em;
   will-change: transform, opacity;
+  z-index: 30;
 }
 
 /* Description - Right side */
 .lucia__desc {
   position: absolute;
-  right: 16vw;
-  top: 55vh;
-  max-width: 350px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2rem, 2.2vw, 2.15rem);
+  right: 8vw;
+  top: 10vh;
+  max-width: 320px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
   font-weight: 500;
-  color: #00FF88;
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
   text-align: left;
   will-change: transform, opacity;
+  z-index: 30;
 }
 
 /* Lucia Images - Opposite layout to Jason */
@@ -502,29 +518,28 @@
   object-position: center center;
 }
 
-/* Image 1 - Left side, large (opposite to Jason) */
+/* Image 1 - Left side, large */
 .lucia__img--1 {
-  left: 1vw;
-  top: 92vh;
-  width: clamp(700px, 38vw, 700px);
-  height: clamp(720px, 35vh, 550px);
+  left: 3vw;
+  top: 55vh;
+  width: clamp(500px, 38vw, 650px);
+  height: clamp(450px, 40vh, 550px);
 }
 
 /* Image 2 - Left side below img1 */
 .lucia__img--2 {
-  left: 15vw;
-  top: 165vh;
-  /* max-width: 450; */
-  width: clamp(497px, 30vw, 550px);
-  height: clamp(420px, 30vh, 450px);
+  left: 12vw;
+  top: 140vh;
+  width: clamp(400px, 30vw, 500px);
+  height: clamp(350px, 30vh, 400px);
 }
 
-/* Image 3 - Right side, tall vertical (opposite to Jason) */
+/* Image 3 - Right side, tall vertical */
 .lucia__img--3 {
-  right: 12vw;
-  top: 102vh;
-  width: clamp(500px, 32vw, 550px);
-  height: clamp(800px, 55vh, 800px);
+  right: 5vw;
+  top: 70vh;
+  width: clamp(420px, 32vw, 500px);
+  height: clamp(600px, 50vh, 700px);
 }
 
 /* ========================================
@@ -574,49 +589,49 @@
   .jason__name {
     left: 6vw;
   }
-  
+
   .jason__quote,
   .jason__desc {
     left: 6vw;
-    max-width: 420px;
-  }
-  
-  .jason__img--1 {
-    right: 3vw;
-    width: clamp(300px, 38vw, 500px);
-  }
-  
-  .jason__img--2 {
-    left: 16vw;
-    width: clamp(220px, 26vw, 360px);
-    height: clamp(350px, 55vh, 520px);
-  }
-  
-  .jason__img--3 {
-    right: 6vw;
-    width: clamp(240px, 28vw, 400px);
-  }
-  
-  /* Lucia responsive */
-  .lucia__main-quote {
-    left: 8vw;
-    max-width: 550px;
-  }
-  
-  .lucia__sub-quote {
-    left: 8vw;
-  }
-  
-  .lucia__desc {
-    right: 8vw;
     max-width: 350px;
   }
-  
+
+  .jason__img--1 {
+    left: 48vw;
+    width: clamp(350px, 40vw, 550px);
+  }
+
+  .jason__img--2 {
+    left: 4vw;
+    width: clamp(300px, 28vw, 420px);
+    height: clamp(450px, 50vh, 600px);
+  }
+
+  .jason__img--3 {
+    left: 48vw;
+    width: clamp(280px, 30vw, 400px);
+  }
+
+  /* Lucia responsive */
+  .lucia__main-quote {
+    left: 6vw;
+    max-width: 500px;
+  }
+
+  .lucia__sub-quote {
+    left: 6vw;
+  }
+
+  .lucia__desc {
+    right: 6vw;
+    max-width: 300px;
+  }
+
   .lucia__img--1 {
     left: 3vw;
     width: clamp(350px, 35vw, 500px);
   }
-  
+
   .lucia__img--3 {
     right: 3vw;
     width: clamp(320px, 28vw, 450px);
@@ -626,42 +641,50 @@
 @media (max-width: 1024px) {
   .jason__name {
     left: 5vw;
-    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    font-size: clamp(3rem, 7vw, 5rem);
   }
-  
-  .jason__quote,
+
+  .jason__quote {
+    left: 5vw;
+    top: 15vh;
+    max-width: 340px;
+  }
+
   .jason__desc {
     left: 5vw;
-    max-width: 380px;
+    top: 25vh;
+    max-width: 320px;
   }
-  
+
   .jason__img--1 {
-    width: clamp(260px, 35vw, 420px);
-    height: clamp(180px, 35vh, 320px);
+    left: 45vw;
+    width: clamp(300px, 40vw, 450px);
+    height: clamp(350px, 45vh, 500px);
   }
-  
+
   .jason__img--2 {
-    left: 12vw;
-    width: clamp(200px, 24vw, 320px);
-    height: clamp(300px, 50vh, 460px);
+    left: 4vw;
+    width: clamp(250px, 28vw, 350px);
+    height: clamp(400px, 45vh, 500px);
   }
-  
+
   .jason__img--3 {
-    width: clamp(220px, 26vw, 360px);
-    height: clamp(160px, 30vh, 280px);
+    left: 45vw;
+    width: clamp(250px, 30vw, 380px);
+    height: clamp(250px, 30vh, 350px);
   }
-  
+
   /* Lucia responsive */
   .lucia__main-quote {
     left: 5vw;
-    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-size: clamp(2.5rem, 5vw, 4rem);
   }
-  
+
   .lucia__sub-quote {
     left: 5vw;
-    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    font-size: clamp(1.3rem, 1.8vw, 1.7rem);
   }
-  
+
   .lucia__desc {
     right: 5vw;
     font-size: 0.95rem;
@@ -672,69 +695,77 @@
   .story {
     height: 550vh;
   }
-  
+
   .lucia-section {
     height: 550vh;
   }
-  
+
   .jason__name {
     left: 5vw;
-    font-size: clamp(2rem, 8vw, 3rem);
+    top: 5vh;
+    font-size: clamp(2.5rem, 10vw, 4rem);
   }
-  
+
   .jason__quote {
     left: 5vw;
-    font-size: clamp(1.1rem, 4vw, 1.4rem);
-    max-width: 60vw;
+    top: 16vh;
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+    max-width: 55vw;
   }
-  
+
   .jason__desc {
     left: 5vw;
-    max-width: 60vw;
+    top: 26vh;
+    max-width: 55vw;
+    font-size: 0.9rem;
   }
-  
+
   .jason__img--1 {
-    right: 5vw;
-    width: 50vw;
-    height: 30vh;
+    left: auto;
+    right: 3vw;
+    top: 5vh;
+    width: 35vw;
+    height: 45vh;
   }
-  
+
   .jason__img--2,
   .jason__img--3 {
     display: none;
   }
-  
+
   /* Lucia responsive */
   .lucia__main-quote {
     left: 5vw;
+    top: 5vh;
     max-width: 90vw;
-    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    font-size: clamp(2rem, 8vw, 3rem);
   }
-  
+
   .lucia__sub-quote {
     left: 5vw;
+    top: 25vh;
     max-width: 80vw;
   }
-  
+
   .lucia__desc {
     right: auto;
     left: 5vw;
-    top: auto;
-    bottom: 15vh;
+    top: 35vh;
     max-width: 90vw;
   }
-  
+
   .lucia__img--1 {
     left: 5vw;
+    top: 55vh;
     width: 55vw;
     height: 28vh;
   }
-  
+
   .lucia__img--2,
   .lucia__img--3 {
     display: none;
   }
-  
+
   .story__gallery-grid {
     width: 94vw;
   }
@@ -744,41 +775,41 @@
   .story {
     height: 500vh;
   }
-  
+
   .lucia-section {
     height: 500vh;
   }
-  
+
   .jason__name {
-    font-size: 2rem;
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
   }
-  
+
   .jason__quote {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
-  
+
   .jason__desc {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
-  
+
   .jason__img--1 {
-    width: 60vw;
-    height: 25vh;
+    width: 40vw;
+    height: 35vh;
   }
-  
+
   /* Lucia responsive */
   .lucia__main-quote {
-    font-size: 1.6rem;
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
   }
-  
+
   .lucia__sub-quote {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
-  
+
   .lucia__desc {
     font-size: 0.85rem;
   }
-  
+
   .story__gallery-grid {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
@@ -862,56 +893,60 @@
   .lucia-char__name {
     position: absolute;
     right: auto;
-    left: 57vw;
-    top: 0;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: 700;
+    left: 55vw;
+    top: 5vh;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.06em;
     color: #ffffff;
     margin: 0;
-    line-height: 1;
+    line-height: 0.9;
     text-shadow: 0 4px 60px rgba(0, 0, 0, 0.9), 0 2px 30px rgba(0, 0, 0, 0.7);
     will-change: transform, opacity;
+    z-index: 30;
   }
-  
+
   /* Quote - Right side */
   .lucia-char__quote {
     position: absolute;
     right: auto;
-    left: 57vw;
-    top: 9vh;
-    max-width: 270px;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    letter-spacing: 0.02em;
-    font-size: clamp(2.1rem, 2.1vw, 2.1rem);
-    font-weight: 700;
+    left: 55vw;
+    top: 16vh;
+    max-width: 320px;
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.03em;
+    font-size: clamp(1.3rem, 1.5vw, 1.7rem);
+    font-weight: 600;
+    font-style: italic;
     color: #00FF88;
-    margin: 0;
-    line-height: 1.2;
-    text-align: left;
-    will-change: transform, opacity;
-  }
-  
-  /* Description - Right side */
-  .lucia-char__desc {
-    position: absolute;
-    right: auto;
-    left: 57vw;
-    top: 14vh;
-    max-width: 300px;
-    letter-spacing: 0.05em;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(1.3rem, 1.1vw, 1.8rem);
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.85);
     margin: 0;
     line-height: 1.3;
     text-align: left;
     will-change: transform, opacity;
+    z-index: 30;
   }
-  
+
+  /* Description - Right side */
+  .lucia-char__desc {
+    position: absolute;
+    right: auto;
+    left: 55vw;
+    top: 28vh;
+    max-width: 300px;
+    letter-spacing: 0.02em;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(0.95rem, 1vw, 1.2rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.65;
+    text-align: left;
+    will-change: transform, opacity;
+    z-index: 30;
+  }
+
   /* Second Description - Right side */
   .lucia-char__desc2 {
     position: absolute;
@@ -919,14 +954,16 @@
     left: 55vw;
     top: 122vh;
     max-width: 320px;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(1.3rem, 1.1vw, 2.1rem);
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(0.95rem, 1vw, 1.2rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.65;
+    letter-spacing: 0.02em;
     text-align: left;
     will-change: transform, opacity;
+    z-index: 30;
   }
   
   /* Images */
@@ -947,34 +984,29 @@
     /* object-position: center center; */
   }
   
-  /* Image 1 - Left side, large (boxing) */
+  /* Image 1 - Left side, large */
   .lucia-char__img--1 {
-    left: 0vw;
-    top: 40vh;
-    width: clamp(710px, 38vw, 700px);
-    height: clamp(700px, 45vh, 700px);
+    left: 3vw;
+    top: 10vh;
+    width: clamp(500px, 38vw, 650px);
+    height: clamp(500px, 50vh, 600px);
   }
-  
-  /* Image 2 - Right side (pool) */
+
+  /* Image 2 - Right side below text */
   .lucia-char__img--2 {
     right: auto;
-    left: 51vw;
-    top: 63vh;
-    width: clamp(450px, 32vw, 550px);
-    height: clamp(550px, 30vh, 450px);
-    object-fit: cover;
-    object-position: left left;
-
-
+    left: 50vw;
+    top: 55vh;
+    width: clamp(400px, 32vw, 500px);
+    height: clamp(400px, 35vh, 450px);
   }
-  
-  /* Image 3 - Left side bottom (prison) */
+
+  /* Image 3 - Left side bottom */
   .lucia-char__img--3 {
-    left: 19.2vw;
+    left: 15vw;
     top: 100vh;
-    align-items: right;
-    width: clamp(420px, 30vw, 500px);
-    height: clamp(650px, 45vh, 650px);
+    width: clamp(380px, 30vw, 460px);
+    height: clamp(500px, 45vh, 580px);
   }
   
   /* ========================================
@@ -983,102 +1015,108 @@
   
   @media (max-width: 1200px) {
     .lucia-char__name {
-      right: 8vw;
+      left: 52vw;
     }
-    
+
     .lucia-char__quote,
     .lucia-char__desc,
     .lucia-char__desc2 {
-      right: 8vw;
-      max-width: 350px;
+      left: 52vw;
+      max-width: 320px;
     }
-    
+
     .lucia-char__img--1 {
       left: 3vw;
-      width: clamp(400px, 35vw, 550px);
+      width: clamp(350px, 35vw, 500px);
     }
-    
+
     .lucia-char__img--2 {
-      right: 3vw;
-      width: clamp(350px, 30vw, 450px);
+      left: 48vw;
+      width: clamp(320px, 30vw, 420px);
     }
   }
-  
+
   @media (max-width: 1024px) {
     .lucia-char__name {
-      right: 5vw;
-      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      left: 50vw;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
     }
-    
+
     .lucia-char__quote {
-      right: 5vw;
-      font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+      left: 50vw;
+      font-size: clamp(1.1rem, 1.5vw, 1.4rem);
     }
-    
+
     .lucia-char__desc,
     .lucia-char__desc2 {
-      right: 5vw;
-      max-width: 320px;
-      font-size: 0.95rem;
+      left: 50vw;
+      max-width: 280px;
+      font-size: 0.9rem;
     }
   }
-  
+
   @media (max-width: 768px) {
     .lucia-char-section {
       height: 800vh;
     }
-    
+
     .lucia-char__name {
-      right: auto;
       left: 5vw;
-      font-size: clamp(2rem, 8vw, 3rem);
+      top: 5vh;
+      font-size: clamp(2.2rem, 9vw, 3rem);
     }
-    
+
     .lucia-char__quote {
-      right: auto;
       left: 5vw;
+      top: 15vh;
       text-align: left;
       max-width: 80vw;
     }
-    
-    .lucia-char__desc,
+
+    .lucia-char__desc {
+      left: 5vw;
+      top: 24vh;
+      text-align: left;
+      max-width: 90vw;
+    }
+
     .lucia-char__desc2 {
-      right: auto;
       left: 5vw;
       text-align: left;
       max-width: 90vw;
     }
-    
+
     .lucia-char__img--1 {
       left: 5vw;
+      top: 40vh;
       width: 55vw;
       height: 35vh;
     }
-    
+
     .lucia-char__img--2,
     .lucia-char__img--3 {
       display: none;
     }
   }
-  
+
   @media (max-width: 480px) {
     .lucia-char-section {
       height: 700vh;
     }
-    
+
     .lucia-char__name {
-      font-size: 2rem;
+      font-size: clamp(2rem, 10vw, 2.8rem);
     }
-    
+
     .lucia-char__quote {
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
-    
+
     .lucia-char__desc,
     .lucia-char__desc2 {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
-    
+
     .lucia-char__img--1 {
       width: 70vw;
       height: 30vh;
@@ -1158,26 +1196,26 @@
   
   /* Title - Left side */
   .leonida__title {
- 
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(4rem, 8vw, 6rem);
-    font-weight: 700;
-    text-transform: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 10vw, 8rem);
+    font-weight: 400;
+    text-transform: uppercase;
     color: #00CC6A;
     margin: 0;
-    line-height: 1;
+    line-height: 0.9;
+    letter-spacing: 0.05em;
   }
-  
+
   /* Description - Right side */
   .leonida__desc {
-    max-width: 300px;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(1.8rem, 1.8vw, 2rem);
+    max-width: 340px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.4rem, 1.8vw, 1.8rem);
     letter-spacing: 0.03em;
-    font-weight: 600;
+    font-weight: 500;
     color: #00CC6A;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.5;
     text-align: left;
   }
   
@@ -1289,44 +1327,49 @@
 
 .cal__name {
   position: absolute;
-  left: 13%;
-  top: 24%;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 700;
+  left: 8%;
+  top: 10%;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-weight: 400;
   text-transform: uppercase;
   color: #ffffff;
-  line-height: 0.95;
+  line-height: 0.9;
   margin: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.06em;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
 
 .cal__quote {
   position: absolute;
-  left: 13%;
-  top: 49%;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2.2rem, 2.5vw, 2.5rem);
-  font-weight: 700;
+  left: 8%;
+  top: 42%;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-weight: 600;
+  font-style: italic;
   color: #8B5CF6;
-  line-height: 1;
+  line-height: 1.15;
   margin: 0;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
 
 .cal__desc {
   position: absolute;
-  left: 13%;
-  top: 68%;
+  left: 8%;
+  top: 62%;
   max-width: 310px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.2;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
   margin: 0;
+  letter-spacing: 0.02em;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
 
 
@@ -1393,53 +1436,58 @@
   right: 5%;
   top: 25%;
   width: 40%;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 700;
-  font-style: italic;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  font-style: normal;
   text-transform: uppercase;
   color: #8B5CF6;
-  line-height: 1.15;
+  line-height: 1;
+  letter-spacing: 0.04em;
   margin: 0;
   text-align: left;
+  z-index: 10;
 }
 
 
 
 @media (max-width: 1024px) {
   .cal__name {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(3rem, 6vw, 5rem);
   }
 
   .cal__quote {
-    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
   }
 
   .cal__desc {
-    max-width: 350px;
-    font-size: 0.95rem;
+    max-width: 320px;
+    font-size: 0.9rem;
   }
 
   .cal__big-quote {
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-size: clamp(2rem, 4vw, 3.5rem);
   }
 }
 
 @media (max-width: 768px) {
   .cal__name {
-    font-size: clamp(2rem, 8vw, 3.5rem);
-    top: 30%;
+    left: 5%;
+    top: 8%;
+    font-size: clamp(2.5rem, 10vw, 4rem);
   }
 
   .cal__quote {
+    left: 5%;
     font-size: clamp(1.1rem, 3vw, 1.5rem);
-    top: 55%;
+    top: 40%;
   }
 
   .cal__desc {
-    top: 70%;
+    left: 5%;
+    top: 55%;
     max-width: 85vw;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .cal__img--1 {
@@ -1467,17 +1515,17 @@
 
 @media (max-width: 480px) {
   .cal__name {
-    font-size: 2rem;
+    font-size: clamp(2.2rem, 11vw, 3rem);
     left: 4%;
   }
 
   .cal__quote {
-    font-size: 1.1rem;
+    font-size: 1rem;
     left: 4%;
   }
 
   .cal__desc {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     left: 4%;
   }
 
@@ -1771,38 +1819,39 @@
   }
   
   .visit-leonida__logo-text {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     line-height: 1;
     will-change: transform, opacity;
   }
-  
+
   .visit-leonida__logo-text .visit {
     display: block;
     font-size: clamp(1.8rem, 2.8vw, 2.8rem);
-    font-weight: 500;
-    letter-spacing: 0.18em;
+    font-weight: 400;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #ffffff;
   }
-  
+
   .visit-leonida__logo-text .leonida {
     display: block;
-    font-size: clamp(2.8rem, 4.8vw, 4.8rem);
-    font-weight: 800;
-    letter-spacing: 0.06em;
+    font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+    font-weight: 400;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #ffffff;
-    margin-top: -4px;
+    margin-top: -2px;
   }
-  
+
   .visit-leonida__tagline {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(1.3rem, 2vw, 1.9rem);
-    font-weight: 400;
-    color: #ffffff;
-    line-height: 1.4;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
     max-width: 320px;
     margin: 0;
+    letter-spacing: 0.03em;
     will-change: transform, opacity;
   }
   
@@ -1907,22 +1956,17 @@
   .visit-leonida__postcard-title {
     position: absolute;
     top: 12%;
-    /* //75% if using img 03 and 60% for img 04*/
     left: 60%;
     transform: translate(-50%, -50%);
-    font-family: 'Space Grotesk', sans-serif;
-
-    font-size: clamp(3.0rem, 7vw, 4rem);
-    font-weight: 600;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 5rem);
+    font-weight: 400;
     color: #ffffff;
     white-space: nowrap;
-    letter-spacing:normal;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     z-index: 3;
     pointer-events: none;
-    /* text-shadow: 
-      0 0 30px rgba(100, 180, 240, 0.5),
-      0 0 60px rgba(80, 160, 220, 0.25),
-      0 2px 8px rgba(0, 40, 80, 0.4); */
     filter: drop-shadow(0 0 15px rgba(120, 200, 255, 0.3));
     will-change: transform, opacity;
   }
@@ -2012,7 +2056,7 @@
   }
   
   .visit-leonida__postcard-logo-text {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     line-height: 1;
   }
   
@@ -2038,10 +2082,10 @@
   /* Explore button */
   .visit-leonida__explore-btn {
     position: relative;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.12em;
     color: #00FF88;
     background: transparent;
     border: 2px solid #00FF88;
@@ -2168,9 +2212,9 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 400;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.8);
     background: rgba(255, 255, 255, 0.06);
@@ -2314,11 +2358,10 @@
     top: 15%;
     left: 60%;
     transform: translate(-50%, -50%);
-    /* font-family: 'Dancing Script', 'Brush Script MT', cursive; */
-    font-family: 'Space Grotesk', sans-serif;
-
-    font-size: clamp(1.2rem, 2.8vw, 2.5rem);
-    font-weight: 600;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.6rem, 3.5vw, 3rem);
+    font-weight: 400;
+    letter-spacing: 0.08em;
     color: #ffffff;
     white-space: nowrap;
     z-index: 3;
@@ -2348,7 +2391,7 @@
   }
   
   .vice-city-detail__postcard-footer-text {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     line-height: 1;
   }
   
@@ -2378,9 +2421,9 @@
   }
   
   .vice-city-detail__heading {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(3.2rem, 6vw, 5.5rem);
-    font-weight: 500;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 7vw, 6.5rem);
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.02em;
     line-height: 1;
@@ -2392,9 +2435,9 @@
   }
   
   .vice-city-detail__subheading {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(0.85rem, 1.15vw, 1.05rem);
-    font-weight: 400;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: rgba(252, 255, 195, 0.899);
@@ -2406,9 +2449,9 @@
   }
   
   .vice-city-detail__description {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1rem, 1.25vw, 1.12rem);
-    font-weight: 300;
+    font-weight: 500;
     color: rgba(255, 215, 230, 0.913);
     line-height: 1.75;
     margin: 0;
@@ -2877,14 +2920,14 @@
     position: absolute;
     left: 65vw;
     top: 22%;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 5rem);
-    font-weight: 600;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    font-weight: 400;
     text-transform: uppercase;
     color: #ffffff;
-    line-height: 0.95;
+    line-height: 0.9;
     margin: 0;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.06em;
     text-shadow:
       0 4px 40px rgba(0, 0, 0, 0.6),
       0 0 80px rgba(0, 255, 136, 0.1);
@@ -2913,7 +2956,7 @@
     left: 65vw;
     top: 64%;
     max-width: 340px;
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1rem, 1.4vw, 1.25rem);
     font-weight: 500;
     color: rgba(255, 255, 255, 0.85);
@@ -2950,7 +2993,7 @@
     left: 5%;
     bottom: 8%;
     max-width: 380px;
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1rem, 1.4vw, 1.25rem);
     font-weight: 500;
     color: rgba(255, 255, 255, 0.85);
@@ -2983,7 +3026,7 @@
     left: 12%;
     top: 92%;
     max-width: 380px;
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1rem, 1.4vw, 1.25rem);
     font-weight: 500;
     color: rgba(255, 255, 255, 0.85);
@@ -3112,9 +3155,10 @@
     top: 28%;
     width: 42%;
     z-index: 20;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2rem, 4.5vw, 4rem);
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 400;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #8B5CF6;
     line-height: 1.15;
@@ -3355,7 +3399,7 @@ will-change: opacity;
   }
   
   .discover__logo-text {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     line-height: 1;
     will-change: transform, opacity;
   }
@@ -3380,9 +3424,9 @@ will-change: opacity;
   }
   
   .discover__tagline {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.3rem, 2vw, 1.9rem);
-    font-weight: 400;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+    font-weight: 500;
     color: #ffffff;
     line-height: 1.4;
     max-width: 320px;
@@ -3481,7 +3525,7 @@ will-change: opacity;
     top: 10%;
     left: 78%;
     transform: translate(-50%, -50%);
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(3rem, 7vw, 4rem);
     font-weight: 600;
     color: #ffffff;
@@ -3555,7 +3599,7 @@ will-change: opacity;
   }
   
   .discover__postcard-logo-text {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     line-height: 1;
   }
   
@@ -3580,7 +3624,7 @@ will-change: opacity;
   
   .discover__explore-btn {
     position: relative;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -3791,7 +3835,7 @@ will-change: opacity;
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
   letter-spacing: 0.03em;
@@ -3919,7 +3963,7 @@ will-change: opacity;
   top: 11%;
   left: 78%;
   transform: translate(-50%, -50%);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(1rem, 2.5vw, 2rem);
   font-weight: 600;
   color: #ffffff;
@@ -3935,7 +3979,7 @@ will-change: opacity;
 }
 
 .discover-detail__heading {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: 500;
   text-transform: uppercase;
@@ -3949,9 +3993,9 @@ will-change: opacity;
 }
 
 .discover-detail__subheading {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(0.85rem, 1.15vw, 1.05rem);
-  font-weight: 400;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: rgba(228, 217, 207, 0.899);
@@ -3963,9 +4007,9 @@ will-change: opacity;
 }
 
 .discover-detail__description {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.3rem, 1.35vw, 1.35rem);
-  font-weight: 400;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1.1rem, 1.25vw, 1.2rem);
+  font-weight: 500;
   color: rgba(237, 226, 216, 0.913);
   line-height: 1.75;
   margin: 0;
@@ -4168,7 +4212,7 @@ will-change: opacity;
   top: 18%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 700;
   color: #ffffff;
@@ -4195,7 +4239,7 @@ will-change: opacity;
 }
 
 .gvi__visit {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 0.65rem;
   font-weight: 400;
   letter-spacing: 0.2em;
@@ -4204,7 +4248,7 @@ will-change: opacity;
 }
 
 .gvi__leonida {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -4225,7 +4269,7 @@ will-change: opacity;
 }
 
 .gvi__heading {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(2.8rem, 5vw, 4.5rem);
   font-weight: 600;
   text-transform: uppercase;
@@ -4237,7 +4281,7 @@ will-change: opacity;
 }
 
 .gvi__sub {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(0.8rem, 1.1vw, 1rem);
   font-weight: 400;
   text-transform: uppercase;
@@ -4249,7 +4293,7 @@ will-change: opacity;
 }
 
 .gvi__desc {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(0.95rem, 1.2vw, 1.1rem);
   font-weight: 300;
   color: rgba(255, 255, 255, 0.8);
@@ -4442,34 +4486,30 @@ will-change: opacity;
   }
   
   .finale__text-dim .finale__coming {
-    /* font-family: 'Space Grotesk', sans-serif; */
-    font-size: clamp(1.6rem, 3.6vw, 3rem);
-    letter-spacing: 0.5em;
-    font-family: 'Space Grotesk', sans-serif;
-    /* letter-spacing: 0.5em; */
-    /* line-height: 1.5; */
-    /* padding-bottom: 0.5rem; */
-
-    /* color: rgba(180, 80, 100, 0.35); */
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
     color: rgb(0, 40, 25);
     margin-bottom: 8px;
   }
 
   .finale__text-dim .finale__date {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(3.3rem, 8vw, 7.5rem);
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 10vw, 9rem);
+    font-weight: 400;
+    letter-spacing: 0.06em;
     color: rgb(0, 50, 30);
     line-height: 1;
     margin-bottom: 4px;
   }
 
   .finale__text-dim .finale__year {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(3rem, 6.6vw, 6rem);
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 12vw, 11rem);
+    font-weight: 400;
+    letter-spacing: 0.08em;
     color: rgb(0, 55, 35);
     line-height: 1;
   }
@@ -4481,10 +4521,10 @@ will-change: opacity;
   }
   
   .finale__text-bright .finale__coming {
-    font-family: 'Space Grotesk', sans-serif;
-    /* font-size: clamp(1.4rem, 3.5vw, 2.8rem); */
-    font-size: clamp(1.6rem, 3.6vw, 3rem);
-    letter-spacing: 0.5em;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: 0.45em;
     background: linear-gradient(180deg, rgb(0, 190, 110) 0%, rgb(0, 160, 90) 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -4493,10 +4533,10 @@ will-change: opacity;
   }
 
   .finale__text-bright .finale__date {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(3.3rem, 8vw, 7.5rem);
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 10vw, 9rem);
+    font-weight: 400;
+    letter-spacing: 0.06em;
     background: linear-gradient(180deg, rgb(0, 200, 120) 0%, rgb(0, 170, 95) 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -4506,10 +4546,10 @@ will-change: opacity;
   }
 
   .finale__text-bright .finale__year {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(3rem, 6.6vw, 6rem);
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 12vw, 11rem);
+    font-weight: 400;
+    letter-spacing: 0.08em;
     background: linear-gradient(180deg, rgb(0, 210, 125) 0%, rgb(0, 180, 100) 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -4525,19 +4565,20 @@ will-change: opacity;
   }
   
   .finale__text-glow .finale__coming {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.6rem, 3.6vw, 3rem);
-    letter-spacing: 0.5em;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: 0.45em;
     color: rgb(0, 255, 136);
     text-shadow: 0 0 40px rgba(0, 255, 136, 0.9), 0 0 80px rgba(0, 200, 100, 0.5);
     margin-bottom: 8px;
   }
 
   .finale__text-glow .finale__date {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(3.3rem, 8vw, 7.5rem);
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 10vw, 9rem);
+    font-weight: 400;
+    letter-spacing: 0.06em;
     color: rgb(0, 255, 136);
     text-shadow: 0 0 50px rgba(0, 255, 136, 0.9), 0 0 100px rgba(0, 200, 100, 0.5);
     line-height: 1;
@@ -4545,10 +4586,10 @@ will-change: opacity;
   }
 
   .finale__text-glow .finale__year {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(3rem, 6.6vw, 6rem);
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 12vw, 11rem);
+    font-weight: 400;
+    letter-spacing: 0.08em;
     color: rgb(0, 230, 120);
     text-shadow: 0 0 45px rgba(0, 255, 136, 0.8), 0 0 90px rgba(0, 200, 100, 0.4);
     line-height: 1;
@@ -4570,11 +4611,11 @@ will-change: opacity;
   .finale__platform {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(0.75rem, 1.2vw, 1rem);
+    gap: 0.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
     font-weight: 500;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
   }
@@ -4669,7 +4710,7 @@ will-change: opacity;
 }
 
 .footer__wishlist-title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-weight: 600;
   color: #ffffff;
@@ -4692,7 +4733,7 @@ will-change: opacity;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50px;
   color: rgba(255, 255, 255, 0.85);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -4742,7 +4783,7 @@ will-change: opacity;
 }
 
 .footer__newsletter-logo {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.6);
@@ -4750,7 +4791,7 @@ will-change: opacity;
 }
 
 .footer__newsletter-title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
@@ -4759,7 +4800,7 @@ will-change: opacity;
 }
 
 .footer__newsletter-desc {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.5;
@@ -4777,7 +4818,7 @@ will-change: opacity;
 }
 
 .footer__links a {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.4);
   text-decoration: none;
@@ -4804,7 +4845,7 @@ will-change: opacity;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.7);
@@ -4812,7 +4853,7 @@ will-change: opacity;
 }
 
 .footer__rating-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.5;
