@@ -621,170 +621,6 @@ const closeLightbox = () => {
 // ////
 
 
-//gemini version 2  currently working 
-
-// ScrollTrigger.create({
-//   trigger: story,
-//   start: 'top top',
-//   end: '100% top',
-//   scrub: 1.5,
-//   pin: stickyContainer,
-//   pinSpacing: false,
-//   onUpdate: (self) => {
-//     const p = self.progress;
-
-//     // PHASE 1: VICE CITY TEXT REVEAL (0 - 0.10)
-//     if (p < 0.10) {
-//       const revealProgress = p / 0.10;
-//       updateRadialMasks(revealProgress * 0.5);
-//       if (textDim) textDim.style.opacity = String(1 - (revealProgress * 0.7));
-      
-      
-//       // gsap.set(storyText, { opacity: 1, scale: 1, y: 0 });
-
-//       //////
-//       gsap.set(storyText, { 
-//         opacity: 1, 
-//         scale: 1, 
-//         y: 0,
-//         position: 'absolute',
-//         top: '50%',
-//         left: '50%',
-//         xPercent: -50,
-//         yPercent: -50
-//       });
-
-//       gsap.set(bgImage, { opacity: 0, scale: 1.1 });
-      
-//       // Keep Jason hidden
-//       gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh', opacity: 0 });
-//     }
-
-//     // PHASE 2: TEXT EXIT + BG FADE IN (0.10 - 0.25)
-//     else if (p >= 0.10 && p < 0.25) {
-//       const exitProgress = (p - 0.10) / 0.15;
-      
-//       // Smooth out the progress variable itself
-//       const eased = gsap.parseEase("power2.inOut")(exitProgress);
-
-//       // Finish Masks
-//       updateRadialMasks(eased < 0.2 ? 0.5 + (eased / 0.2 * 0.5) : 1);
-      
-//       // Text Exit Logic (Shrink and Fade)
-//       const scale = 1 - (eased * 0.45);
-//       const yMove = -(eased * 200);
-//       const textOpacity = 1 - (eased * 1.2); // Fades slightly faster for smoothness
-
-//       // gsap.set(storyText, { 
-//       //   scale: Math.max(0.3, scale), 
-//       //   y: yMove, 
-//       //   opacity: Math.max(0, textOpacity) 
-//       // });
-
-//       gsap.set(storyText, { 
-//         // YOU MUST KEEP THESE HERE TOO
-//         top: '50%',
-//         left: '50%',
-//         xPercent: -50,
-//         yPercent: -50,
-//         // Then apply your movement
-//         y: yMove, 
-//         scale: Math.max(0.3, scale),
-//         opacity: Math.max(0, textOpacity) 
-//       });
-
-//       // BG Fade In
-//       const bgDelay = 0.4;
-//       const bgProg = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
-//       const bgEased = gsap.parseEase("power2.out")(bgProg);
-      
-//       gsap.set(bgImage, { 
-//         opacity: bgEased, 
-//         scale: 1.1 - (bgEased * 0.05) 
-//       });
-
-//       // Reset Exit Container
-//       if (exitContainer) {
-//         exitContainer.style.opacity = String(Math.max(0, textOpacity));
-//         exitContainer.style.webkitMaskImage = 'none';
-//       }
-      
-//       gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh' });
-//     }
-
-//     // PHASE 3 - 9: JASON CONTENT (0.25 - 1.0)
-//     // We use a unified calculation for all Jason phases to prevent "jumping"
-//     else if (p >= 0.25) {
-//       // Clear Phase 2 artifacts
-//       gsap.set(storyText, { opacity: 0 });
-//       if (exitContainer) exitContainer.style.webkitMaskImage = 'none';
-
-//       // Unified Scroll Logic
-//       let baseScroll = 0;
-//       let bgOpacity = 0;
-//       let textOpacity = 1;
-//       let imagesOpacity = 1;
-//       let luciaOpacity = 0;
-
-//       if (p < 0.35) { // Phase 3
-//         const ph = (p - 0.25) / 0.10;
-//         baseScroll = ph * 600;
-//         bgOpacity = 1 - (ph * 0.7);
-//       } 
-//       else if (p < 0.45) { // Phase 4
-//         const ph = (p - 0.35) / 0.10;
-//         baseScroll = 600 + (ph * 400);
-//         bgOpacity = 0.3 - (ph * 0.3);
-//       }
-//       else if (p < 0.55) { // Phase 5
-//         const ph = (p - 0.45) / 0.10;
-//         baseScroll = 1000 + (ph * 300);
-//         bgOpacity = 0;
-//       }
-//       else if (p < 0.65) { // Phase 6
-//         const ph = (p - 0.55) / 0.10;
-//         baseScroll = 1300 + (ph * 250);
-//         bgOpacity = 0;
-//       }
-//       else if (p < 0.75) { // Phase 7
-//         const ph = (p - 0.65) / 0.10;
-//         baseScroll = 1550 + (ph * 200);
-//         textOpacity = 1 - ph;
-//         bgOpacity = 0;
-//       }
-//       else if (p < 0.85) { // Phase 8
-//         const ph = (p - 0.75) / 0.10;
-//         baseScroll = 1750 + (ph * 200);
-//         textOpacity = 0;
-//         luciaOpacity = ph * 0.4;
-//       }
-//       else { // Phase 9
-//         const ph = (p - 0.85) / 0.15;
-//         baseScroll = 1950 + (ph * 400);
-//         imagesOpacity = 1 - ph;
-//         textOpacity = 0;
-//         luciaOpacity = 0.4 + (ph * 0.4);
-//       }
-
-      
-
-//       // Apply all values via GSAP set (much smoother than .style)
-//       gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
-//       gsap.set(luciaBgImageRef.current, { opacity: luciaOpacity });
-
-//       // Jason Text
-//       gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
-//       gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
-//       gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
-
-//       // Jason Images
-//       gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: imagesOpacity });
-//       gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: imagesOpacity });
-//       gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: imagesOpacity });
-//     }
-//   }
-// });
-      
 
 
 //gemini version 3 for checkiing with more scroll and slower reveal
@@ -805,12 +641,39 @@ ScrollTrigger.create({
     // PHASE 1: SLOW VICE CITY REVEAL (0 - 0.20)
     // We increased this from 0.10 to 0.20 for a slower reveal
     // ========================================
+    // if (p < 0.20) {
+    //   const revealProgress = p / 0.20; // Math adjusted to the new 20% range
+      
+    //   updateRadialMasks(revealProgress * 0.5);
+      
+    //   if (textDim) textDim.style.opacity = String(1 - (revealProgress * 0.7));
+      
+    //   gsap.set(storyText, { 
+    //     opacity: 1, 
+    //     scale: 1, 
+    //     y: 0,
+    //     position: 'absolute',
+    //     top: '50%',
+    //     left: '50%',
+    //     xPercent: -50,
+    //     yPercent: -50
+    //   });
     if (p < 0.20) {
-      const revealProgress = p / 0.20; // Math adjusted to the new 20% range
+      const revealProgress = p / 0.20;
+      const fadeIn = Math.min(1, revealProgress * 2);  // Fades in during first half
       
-      updateRadialMasks(revealProgress * 0.5);
-      
-      if (textDim) textDim.style.opacity = String(1 - (revealProgress * 0.7));
+      // No radial mask — just fade in all layers together
+      if (textDim) textDim.style.opacity = String(fadeIn * 0.35);
+      if (textBright) {
+        textBright.style.webkitMaskImage = 'none';
+        textBright.style.maskImage = 'none';
+        textBright.style.opacity = String(fadeIn);
+      }
+      if (textGlow) {
+        textGlow.style.webkitMaskImage = 'none';
+        textGlow.style.maskImage = 'none';
+        textGlow.style.opacity = '0';
+      }
       
       gsap.set(storyText, { 
         opacity: 1, 
@@ -4075,7 +3938,7 @@ ScrollTrigger.create({
     </div>
 
     {/* Gallery Images */}
-    <div className="discover-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00003.webp')} style={{ width: 'clamp(300px, 32vw, 450px)', height: 'clamp(400px, 45vh, 550px)' }}>
+    {/* <div className="discover-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00003.webp')} style={{ width: 'clamp(300px, 32vw, 450px)', height: 'clamp(400px, 45vh, 550px)' }}>
       <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00003.webp'} alt="Scene 1" />
       <button className="discover-hscroll__expand">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -4087,9 +3950,54 @@ ScrollTrigger.create({
       </button>
     </div>
 
-    <div className="discover-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp')} style={{ width: 'clamp(250px, 28vw, 400px)', height: 'clamp(500px, 60vh, 680px)' }}>
-      <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp'} alt="Scene 2" />
-      <button className="discover-hscroll__expand">
+
+     {/* Gallery Images 1 & 2: Stacked column */}
+     <div className="vc-hscroll__stack" style={{ alignSelf: 'flex-start' ,marginLeft: '-8vw', marginTop:'-5vh', marginRight: 'clamp(10px, 3vw, 20px)'  }}>
+          <div className="vc-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00005.webp')} style={{ width: 'clamp(100px, 26vw, 250px)', height: 'clamp(100px, 28vh, 300px)', alignSelf:'end' }}>
+            <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00005.webp'} alt="Scene 1" />
+            <button className="vc-hscroll__expand">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <polyline points="9 21 3 21 3 15"></polyline>
+                <line x1="21" y1="3" x2="14" y2="10"></line>
+                <line x1="3" y1="21" x2="10" y2="14"></line>
+              </svg>
+            </button>
+          </div>
+          <div className="vc-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00007.webp')} style={{ width: 'clamp(460px, 26vw, 580px)', height: 'clamp(450px, 38vh, 500px)' }}>
+            <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00007.webp'} alt="Scene 2" />
+            <button className="vc-hscroll__expand" >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <polyline points="9 21 3 21 3 15"></polyline>
+                <line x1="21" y1="3" x2="14" y2="10"></line>
+                <line x1="3" y1="21" x2="10" y2="14"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+          {/* Gallery Image 3: Large  */} 
+          <div className="vc-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp')} style={{ width: 'clamp(220px, 22vw, 320px)', height: 'clamp(500px, 55vh, 680px)', alignSelf:'center', marginRight: 'clamp(40px, 5vw, 80px)' , marginTop:'0vh' }}>
+          <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'} alt="Scene 8" />
+          <button className="vc-hscroll__expand" >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </button>
+        </div> 
+
+
+    
+
+
+    {/* gallery image:4 */}
+    <div className="discover-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00009.webp')} style={{ width: 'clamp(280px, 30vw, 420px)', height: 'clamp(450px, 50vh, 600px)' , marginTop:'0vh', marginBottom:'0vh'}}>
+      <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00009.webp'} alt="Scene 5" />
+      <button className="vc-hscroll__expand">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <polyline points="15 3 21 3 21 9"></polyline>
           <polyline points="9 21 3 21 3 15"></polyline>
@@ -4099,41 +4007,21 @@ ScrollTrigger.create({
       </button>
     </div>
 
-    <div className="discover-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00005.webp')} style={{ width: 'clamp(300px, 35vw, 480px)', height: 'clamp(400px, 48vh, 520px)' }}>
-      <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00005.webp'} alt="Scene 3" />
-      <button className="discover-hscroll__expand">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <polyline points="15 3 21 3 21 9"></polyline>
-          <polyline points="9 21 3 21 3 15"></polyline>
-          <line x1="21" y1="3" x2="14" y2="10"></line>
-          <line x1="3" y1="21" x2="10" y2="14"></line>
-        </svg>
-      </button>
-    </div>
+        {/* Gallery Image 5 */}
+        <div className="vc-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/player2.webp')} style={{ width: 'clamp(420px, 44vw, 560px)', height: 'clamp(710px, 77vh, 890px)', alignSelf: 'center', marginTop: '0vh', marginBottom:'0vh', marginLeft: 'clamp(10px, 3vw, 30px)',  marginRight: '0vh'}}>
+          <img src={process.env.PUBLIC_URL + '/img/player2.webp'} alt="Scene 1" />
+          <button className="vc-hscroll__expand" >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </button>
+        </div>
 
-    <div className="discover-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp')} style={{ width: 'clamp(350px, 40vw, 550px)', height: 'clamp(450px, 55vh, 620px)' }}>
-      <img src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'} alt="Scene 4" />
-      <button className="discover-hscroll__expand">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <polyline points="15 3 21 3 21 9"></polyline>
-          <polyline points="9 21 3 21 3 15"></polyline>
-          <line x1="21" y1="3" x2="14" y2="10"></line>
-          <line x1="3" y1="21" x2="10" y2="14"></line>
-        </svg>
-      </button>
-    </div>
 
-    <div className="discover-hscroll__img" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/player2.webp')} style={{ width: 'clamp(280px, 30vw, 420px)', height: 'clamp(520px, 65vh, 750px)' }}>
-      <img src={process.env.PUBLIC_URL + '/img/player2.webp'} alt="Scene 5" />
-      <button className="discover-hscroll__expand">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <polyline points="15 3 21 3 21 9"></polyline>
-          <polyline points="9 21 3 21 3 15"></polyline>
-          <line x1="21" y1="3" x2="14" y2="10"></line>
-          <line x1="3" y1="21" x2="10" y2="14"></line>
-        </svg>
-      </button>
-    </div>
+          
 
   </div>
 </div>
@@ -4217,14 +4105,14 @@ ScrollTrigger.create({
     </div>
 
     {/* Second quote + desc — appears with final image pair */}
-      <p ref={worldQuote2Ref} className="world__quote2">
+      {/* <p ref={worldQuote2Ref} className="world__quote2">
         A professional<br/>adapts.
       </p>
       <p ref={worldDesc2Ref} className="world__desc2">
         Every corner turned, every deal made — it all 
         adds up. Sooner or later, his crew will have to 
         double down or pull their chips from the table.
-      </p>
+      </p> */}
     
     {/* Big quote */}
     <div ref={worldBigQuoteBgRef} className="world__quote-bg"></div>
@@ -4466,4 +4354,4 @@ export default Story;
 
 
 // ////////////
-// //
+// // ///

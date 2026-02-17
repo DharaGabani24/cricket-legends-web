@@ -200,8 +200,10 @@
 .story__text-bright {
   z-index: 2;
   /* This ensures the mask starts from the bottom center */
-  -webkit-mask-image: radial-gradient(circle at 50% 100%, black 0%, transparent 0%);
-  mask-image: radial-gradient(circle at 50% 100%, black 0%, transparent 0%);
+  /* -webkit-mask-image: radial-gradient(circle at 50% 100%, black 0%, transparent 0%);
+  mask-image: radial-gradient(circle at 50% 100%, black 0%, transparent 0%); */
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 0%);
+  mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 0%);
   transition: none; 
   will-change: mask-image, -webkit-mask-image;
 }
@@ -209,9 +211,12 @@
 .story__text-glow {
   z-index: 3;
   pointer-events: none;
-  /* This ensures the glow also follows the same mask origin */
-  -webkit-mask-image: radial-gradient(circle at 50% 100%, transparent 0%, transparent 0%, black 0%, transparent 0%);
+  /* This ensures the glow also follows the same mask origin //// */
+  /* -webkit-mask-image: radial-gradient(circle at 50% 100%, transparent 0%, transparent 0%, black 0%, transparent 0%);
   mask-image: radial-gradient(circle at 50% 100%, transparent 0%, transparent 0%, black 0%, transparent 0%);
+   */
+   -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 0%, black 0%, transparent 0%);
+   mask-image: radial-gradient(circle at 50% 50%, transparent 0%, black 0%, transparent 0%);
   transition: none;
   will-change: mask-image, -webkit-mask-image;
 }
@@ -4365,7 +4370,7 @@ will-change: opacity;
    .finale-section {
     position: relative;
     width: 100%;
-    height: 410vh;
+    height: 370vh;
     background: #0a0a0a;
   }
   
@@ -4442,7 +4447,7 @@ will-change: opacity;
   
   .finale__text-layer {
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, 0);
     width: 100%;
@@ -4460,7 +4465,7 @@ will-change: opacity;
   
   .finale__text-dim .finale__coming {
     /* font-family: 'Bebas Neue', 'Oswald', sans-serif; */
-    font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+    font-size: clamp(1.6rem, 3.6vw, 3rem);
     letter-spacing: 0.5em;
     font-family: 'Oswald', sans-serif;
     /* letter-spacing: 0.5em; */
@@ -4474,7 +4479,8 @@ will-change: opacity;
   
   .finale__text-dim .finale__date {
     font-family: 'Bebas Neue', 'Oswald', sans-serif;
-    font-size: clamp(3rem, 8vw, 7rem);
+    /* font-size: clamp(3rem, 8vw, 7rem); */
+    font-size: clamp(3.3rem, 8vw, 7.5rem);
     font-weight: 500;
     letter-spacing: 0.04em;
     /* color: rgba(200, 90, 90, 0.3); */
@@ -4485,7 +4491,7 @@ will-change: opacity;
   
   .finale__text-dim .finale__year {
     font-family: 'Bebas Neue', 'Oswald', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-size: clamp(3rem, 6.6vw, 6rem);
     font-weight: 500;
     letter-spacing: 0.06em;
     /* color: rgba(180, 100, 80, 0.3); */
@@ -4501,7 +4507,8 @@ will-change: opacity;
   
   .finale__text-bright .finale__coming {
     font-family: 'Bebas Neue', 'Oswald', sans-serif;
-    font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+    /* font-size: clamp(1.4rem, 3.5vw, 2.8rem); */
+    font-size: clamp(1.6rem, 3.6vw, 3rem);
     letter-spacing: 0.5em;
     /* background: linear-gradient(95deg, hsla(331, 60%, 57%, 0.66) 0%, #fd79a8 40%, #e17055 70%, #f39c12 100%); */
     background: #d74c88;
@@ -4513,7 +4520,7 @@ will-change: opacity;
   
   .finale__text-bright .finale__date {
     font-family: 'Bebas Neue', 'Oswald', sans-serif;
-    font-size: clamp(3rem, 8vw, 7rem);
+    font-size: clamp(3.3rem, 8vw, 7.5rem);
     font-weight: 500;
     letter-spacing: 0.04em;
     background:#d74c88;
@@ -4527,7 +4534,8 @@ will-change: opacity;
   
   .finale__text-bright .finale__year {
     font-family: 'Bebas Neue', 'Oswald', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    /* font-size: clamp(2.5rem, 6vw, 5.5rem); */
+    font-size: clamp(3rem, 6.6vw, 6rem);
     font-weight: 500;
     letter-spacing: 0.06em;
     background: #d54c87;
@@ -4547,7 +4555,9 @@ will-change: opacity;
   
   .finale__text-glow .finale__coming {
     font-family: 'Bebas Neue', 'Oswald', sans-serif;
-    font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+    /* font-size: clamp(1.4rem, 3.5vw, 2.8rem); */
+    font-size: clamp(1.6rem, 3.6vw, 3rem);
+
     letter-spacing: 0.5em;
     color: rgb(255, 200, 140);
     text-shadow: 0 0 40px rgba(255, 150, 100, 0.9), 0 0 80px rgba(255, 120, 80, 0.5);
@@ -4556,7 +4566,8 @@ will-change: opacity;
   
   .finale__text-glow .finale__date {
     font-family: 'Bebas Neue', 'Oswald', sans-serif;
-    font-size: clamp(3rem, 8vw, 7rem);
+    /* font-size: clamp(3rem, 8vw, 7rem); */
+    font-size: clamp(3.3rem, 8vw, 7.5rem);
     font-weight: 500;
     letter-spacing: 0.04em;
     color: rgb(255, 180, 120);
@@ -4567,7 +4578,8 @@ will-change: opacity;
   
   .finale__text-glow .finale__year {
     font-family: 'Bebas Neue', 'Oswald', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    /* font-size: clamp(2.5rem, 6vw, 5.5rem); */
+    font-size: clamp(3rem, 6.6vw, 6rem);
     font-weight: 500;
     letter-spacing: 0.06em;
     color: rgb(255, 190, 130);
