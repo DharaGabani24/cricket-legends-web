@@ -10,14 +10,6 @@
   align-items: center;
 }
 
-/* .nav__logo {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  letter-spacing: 0.1em;
-  color: var(--white);
-  text-decoration: none;
-  transition: color 0.3s ease;
-} */
 .nav__logo {
   display: flex;
   align-items: center;
@@ -29,15 +21,11 @@
   width: auto;
   transition: all 0.3s ease;
 }
-/* 
-.nav__logo:hover {
-  color: var(--pink);
-} */
-
 
 .nav__logo:hover .nav__logo-img {
-  opacity: 0.8;
+  opacity: 0.9;
   transform: scale(1.02);
+  filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.4));
 }
 
 .nav__menu {

@@ -22,7 +22,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--pink), var(--purple));
+  background: linear-gradient(90deg, #00FF88, #00CC6A);
   transform: scaleX(0);
   transition: transform 0.4s ease;
 }

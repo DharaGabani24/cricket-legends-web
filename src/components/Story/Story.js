@@ -3212,7 +3212,7 @@ ScrollTrigger.create({
           <div ref={bgImageRef} className="story__bg-image">
             <img 
               src={process.env.PUBLIC_URL + '/img/HighresScreenshot00005.webp'} 
-              alt="GODS OF CRICKET"
+              alt="Gods of Cricket"
             />
             <div className="story__bg-overlay"></div>
           </div>
@@ -3221,36 +3221,30 @@ ScrollTrigger.create({
           <div ref={exitContainerRef} className="story__exit-container">
             <div ref={storyTextRef} className="story__text-wrapper">
               <div className="story__text-layer story__text-dim" ref={textDimRef}>
-                <h2 className="story__title">Vice City, USA.</h2>
+                <h2 className="story__title">Three Worlds. One Game.</h2>
                 <p className="story__paragraph">
-                  Jason and Lucia have always known the deck is stacked against
-                  them. But when an easy score goes wrong, they find themselves
-                  on the darkest side of the sunniest place in America, in the
-                  middle of a criminal conspiracy stretching across the state of
-                  Leonida — forced to rely on each other more than ever if they
-                  want to make it out alive.
+                  From dusty streets to sold-out stadiums — Gods of Cricket
+                  takes you on a journey through every level of the beautiful game.
+                  Pick your role. Find your crew. Rise through the ranks.
+                  This is cricket like it's never been played before.
                 </p>
               </div>
               <div className="story__text-layer story__text-bright" ref={textBrightRef}>
-                <h2 className="story__title">Vice City, USA.</h2>
+                <h2 className="story__title">Three Worlds. One Game.</h2>
                 <p className="story__paragraph">
-                  Jason and Lucia have always known the deck is stacked against
-                  them. But when an easy score goes wrong, they find themselves
-                  on the darkest side of the sunniest place in America, in the
-                  middle of a criminal conspiracy stretching across the state of
-                  Leonida — forced to rely on each other more than ever if they
-                  want to make it out alive.
+                  From dusty streets to sold-out stadiums — Gods of Cricket
+                  takes you on a journey through every level of the beautiful game.
+                  Pick your role. Find your crew. Rise through the ranks.
+                  This is cricket like it's never been played before.
                 </p>
               </div>
               <div className="story__text-layer story__text-glow" ref={textGlowRef}>
-                <h2 className="story__title">Vice City, USA.</h2>
+                <h2 className="story__title">Three Worlds. One Game.</h2>
                 <p className="story__paragraph">
-                  Jason and Lucia have always known the deck is stacked against
-                  them. But when an easy score goes wrong, they find themselves
-                  on the darkest side of the sunniest place in America, in the
-                  middle of a criminal conspiracy stretching across the state of
-                  Leonida — forced to rely on each other more than ever if they
-                  want to make it out alive.
+                  From dusty streets to sold-out stadiums — Gods of Cricket
+                  takes you on a journey through every level of the beautiful game.
+                  Pick your role. Find your crew. Rise through the ranks.
+                  This is cricket like it's never been played before.
                 </p>
               </div>
             </div>
@@ -3260,26 +3254,26 @@ ScrollTrigger.create({
           <div ref={jasonWrapperRef} className="jason">
             
             {/* Name - left side */}
-            <h1 ref={jasonNameRef} className="jason__name">JASON DUVAL</h1>
-            
+            <h1 ref={jasonNameRef} className="jason__name">STREETZ</h1>
+
             {/* Quote - left side below name */}
             <p ref={jasonQuoteRef} className="jason__quote">
-              Jason wants an easy life, but things just keep getting harder and worst.
+              Fast. Chaotic. No rules. Pure cricket.
             </p>
-            
+
             {/* Description - left side below quote */}
             <p ref={jasonDescRef} className="jason__desc">
-              Jason grew up around grifters and crooks. After a stint in the Army 
-              trying to shake off his troubled teens, he found himself in the Keys 
-              doing what he knows best, working for local drug runners. It might be 
-              time to try something new.
+              3v3 street cricket where anything goes. Trick shots,
+              special abilities, and raw talent rule the concrete pitch.
+              This is where legends are born — in the dust, under the lights,
+              with nothing but skill and swagger.
             </p>
             
             {/* Image 1 - Right side, large (car closeup) */}
             <div ref={jasonImg1Ref} className="jason__img jason__img--1 img-expandable" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00007.webp')}>
-              <img 
-                src={process.env.PUBLIC_URL + '/img/HighresScreenshot00007.webp'} 
-                alt="Jason closeup"
+              <img
+                src={process.env.PUBLIC_URL + '/img/HighresScreenshot00007.webp'}
+                alt="Street cricket action"
               />
               <button className="img-expandable__btn" >
                <ExpandIcon />
@@ -3288,9 +3282,9 @@ ScrollTrigger.create({
             
             {/* Image 2 - Left side, tall (gym) */}
             <div ref={jasonImg2Ref} className="jason__img jason__img--2 img-expandable" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00009.webp')}>
-              <img 
-                src={process.env.PUBLIC_URL + '/img/HighresScreenshot00009.webp'} 
-                alt="Jason gym"
+              <img
+                src={process.env.PUBLIC_URL + '/img/HighresScreenshot00009.webp'}
+                alt="Street cricket players"
               />
                <button className="img-expandable__btn" >
                 <ExpandIcon />
@@ -3299,9 +3293,9 @@ ScrollTrigger.create({
             
             {/* Image 3 - Right side bottom (bar) */}
             <div ref={jasonImg3Ref} className="jason__img jason__img--3 img-expandable" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00010.webp')}>
-              <img 
-                src={process.env.PUBLIC_URL + '/img/HighresScreenshot00010.webp'} 
-                alt="Jason bar"
+              <img
+                src={process.env.PUBLIC_URL + '/img/HighresScreenshot00010.webp'}
+                alt="Street cricket environment"
               />
                <button className="img-expandable__btn">
                 <ExpandIcon />
@@ -3323,9 +3317,9 @@ ScrollTrigger.create({
           
           {/* Lucia Background Image */}
           <div ref={luciaBgImageRef} className="lucia__bg-image">
-            <img 
-              src={process.env.PUBLIC_URL + '/img/HighresScreenshot00006.webp'} 
-              alt="Jason in store"
+            <img
+              src={process.env.PUBLIC_URL + '/img/HighresScreenshot00006.webp'}
+              alt="International cricket arena"
             />
           </div>
           
@@ -3337,27 +3331,29 @@ ScrollTrigger.create({
             
             {/* Main Quote - Large text */}
             <h2 ref={luciaMainQuoteRef} className="lucia__main-quote">
-              "IF ANYTHING HAPPENS,<br />
-              I'M RIGHT BEHIND YOU."
+              RANKED MATCHES.<br />
+              REAL TACTICS.<br />
+              REAL CRICKET.
             </h2>
-            
-            {/* Sub Quote - Cyan italic */}
+
+            {/* Sub Quote */}
             <p ref={luciaSubQuoteRef} className="lucia__sub-quote">
-              Another day in<br />
-              paradise, right?
+              1v1 to 5v5.<br />
+              ODI rules.
             </p>
-            
+
             {/* Description - Right side */}
             <p ref={luciaDescRef} className="lucia__desc">
-              Meeting Lucia could be the best or worst thing to ever happen to him. 
-              Jason knows how he'd like it to turn out but right now, it's hard to tell.
+              Step up from the streets into the real thing.
+              Ranked matches with proper cricket rules, strategic team play,
+              and the pressure of competition. Every over matters. Every wicket counts.
             </p>
             
             {/* Image 1 - Left side, large */}
             <div ref={luciaImg1Ref} className="lucia__img lucia__img--1 img-expandable" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00010.webp')}>
               <img 
                 src={process.env.PUBLIC_URL + '/img/HighresScreenshot00010.webp'} 
-                alt="Jason and Lucia"
+                alt="International cricket match"
               />
               <button className="img-expandable__btn" >
                 <ExpandIcon />
@@ -3368,7 +3364,7 @@ ScrollTrigger.create({
             <div ref={luciaImg2Ref} className="lucia__img lucia__img--2 img-expandable" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00015.webp')}>
               <img 
                 src={process.env.PUBLIC_URL + '/img/HighresScreenshot00015.webp'} 
-                alt="Jason fishing"
+                alt="International cricket stadium"
               />
               <button className="img-expandable__btn" >
                 <ExpandIcon />
@@ -3379,7 +3375,7 @@ ScrollTrigger.create({
             <div ref={luciaImg3Ref} className="lucia__img lucia__img--3 img-expandable" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp')}>
               <img 
                 src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'} 
-                alt="Jason portrait"
+                alt="International cricket gameplay"
               />
              <button className="img-expandable__btn" >
               <ExpandIcon />
@@ -3398,7 +3394,7 @@ ScrollTrigger.create({
     <div ref={luciaCharBgImageRef} className="lucia-char__bg-image">
       <img 
         src={process.env.PUBLIC_URL + '/img/HighresScreenshot00002.webp'} 
-        alt="Lucia and Jason"
+        alt="International cricket pitch"
       />
     </div>
     
@@ -3409,32 +3405,32 @@ ScrollTrigger.create({
     <div ref={luciaCharWrapperRef} className="lucia-char">
       
       {/* Name - Right side */}
-      <h1 ref={luciaCharNameRef} className="lucia-char__name">LUCIA CAMINOS</h1>
-      
+      <h1 ref={luciaCharNameRef} className="lucia-char__name">THE PITCH AWAITS</h1>
+
       {/* Quote - Right side */}
       <p ref={luciaCharQuoteRef} className="lucia-char__quote">
-        Lucia's father taught her to fight as soon as she could walk.
+        Where amateurs become athletes and athletes become legends.
       </p>
-      
+
       {/* Description - Right side */}
       <p ref={luciaCharDescRef} className="lucia-char__desc">
-        Life has been coming at her swinging ever since. Fighting for 
-        her family landed her in the Leonida Penitentiary. Sheer luck 
-        got her out. Lucia's learned her lesson — only smart moves from here.
+        Full ODI rules. Real-time voice comms with your team.
+        AI backfill means you can always find a match. 12–20 minute games
+        that feel like a World Cup final.
       </p>
-      
+
       {/* Second Description */}
       <p ref={luciaCharDesc2Ref} className="lucia-char__desc2">
-        More than anything, Lucia wants the good life her mom has 
-        dreamed of since their days in Liberty City — but instead of half-baked 
-        fantasies, Lucia is prepared to take matters into her own hands.
+        From batting to bowling to keeping — every position is
+        playable by a real human. No more controlling both teams alone.
+        This is real cricket, with real teammates.
       </p>
       
       {/* Image 1 - Left side, large (boxing) */}
       <div ref={luciaCharImg1Ref} className="lucia-char__img lucia-char__img--1  img-expandable" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00009.webp')}>
         <img 
           src={process.env.PUBLIC_URL + '/img/HighresScreenshot00009.webp'} 
-          alt="Lucia boxing"
+          alt="Cricket batting stance"
         />
         <button className="img-expandable__btn" >
             <ExpandIcon />
@@ -3445,7 +3441,7 @@ ScrollTrigger.create({
       <div ref={luciaCharImg2Ref} className="lucia-char__img lucia-char__img--2  img-expandable" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00007.webp')}>
         <img 
           src={process.env.PUBLIC_URL + '/img/HighresScreenshot00007.webp'} 
-          alt="Lucia pool"
+          alt="Cricket bowling action"
         />
         <button className="img-expandable__btn" >
             <ExpandIcon />
@@ -3456,7 +3452,7 @@ ScrollTrigger.create({
       <div ref={luciaCharImg3Ref} className="lucia-char__img lucia-char__img--3 img-expandable" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp')}>
         <img 
           src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'} 
-          alt="Lucia prison"
+          alt="Cricket team celebration"
         />
           <button className="img-expandable__btn" >
             <ExpandIcon />
@@ -3477,21 +3473,21 @@ ScrollTrigger.create({
         
         <div className="leonida__artwork">
           <img 
-            src={process.env.PUBLIC_URL + '/img/HighresScreenshot00013.webp'} 
-            alt="Jason and Lucia artwork"
+            src={process.env.PUBLIC_URL + '/img/HighresScreenshot00013.webp'}
+            alt="Gods of Cricket artwork"
           />
         </div>
         
 
         <div className="leonida__text-section" ref={leonidaTextSectionRef}>
           <h1 className="leonida__title" ref={leonidaTitleRef}>
-            Only in<br />
-            Leonida
+            Rise Through<br />
+            the Ranks
           </h1>
-          
+
           <p className="leonida__desc" ref={leonidaDescRef}>
-            When the sun fades and the neon glows, everyone has 
-            something to gain — and more to lose.
+            Every champion started somewhere. Your journey from
+            street legend to esports icon begins with a single match.
           </p>
         </div>
 
@@ -3509,9 +3505,9 @@ ScrollTrigger.create({
     
     {/* Background Image */}
     <div ref={calBgImageRef} className="cal__bg-image">
-      <img 
-        src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'} 
-        alt="Cal Hampton"
+      <img
+        src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'}
+        alt="Pro Teams arena"
       />
     </div>
     
@@ -3522,27 +3518,27 @@ ScrollTrigger.create({
     <div ref={calWrapperRef} className="cal">
       
       {/* Name */}
-      <h1 ref={calNameRef} className="cal__name">CAL<br />HAMPTON</h1>
-      
+      <h1 ref={calNameRef} className="cal__name">PRO<br />TEAMS</h1>
+
       {/* Quote */}
       <p ref={calQuoteRef} className="cal__quote">
-        What if<br />
-        everything on the<br />
-        internet was true?
+        Clubs. Leagues.<br />
+        Tournaments.<br />
+        Seasons.
       </p>
-      
+
       {/* Description */}
       <p ref={calDescRef} className="cal__desc">
-        Jason's friend and a fellow associate of Brian's, Cal feels 
-        safest hanging at home, snooping on Coast Guard comms with 
-        a few beers and some private browser tabs open.
+        The pinnacle of Gods of Cricket. Form your club,
+        recruit your squad, and compete in seasonal tournaments.
+        Invite-only. Earn your way in.
       </p>
       
       {/* Image 1 - Left column */}
       <div ref={calImg1Ref} className="cal__img cal__img--1 img-expandable" onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00006.webp')}>
         <img 
           src={process.env.PUBLIC_URL + '/img/HighresScreenshot00006.webp'} 
-          alt="Cal with friends"
+          alt="Pro team match"
         />
           <button className="img-expandable__btn" >
             <ExpandIcon />
@@ -3553,7 +3549,7 @@ ScrollTrigger.create({
       <div ref={calImg2Ref} className="cal__img cal__img--2 img-expandable " onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp')}>
         <img 
           src={process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp'} 
-          alt="Cal at park"
+          alt="Pro team tournament"
         />
          <button className="img-expandable__btn" >
             <ExpandIcon />
@@ -3564,7 +3560,7 @@ ScrollTrigger.create({
       <div ref={calImg3Ref} className="cal__img cal__img--3 img-expandable " onClick={() => openImageLightbox(process.env.PUBLIC_URL + '/img/HighresScreenshot00007.webp')}>
         <img 
           src={process.env.PUBLIC_URL + '/img/HighresScreenshot00007.webp'} 
-          alt="Cal portrait"
+          alt="Pro team esports"
         />
          <button className="img-expandable__btn">
             <ExpandIcon />
@@ -3576,11 +3572,9 @@ ScrollTrigger.create({
       
       {/* Big Quote - Right side */}
       <h2 ref={calBigQuoteRef} className="cal__big-quote">
-        "THERE ARE WAY<br />
-        TOO MANY BIRDS<br />
-        FLYING AROUND<br />
-        IN PERFECT<br />
-        FORMATION."
+        THE WORLD'S FIRST<br />
+        CRICKET ESPORTS<br />
+        PLATFORM.
       </h2>
       
     </div>
@@ -3630,15 +3624,15 @@ ScrollTrigger.create({
                 </svg>
               </div>
               <div ref={vlLogoTextRef} className="visit-leonida__logo-text">
-                <span className="visit">Visit</span>
-                <span className="leonida">Leonida</span>
+                <span className="visit">Gods of</span>
+                <span className="leonida">Cricket</span>
               </div>
             </div>
 
             <div ref={vlDividerRef} className="visit-leonida__divider"></div>
 
             <p ref={vlTaglineRef} className="visit-leonida__tagline">
-              Tour a few of the must-see destinations across the sunshine state.
+              Three worlds. Infinite possibilities. Your legend starts now.
             </p>
           </div>
 
@@ -3650,7 +3644,7 @@ ScrollTrigger.create({
   <div className="visit-leonida__postcard-image">
     <img
       src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'}
-      alt="Vice City skyline"
+      alt="Gods of Cricket"
     />
     <h2 ref={vlPostcardTitleRef} className="visit-leonida__postcard-title">Gods of Cricket</h2>
     
@@ -3672,15 +3666,15 @@ ScrollTrigger.create({
           </svg>
         </div>
         <div className="visit-leonida__postcard-logo-text">
-          <span className="visit-sm">Visit</span>
-          <span className="leonida-sm">Leonida</span>
+          <span className="visit-sm">Gods of</span>
+          <span className="leonida-sm">Cricket</span>
         </div>
       </div>
       <button
         className="visit-leonida__explore-btn"
         onClick={openViceCityDetail}
       >
-        Explore Gods of Cricket
+        Enter the Arena
       </button>
     </div>
   </div>
@@ -3720,7 +3714,7 @@ ScrollTrigger.create({
               <div className="vice-city-detail__postcard-image">
                 <img
                   src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'}
-                  alt="Vice City skyline"
+                  alt="Gods of Cricket"
                 />
                 <h2 className="vice-city-detail__postcard-title">Gods Of Cricket</h2>
               </div>
@@ -3915,24 +3909,24 @@ ScrollTrigger.create({
         <div className="discover-detail__postcard-image">
           <img
             src={process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp'}
-            alt="Ambrosia"
+            alt="The Arena"
           />
-          <h2 className="discover-detail__postcard-title">Ambrosia</h2>
+          <h2 className="discover-detail__postcard-title">The Arena</h2>
         </div>
       </div>
 
       <div className="discover-detail__info">
         <h1 ref={discoverDetailHeadingRef} className="discover-detail__heading">
-          UNDERGROUND<br />
-          CULTURE
+          COMPETITIVE<br />
+          ARENA
         </h1>
         <p ref={discoverDetailSubheadingRef} className="discover-detail__subheading">
-          WHERE THE REAL LEONIDA COMES OUT AT NIGHT.
+          WHERE LEGENDS ARE MADE UNDER THE LIGHTS.
         </p>
         <p ref={discoverDetailDescRef} className="discover-detail__description">
-          Ambrosia is where the city's underground scene thrives. Hip-hop venues, 
-          underground art galleries, street food culture, and late-night clubs define 
-          this eclectic neighborhood where creativity never sleeps.
+          The Arena is where the world's best compete. Ranked ladders,
+          live tournaments, esports leagues, and community events define
+          this competitive ecosystem where every ball counts.
         </p>
       </div>
     </div>
@@ -4034,7 +4028,7 @@ ScrollTrigger.create({
     <div ref={worldBgRef} className="world__bg">
       <img 
         src={process.env.PUBLIC_URL + '/img/HighresScreenshot00003.webp'} 
-        alt="World of Leonida"
+        alt="World of Gods of Cricket"
       />
     </div>
     
@@ -4046,19 +4040,19 @@ ScrollTrigger.create({
     <div className="world__content">
       
       {/* Character name — right aligned */}
-      <h1 ref={worldNameRef} className="world__name">RAUL <br/>BAUTISTA</h1>
-      
+      <h1 ref={worldNameRef} className="world__name">THE<br/>GAME</h1>
+
       {/* Quote */}
       <p ref={worldQuoteRef} className="world__quote">
-        Experience<br/>
-        count.
+        Every match<br/>
+        matters.
       </p>
-      
+
       {/* Description */}
       <p ref={worldDescRef} className="world__desc">
-        From the neon-lit streets of Vice City to the sun-bleached 
-        shores of the Keys, Leonida is a land of opportunity — 
-        for those willing to take it.
+        From backyard pitches to world-class stadiums,
+        Gods of Cricket is a universe of cricket built
+        for those who live and breathe the sport.
       </p>
       
     </div>
@@ -4117,10 +4111,10 @@ ScrollTrigger.create({
     {/* Big quote */}
     <div ref={worldBigQuoteBgRef} className="world__quote-bg"></div>
     <h2 ref={worldBigQuoteRef} className="world__big-quote">
-      "EVERY SUNSET<br/>
-      HIDES A SECRET.<br/>
-      EVERY STREET<br/>
-      TELLS A LIE."
+      "EVERY OVER<br/>
+      TELLS A STORY.<br/>
+      EVERY WICKET<br/>
+      MAKES A LEGEND."
     </h2>
     
   </div>
@@ -4153,15 +4147,15 @@ ScrollTrigger.create({
           </svg>
         </div>
         <div ref={discoverLogoTextRef} className="discover__logo-text">
-          <span className="discover">Discover</span>
-          <span className="destination">Ambrosia</span>
+          <span className="discover">Enter</span>
+          <span className="destination">The Arena</span>
         </div>
       </div>
 
       <div ref={discoverDividerRef} className="discover__divider"></div>
 
       <p ref={discoverTaglineRef} className="discover__tagline">
-        Explore the hidden gems and underground culture.
+        Where champions are forged and legends are born.
       </p>
     </div>
 
@@ -4170,9 +4164,9 @@ ScrollTrigger.create({
         <div className="discover__postcard-image">
           <img
             src={process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp'}
-            alt="Ambrosia"
+            alt="The Arena"
           />
-          <h2 ref={discoverPostcardTitleRef} className="discover__postcard-title">Ambrosia</h2>
+          <h2 ref={discoverPostcardTitleRef} className="discover__postcard-title">The Arena</h2>
           
           <div className="discover__postcard-overlay-footer">
             <div className="discover__postcard-logo">
@@ -4183,15 +4177,15 @@ ScrollTrigger.create({
                 </svg>
               </div>
               <div className="discover__postcard-logo-text">
-                <span className="discover-sm">Discover</span>
-                <span className="destination-sm">Ambrosia</span>
+                <span className="discover-sm">Enter</span>
+                <span className="destination-sm">The Arena</span>
               </div>
             </div>
             <button
               className="discover__explore-btn"
               onClick={openDiscoverDetail}
             >
-              Explore Ambrosia
+              Enter the Arena
             </button>
           </div>
         </div>
@@ -4210,10 +4204,10 @@ ScrollTrigger.create({
     <div ref={finaleBgRef} className="finale__bg">
       <img 
         src={process.env.PUBLIC_URL + '/img/HighresScreenshot00002.webp'} 
-        alt="Jason and Lucia"
+        alt="Gods of Cricket"
       />
     </div>
-    
+
     {/* Dark overlay */}
     <div ref={finaleBgOverlayRef} className="finale__overlay"></div>
     
@@ -4250,13 +4244,22 @@ ScrollTrigger.create({
       </div>
       
       {/* Platforms */}
-      {/* <div ref={finalePlatformsRef} className="finale__platforms">
-        <span className="finale__platform">PS5</span>
+      <div ref={finalePlatformsRef} className="finale__platforms">
+        <span className="finale__platform">
+          <img src="/img/platforms/playstation.svg" alt="PlayStation" className="finale__platform-icon" />
+          PS5
+        </span>
         <span className="finale__platform-divider">|</span>
-        <span className="finale__platform">XBOX SERIES X|S</span>
+        <span className="finale__platform">
+          <img src="/img/platforms/xbox.svg" alt="Xbox" className="finale__platform-icon" />
+          XBOX SERIES X|S
+        </span>
         <span className="finale__platform-divider">|</span>
-        <span className="finale__platform">PC</span>
-      </div> */}
+        <span className="finale__platform">
+          <img src="/img/platforms/steam.svg" alt="Steam" className="finale__platform-icon" />
+          PC
+        </span>
+      </div>
       
     </div>
     
@@ -4274,15 +4277,15 @@ ScrollTrigger.create({
       <h3 className="footer__wishlist-title">Wishlist Now</h3>
       <div className="footer__wishlist-buttons">
         <a href="#" className="footer__platform-btn">
-          <span className="footer__platform-icon">▶</span>
+          <img src="/img/platforms/playstation.svg" alt="PlayStation" className="footer__platform-svg" />
           PS5
         </a>
         <a href="#" className="footer__platform-btn">
-          <span className="footer__platform-icon">◆</span>
+          <img src="/img/platforms/xbox.svg" alt="Xbox" className="footer__platform-svg" />
           XBOX SERIES X|S
         </a>
         <a href="#" className="footer__platform-btn">
-          <span className="footer__platform-icon">⬡</span>
+          <img src="/img/platforms/steam.svg" alt="Steam" className="footer__platform-svg" />
           PC
         </a>
       </div>

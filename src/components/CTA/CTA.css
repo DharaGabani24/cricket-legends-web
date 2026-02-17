@@ -27,7 +27,7 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--black);
-  background: linear-gradient(135deg, var(--pink), var(--purple));
+  background: linear-gradient(135deg, #00FF88, #00CC6A);
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -36,5 +36,5 @@
 
 .cta__button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(196, 30, 127, 0.4);
+  box-shadow: 0 15px 40px rgba(0, 255, 136, 0.4);
 }
