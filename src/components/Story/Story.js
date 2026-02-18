@@ -4202,11 +4202,10 @@ ScrollTrigger.create({
 </section>
 
 {/*  */}
-      {/* ============ CINEMATIC FINALE SECTION ============ */}
+      {/* ============ CINEMATIC FINALE SECTION  ============ */}
 <section ref={finaleSectionRef} className="finale-section">
   <div ref={finaleStickyRef} className="finale-section__sticky">
     
-    {/* Full-bleed cinematic background */}
     <div ref={finaleBgRef} className="finale__bg">
       <img 
         src={process.env.PUBLIC_URL + '/img/HighresScreenshot00002.webp'} 
@@ -4292,7 +4291,8 @@ ScrollTrigger.create({
     <div className="footer__newsletter">
       <div className="footer__newsletter-inner">
         <div className="footer__newsletter-left">
-          <span className="footer__newsletter-logo">GOC</span>
+          {/* <span className="footer__newsletter-logo">GOC</span> */}
+          <img className="footer__newsletter-logo" src={process.env.PUBLIC_URL + '/img/GOC_logo.webp'}   alt="GOC"  />
           <span className="footer__newsletter-title">GET GOC UPDATES</span>
         </div>
         <p className="footer__newsletter-desc">
