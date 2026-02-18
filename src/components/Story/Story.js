@@ -3221,36 +3221,27 @@ ScrollTrigger.create({
           <div ref={exitContainerRef} className="story__exit-container">
             <div ref={storyTextRef} className="story__text-wrapper">
               <div className="story__text-layer story__text-dim" ref={textDimRef}>
-                <h2 className="story__title">Vice City, USA.</h2>
+                <h2 className="story__title">Three Worlds. One Legacy.</h2>
                 <p className="story__paragraph">
-                  Jason and Lucia have always known the deck is stacked against
-                  them. But when an easy score goes wrong, they find themselves
-                  on the darkest side of the sunniest place in America, in the
-                  middle of a criminal conspiracy stretching across the state of
-                  Leonida — forced to rely on each other more than ever if they
-                  want to make it out alive.
+                  Streets. Stadiums. Glory. Your rise starts here —
+                  from backyard battles to sold-out arenas. Pick your crew.
+                  Prove your worth. Become a god.
                 </p>
               </div>
               <div className="story__text-layer story__text-bright" ref={textBrightRef}>
-                <h2 className="story__title">Vice City, USA.</h2>
+                <h2 className="story__title">Three Worlds. One Legacy.</h2>
                 <p className="story__paragraph">
-                  Jason and Lucia have always known the deck is stacked against
-                  them. But when an easy score goes wrong, they find themselves
-                  on the darkest side of the sunniest place in America, in the
-                  middle of a criminal conspiracy stretching across the state of
-                  Leonida — forced to rely on each other more than ever if they
-                  want to make it out alive.
+                  Streets. Stadiums. Glory. Your rise starts here —
+                  from backyard battles to sold-out arenas. Pick your crew.
+                  Prove your worth. Become a god.
                 </p>
               </div>
               <div className="story__text-layer story__text-glow" ref={textGlowRef}>
-                <h2 className="story__title">Vice City, USA.</h2>
+                <h2 className="story__title">Three Worlds. One Legacy.</h2>
                 <p className="story__paragraph">
-                  Jason and Lucia have always known the deck is stacked against
-                  them. But when an easy score goes wrong, they find themselves
-                  on the darkest side of the sunniest place in America, in the
-                  middle of a criminal conspiracy stretching across the state of
-                  Leonida — forced to rely on each other more than ever if they
-                  want to make it out alive.
+                  Streets. Stadiums. Glory. Your rise starts here —
+                  from backyard battles to sold-out arenas. Pick your crew.
+                  Prove your worth. Become a god.
                 </p>
               </div>
             </div>
@@ -3260,19 +3251,17 @@ ScrollTrigger.create({
           <div ref={jasonWrapperRef} className="jason">
             
             {/* Name - left side */}
-            <h1 ref={jasonNameRef} className="jason__name">JASON DUVAL</h1>
+            <h1 ref={jasonNameRef} className="jason__name">STREETZ</h1>
             
             {/* Quote - left side below name */}
             <p ref={jasonQuoteRef} className="jason__quote">
-              Jason wants an easy life, but things just keep getting harder and worst.
+              No rules. No mercy. Just raw cricket.
             </p>
             
             {/* Description - left side below quote */}
             <p ref={jasonDescRef} className="jason__desc">
-              Jason grew up around grifters and crooks. After a stint in the Army 
-              trying to shake off his troubled teens, he found himself in the Keys 
-              doing what he knows best, working for local drug runners. It might be 
-              time to try something new.
+              3v3 on concrete. Trick shots and special abilities.
+              Where legends are forged — in the dust, under the lights.
             </p>
             
             {/* Image 1 - Right side, large (car closeup) */}
@@ -3337,20 +3326,18 @@ ScrollTrigger.create({
             
             {/* Main Quote - Large text */}
             <h2 ref={luciaMainQuoteRef} className="lucia__main-quote">
-              "IF ANYTHING HAPPENS,<br />
-              I'M RIGHT BEHIND YOU."
+            RANKED. TACTICAL. RUTHLESS.
             </h2>
             
             {/* Sub Quote - Cyan italic */}
             <p ref={luciaSubQuoteRef} className="lucia__sub-quote">
-              Another day in<br />
-              paradise, right?
+            1v1 to 5v5. Full ODI rules.
             </p>
             
             {/* Description - Right side */}
             <p ref={luciaDescRef} className="lucia__desc">
-              Meeting Lucia could be the best or worst thing to ever happen to him. 
-              Jason knows how he'd like it to turn out but right now, it's hard to tell.
+              Step up from the streets. Ranked matches, real strategy,
+              real pressure. Every over matters. Every wicket counts.
             </p>
             
             {/* Image 1 - Left side, large */}
@@ -3409,25 +3396,23 @@ ScrollTrigger.create({
     <div ref={luciaCharWrapperRef} className="lucia-char">
       
       {/* Name - Right side */}
-      <h1 ref={luciaCharNameRef} className="lucia-char__name">LUCIA CAMINOS</h1>
+      <h1 ref={luciaCharNameRef} className="lucia-char__name">THE PITCH AWAITS</h1>
       
       {/* Quote - Right side */}
       <p ref={luciaCharQuoteRef} className="lucia-char__quote">
-        Lucia's father taught her to fight as soon as she could walk.
+      Amateurs become athletes. Athletes become gods.
       </p>
       
       {/* Description - Right side */}
       <p ref={luciaCharDescRef} className="lucia-char__desc">
-        Life has been coming at her swinging ever since. Fighting for 
-        her family landed her in the Leonida Penitentiary. Sheer luck 
-        got her out. Lucia's learned her lesson — only smart moves from here.
+        Full ODI rules. Voice comms. AI backfill.
+        12-minute matches that feel like a World Cup final.
       </p>
       
       {/* Second Description */}
       <p ref={luciaCharDesc2Ref} className="lucia-char__desc2">
-        More than anything, Lucia wants the good life her mom has 
-        dreamed of since their days in Liberty City — but instead of half-baked 
-        fantasies, Lucia is prepared to take matters into her own hands.
+        Every position — bat, bowl, keep — played by a real human.
+        No more solo cricket. This is the real thing.
       </p>
       
       {/* Image 1 - Left side, large (boxing) */}
@@ -3485,13 +3470,14 @@ ScrollTrigger.create({
 
         <div className="leonida__text-section" ref={leonidaTextSectionRef}>
           <h1 className="leonida__title" ref={leonidaTitleRef}>
-            Only in<br />
-            Leonida
+            Rise.<br />
+            Dominate.<br />
+            Reign.
           </h1>
           
           <p className="leonida__desc" ref={leonidaDescRef}>
-            When the sun fades and the neon glows, everyone has 
-            something to gain — and more to lose.
+            Every god started somewhere. Street legend to esports icon —
+            it starts with a single match.
           </p>
         </div>
 
@@ -3510,7 +3496,7 @@ ScrollTrigger.create({
     {/* Background Image */}
     <div ref={calBgImageRef} className="cal__bg-image">
       <img 
-        src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'} 
+        src={process.env.PUBLIC_URL + '/img/HighresScreenshot00007.webp'} 
         alt="Cal Hampton"
       />
     </div>
@@ -3522,20 +3508,18 @@ ScrollTrigger.create({
     <div ref={calWrapperRef} className="cal">
       
       {/* Name */}
-      <h1 ref={calNameRef} className="cal__name">CAL<br />HAMPTON</h1>
+      <h1 ref={calNameRef} className="cal__name">PRO<br />TEAMS</h1>
       
       {/* Quote */}
       <p ref={calQuoteRef} className="cal__quote">
-        What if<br />
-        everything on the<br />
-        internet was true?
+      Clubs. Leagues.<br />
+        Seasons. Glory.
       </p>
       
       {/* Description */}
       <p ref={calDescRef} className="cal__desc">
-        Jason's friend and a fellow associate of Brian's, Cal feels 
-        safest hanging at home, snooping on Coast Guard comms with 
-        a few beers and some private browser tabs open.
+      The pinnacle. Build your club, recruit your squad,
+        dominate seasonal tournaments. Invite-only. Earn it.
       </p>
       
       {/* Image 1 - Left column */}
@@ -3576,11 +3560,9 @@ ScrollTrigger.create({
       
       {/* Big Quote - Right side */}
       <h2 ref={calBigQuoteRef} className="cal__big-quote">
-        "THERE ARE WAY<br />
-        TOO MANY BIRDS<br />
-        FLYING AROUND<br />
-        IN PERFECT<br />
-        FORMATION."
+        THE WORLD'S FIRST<br />
+        CRICKET ESPORTS<br />
+        PLATFORM
       </h2>
       
     </div>
@@ -3630,15 +3612,15 @@ ScrollTrigger.create({
                 </svg>
               </div>
               <div ref={vlLogoTextRef} className="visit-leonida__logo-text">
-                <span className="visit">Visit</span>
-                <span className="leonida">Leonida</span>
+                <span className="visit">Gods of</span>
+                <span className="leonida">Cricket</span>
               </div>
             </div>
 
             <div ref={vlDividerRef} className="visit-leonida__divider"></div>
 
             <p ref={vlTaglineRef} className="visit-leonida__tagline">
-              Tour a few of the must-see destinations across the sunshine state.
+            Three worlds. Infinite glory. Your legend starts now.
             </p>
           </div>
 
@@ -3672,15 +3654,15 @@ ScrollTrigger.create({
           </svg>
         </div>
         <div className="visit-leonida__postcard-logo-text">
-          <span className="visit-sm">Visit</span>
-          <span className="leonida-sm">Leonida</span>
+          <span className="visit-sm">Gods of</span>
+          <span className="leonida-sm">Cricket</span>
         </div>
       </div>
       <button
         className="visit-leonida__explore-btn"
         onClick={openViceCityDetail}
       >
-        Explore Gods of Cricket
+        Enter the Arena
       </button>
     </div>
   </div>
@@ -3729,18 +3711,15 @@ ScrollTrigger.create({
 
             <div className="vice-city-detail__info">
               <h1 ref={vcDetailHeadingRef} className="vice-city-detail__heading">
-                EVERYTHING<br />
-                IN EXCESS
+                BUILT FOR GLORY
               </h1>
               <p ref={vcDetailSubheadingRef} className="vice-city-detail__subheading">
-                WE'RE A LONG WAY FROM THE '80S, BUT VICE CITY IS STILL THE SUN AND FUN CAPITAL OF AMERICA.
+              EVERY PITCH. EVERY FORMAT. EVERY LEVEL OF THE BEAUTIFUL GAME.
               </p>
               <p ref={vcDetailDescRef} className="vice-city-detail__description">
-                The glamour, hustle, and greed of America captured in a single city.
-                Each neighborhood has something to offer, from the pastel art deco hotels
-                and bright white sands of Ocean Beach, to the bustling panaderías of Little Cuba
-                and the bootleg brands of the Tisha-Wocka flea market, out to the VC Port,
-                the cruise ship capital of the world.
+                From the raw chaos of street cricket to the precision of ranked ODIs
+                and the elite drama of pro tournaments — Gods of Cricket delivers
+                three distinct worlds, each with its own rules, culture, and path to legend status.
               </p>
             </div>
           </div>
@@ -4046,19 +4025,19 @@ ScrollTrigger.create({
     <div className="world__content">
       
       {/* Character name — right aligned */}
-      <h1 ref={worldNameRef} className="world__name">RAUL <br/>BAUTISTA</h1>
+      <h1 ref={worldNameRef} className="world__name">THE<br /> GAME</h1>
       
       {/* Quote */}
       <p ref={worldQuoteRef} className="world__quote">
-        Experience<br/>
-        count.
+      Every match<br/>
+        matters.
       </p>
       
       {/* Description */}
       <p ref={worldDescRef} className="world__desc">
-        From the neon-lit streets of Vice City to the sun-bleached 
-        shores of the Keys, Leonida is a land of opportunity — 
-        for those willing to take it.
+      A universe of cricket built for those
+        who live and breathe the sport. Every format.
+        Every feeling. Every moment of glory.
       </p>
       
     </div>
@@ -4117,10 +4096,10 @@ ScrollTrigger.create({
     {/* Big quote */}
     <div ref={worldBigQuoteBgRef} className="world__quote-bg"></div>
     <h2 ref={worldBigQuoteRef} className="world__big-quote">
-      "EVERY SUNSET<br/>
-      HIDES A SECRET.<br/>
-      EVERY STREET<br/>
-      TELLS A LIE."
+      EVERY OVER<br/>
+      TELLS A STORY.<br/>
+      EVERY WICKET<br/>
+      FORGES A GOD.
     </h2>
     
   </div>
@@ -4153,15 +4132,15 @@ ScrollTrigger.create({
           </svg>
         </div>
         <div ref={discoverLogoTextRef} className="discover__logo-text">
-          <span className="discover">Discover</span>
-          <span className="destination">Ambrosia</span>
+          <span className="discover">Enter</span>
+          <span className="destination">The Arena</span>
         </div>
       </div>
 
       <div ref={discoverDividerRef} className="discover__divider"></div>
 
       <p ref={discoverTaglineRef} className="discover__tagline">
-        Explore the hidden gems and underground culture.
+      Where champions are forged and legends are born.
       </p>
     </div>
 
@@ -4172,7 +4151,7 @@ ScrollTrigger.create({
             src={process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp'}
             alt="Ambrosia"
           />
-          <h2 ref={discoverPostcardTitleRef} className="discover__postcard-title">Ambrosia</h2>
+          <h2 ref={discoverPostcardTitleRef} className="discover__postcard-title">The Arena</h2>
           
           <div className="discover__postcard-overlay-footer">
             <div className="discover__postcard-logo">
@@ -4183,15 +4162,15 @@ ScrollTrigger.create({
                 </svg>
               </div>
               <div className="discover__postcard-logo-text">
-                <span className="discover-sm">Discover</span>
-                <span className="destination-sm">Ambrosia</span>
+                <span className="discover-sm"></span>
+                <span className="destination-sm"></span>
               </div>
             </div>
             <button
               className="discover__explore-btn"
               onClick={openDiscoverDetail}
             >
-              Explore Ambrosia
+              Enter the Arena
             </button>
           </div>
         </div>
@@ -4230,21 +4209,21 @@ ScrollTrigger.create({
       {/* DIM layer */}
       <div ref={finaleDimRef} className="finale__text-layer finale__text-dim">
         <div ref={finaleComingRef} className="finale__coming">COMING</div>
-        <div ref={finaleDateRef} className="finale__date">NOVEMBER 19</div>
+        <div ref={finaleDateRef} className="finale__date">FEBRUARY 26</div>
         <div ref={finaleYearRef} className="finale__year">2026</div>
       </div>
       
       {/* BRIGHT layer — revealed by radial mask */}
       <div ref={finaleBrightRef} className="finale__text-layer finale__text-bright">
         <div className="finale__coming">COMING</div>
-        <div className="finale__date">NOVEMBER 19</div>
+        <div className="finale__date">FEBRUARY 26</div>
         <div className="finale__year">2026</div>
       </div>
       
       {/* GLOW layer — warm edge during wipe */}
       <div ref={finaleGlowRef} className="finale__text-layer finale__text-glow">
         <div className="finale__coming">COMING</div>
-        <div className="finale__date">NOVEMBER 19</div>
+        <div className="finale__date">FEBRUARY 26</div>
         <div className="finale__year">2026</div>
       </div>
       
