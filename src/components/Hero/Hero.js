@@ -692,7 +692,7 @@ const Hero = () => {
           trigger: hero,
           start: 'top top',
           end: '100% top',
-          scrub: 2.5, //was 1.5
+          scrub: 0.8, //was 2.5
           pin: false,
         }
       });
@@ -737,7 +737,7 @@ ScrollTrigger.create({
   trigger: hero,
   start: 'top top',
   end: '100% top',
-  scrub: 2.5,//was 0.5
+  scrub: 0.8,//was 0.5, 2.5 , 0.8
   onUpdate: (self) => {
     const scrollProgress = self.progress;
     const dimLayer = document.querySelector('.hero__text-dim');
@@ -850,7 +850,7 @@ else if (scrollProgress >= 0.75) {
   gsap.set(platforms, { opacity: 0 });
   if (dimLayer) dimLayer.style.opacity = '0';
   
-  const exitProgress = Math.min(1, (scrollProgress - 0.75) / 0.15);
+  const exitProgress = Math.min(1, (scrollProgress - 0.75) / 0.15); //was 0.15 instead of 0.25
   
   if (exitContainer) {
     exitContainer.style.webkitMaskImage = 'none';
