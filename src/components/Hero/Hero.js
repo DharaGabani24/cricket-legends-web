@@ -413,13 +413,30 @@ else if (scrollProgress >= 0.75) {
             <div className="hero__date">NOVEMBER 19</div>
             <div className="hero__year">2026</div>
           </div>
-          <div ref={platformsRef} className="hero__platforms">
+          {/* <div ref={platformsRef} className="hero__platforms">
             <span className="hero__platform">PS5</span>
             <span className="hero__platform-divider">|</span>
             <span className="hero__platform">XBOX SERIES X|S</span>
             <span className="hero__platform-divider">|</span>
             <span className="hero__platform">PC</span>
+          </div> */}
+          <div ref={platformsRef} className="hero__platforms">
+            <span className="hero__platform">
+              <img src="/img/platforms/playstation.svg" alt="PlayStation" className="hero__platform-icon" />
+              PS5
+            </span>
+            <span className="hero__platform-divider">|</span>
+            <span className="hero__platform">
+              <img src="/img/platforms/xbox.svg" alt="Xbox" className="hero__platform-icon" />
+              XBOX SERIES X|S
+            </span>
+            <span className="hero__platform-divider">|</span>
+            <span className="hero__platform">
+              <img src="/img/platforms/steam.svg" alt="Steam" className="hero__platform-icon" />
+              PC
+            </span>
           </div>
+
         </div>
         </div>
 
