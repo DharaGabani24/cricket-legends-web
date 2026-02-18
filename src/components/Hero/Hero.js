@@ -396,30 +396,23 @@ else if (scrollProgress >= 0.75) {
           </svg>
         </div>
 
-
         <div ref={releaseInfoRef} className="hero__release-info">
           <div className="hero__text-dim">
             <div className="hero__coming">COMING</div>
-            <div className="hero__date">NOVEMBER 19</div>
+            <div className="hero__date">FEBRUARY 26</div>
             <div className="hero__year">2026</div>
           </div>
           <div ref={textBrightRef} className="hero__text-bright">
             <div className="hero__coming">COMING</div>
-            <div className="hero__date">NOVEMBER 19</div>
+            <div className="hero__date">FEBRUARY 26</div>
             <div className="hero__year">2026</div>
           </div>
           <div ref={textGlowRef} className="hero__text-glow">
             <div className="hero__coming">COMING</div>
-            <div className="hero__date">NOVEMBER 19</div>
+            <div className="hero__date">FEBRUARY 26</div>
             <div className="hero__year">2026</div>
           </div>
-          {/* <div ref={platformsRef} className="hero__platforms">
-            <span className="hero__platform">PS5</span>
-            <span className="hero__platform-divider">|</span>
-            <span className="hero__platform">XBOX SERIES X|S</span>
-            <span className="hero__platform-divider">|</span>
-            <span className="hero__platform">PC</span>
-          </div> */}
+         
           <div ref={platformsRef} className="hero__platforms">
             <span className="hero__platform">
               <img src="/img/platforms/playstation.svg" alt="PlayStation" className="hero__platform-icon" />
