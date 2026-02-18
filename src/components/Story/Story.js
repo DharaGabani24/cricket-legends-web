@@ -3896,22 +3896,20 @@ ScrollTrigger.create({
             src={process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp'}
             alt="Ambrosia"
           />
-          <h2 className="discover-detail__postcard-title">Ambrosia</h2>
+          <h2 className="discover-detail__postcard-title">The Arena</h2>
         </div>
       </div>
 
       <div className="discover-detail__info">
         <h1 ref={discoverDetailHeadingRef} className="discover-detail__heading">
-          UNDERGROUND<br />
-          CULTURE
+        THE ARENA
         </h1>
         <p ref={discoverDetailSubheadingRef} className="discover-detail__subheading">
-          WHERE THE REAL LEONIDA COMES OUT AT NIGHT.
-        </p>
+        WHERE GODS ARE MADE UNDER THE LIGHTS.        </p>
         <p ref={discoverDetailDescRef} className="discover-detail__description">
-          Ambrosia is where the city's underground scene thrives. Hip-hop venues, 
-          underground art galleries, street food culture, and late-night clubs define 
-          this eclectic neighborhood where creativity never sleeps.
+        Ranked ladders, live tournaments, and esports leagues.
+          The world's best compete here. Every ball is pressure.
+          Every wicket is glory.
         </p>
       </div>
     </div>
@@ -4162,8 +4160,8 @@ ScrollTrigger.create({
                 </svg>
               </div>
               <div className="discover__postcard-logo-text">
-                <span className="discover-sm"></span>
-                <span className="destination-sm"></span>
+                <span className="discover-sm">Enter</span>
+                <span className="destination-sm">The Arena</span>
               </div>
             </div>
             <button
@@ -4228,13 +4226,23 @@ ScrollTrigger.create({
       </div>
       
       {/* Platforms */}
-      {/* <div ref={finalePlatformsRef} className="finale__platforms">
-        <span className="finale__platform">PS5</span>
+      
+      <div ref={finalePlatformsRef} className="finale__platforms">
+        <span className="finale__platform">
+          <img src="/img/platforms/playstation.svg" alt="PlayStation" className="finale__platform-icon" />
+          PS5
+        </span>
         <span className="finale__platform-divider">|</span>
-        <span className="finale__platform">XBOX SERIES X|S</span>
+        <span className="finale__platform">
+          <img src="/img/platforms/xbox.svg" alt="Xbox" className="finale__platform-icon" />
+          XBOX SERIES X|S
+        </span>
         <span className="finale__platform-divider">|</span>
-        <span className="finale__platform">PC</span>
-      </div> */}
+        <span className="finale__platform">
+          <img src="/img/platforms/steam.svg" alt="Steam" className="finale__platform-icon" />
+          PC
+        </span>
+      </div>
       
     </div>
     
@@ -4248,19 +4256,20 @@ ScrollTrigger.create({
   <div className="footer__content">
     
     {/* Wishlist Row */}
-    <div className="footer__wishlist">
+   
+     <div className="footer__wishlist">
       <h3 className="footer__wishlist-title">Wishlist Now</h3>
       <div className="footer__wishlist-buttons">
         <a href="#" className="footer__platform-btn">
-          <span className="footer__platform-icon">▶</span>
+          <img src="/img/platforms/playstation.svg" alt="PlayStation" className="footer__platform-svg" />
           PS5
         </a>
         <a href="#" className="footer__platform-btn">
-          <span className="footer__platform-icon">◆</span>
+          <img src="/img/platforms/xbox.svg" alt="Xbox" className="footer__platform-svg" />
           XBOX SERIES X|S
         </a>
         <a href="#" className="footer__platform-btn">
-          <span className="footer__platform-icon">⬡</span>
+          <img src="/img/platforms/steam.svg" alt="Steam" className="footer__platform-svg" />
           PC
         </a>
       </div>
@@ -4275,7 +4284,7 @@ ScrollTrigger.create({
           <span className="footer__newsletter-title">GET GOC UPDATES</span>
         </div>
         <p className="footer__newsletter-desc">
-          Get the latest game announcements, updates on special events 
+        Get the latest game announcements, updates on special events 
           and offers, and much more from Specter Games.
         </p>
       </div>

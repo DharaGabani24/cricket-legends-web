@@ -3337,7 +3337,6 @@
 
 /* ========================================
    DISCOVER SECTION (Similar to Visit Leonida)
-   Different background color scheme (warm/orange tones)
    ======================================== */
 
    .discover-section {
@@ -3394,7 +3393,7 @@
 will-change: opacity;
   }
   
-  .discover__grain {
+  /* .discover__grain {
     position: absolute;
     inset: -50%;
     width: 200%;
@@ -3404,7 +3403,7 @@ will-change: opacity;
     pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     animation: discoverGrain 0.5s steps(3) infinite;
-  }
+  } */
   
   @keyframes discoverGrain {
     0%, 100% { transform: translate(0, 0); }
@@ -3516,7 +3515,7 @@ will-change: opacity;
   .discover__tagline {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(1.3rem, 2vw, 1.9rem);
-    font-weight: 400;
+    font-weight: 500;
     color: #ffffff;
     line-height: 1.4;
     max-width: 320px;
@@ -3845,27 +3844,6 @@ will-change: opacity;
   inset: 0;
   opacity: 0;
   will-change: opacity;
-  /* background: 
-    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(220, 120, 80, 0.6) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 50% at 85% 25%, rgba(180, 100, 60, 0.4) 0%, transparent 50%),
-    linear-gradient(135deg, #8d4a2a 0%, #a85a3a 15%, #7a3f2a 30%, #c45a3a 45%, #a84a32 55%, #935a42 70%, #7a4a32 85%, #6a3a22 100%);
-  
-    */
-
-    /* background: 
-  radial-gradient(ellipse 100% 90% at 50% 20%, rgba(135, 200, 240, 0.35) 0%, transparent 50%),
-  radial-gradient(ellipse 80% 70% at 15% 75%, rgba(0, 180, 160, 0.4) 0%, transparent 50%),
-  radial-gradient(ellipse 90% 80% at 85% 30%, rgba(255, 180, 100, 0.25) 0%, transparent 55%),
-  linear-gradient(135deg,
-    #1a3a5a 0%,
-    #0d4a6a 15%,
-    #1a2a4a 30%,
-    #0f5a8a 45%,
-    #1a3a5a 55%,
-    #0d3a6a 70%,
-    #162a4a 85%,
-    #0a1f35 100%
-  ); */
 
   background: 
   radial-gradient(ellipse 80% 60% at 20% 80%, rgba(0, 200, 160, 0.6) 0%, transparent 50%),
@@ -4054,7 +4032,7 @@ will-change: opacity;
   top: 11%;
   left: 78%;
   transform: translate(-50%, -50%);
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(1rem, 2.5vw, 2rem);
   font-weight: 600;
   color: #ffffff;
@@ -4065,12 +4043,12 @@ will-change: opacity;
 
 /* Detail info */
 .discover-detail__info {
-  max-width: 480px;
+  max-width: 400px;
   flex-shrink: 0;
 }
 
 .discover-detail__heading {
-  font-family: 'Oswald', 'Impact', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: 500;
   text-transform: uppercase;
@@ -4084,9 +4062,10 @@ will-change: opacity;
 }
 
 .discover-detail__subheading {
-  font-family: 'Oswald', 'Impact', sans-serif;
-  font-size: clamp(0.85rem, 1.15vw, 1.05rem);
-  font-weight: 400;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  /* font-size: clamp(0.85rem, 1.15vw, 1.05rem); */
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: rgba(228, 217, 207, 0.899);
@@ -4098,13 +4077,14 @@ will-change: opacity;
 }
 
 .discover-detail__description {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.3rem, 1.35vw, 1.35rem);
-  font-weight: 400;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1.1rem, 1.25vw, 1.2rem);
+  /* font-size: clamp(1.3rem, 1.35vw, 1.35rem); */
+  font-weight: 500;
   color: rgba(237, 226, 216, 0.913);
   line-height: 1.75;
   margin: 0;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.05em;
   opacity: 0;
   transform: translateY(25px);
   will-change: transform, opacity;
@@ -4483,7 +4463,7 @@ will-change: opacity;
    .finale-section {
     position: relative;
     width: 100%;
-    height: 350vh;
+    height: 370vh;
     background: #0a0a0a;
   }
   
@@ -4539,9 +4519,6 @@ will-change: opacity;
     pointer-events: none;
   }
   
-
-
-
    .finale__logo {
     position: absolute;
     top: 0%;
@@ -4578,40 +4555,43 @@ will-change: opacity;
   
   .finale__text-dim .finale__coming {
 
-  font-family: 'Oswald', sans-serif;
-  font-weight: 500;
-  font-size: clamp(2.5rem, 3vw, 5.5rem);
-  letter-spacing: 0.5em;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  /* font-size: clamp(2.5rem, 3vw, 5.5rem); */
+  letter-spacing: 0.45em;
   text-transform: uppercase;
-  line-height: 1.5;
+  /* line-height: 1.5; */
   padding-bottom: 0.5rem;
-  color: rgb(60, 25, 40);
-  margin-bottom: 0;
+  color: rgb(0, 40, 25);
+  margin-bottom: 8px;
   }
   
   .finale__text-dim .finale__date {
 
-    font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    font-size: clamp(3.5rem, 10vw, 8rem);
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: clamp(4.5rem, 10vw, 9rem);
+    /* font-size: clamp(3.5rem, 10vw, 8rem); */
     letter-spacing: 0.03em;
-    line-height: 1.1;
-    white-space: nowrap;
-    background: linear-gradient(180deg, rgb(70, 30, 45) 0%, rgb(50, 20, 35) 100%);
+    line-height: 1;
+    white-space: nowrap; 
+    /* background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%); */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 0;
+     background-clip: text;
+    margin-bottom: 4px;
   }
   
   .finale__text-dim .finale__year {
    
-  font-family: 'Oswald', sans-serif;
-  font-weight: 500;
-  font-size: clamp(3.5rem, 10vw, 8rem);
-  letter-spacing: 0.02em;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  /* font-size: clamp(3.5rem, 10vw, 8rem); */
+  font-size: clamp(5rem, 12vw, 11rem);
+  letter-spacing: 0.05em;
   line-height: 1;
-  background: linear-gradient(180deg, rgb(80, 35, 50) 0%, rgb(55, 25, 38) 100%);
+  /* background: linear-gradient(180deg, rgb(80, 35, 50) 0%, rgb(55, 25, 38) 100%); */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -4625,7 +4605,7 @@ will-change: opacity;
   
   .finale__text-bright .finale__coming {
   
-    font-family: 'Oswald', sans-serif;
+    /* font-family: 'Oswald', sans-serif;
     font-weight: 500;
     font-size: clamp(2.5rem, 3vw, 5.5rem);
     letter-spacing: 0.5em;
@@ -4633,12 +4613,21 @@ will-change: opacity;
     line-height: 1.5;
     padding-bottom: 0.5rem;
     color: rgb(200, 85, 120);
-    margin-bottom: 0;
+    margin-bottom: 0; */
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: 0.45em;
+    background: linear-gradient(180deg, rgb(0, 190, 110) 0%, rgb(0, 160, 90) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 8px;
   }
   
   .finale__text-bright .finale__date {
    
-    font-family: 'Oswald', sans-serif;
+    /* font-family: 'Oswald', sans-serif;
     font-weight: 500;
     font-size: clamp(3.5rem, 10vw, 8rem);
     letter-spacing: 0.03em;
@@ -4648,12 +4637,22 @@ will-change: opacity;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 0;
+    margin-bottom: 0; */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 10vw, 9rem);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    background: linear-gradient(180deg, rgb(0, 200, 120) 0%, rgb(0, 170, 95) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+    margin-bottom: 4px;
   }
   
   .finale__text-bright .finale__year {
    
-    font-family: 'Oswald', sans-serif;
+    /* font-family: 'Oswald', sans-serif;
     font-weight: 500;
     font-size: clamp(3.5rem, 10vw, 8rem);
     letter-spacing: 0.02em;
@@ -4661,7 +4660,16 @@ will-change: opacity;
     background: linear-gradient(180deg, rgb(210, 95, 130) 0%, rgb(190, 80, 115) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text; */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 12vw, 11rem);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    background: linear-gradient(180deg, rgb(0, 210, 125) 0%, rgb(0, 180, 100) 100%);
+    -webkit-background-clip: text;
     background-clip: text;
+    color: transparent;
+    line-height: 1;
   }
   
   .finale__text-glow {
@@ -4672,7 +4680,7 @@ will-change: opacity;
   
   .finale__text-glow .finale__coming {
     
-    font-family: 'Oswald', sans-serif;
+    /* font-family: 'Oswald', sans-serif;
     font-weight: 500;
     font-size: clamp(2.5rem, 3vw, 5.5rem);
     letter-spacing: 0.5em;
@@ -4681,12 +4689,20 @@ will-change: opacity;
     padding-bottom: 0.5rem;
     color: rgb(255, 150, 100);
     text-shadow: none;
-    margin-bottom: 0;
+    margin-bottom: 0; */
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: 0.45em;
+    color: rgb(0, 255, 136);
+    text-shadow: 0 0 40px rgba(0, 255, 136, 0.9), 0 0 80px rgba(0, 200, 100, 0.5);
+    margin-bottom: 8px;
+
   }
   
   .finale__text-glow .finale__date {
 
-    font-family: 'Oswald', sans-serif;
+    /* font-family: 'Oswald', sans-serif;
     font-weight: 500;
     font-size: clamp(3.5rem, 10vw, 8rem);
     letter-spacing: 0.03em;
@@ -4697,12 +4713,20 @@ will-change: opacity;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: none;
-    margin-bottom: 0;
+    margin-bottom: 0; */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 10vw, 9rem);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: rgb(0, 255, 136);
+    text-shadow: 0 0 50px rgba(0, 255, 136, 0.9), 0 0 100px rgba(0, 200, 100, 0.5);
+    line-height: 1;
+    margin-bottom: 4px;
   }
   
   .finale__text-glow .finale__year {
   
-    font-family: 'Oswald', sans-serif;
+    /* font-family: 'Oswald', sans-serif;
     font-weight: 500;
     font-size: clamp(3.5rem, 10vw, 8rem);
     letter-spacing: 0.02em;
@@ -4711,9 +4735,17 @@ will-change: opacity;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: none;
+    text-shadow: none; */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 12vw, 11rem);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: rgb(0, 230, 120);
+    text-shadow: 0 0 45px rgba(0, 255, 136, 0.8), 0 0 90px rgba(0, 200, 100, 0.4);
+    line-height: 1;
   }
   
+
   .finale__platforms {
     position: absolute;
     bottom: 5vh;
@@ -4721,26 +4753,33 @@ will-change: opacity;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 18px;
     will-change: transform, opacity;
     pointer-events: auto;
   }
   
   .finale__platform {
-    
-    font-family: 'Inter', -apple-system, sans-serif;
-    font-size: clamp(0.85rem, 1vw, 0.8rem);
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
+  }
+
+  .finale__platform-icon {
+    height: 18px;
+    width: auto;
+    opacity: 0.7;
+    filter: brightness(0) invert(1);
   }
   
   .finale__platform-divider {
-    
-    font-family: 'Inter', -apple-system, sans-serif;
-    font-size: clamp(0.65rem, 1vw, 0.8rem);
     color: rgba(255, 255, 255, 0.2);
+    font-size: 1.2rem;
   }
   
   /* ========================================
@@ -4799,8 +4838,8 @@ will-change: opacity;
 .footer-section {
   position: relative;
   width: 100%;
-  background: #0a0a0a;
-  padding: 50px 0 60px;
+  /* background: #0a0a0a; */
+  padding: 80px 0 60px;
   /* z-index: 5; */
 }
 
@@ -4821,9 +4860,10 @@ will-change: opacity;
 }
 
 .footer__wishlist-title {
-  font-family: 'Outfit', 'Inter', sans-serif;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  font-weight: 400;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  /* font-size: clamp(1rem, 2vw, 1.5rem); */
+  font-weight: 600;
   color: #ffffff;
   margin: 0;
   letter-spacing: 0.01em;
@@ -4844,7 +4884,7 @@ will-change: opacity;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50px;
   color: rgba(255, 255, 255, 0.85);
-  font-family: 'Outfit', 'Inter', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -4864,6 +4904,13 @@ will-change: opacity;
   opacity: 0.7;
 }
 
+.footer__platform-svg {
+  height: 18px;
+  width: auto;
+  opacity: 0.7;
+  filter: brightness(0) invert(1);
+}
+
 /* Newsletter */
 .footer__newsletter {
   margin-bottom: 50px;
@@ -4874,7 +4921,7 @@ will-change: opacity;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  padding: 10px 40px;
+  padding: 20px 40px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 80px;
   flex-wrap: wrap;
@@ -4895,20 +4942,27 @@ will-change: opacity;
   width: clamp(50px, 8vw, 80px);
   height: auto;
   object-fit: contain;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.02em;
+  
 }
 
 .footer__newsletter-title {
-  font-family: 'Outfit', 'Inter', sans-serif;
-  font-size: 1rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #ffffff;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  padding-left: 0%;
 }
 
 .footer__newsletter-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.5;
   margin: 0;
@@ -4925,8 +4979,8 @@ will-change: opacity;
 }
 
 .footer__links a {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.4);
   text-decoration: none;
   letter-spacing: 0.02em;
@@ -4952,7 +5006,7 @@ will-change: opacity;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.7);
@@ -4960,7 +5014,7 @@ will-change: opacity;
 }
 
 .footer__rating-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.5;
