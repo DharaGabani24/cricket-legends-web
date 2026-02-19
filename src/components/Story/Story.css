@@ -1334,6 +1334,8 @@
   height: 100%;
   z-index: 2;
   pointer-events: none;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay */
+
 }
 
 .cal {
@@ -1581,20 +1583,7 @@
     overflow: hidden;
   }
   
-  /* ---- Background gradient layer ---- */
-  /* .visit-leonida__bg {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    opacity: 0;
-    background: 
-      radial-gradient(ellipse 120% 80% at 20% 80%, rgba(25, 80, 95, 0.5) 0%, transparent 55%),
-      radial-gradient(ellipse 100% 70% at 80% 20%, rgba(30, 70, 90, 0.4) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(20, 55, 75, 0.3) 0%, transparent 60%),
-      linear-gradient(180deg, #0d1f2d 0%, #122a3a 25%, #1a3a4a 50%, #1e4555 75%, #1a3848 100%);
-    will-change: opacity;
-  } 
-   */
+  
    
    .visit-leonida__bg {
     position: absolute;
@@ -1602,60 +1591,7 @@
     z-index: 1;
     opacity: 0;
    
-    /* background: 
-    radial-gradient(ellipse 130% 90% at 15% 85%, rgba(130, 120, 190, 0.45) 0%, transparent 50%),
-    radial-gradient(ellipse 90% 70% at 85% 15%, rgba(110, 140, 210, 0.35) 0%, transparent 45%),
-    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(150, 140, 220, 0.15) 0%, transparent 50%),
-    linear-gradient(140deg, #8578b8 0%, #918ac8 20%, #a098d8 40%, #98a0dd 55%, #9090d0 70%, #8882c2 85%, #7e78b5 100%);
-      */
-      /* background: 
-      radial-gradient(ellipse 90% 80% at 20% 85%, rgba(180, 120, 150, 0.35) 0%, transparent 55%),
-      radial-gradient(ellipse 80% 60% at 85% 20%, rgba(140, 120, 180, 0.3) 0%, transparent 50%),
-      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(160, 130, 170, 0.12) 0%, transparent 45%),
-      radial-gradient(ellipse 120% 100% at 70% 60%, rgba(100, 80, 130, 0.2) 0%, transparent 50%),
-      linear-gradient(140deg, 
-        #1a1225 0%, 
-        #221830 15%, 
-        #2a1e38 30%, 
-        #2e2040 45%, 
-        #2a1e3a 60%, 
-        #221830 75%, 
-        #1a1228 90%, 
-        #120e1e 100%
-      ); */
- 
-      
-  /* background: 
-  radial-gradient(ellipse 90% 80% at 20% 85%, rgba(210, 160, 200, 0.45) 0%, transparent 55%),
-  radial-gradient(ellipse 80% 60% at 85% 20%, rgba(180, 160, 220, 0.4) 0%, transparent 50%),
-  radial-gradient(ellipse 50% 40% at 50% 50%, rgba(200, 175, 215, 0.18) 0%, transparent 45%),
-  radial-gradient(ellipse 120% 100% at 70% 60%, rgba(160, 140, 190, 0.25) 0%, transparent 50%),
-  linear-gradient(140deg, 
-    #382850 0%, 
-    #483868 15%, 
-    #554578 30%, 
-    #5e4d85 45%, 
-    #554578 60%, 
-    #483868 75%, 
-    #382855 90%, 
-    #2e2048 100%
-  ); */
-/* this below one was the original */
-  /* background: 
-  radial-gradient(ellipse 90% 80% at 20% 85%, rgba(230, 185, 210, 0.5) 0%, transparent 55%),
-  radial-gradient(ellipse 80% 60% at 85% 20%, rgba(200, 185, 240, 0.45) 0%, transparent 50%),
-  radial-gradient(ellipse 50% 40% at 50% 50%, rgba(220, 200, 235, 0.22) 0%, transparent 45%),
-  radial-gradient(ellipse 120% 100% at 70% 60%, rgba(190, 165, 215, 0.28) 0%, transparent 50%),
-  linear-gradient(140deg, 
-    #483870 0%, 
-    #5a4888 15%, 
-    #6a5898 30%, 
-    #7562a5 45%, 
-    #6a5898 60%, 
-    #5a4888 75%, 
-    #483875 90%, 
-    #3e3068 100%
-  ); */
+  
   background:
   radial-gradient(ellipse 90% 80% at 20% 85%, rgba(0, 255, 136, 0.12) 0%, transparent 55%),
   radial-gradient(ellipse 80% 60% at 85% 20%, rgba(0, 204, 106, 0.1) 0%, transparent 50%),
@@ -1675,43 +1611,7 @@
     will-change: opacity;
   }
   
-  /* Animated noise grain texture */
-  /* .visit-leonida__grain {
-    position: absolute;
-    inset: -50%;
-    width: 200%;
-    height: 200%;
-    z-index: 2;
-    opacity: 0.035;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    animation: vlGrain 0.5s steps(3) infinite;
-  }
-  
-  @keyframes vlGrain {
-    0%, 100% { transform: translate(0, 0); }
-    33% { transform: translate(-10px, 5px); }
-    66% { transform: translate(5px, -8px); }
-  }
-   */
-  /* ---- Floating particles canvas ---- */
-  /* .visit-leonida__particles {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    pointer-events: none;
-  } */
-  
-  /* ---- Ambient light orbs ---- */
-  /* .visit-leonida__orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    z-index: 2;
-    opacity: 0;
-    will-change: transform, opacity;
-    pointer-events: none;
-  } */
+ 
   
   .visit-leonida__orb--1 {
     width: 500px;
@@ -1845,11 +1745,14 @@
     will-change: transform;
   }
   
-  .visit-leonida__icon svg {
+  .visit-leonida__icon img {
     width: 100%;
     height: auto;
-    color: #ffffff;
+    object-fit: contain;
     filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.3));
+
+    /* color: #ffffff; */
+    /* filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.3)); */
   }
   
   .visit-leonida__logo-text {
@@ -2056,8 +1959,10 @@
   left: 50%;
   transform: translateX(-50%);
 }
-.visit-leonida__postcard-overlay-footer .visit-leonida__postcard-logo-icon svg {
-  color: #ffffff;
+.visit-leonida__postcard-overlay-footer .visit-leonida__postcard-logo-icon img {
+  /* color: #ffffff; */
+  filter: brightness(0) invert(1);
+
 }
 
 .visit-leonida__postcard-overlay-footer .visit-sm {
@@ -2092,10 +1997,10 @@
     height: 50px;
   }
   
-  .visit-leonida__postcard-logo-icon svg {
+  .visit-leonida__postcard-logo-icon img {
     width: 100%;
-    height: auto;
-    color: #1a3a4a;
+    height: 100%;
+    object-fit: contain;
   }
   
   .visit-leonida__postcard-logo-text {
@@ -3480,12 +3385,18 @@ will-change: opacity;
     will-change: transform;
   }
   
-  .discover__icon svg {
+  .discover__icon img {
     width: 100%;
     height: auto;
-    color: #ffffff;
-    filter: drop-shadow(0 0 20px rgba(240, 140, 60, 0.2));
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.3));
+
+    /* color: #ffffff; */
+    /* filter: drop-shadow(0 0 20px rgba(240, 140, 60, 0.2)); */
   }
+
+
+  
   
   .discover__logo-text {
     font-family: 'Bebas Neue', sans-serif;
@@ -3682,10 +3593,11 @@ will-change: opacity;
     height: 50px;
   }
   
-  .discover__postcard-logo-icon svg {
+  .discover__postcard-logo-icon img {
     width: 100%;
     height: auto;
-    color: #1a3a4a;
+    object-fit: contain;
+    /* color: #1a3a4a; */
   }
   
   .discover__postcard-logo-text {
@@ -4557,8 +4469,9 @@ will-change: opacity;
 
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 600;
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  /* font-size: clamp(2.5rem, 3vw, 5.5rem); */
+  /* font-size: clamp(1.2rem, 2.5vw, 1.8rem); */
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+
   letter-spacing: 0.45em;
   text-transform: uppercase;
   /* line-height: 1.5; */
@@ -4571,10 +4484,10 @@ will-change: opacity;
 
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
-    font-size: clamp(4.5rem, 10vw, 9rem);
+    font-size: clamp(4.5rem, 12vw, 10rem);
     /* font-size: clamp(3.5rem, 10vw, 8rem); */
-    letter-spacing: 0.03em;
-    line-height: 1;
+    letter-spacing: 0.06em;
+    line-height: 0.95;
     white-space: nowrap; 
     /* background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%); */
     -webkit-background-clip: text;
@@ -4588,9 +4501,9 @@ will-change: opacity;
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   /* font-size: clamp(3.5rem, 10vw, 8rem); */
-  font-size: clamp(5rem, 12vw, 11rem);
-  letter-spacing: 0.05em;
-  line-height: 1;
+  font-size: clamp(5rem, 14vw, 12rem);
+  letter-spacing: 0.08em;
+  line-height: 0.9;
   /* background: linear-gradient(180deg, rgb(80, 35, 50) 0%, rgb(55, 25, 38) 100%); */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -4605,17 +4518,10 @@ will-change: opacity;
   
   .finale__text-bright .finale__coming {
   
-    /* font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    font-size: clamp(2.5rem, 3vw, 5.5rem);
-    letter-spacing: 0.5em;
-    text-transform: uppercase;
-    line-height: 1.5;
-    padding-bottom: 0.5rem;
-    color: rgb(200, 85, 120);
-    margin-bottom: 0; */
+   
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    /* font-size: clamp(1.2rem, 2.5vw, 1.8rem); */
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
     font-weight: 600;
     letter-spacing: 0.45em;
     background: linear-gradient(180deg, rgb(0, 190, 110) 0%, rgb(0, 160, 90) 100%);
@@ -4627,49 +4533,31 @@ will-change: opacity;
   
   .finale__text-bright .finale__date {
    
-    /* font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    font-size: clamp(3.5rem, 10vw, 8rem);
-    letter-spacing: 0.03em;
-    line-height: 1.1;
-    white-space: nowrap;
-    background: linear-gradient(180deg, rgb(200, 85, 120) 0%, rgb(180, 70, 105) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 0; */
+    
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(4.5rem, 10vw, 9rem);
+    font-size: clamp(4.5rem, 12vw, 10rem);
     font-weight: 400;
     letter-spacing: 0.06em;
     background: linear-gradient(180deg, rgb(0, 200, 120) 0%, rgb(0, 170, 95) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    line-height: 1;
+    line-height: 0.95;
     margin-bottom: 4px;
   }
   
   .finale__text-bright .finale__year {
    
-    /* font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    font-size: clamp(3.5rem, 10vw, 8rem);
-    letter-spacing: 0.02em;
-    line-height: 1;
-    background: linear-gradient(180deg, rgb(210, 95, 130) 0%, rgb(190, 80, 115) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text; */
+
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(5rem, 12vw, 11rem);
+    font-size: clamp(5rem, 14vw, 12rem);
     font-weight: 400;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     background: linear-gradient(180deg, rgb(0, 210, 125) 0%, rgb(0, 180, 100) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    line-height: 1;
+    line-height: 0.9;
   }
   
   .finale__text-glow {
@@ -4680,18 +4568,10 @@ will-change: opacity;
   
   .finale__text-glow .finale__coming {
     
-    /* font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    font-size: clamp(2.5rem, 3vw, 5.5rem);
-    letter-spacing: 0.5em;
-    text-transform: uppercase;
-    line-height: 1.5;
-    padding-bottom: 0.5rem;
-    color: rgb(255, 150, 100);
-    text-shadow: none;
-    margin-bottom: 0; */
+   
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    /* font-size: clamp(1.2rem, 2.5vw, 1.8rem); */
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
     font-weight: 600;
     letter-spacing: 0.45em;
     color: rgb(0, 255, 136);
@@ -4702,53 +4582,33 @@ will-change: opacity;
   
   .finale__text-glow .finale__date {
 
-    /* font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    font-size: clamp(3.5rem, 10vw, 8rem);
-    letter-spacing: 0.03em;
-    line-height: 1.1;
-    white-space: nowrap;
-    background: linear-gradient(180deg, rgb(255, 140, 90) 0%, rgb(255, 120, 80) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: none;
-    margin-bottom: 0; */
+ 
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(4.5rem, 10vw, 9rem);
+    font-size: clamp(4.5rem, 12vw, 10rem);
     font-weight: 400;
     letter-spacing: 0.06em;
     color: rgb(0, 255, 136);
     text-shadow: 0 0 50px rgba(0, 255, 136, 0.9), 0 0 100px rgba(0, 200, 100, 0.5);
-    line-height: 1;
+    line-height: 0.95;
     margin-bottom: 4px;
   }
   
   .finale__text-glow .finale__year {
   
-    /* font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    font-size: clamp(3.5rem, 10vw, 8rem);
-    letter-spacing: 0.02em;
-    line-height: 1;
-    background: linear-gradient(180deg, rgb(255, 130, 80) 0%, rgb(255, 110, 70) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: none; */
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(5rem, 12vw, 11rem);
+    font-size: clamp(5rem, 14vw, 12rem);
     font-weight: 400;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: rgb(0, 230, 120);
     text-shadow: 0 0 45px rgba(0, 255, 136, 0.8), 0 0 90px rgba(0, 200, 100, 0.4);
-    line-height: 1;
+    line-height: 0.9;
   }
   
 
   .finale__platforms {
     position: absolute;
     bottom: 5vh;
+    top:95vh;
     left: 50%;
     transform: translateX(-50%);
     display: flex;

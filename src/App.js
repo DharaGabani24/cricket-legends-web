@@ -24,7 +24,7 @@ function App() {
       {loading && <Preloader onComplete={handleLoadingComplete} />}
 
       {/* Navigation */}
-      <Navbar />
+      <Navbar visible={!loading} />
 
       {/* Main Content */}
       <main>

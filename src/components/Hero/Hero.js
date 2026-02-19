@@ -399,17 +399,17 @@ else if (scrollProgress >= 0.75) {
         <div ref={releaseInfoRef} className="hero__release-info">
           <div className="hero__text-dim">
             <div className="hero__coming">COMING</div>
-            <div className="hero__date">FEBRUARY 26</div>
+            <div className="hero__date">FEBRUARY</div>
             <div className="hero__year">2026</div>
           </div>
           <div ref={textBrightRef} className="hero__text-bright">
             <div className="hero__coming">COMING</div>
-            <div className="hero__date">FEBRUARY 26</div>
+            <div className="hero__date">FEBRUARY</div>
             <div className="hero__year">2026</div>
           </div>
           <div ref={textGlowRef} className="hero__text-glow">
             <div className="hero__coming">COMING</div>
-            <div className="hero__date">FEBRUARY 26</div>
+            <div className="hero__date">FEBRUARY</div>
             <div className="hero__year">2026</div>
           </div>
          

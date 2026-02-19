@@ -297,330 +297,6 @@ const closeLightbox = () => {
 
       updateRadialMasks(0);
 
-      // ========================================
-      // MAIN SCROLL ANIMATION
-      // ========================================
-      
-//       ScrollTrigger.create({
-//         trigger: story,
-//         start: 'top top',
-//         end: '100% top',
-//         scrub: 1.5,
-//         pin: stickyContainer,
-//         pinSpacing: false,
-//         onUpdate: (self) => {
-//           const p = self.progress;
-          
-//           // ========================================
-//           // PHASE 1: VICE CITY TEXT REVEAL (0 - 0.10)
-//           // ========================================
-//           if (p < 0.10) {
-//             const revealProgress = p / 0.10;
-//             updateRadialMasks(revealProgress * 0.5);
-//             if (textDim) textDim.style.opacity = String(1 - (revealProgress * 0.7));
-//             storyText.style.transform = 'scale(1)';
-//             storyText.style.opacity = '1';
-//             gsap.set(bgImage, { opacity: 0, scale: 1.1 });
-//             if (exitContainer) {
-//               exitContainer.style.webkitMaskImage = 'none';
-//               exitContainer.style.maskImage = 'none';
-//             }
-//             // Jason hidden below
-//             gsap.set(jasonName, { y: '100vh' });
-//             gsap.set(jasonQuote, { y: '100vh' });
-//             gsap.set(jasonDesc, { y: '100vh' });
-//             gsap.set(jasonImg1, { y: '100vh', opacity: 0 });
-//             gsap.set(jasonImg2, { y: '100vh', opacity: 0 });
-//             gsap.set(jasonImg3, { y: '100vh', opacity: 0 });
-//           }
-          
-       
-//           // ========================================
-//           // PHASE 2: TEXT EXIT + BG FADE IN (0.10 - 0.25)
-//           // ========================================
-//           // else if (p >= 0.10 && p < 0.25) {
-//           //   const exitProgress = (p - 0.10) / 0.15;
-//           //   updateRadialMasks(0.5 + (exitProgress * 0.5));
-//           //   if (textDim) textDim.style.opacity = '0';
-//           //   const textScale = 1 - (exitProgress * 0.08);
-//           //   storyText.style.transform = `scale(${Math.max(0.92, textScale)})`;
-            
-//           //   if (exitContainer) {
-//           //     const size = Math.max(0, 300 - (exitProgress * 330));
-//           //     const yPos = 50 - (exitProgress * 30);
-//           //     if (size <= 5) {
-//           //       exitContainer.style.webkitMaskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
-//           //       exitContainer.style.maskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
-//           //     } else {
-//           //       const mask = `radial-gradient(ellipse ${size}% ${size * 1.5}% at 50% ${yPos}%, black 0%, black 60%, transparent 100%)`;
-//           //       exitContainer.style.webkitMaskImage = mask;
-//           //       exitContainer.style.maskImage = mask;
-//           //     }
-//           //   }
-            
-//           //   // BG fades in (delayed)
-//           //   const bgDelay = 0.5;
-//           //   const bgProgress = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
-//           //   gsap.set(bgImage, { opacity: Math.min(1, bgProgress), scale: 1.1 - (bgProgress * 0.05) });
-            
-//           //   // Jason still hidden
-//           //   gsap.set(jasonName, { y: '100vh' });
-//           // }
-          
-
-
-//       //    ========================================
-// //PHASE 2: TEXT EXIT + BG FADE IN (0.10 - 0.25)
-// //Smooth scale-down + opacity fade, BG crossfades underneath
-// //========================================
-// else if (p >= 0.10 && p < 0.25) {
-//   const exitProgress = (p - 0.10) / 0.15;
-  
-//   // Complete the radial reveal first (first 20%)
-//   if (exitProgress < 0.2) {
-//     const completeReveal = 0.5 + ((exitProgress / 0.2) * 0.5);
-//     updateRadialMasks(completeReveal);
-//   } else {
-//     updateRadialMasks(1);
-//   }
-  
-//   if (textDim) textDim.style.opacity = '0';
-  
-//   // Smooth easing for exit
-//   // const exitEased = exitProgress * exitProgress; // slow start, fast end
-//   const exitEased = 1 - Math.pow(1 - exitProgress, 3); // fast start, slow end (easeOutCubic)
-
-//   // Text shrinks and moves up
-//   const scale = 1 - (exitEased * 0.45);       // 1 → 0.55
-//   const yMove = -(exitEased * 200);             // moves up
-//   const textOpacity = 1 - (exitEased * 1.1);   // fades out
-  
-//   storyText.style.transform = `scale(${Math.max(0.3, scale)}) translateY(${yMove}px)`;
-//   storyText.style.opacity = String(Math.max(0, textOpacity));
-  
-//   // Exit container also fades
-//   if (exitContainer) {
-//     exitContainer.style.opacity = String(Math.max(0, textOpacity));
-//     exitContainer.style.webkitMaskImage = 'none';
-//     exitContainer.style.maskImage = 'none';
-//   }
-  
-//   // BG fades in (delayed)
-//   const bgDelay = 0.4;
-//   const bgProgress = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
-//   const bgEased = 1 - Math.pow(1 - bgProgress, 3); // easeOutCubic
-//   gsap.set(bgImage, { opacity: Math.min(1, bgEased), scale: 1.1 - (bgEased * 0.05) });
-  
-//   // Jason still hidden
-//   gsap.set(jasonName, { y: '100vh' });
-//   gsap.set(jasonQuote, { y: '100vh' });
-//   gsap.set(jasonDesc, { y: '100vh' });
-//   gsap.set(jasonImg1, { y: '100vh', opacity: 0 });
-//   gsap.set(jasonImg2, { y: '100vh', opacity: 0 });
-//   gsap.set(jasonImg3, { y: '100vh', opacity: 0 });
-// }
-
-
-
-// // // ========================================
-// // // PHASE 2: TEXT EXIT — RADIAL WIPE REVERSES (0.10 - 0.25)
-// // // Same luminance wipe but in reverse (bright → dim)
-// // // ========================================
-// // else if (p >= 0.10 && p < 0.25) {
-// //   const exitProgress = (p - 0.10) / 0.15;
-  
-// //   // Easing — fast start, slow end
-// //   const eased = 1 - Math.pow(1 - exitProgress, 3);
-  
-// //   // Reverse the radial mask: from 0.5 back to 1.0 (sweeps back down)
-// //   // 0.5 = fully revealed, 1.0 = fully hidden (circle collapsed to top)
-// //   updateRadialMasks(0.5 + (eased * 0.5));
-  
-// //   // Dim layer comes back as bright leaves
-// //   if (textDim) textDim.style.opacity = String(0.3 + (eased * 0.7));
-  
-// //   // Overall container fades out toward end
-// //   if (exitContainer) {
-// //     const containerFade = exitProgress > 0.7 
-// //       ? 1 - ((exitProgress - 0.7) / 0.3) 
-// //       : 1;
-// //     exitContainer.style.opacity = String(Math.max(0, containerFade));
-// //   }
-  
-// //   // BG fades in (delayed)
-// //   const bgDelay = 0.45;
-// //   const bgProgress = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
-// //   const bgEased = 1 - Math.pow(1 - bgProgress, 2);
-// //   gsap.set(bgImage, { opacity: Math.min(1, bgEased), scale: 1.1 - (bgEased * 0.05) });
-  
-// //   // Jason hidden
-// //   gsap.set(jasonName, { y: '100vh' });
-// //   gsap.set(jasonQuote, { y: '100vh' });
-// //   gsap.set(jasonDesc, { y: '100vh' });
-// //   gsap.set(jasonImg1, { y: '100vh', opacity: 0 });
-// //   gsap.set(jasonImg2, { y: '100vh', opacity: 0 });
-// //   gsap.set(jasonImg3, { y: '100vh', opacity: 0 });
-// // }
-
-
-// // new latest for checking
-
-
-//           // ========================================
-//           // PHASE 3: JASON NAME SCROLLS UP (0.25 - 0.35)
-//           // ========================================
-//           else if (p >= 0.25 && p < 0.35) {
-//             const phase3 = (p - 0.25) / 0.10;
-            
-//             if (exitContainer) {
-//               exitContainer.style.webkitMaskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
-//               exitContainer.style.maskImage = 'radial-gradient(ellipse 0% 0% at 50% 20%, black 0%, transparent 0%)';
-//             }
-            
-//             // BG starts fading immediately and faster
-//             const bgOpacity = 1 - (phase3 * 0.7);
-//             gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
-              
-//             // All elements share the same base scroll position
-//             const baseScroll = phase3 * 600;
-            
-//             gsap.set(jasonName, { y: 800 - baseScroll });
-//             gsap.set(jasonQuote, { y: 900 - baseScroll });
-//             gsap.set(jasonDesc, { y: 1050 - baseScroll });
-//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-//           }
-          
-//           // ========================================
-//           // PHASE 4: QUOTE ENTERS (0.35 - 0.45)
-//           // ========================================
-//           else if (p >= 0.35 && p < 0.45) {
-//             const phase4 = (p - 0.35) / 0.10;
-            
-//             // BG continues fading
-//             const bgOpacity = 0.3 - (phase4 * 0.3); 
-//             gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
-
-//             const baseScroll = 600 + (phase4 * 400);
-            
-//             gsap.set(jasonName, { y: 800 - baseScroll });
-//             gsap.set(jasonQuote, { y: 900 - baseScroll });
-//             gsap.set(jasonDesc, { y: 1050 - baseScroll });
-//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-//           }
-
-//           // ========================================
-//           // PHASE 5: DESC + IMG1 VISIBLE (0.45 - 0.55)
-//           // ========================================
-//           else if (p >= 0.45 && p < 0.55) {
-//             const phase5 = (p - 0.45) / 0.10;
-            
-//             gsap.set(bgImage, { opacity: 0 });
-
-//             const baseScroll = 1000 + (phase5 * 300);
-            
-//             gsap.set(jasonName, { y: 800 - baseScroll });
-//             gsap.set(jasonQuote, { y: 900 - baseScroll });
-//             gsap.set(jasonDesc, { y: 1050 - baseScroll });
-//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-//           }
-
-//           // ========================================
-//           // PHASE 6: BG FADES, IMG2 VISIBLE (0.55 - 0.65)
-//           // ========================================
-//           else if (p >= 0.55 && p < 0.65) {
-//             const phase6 = (p - 0.55) / 0.10;
-            
-//             gsap.set(bgImage, { opacity: 0 });  
-
-//             const baseScroll = 1300 + (phase6 * 250);
-            
-//             gsap.set(jasonName, { y: 800 - baseScroll });
-//             gsap.set(jasonQuote, { y: 900 - baseScroll });
-//             gsap.set(jasonDesc, { y: 1050 - baseScroll });
-//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-//           }
-
-//           // ========================================
-//           // PHASE 7: BG BLACK, ALL VISIBLE (0.65 - 0.75)
-//           // ========================================
-//           else if (p >= 0.65 && p < 0.75) {
-//             const phase7 = (p - 0.65) / 0.10;
-            
-//             gsap.set(bgImage, { opacity: 0 });
-
-//             const baseScroll = 1550 + (phase7 * 200);
-            
-//             // Text starts fading
-//             const textOpacity = 1 - phase7;
-//             gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
-//             gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
-//             gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
-//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-//           }
-
-//           // ========================================
-//           // PHASE 8: IMAGES ONLY (0.75 - 0.85)
-//           // ========================================
-//           else if (p >= 0.75 && p < 0.85) {
-//             const phase8 = (p - 0.75) / 0.10;
-            
-//             gsap.set(bgImage, { opacity: 0 });
-            
-//             const baseScroll = 1750 + (phase8 * 200);
-            
-//             gsap.set(jasonName, { opacity: 0 });
-//             gsap.set(jasonQuote, { opacity: 0 });
-//             gsap.set(jasonDesc, { opacity: 0 });
-//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: 1 });
-//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: 1 });
-//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: 1 });
-
-
-
-//              // START fading in Lucia BG here
-//              gsap.set(luciaBgImageRef.current, { opacity: phase8 * 0.4 });
-
-
-//             }
-
-//           // ========================================
-//           // PHASE 9: EXIT (0.85 - 1.0)
-//           // ========================================
-//           else if (p >= 0.85) {
-//             const phase9 = (p - 0.85) / 0.15;
-            
-//             gsap.set(bgImage, { opacity: 0 });
-            
-//             const baseScroll = 1950 + (phase9 * 400);
-//             const exitOpacity = 1 - phase9;
-            
-//             gsap.set(jasonName, { opacity: 0 });
-//             gsap.set(jasonQuote, { opacity: 0 });
-//             gsap.set(jasonDesc, { opacity: 0 });
-//             gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: exitOpacity });
-//             gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: exitOpacity });
-//             gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: exitOpacity });
-
-
-//               // Continue fading in Lucia BG
-//               gsap.set(luciaBgImageRef.current, { opacity: 0.4 + (phase9 * 0.4) });
-
-//           }
-//         }
-//       });
-// ////
-
-
 
 
 //gemini version 3 for checkiing with more scroll and slower reveal
@@ -637,27 +313,7 @@ ScrollTrigger.create({
   onUpdate: (self) => {
     const p = self.progress;
 
-    // ========================================
-    // PHASE 1: SLOW VICE CITY REVEAL (0 - 0.20)
-    // We increased this from 0.10 to 0.20 for a slower reveal
-    // ========================================
-    // if (p < 0.20) {
-    //   const revealProgress = p / 0.20; // Math adjusted to the new 20% range
-      
-    //   updateRadialMasks(revealProgress * 0.5);
-      
-    //   if (textDim) textDim.style.opacity = String(1 - (revealProgress * 0.7));
-      
-    //   gsap.set(storyText, { 
-    //     opacity: 1, 
-    //     scale: 1, 
-    //     y: 0,
-    //     position: 'absolute',
-    //     top: '50%',
-    //     left: '50%',
-    //     xPercent: -50,
-    //     yPercent: -50
-    //   });
+   
     if (p < 0.20) {
       const revealProgress = p / 0.20;
       const fadeIn = Math.min(1, revealProgress * 2);  // Fades in during first half
@@ -1347,7 +1003,7 @@ ScrollTrigger.create({
       const phase1 = p / 0.12;
 
       gsap.set(calBgImage, { opacity: 1 });
-      gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+      gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 0.3)' });
 
       // Text fades in (static position, no y movement)
       gsap.set(calName, { opacity: phase1 });
@@ -1369,7 +1025,9 @@ ScrollTrigger.create({
       // const phase2 = (p - 0.12) / 0.16;
 
       gsap.set(calBgImage, { opacity: 1 });
-      gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+      // gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 0.5)' });
+      const phase2 = (p - 0.12) / 0.16;
+gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})` });
 
       // Text fully visible, static
       gsap.set(calName, { opacity: 1 });
@@ -1391,8 +1049,9 @@ ScrollTrigger.create({
       const phase3 = (p - 0.28) / 0.10;
 
       gsap.set(calBgImage, { opacity: 1 });
-      gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${phase3 * 0.6})` });
-
+      // gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${phase3 * 0.5})` });
+      // gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.5 + (phase3 * 0.5)})` });
+      gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 0.5)' });
       // Text fades out
       const textOpacity = 1 - phase3;
       gsap.set(calName, { opacity: textOpacity });
@@ -1415,7 +1074,9 @@ ScrollTrigger.create({
       const phase4 = (p - 0.38) / 0.14;
 
       gsap.set(calBgImage, { opacity: 1 });
-      gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.6 + (phase4 * 0.3)})` });
+      // gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.5 + (phase4 * 0.3)})` });
+      gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.5 + (phase4 * 0.5)})` });
+      // gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 1)' });    
 
       // Text hidden
       gsap.set(calName, { opacity: 0 });
@@ -1653,7 +1314,8 @@ ScrollTrigger.create({
 
             gsap.set(vlBg, { opacity: 1 });
             gsap.set(vlHeader, { opacity: 1 });
-            gsap.set(vlIcon, { opacity: 1, scale: 1, rotation: phase3 * 15 });
+            // gsap.set(vlIcon, { opacity: 1, scale: 1, rotation: phase3 * 15 });
+            gsap.set(vlIcon, { opacity: 1, scale: 1, rotation: 0 });
             gsap.set(vlLogoText, { opacity: 1, x: 0 });
             gsap.set(vlDivider, { opacity: 1, scaleY: 1 });
             gsap.set(vlTagline, { opacity: 1, x: 0 });
@@ -2167,158 +1829,6 @@ gsap.set(discoverPostcardWrapper, { opacity: 0 });
 gsap.set(discoverPostcard, { y: '100vh', rotation: -2, scale: 0.85 });
 if (discoverPostcardTitle) gsap.set(discoverPostcardTitle, { opacity: 0, scale: 0.8 });
 
-// ScrollTrigger.create({
-//   trigger: discoverSection,
-//   start: 'top top',
-//   end: '100% top',
-//   scrub: 1.5,
-//   pin: discoverSticky,
-//   pinSpacing: false,
-//   onUpdate: (self) => {
-//     const p = self.progress;
-
-//     // PHASE 1: BG GRADIENT FADES IN (0 - 0.10)
-//     if (p < 0.10) {
-//       const phase1 = p / 0.10;
-//       gsap.set(discoverBg, { opacity: phase1 });
-//       gsap.set(discoverHeader, { opacity: 0 });
-//       gsap.set(discoverIcon, { opacity: 0, scale: 0.5, rotation: -90 });
-//       gsap.set(discoverLogoText, { opacity: 0, x: -30 });
-//       gsap.set(discoverDivider, { opacity: 0, scaleY: 0 });
-//       gsap.set(discoverTagline, { opacity: 0, x: 30 });
-//       gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: phase1 * 0.5 });
-//       gsap.set(discoverPostcardWrapper, { opacity: 0 });
-//       gsap.set(discoverPostcard, { y: '100vh', rotation: -2, scale: 0.85 });
-//     }
-
-//     // PHASE 2: LOGO + TAGLINE ANIMATE IN (0.10 - 0.25)
-//     else if (p >= 0.10 && p < 0.25) {
-//       const phase2 = (p - 0.10) / 0.15;
-//       const ease = 1 - Math.pow(1 - phase2, 3);
-
-//       gsap.set(discoverBg, { opacity: 1 });
-//       gsap.set(discoverHeader, { opacity: 1 });
-//       gsap.set(discoverIcon, { 
-//         opacity: ease, 
-//         scale: 0.5 + (ease * 0.5), 
-//         rotation: -90 + (ease * 90) 
-//       });
-//       gsap.set(discoverLogoText, { opacity: ease, x: -30 + (ease * 30) });
-//       gsap.set(discoverDivider, { opacity: ease, scaleY: ease });
-
-//       const taglineDelay = Math.max(0, (phase2 - 0.2) / 0.8);
-//       const taglineEase = 1 - Math.pow(1 - taglineDelay, 3);
-//       gsap.set(discoverTagline, { opacity: taglineEase, x: 30 - (taglineEase * 30) });
-
-//       gsap.set(discoverOrb1, { opacity: 0.5 + (ease * 0.5), x: ease * 20, y: ease * -15 });
-//       gsap.set(discoverOrb2, { opacity: 0.5 + (ease * 0.5), x: ease * -15, y: ease * 10 });
-//       gsap.set(discoverOrb3, { opacity: ease * 0.6 });
-
-//       gsap.set(discoverPostcardWrapper, { opacity: 0 });
-//       gsap.set(discoverPostcard, { y: '100vh', rotation: -2, scale: 0.85 });
-//     }
-
-//     // PHASE 3: HOLD LOGO VIEW (0.25 - 0.35)
-//     else if (p >= 0.25 && p < 0.35) {
-//       const phase3 = (p - 0.25) / 0.10;
-
-//       gsap.set(discoverBg, { opacity: 1 });
-//       gsap.set(discoverHeader, { opacity: 1 });
-//       gsap.set(discoverIcon, { opacity: 1, scale: 1, rotation: phase3 * 15 });
-//       gsap.set(discoverLogoText, { opacity: 1, x: 0 });
-//       gsap.set(discoverDivider, { opacity: 1, scaleY: 1 });
-//       gsap.set(discoverTagline, { opacity: 1, x: 0 });
-
-//       gsap.set(discoverOrb1, { opacity: 1, x: 20 + (phase3 * 10), y: -15 - (phase3 * 5) });
-//       gsap.set(discoverOrb2, { opacity: 1, x: -15 - (phase3 * 8), y: 10 + (phase3 * 5) });
-
-//       gsap.set(discoverPostcardWrapper, { opacity: 0 });
-//       gsap.set(discoverPostcard, { y: '100vh', rotation: -2, scale: 0.85 });
-//     }
-
-//     // PHASE 4: HEADER FADES UP + OUT, POSTCARD RISES (0.35 - 0.55)
-//     else if (p >= 0.35 && p < 0.55) {
-//       const phase4 = (p - 0.35) / 0.20;
-//       const ease = 1 - Math.pow(1 - phase4, 3);
-
-//       gsap.set(discoverBg, { opacity: 1 });
-
-//       const headerY = -(phase4 * 150);
-//       const headerOpacity = 1 - (phase4 * 1.5);
-//       gsap.set(discoverHeader, { opacity: Math.max(0, headerOpacity), y: headerY });
-
-//       gsap.set(discoverPostcardWrapper, { opacity: 1 });
-//       const postcardY = (1 - ease) * window.innerHeight;
-//       const postcardRotation = -2 + (ease * 1);
-//       const postcardScale = 0.85 + (ease * 0.15);
-//       gsap.set(discoverPostcard, { 
-//         y: postcardY, 
-//         rotation: postcardRotation, 
-//         scale: postcardScale 
-//       });
-
-//       if (discoverPostcardTitle) {
-//         const titleProgress = Math.max(0, (phase4 - 0.5) / 0.5);
-//         gsap.set(discoverPostcardTitle, { opacity: titleProgress, scale: 0.8 + (titleProgress * 0.2) });
-//       }
-
-//       gsap.set(discoverOrb1, { opacity: 1 - (phase4 * 0.3), x: 30 + (phase4 * 20) });
-//       gsap.set(discoverOrb2, { opacity: 1 - (phase4 * 0.3), x: -23 - (phase4 * 15) });
-//     }
-
-//     // PHASE 5: POSTCARD FULLY VISIBLE (0.55 - 0.72)
-//     else if (p >= 0.55 && p < 0.72) {
-//       const phase5 = (p - 0.55) / 0.17;
-
-//       gsap.set(discoverBg, { opacity: 1 });
-//       gsap.set(discoverHeader, { opacity: 0 });
-
-//       gsap.set(discoverPostcardWrapper, { opacity: 1 });
-//       const floatY = Math.sin(phase5 * Math.PI) * -15;
-//       gsap.set(discoverPostcard, { 
-//         y: floatY, 
-//         rotation: -1 + (phase5 * 0.5), 
-//         scale: 1 
-//       });
-
-//       if (discoverPostcardTitle) gsap.set(discoverPostcardTitle, { opacity: 1, scale: 1 });
-
-//       gsap.set(discoverOrb1, { opacity: 0.7, x: 50 + (phase5 * 10) });
-//       gsap.set(discoverOrb2, { opacity: 0.7, x: -38 - (phase5 * 8) });
-//     }
-
-//     // PHASE 6: POSTCARD STARTS SCALING DOWN (0.72 - 0.88)
-//     else if (p >= 0.72 && p < 0.88) {
-//       const phase6 = (p - 0.72) / 0.16;
-
-//       gsap.set(discoverBg, { opacity: 1 - (phase6 * 0.5) });
-//       gsap.set(discoverHeader, { opacity: 0 });
-
-//       gsap.set(discoverPostcardWrapper, { opacity: 1 });
-//       const exitY = -(phase6 * 300);
-//       const exitScale = 1 - (phase6 * 0.15);
-//       gsap.set(discoverPostcard, { 
-//         y: exitY, 
-//         rotation: -0.5 + (phase6 * 2), 
-//         scale: exitScale,
-//         opacity: 1 - (phase6 * 0.5)
-//       });
-
-//       gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: 0.7 - (phase6 * 0.7) });
-//     }
-
-//     // PHASE 7: EXIT TO BLACK (0.88 - 1.0)
-//     else if (p >= 0.88) {
-//       const phase7 = (p - 0.88) / 0.12;
-
-//       gsap.set(discoverBg, { opacity: 0.5 - (phase7 * 0.5) });
-//       gsap.set(discoverHeader, { opacity: 0 });
-//       gsap.set(discoverPostcardWrapper, { opacity: 0 });
-//       gsap.set(discoverPostcard, { opacity: 0 });
-//       gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: 0 });
-//     }
-//   }
-// });
 
 
 ScrollTrigger.create({
@@ -2483,271 +1993,6 @@ function updateFinaleRadialMasks(progress) {
 
 updateFinaleRadialMasks(0);
 
-
-///it has good exit and reveal u can use for hero section also 
-// ScrollTrigger.create({
-//   trigger: finaleSection,
-//   start: 'top top',
-//   end: '100% top',
-//   scrub: 1.5,
-//   pin: finaleSticky,
-//   pinSpacing: false,
-//   onUpdate: (self) => {
-//     const p = self.progress;
-
-//     // ========================================
-//     // FINALE PHASE 1: BG IMAGE FADES IN + ZOOMS (0 - 0.15)
-//     // Cinematic reveal — image appears zoomed, settles
-//     // ========================================
-//     if (p < 0.15) {
-//       const phase1 = p / 0.15;
-//       const eased = 1 - Math.pow(1 - phase1, 3);
-
-//       gsap.set(finaleBg, { 
-//         opacity: eased, 
-//         scale: 1.15 - (eased * 0.05) // 1.15 → 1.10
-//       });
-//       gsap.set(finaleBgOverlay, { opacity: 0 });
-
-//       // Text hidden
-//       gsap.set(finaleLogo, { opacity: 0 });
-//       gsap.set(finaleDim, { opacity: 0 });
-//       gsap.set(finaleBright, { opacity: 0 });
-//       gsap.set(finaleGlow, { opacity: 0 });
-//       gsap.set(finalePlatforms, { opacity: 0 });
-//     }
-
-//     // ========================================
-//     // FINALE PHASE 2: SLOW PARALLAX ZOOM (0.15 - 0.35)
-//     // Image holds, subtle zoom continues
-//     // ========================================
-//     else if (p >= 0.15 && p < 0.35) {
-//       const phase2 = (p - 0.15) / 0.20;
-
-//       gsap.set(finaleBg, { 
-//         opacity: 1, 
-//         scale: 1.10 - (phase2 * 0.05) // 1.10 → 1.05
-//       });
-//       gsap.set(finaleBgOverlay, { opacity: 0 });
-
-//       gsap.set(finaleLogo, { opacity: 0 });
-//       gsap.set(finaleDim, { opacity: 0 });
-//       gsap.set(finaleBright, { opacity: 0 });
-//       gsap.set(finaleGlow, { opacity: 0 });
-//       gsap.set(finalePlatforms, { opacity: 0 });
-//     }
-
-//     // ========================================
-//     // FINALE PHASE 3: IMAGE FADES TO BLACK (0.35 - 0.52)
-//     // Dark overlay fades in, image still zooming slightly
-//     // ========================================
-//     else if (p >= 0.35 && p < 0.52) {
-//       const phase3 = (p - 0.35) / 0.17;
-//       const eased = phase3 * phase3; // slow start
-
-//       gsap.set(finaleBg, { 
-//         opacity: 1, 
-//         scale: 1.05 - (phase3 * 0.03) // 1.05 → 1.02
-//       });
-//       gsap.set(finaleBgOverlay, { opacity: eased });
-
-//       gsap.set(finaleLogo, { opacity: 0 });
-//       gsap.set(finaleDim, { opacity: 0 });
-//       gsap.set(finaleBright, { opacity: 0 });
-//       gsap.set(finaleGlow, { opacity: 0 });
-//       gsap.set(finalePlatforms, { opacity: 0 });
-//     }
-
-//     // ========================================
-//     // FINALE PHASE 4: LOGO FADES IN (0.52 - 0.62)
-//     // GOC logo appears with scale
-//     // ========================================
-//     else if (p >= 0.52 && p < 0.62) {
-//       const phase4 = (p - 0.52) / 0.10;
-//       const eased = 1 - Math.pow(1 - phase4, 3);
-
-//       gsap.set(finaleBg, { opacity: 1, scale: 1.02 });
-//       gsap.set(finaleBgOverlay, { opacity: 1 });
-
-//       gsap.set(finaleLogo, { 
-//         opacity: eased, 
-//         scale: 0.6 + (eased * 0.4), 
-//         y: -80 - (eased * 40) 
-//       });
-
-//       // Dim text starts to appear
-//       gsap.set(finaleDim, { opacity: eased * 0.5 });
-//       gsap.set(finaleBright, { opacity: 0 });
-//       gsap.set(finaleGlow, { opacity: 0 });
-//       updateFinaleRadialMasks(0);
-//       gsap.set(finalePlatforms, { opacity: 0 });
-//     }
-
-//     // ========================================
-//     // FINALE PHASE 5: RADIAL LUMINANCE WIPE (0.62 - 0.82)
-//     // Dim text fully visible, bright layer sweeps through
-//     // ========================================
-//     else if (p >= 0.62 && p < 0.82) {
-//       const phase5 = (p - 0.62) / 0.20;
-
-//       gsap.set(finaleBg, { opacity: 1, scale: 1.02 });
-//       gsap.set(finaleBgOverlay, { opacity: 1 });
-//       gsap.set(finaleLogo, { opacity: 1, scale: 1, y: -120 });
-
-//       // Dim layer fully visible
-//       gsap.set(finaleDim, { opacity: 0.5 });
-
-//       // Radial wipe sweeps the bright layer
-//       gsap.set(finaleBright, { opacity: 1 });
-//       gsap.set(finaleGlow, { opacity: 1 });
-//       updateFinaleRadialMasks(phase5);
-//     }
-
-//     // ========================================
-//     // FINALE PHASE 6: HOLD + PLATFORMS APPEAR (0.82 - 0.92)
-//     // Text bright, platforms fade in
-//     // ========================================
-//     else if (p >= 0.82 && p < 0.92) {
-//       const phase6 = (p - 0.82) / 0.10;
-//       const eased = 1 - Math.pow(1 - phase6, 2);
-
-//       gsap.set(finaleBg, { opacity: 1, scale: 1.02 });
-//       gsap.set(finaleBgOverlay, { opacity: 1 });
-//       gsap.set(finaleLogo, { opacity: 1, scale: 1, y: -120});
-
-//       // Dim fades as bright takes over
-//       gsap.set(finaleDim, { opacity: 0.5 - (phase6 * 0.3) });
-//       gsap.set(finaleBright, { opacity: 1 });
-//       gsap.set(finaleGlow, { opacity: 1 - phase6 }); // glow fades
-//       updateFinaleRadialMasks(1); // fully revealed
-
-//       // Platforms slide up
-//       gsap.set(finalePlatforms, { 
-//         opacity: eased, 
-//         y: 30 - (eased * 30) 
-//       });
-//     }
-
-//     // ========================================
-//     // FINALE PHASE 7: HOLD (0.92 - 1.0)
-//     // Everything visible, user reads
-//     // ========================================
-//     else if (p >= 0.92) {
-//       gsap.set(finaleBg, { opacity: 1, scale: 1.02 });
-//       gsap.set(finaleBgOverlay, { opacity: 1 });
-//       gsap.set(finaleLogo, { opacity: 1, scale: 1, y: -120 });
-//       gsap.set(finaleDim, { opacity: 0.2 });
-//       gsap.set(finaleBright, { opacity: 1 });
-//       gsap.set(finaleGlow, { opacity: 0 });
-//       updateFinaleRadialMasks(1);
-//       gsap.set(finalePlatforms, { opacity: 1, y: 0 });
-//     }
-//   }
-// });
-///////////////////////////////
-// Reduce section height
-// In CSS: .finale-section { height: 500vh; }
-
-// ScrollTrigger.create({
-//   trigger: finaleSection,
-//   start: 'top top',
-//   end: '70% top',  // Pin ends at 70% of section — remaining 30% scrolls naturally
-//   scrub: 1.5,
-//   pin: finaleSticky,
-//   pinSpacing: false,
-//   onUpdate: (self) => {
-//     const p = self.progress;
-
-//     // PHASE 1: BG IMAGE FADES IN (0 - 0.18)
-//     if (p < 0.18) {
-//       const t = p / 0.18;
-//       const e = 1 - Math.pow(1 - t, 3);
-//       gsap.set(finaleBg, { opacity: e, scale: 1.15 - (e * 0.1) });
-//       gsap.set(finaleBgOverlay, { opacity: 0 });
-//       gsap.set(finaleLogo, { opacity: 0 });
-//       gsap.set(finaleDim, { opacity: 0 });
-//       gsap.set(finaleBright, { opacity: 0 });
-//       gsap.set(finaleGlow, { opacity: 0 });
-//       gsap.set(finalePlatforms, { opacity: 0 });
-//     }
-
-//     // PHASE 2: SLOW ZOOM + HOLD (0.18 - 0.35)
-//     else if (p < 0.35) {
-//       const t = (p - 0.18) / 0.17;
-//       gsap.set(finaleBg, { opacity: 1, scale: 1.05 - (t * 0.03) });
-//       gsap.set(finaleBgOverlay, { opacity: 0 });
-//       gsap.set(finaleLogo, { opacity: 0 });
-//       gsap.set(finaleDim, { opacity: 0 });
-//       gsap.set(finaleBright, { opacity: 0 });
-//       gsap.set(finaleGlow, { opacity: 0 });
-//       gsap.set(finalePlatforms, { opacity: 0 });
-//     }
-
-//     // PHASE 3: FADE TO BLACK (0.35 - 0.50)
-//     else if (p < 0.50) {
-//       const t = (p - 0.35) / 0.15;
-//       const e = t * t;
-//       gsap.set(finaleBg, { opacity: 1, scale: 1.02 - (t * 0.02) });
-//       gsap.set(finaleBgOverlay, { opacity: e });
-//       gsap.set(finaleLogo, { opacity: 0 });
-//       gsap.set(finaleDim, { opacity: 0 });
-//       gsap.set(finaleBright, { opacity: 0 });
-//       gsap.set(finaleGlow, { opacity: 0 });
-//       gsap.set(finalePlatforms, { opacity: 0 });
-//     }
-
-//     // PHASE 4: LOGO APPEARS (0.50 - 0.58)
-//     else if (p < 0.58) {
-//       const t = (p - 0.50) / 0.08;
-//       const e = 1 - Math.pow(1 - t, 3);
-//       gsap.set(finaleBg, { opacity: 1, scale: 1.0 });
-//       gsap.set(finaleBgOverlay, { opacity: 1 });
-//       gsap.set(finaleLogo, { opacity: e, scale: 0.6 + (e * 0.4), y: -80 - (e * 40) });
-//       gsap.set(finaleDim, { opacity: e * 0.5 });
-//       gsap.set(finaleBright, { opacity: 0 });
-//       gsap.set(finaleGlow, { opacity: 0 });
-//       updateFinaleRadialMasks(0);
-//       gsap.set(finalePlatforms, { opacity: 0 });
-//     }
-
-//     // PHASE 5: RADIAL LUMINANCE WIPE — VERY SMOOTH (0.58 - 0.85)
-//     // This is the key phase — much longer duration for smoothness
-//     else if (p < 0.85) {
-//       const t = (p - 0.58) / 0.27; // longer range = smoother
-//       gsap.set(finaleBg, { opacity: 1, scale: 1.0 });
-//       gsap.set(finaleBgOverlay, { opacity: 1 });
-//       gsap.set(finaleLogo, { opacity: 1, scale: 1, y: -120 });
-//       gsap.set(finaleDim, { opacity: 0.5 });
-//       gsap.set(finaleBright, { opacity: 1 });
-//       gsap.set(finaleGlow, { opacity: 1 });
-//       updateFinaleRadialMasks(t); // smooth 0→1 over longer scroll
-//       // const dimFade = t > 0.6 ? 0.5 * (1 - ((t - 0.6) / 0.4)) : 0.5;
-//       // gsap.set(finaleDim, { opacity: dimFade });
-//         const logoY = -120 + (t * 120);  // -120 → 0
-//   gsap.set(finaleLogo, { opacity: 1, scale: 1, y: logoY });
-//       // Platforms fade in during last 30% of wipe
-//       if (t > 0.7) {
-//         const platT = (t - 0.7) / 0.3;
-//         const platE = 1 - Math.pow(1 - platT, 2);
-//         gsap.set(finalePlatforms, { opacity: platE, y: 30 - (platE * 30) });
-//       }
-//     }
-
-// // PHASE 6: HOLD — everything settled (0.85 - 1.0)
-// else {
-//   gsap.set(finaleBg, { opacity: 1, scale: 1.0 });
-//   gsap.set(finaleBgOverlay, { opacity: 1 });
-//   gsap.set(finaleLogo, { opacity: 1, scale: 1, y: 0 });  // y: 0, not -120
-//   gsap.set(finaleDim, { opacity: 0 });
-//   gsap.set(finaleBright, { opacity: 1 });
-//   gsap.set(finaleGlow, { opacity: 0 });
-//   if (finaleBright) {
-//     finaleBright.style.webkitMaskImage = 'none';
-//     finaleBright.style.maskImage = 'none';
-//   }
-//   gsap.set(finalePlatforms, { opacity: 1, y: 0 });
-// }
-
 ScrollTrigger.create({
   trigger: finaleSection,
   start: 'top top',
@@ -2822,7 +2067,7 @@ ScrollTrigger.create({
       gsap.set(finaleGlow, { opacity: 1 });
       updateFinaleRadialMasks(t);
       
-      gsap.set(finalePlatforms, { opacity: 0 });
+      gsap.set(finalePlatforms, { opacity: 1});
     }
 //
     // PHASE 6: HOLD — NO TRANSFORMS, CLEAN STATE (0.90 - 1.0)
@@ -3205,7 +2450,7 @@ ScrollTrigger.create({
     <div ref={containerRef} className="story-wrapper">
       
       {/* ============ MAIN STORY SECTION (JASON) ============ */}
-      <section ref={storyRef} className="story">
+      <section ref={storyRef} className="story" id="story">
         <div ref={stickyContainerRef} className="story__sticky">
           
           {/* Background image */}
@@ -3307,7 +2552,7 @@ ScrollTrigger.create({
       </section>
       
       {/* ============ LUCIA SECTION ============ */}
-      <section ref={luciaSectionRef} className="lucia-section">
+      <section ref={luciaSectionRef} className="lucia-section" id="ranked">
         <div ref={luciaStickyRef} className="lucia-section__sticky">
           
           {/* Lucia Background Image */}
@@ -3378,7 +2623,7 @@ ScrollTrigger.create({
         </div>
       </section>
 {/* ============ LUCIA CHARACTER SECTION ============ */}
-<section ref={luciaCharSectionRef} className="lucia-char-section">
+<section ref={luciaCharSectionRef} className="lucia-char-section" id="the-pitch">
   <div ref={luciaCharStickyRef} className="lucia-char-section__sticky">
     
     {/* Background Image */}
@@ -3458,7 +2703,7 @@ ScrollTrigger.create({
     {/* ============ LEONIDA SECTION - Natural scroll, NO GSAP ============ */}
 
 
-      <section className="leonida-section">
+      <section className="leonida-section" id="dominate">
         
         <div className="leonida__artwork">
           <img 
@@ -3490,7 +2735,7 @@ ScrollTrigger.create({
       </section>
       
     {/* ============ CAL HAMPTON SECTION ============ */}
-<section ref={calSectionRef} className="cal-section">
+<section ref={calSectionRef} className="cal-section" id="pro-teams">
   <div ref={calStickyRef} className="cal-section__sticky">
     
     {/* Background Image */}
@@ -3501,7 +2746,7 @@ ScrollTrigger.create({
       />
     </div>
     
-    {/* Dark overlay */}
+    {/* Dark overlay /////*/}
     <div ref={calBgOverlayRef} className="cal__bg-overlay"></div>
     
     {/* Content */}
@@ -3512,7 +2757,7 @@ ScrollTrigger.create({
       
       {/* Quote */}
       <p ref={calQuoteRef} className="cal__quote">
-      Clubs. Leagues.<br />
+        Clubs. Leagues.<br />
         Seasons. Glory.
       </p>
       
@@ -3573,7 +2818,7 @@ ScrollTrigger.create({
 
 
         {/* ============ VISIT LEONIDA SECTION ============ */}
-      <section ref={vlSectionRef} className="visit-leonida-section">
+      <section ref={vlSectionRef} className="visit-leonida-section" id="leonida">
         <div ref={vlStickyRef} className="visit-leonida__sticky">
 
           {/* Gradient BG */}
@@ -3594,22 +2839,7 @@ ScrollTrigger.create({
           <div ref={vlHeaderRef} className="visit-leonida__header">
             <div className="visit-leonida__logo-group">
               <div ref={vlIconRef} className="visit-leonida__icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="55" r="16" fill="currentColor" opacity="0.85"/>
-                  <g transform="translate(50,55)" stroke="currentColor" fill="none" strokeLinecap="round">
-                    <line x1="0" y1="-20" x2="0" y2="-38" strokeWidth="3"/>
-                    <line x1="0" y1="-20" x2="0" y2="-36" strokeWidth="2.5" transform="rotate(22)"/>
-                    <line x1="0" y1="-20" x2="0" y2="-36" strokeWidth="2.5" transform="rotate(-22)"/>
-                    <line x1="0" y1="-20" x2="0" y2="-34" strokeWidth="2" transform="rotate(44)"/>
-                    <line x1="0" y1="-20" x2="0" y2="-34" strokeWidth="2" transform="rotate(-44)"/>
-                    <line x1="0" y1="-20" x2="0" y2="-31" strokeWidth="2" transform="rotate(64)"/>
-                    <line x1="0" y1="-20" x2="0" y2="-31" strokeWidth="2" transform="rotate(-64)"/>
-                    <line x1="0" y1="-19" x2="0" y2="-28" strokeWidth="1.5" transform="rotate(82)"/>
-                    <line x1="0" y1="-19" x2="0" y2="-28" strokeWidth="1.5" transform="rotate(-82)"/>
-                    <line x1="0" y1="-18" x2="0" y2="-25" strokeWidth="1.5" transform="rotate(98)"/>
-                    <line x1="0" y1="-18" x2="0" y2="-25" strokeWidth="1.5" transform="rotate(-98)"/>
-                  </g>
-                </svg>
+                <img src={process.env.PUBLIC_URL + '/img/GOC_logo.webp'} alt="GOC" />
               </div>
               <div ref={vlLogoTextRef} className="visit-leonida__logo-text">
                 <span className="visit">Gods of</span>
@@ -3639,20 +2869,9 @@ ScrollTrigger.create({
     {/* Overlay footer on image */}
     <div className="visit-leonida__postcard-overlay-footer">
       <div className="visit-leonida__postcard-logo">
-        <div className="visit-leonida__postcard-logo-icon">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="55" r="16" fill="currentColor" opacity="0.85"/>
-            <g transform="translate(50,55)" stroke="currentColor" fill="none" strokeLinecap="round">
-              <line x1="0" y1="-20" x2="0" y2="-38" strokeWidth="3"/>
-              <line x1="0" y1="-20" x2="0" y2="-36" strokeWidth="2.5" transform="rotate(22)"/>
-              <line x1="0" y1="-20" x2="0" y2="-36" strokeWidth="2.5" transform="rotate(-22)"/>
-              <line x1="0" y1="-20" x2="0" y2="-34" strokeWidth="2" transform="rotate(44)"/>
-              <line x1="0" y1="-20" x2="0" y2="-34" strokeWidth="2" transform="rotate(-44)"/>
-              <line x1="0" y1="-20" x2="0" y2="-31" strokeWidth="2" transform="rotate(64)"/>
-              <line x1="0" y1="-20" x2="0" y2="-31" strokeWidth="2" transform="rotate(-64)"/>
-            </g>
-          </svg>
-        </div>
+      <div className="visit-leonida__postcard-logo-icon">
+        <img src={process.env.PUBLIC_URL + '/img/GOC_logo.webp'} alt="GOC" />
+      </div>
         <div className="visit-leonida__postcard-logo-text">
           <span className="visit-sm">Gods of</span>
           <span className="leonida-sm">Cricket</span>
@@ -4004,7 +3223,7 @@ ScrollTrigger.create({
 </div>
 
           {/* ============ WORLD OF LEONIDA SECTION ============ */}
-<section ref={worldSectionRef} className="world-section">
+<section ref={worldSectionRef} className="world-section" id="the-game">
   <div ref={worldStickyRef} className="world-section__sticky">
     
     {/* Background gradients — soft warm wash like GTA VI */}
@@ -4020,7 +3239,7 @@ ScrollTrigger.create({
     
     {/* Content layer */}
     
-    <div className="world__content">
+    <div className="world__content" >
       
       {/* Character name — right aligned */}
       <h1 ref={worldNameRef} className="world__name">THE<br /> GAME</h1>
@@ -4108,7 +3327,7 @@ ScrollTrigger.create({
 
 
 {/* ============ SECOND VISIT SECTION (e.g., "Discover Ambrosia") ============ */}
-<section ref={discoverSectionRef} className="discover-section">
+<section ref={discoverSectionRef} className="discover-section" id="the-arena">
   <div ref={discoverStickyRef} className="discover__sticky">
 
     <div ref={discoverBgRef} className="discover__bg"></div>
@@ -4124,10 +3343,9 @@ ScrollTrigger.create({
     <div ref={discoverHeaderRef} className="discover__header">
       <div className="discover__logo-group">
         <div ref={discoverIconRef} className="discover__icon">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="2"/>
-            <path d="M 50 20 Q 65 35 50 50 Q 35 35 50 20" fill="currentColor" opacity="0.7"/>
-          </svg>
+        
+          <img src={process.env.PUBLIC_URL + '/img/GOC_logo.webp'} alt="GOC" />
+
         </div>
         <div ref={discoverLogoTextRef} className="discover__logo-text">
           <span className="discover">Enter</span>
@@ -4142,22 +3360,20 @@ ScrollTrigger.create({
       </p>
     </div>
 
-    <div ref={discoverPostcardWrapperRef} className="discover__postcard-wrapper">
+    <div ref={discoverPostcardWrapperRef} className="discover__postcard-wrapper" >
       <div ref={discoverPostcardRef} className="discover__postcard">
         <div className="discover__postcard-image">
           <img
             src={process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp'}
-            alt="Ambrosia"
+            alt="the arena"
           />
           <h2 ref={discoverPostcardTitleRef} className="discover__postcard-title">The Arena</h2>
           
           <div className="discover__postcard-overlay-footer">
             <div className="discover__postcard-logo">
               <div className="discover__postcard-logo-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M 50 20 Q 65 35 50 50 Q 35 35 50 20" fill="currentColor" opacity="0.7"/>
-                </svg>
+              <img src={process.env.PUBLIC_URL + '/img/GOC_logo.webp'} alt="GOC" />
+
               </div>
               <div className="discover__postcard-logo-text">
                 <span className="discover-sm">Enter</span>
@@ -4207,21 +3423,21 @@ ScrollTrigger.create({
       {/* DIM layer */}
       <div ref={finaleDimRef} className="finale__text-layer finale__text-dim">
         <div ref={finaleComingRef} className="finale__coming">COMING</div>
-        <div ref={finaleDateRef} className="finale__date">FEBRUARY 26</div>
+        <div ref={finaleDateRef} className="finale__date">FEBRUARY</div>
         <div ref={finaleYearRef} className="finale__year">2026</div>
       </div>
       
       {/* BRIGHT layer — revealed by radial mask */}
       <div ref={finaleBrightRef} className="finale__text-layer finale__text-bright">
         <div className="finale__coming">COMING</div>
-        <div className="finale__date">FEBRUARY 26</div>
+        <div className="finale__date">FEBRUARY</div>
         <div className="finale__year">2026</div>
       </div>
       
       {/* GLOW layer — warm edge during wipe */}
       <div ref={finaleGlowRef} className="finale__text-layer finale__text-glow">
         <div className="finale__coming">COMING</div>
-        <div className="finale__date">FEBRUARY 26</div>
+        <div className="finale__date">FEBRUARY</div>
         <div className="finale__year">2026</div>
       </div>
       
