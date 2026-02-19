@@ -540,7 +540,7 @@ const NAV_SECTIONS = [
 
 /* ─── Explore Tabs ─── */
 const EXPLORE_TABS = [
-  { id: 'people',    label: 'Players',    icon: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M10 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75' },
+  { id: 'people',    label: 'Cricket',    icon: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M10 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75' },
   { id: 'images', label: 'Images', icon: 'M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.5 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM21 19l-5-7-4 5-3-3-4 5' },
   { id: 'trailers',  label: 'Trailers',  icon: 'M5 3l14 9-14 9V3z' },
   { id: 'downloads', label: 'Downloads', icon: 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3' },
@@ -548,6 +548,64 @@ const EXPLORE_TABS = [
 
 
 //////
+
+/* ─── Trailer Data ─── */
+
+// const TRAILERS = [
+//   {
+//     id: 'trailer-1',
+//     title: 'Gods of Cricket — Official Reveal Trailer',
+//     date: 'Coming Soon',
+//     duration: '2:30',
+//     thumbnail: 'https://img.youtube.com/vi/QdBZY2fkU-0/maxresdefault.jpg',
+//     url: 'https://www.youtube.com/watch?v=QdBZY2fkU-0',
+//     isNew: true,
+//   },
+//   {
+//     id: 'trailer-2',
+//     title: 'Gods of Cricket — Gameplay Trailer',
+//     date: 'Coming Soon',
+//     duration: '1:45',
+//     thumbnail: 'https://img.youtube.com/vi/VQRLujxTm3c/maxresdefault.jpg',
+//     url: 'https://www.youtube.com/watch?v=VQRLujxTm3c',
+//     isNew: false,
+//   },
+// ];
+
+// const IMAGES = [
+//   { id: 'img-1', src: 'https://img.youtube.com/vi/QdBZY2fkU-0/maxresdefault.jpg', alt: 'Screenshot 1' },
+//   { id: 'img-2', src: 'https://img.youtube.com/vi/VQRLujxTm3c/maxresdefault.jpg', alt: 'Screenshot 2' },
+//   { id: 'img-3', src: 'https://img.youtube.com/vi/QdBZY2fkU-0/hqdefault.jpg', alt: 'Screenshot 3' },
+//   { id: 'img-4', src: 'https://img.youtube.com/vi/VQRLujxTm3c/hqdefault.jpg', alt: 'Screenshot 4' },
+// ];
+/* ─── Trailer Data ─── */
+const TRAILERS = [
+  {
+    id: 'trailer-1',
+    title: 'Cricket 26 — Official Trailer',
+    date: 'November 13, 2025',
+    duration: '0:30',
+    thumbnail: 'https://img.youtube.com/vi/eM_w6yMpZiM/maxresdefault.jpg',
+    url: 'https://www.youtube.com/watch?v=eM_w6yMpZiM',
+    isNew: true,
+  },
+  {
+    id: 'trailer-2',
+    title: 'Real Cricket 26 — Official Trailer',
+    date: 'March 2025',
+    duration: '1:12',
+    thumbnail: 'https://img.youtube.com/vi/twUqbrowu94/maxresdefault.jpg',
+    url: 'https://www.youtube.com/watch?v=twUqbrowu94',
+    isNew: false,
+  },
+];
+
+const IMAGES = [
+  { id: 'img-1', src: 'https://img.youtube.com/vi/eM_w6yMpZiM/maxresdefault.jpg', alt: 'Cricket 26 Screenshot' },
+  { id: 'img-2', src: 'https://img.youtube.com/vi/twUqbrowu94/maxresdefault.jpg', alt: 'Real Cricket 26 Screenshot' },
+  { id: 'img-3', src: 'https://img.youtube.com/vi/eM_w6yMpZiM/hqdefault.jpg', alt: 'Cricket 26 Gameplay' },
+  { id: 'img-4', src: 'https://img.youtube.com/vi/twUqbrowu94/hqdefault.jpg', alt: 'Real Cricket 26 Gameplay' },
+];
 
 
 const Navbar = ({ visible = true }) => {
@@ -797,7 +855,7 @@ const Navbar = ({ visible = true }) => {
         </div>
 
         {/* Tab content */}
-        <div className={`nav__tab-panel${activeTab ? ' nav__tab-panel--open' : ''}`}>
+        {/* <div className={`nav__tab-panel${activeTab ? ' nav__tab-panel--open' : ''}`}>
           {activeTab && (
             <div className="nav__tab-panel-inner">
               <div className="nav__tab-panel-title">
@@ -806,8 +864,69 @@ const Navbar = ({ visible = true }) => {
               <div className="nav__tab-panel-body">Coming Soon</div>
             </div>
           )}
-        </div>
+        </div> */}
 
+{/* Tab content */}
+{activeTab && (
+  <div className="nav__tab-content" key={activeTab}>
+    {/* People — section links */}
+    {activeTab === 'people' && (
+      <div className="nav__tc-people">
+        {NAV_SECTIONS.map((section, i) => (
+          <a
+            key={section.id}
+            href={`#${section.id}`}
+            className={`nav__tc-player${activeSection === section.id ? ' nav__tc-player--active' : ''}`}
+            style={{ '--tc-i': i }}
+            onClick={(e) => { e.preventDefault(); scrollToSection(section.id); }}
+          >
+            {section.label}
+          </a>
+        ))}
+      </div>
+    )}
+
+    {/* Images — grid */}
+    {activeTab === 'images' && (
+      <div className="nav__tc-images">
+        {IMAGES.map((img, i) => (
+          <div key={img.id} className="nav__tc-img" style={{ '--tc-i': i }}>
+            <img src={img.src} alt={img.alt} />
+          </div>
+        ))}
+      </div>
+    )}
+
+    {/* Trailers — video cards */}
+    {activeTab === 'trailers' && (
+      <div className="nav__tc-trailers">
+        {TRAILERS.map((t, i) => (
+          <a key={t.id} href={t.url} target="_blank" rel="noopener noreferrer"
+            className="nav__tc-trailer" style={{ '--tc-i': i }}>
+            <div className="nav__tc-trailer-thumb">
+              <img src={t.thumbnail} alt={t.title} />
+              <div className="nav__tc-trailer-play">▶</div>
+              <span className="nav__tc-trailer-dur">{t.duration}</span>
+              {t.isNew && <span className="nav__tc-trailer-new">NEW</span>}
+            </div>
+            <div className="nav__tc-trailer-info">
+              <span className="nav__tc-trailer-title">{t.title}</span>
+              <span className="nav__tc-trailer-date">{t.date}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+
+    {/* Downloads — coming soon */}
+    {activeTab === 'downloads' && (
+      <div className="nav__tc-coming">
+        <span className="nav__tc-coming-title">Downloads</span>
+        <span className="nav__tc-coming-sub">Wallpapers, screenshots & more coming soon</span>
+      </div>
+    )}
+  </div>
+)}
         {/* ─── Section divider ─── */}
         {/* <div className="nav__sidebar-divider">
           <span className="nav__sidebar-divider-line" />
