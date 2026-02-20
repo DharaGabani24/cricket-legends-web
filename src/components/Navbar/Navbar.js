@@ -1,33 +1,7 @@
-// import React from 'react';
-// import './Navbar.css';
-
-// const Navbar = () => {
-//   return (
-//     <nav className="nav">
-//       {/* <a href="#home" className="nav__logo">GOC</a> */}
-//       <a href="#home" className="nav__logo">
-//         <img 
-//           src={process.env.PUBLIC_URL + '/img/GOC_logo.webp'} 
-//           alt="Gods of Cricket" 
-//           className="nav__logo-img"
-//         />
-//       </a>
-      
-//       <button className="nav__menu-btn" aria-label="Menu">
-//         <span></span>
-//         <span></span>
-//         <span></span>
-//       </button>
-//     </nav>
-//   );
-// };
-
-// // export default Navbar;
 
 
 
-
-//design 4
+// // navbar design5 for checking design 4 is  better 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import './Navbar.css';
 
@@ -45,14 +19,11 @@ const NAV_SECTIONS = [
 
 /* ─── Explore Tabs ─── */
 const EXPLORE_TABS = [
-  // { id: 'people', label: 'Explore', icon: 'M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zM16.24 7.76l-5.74 2.5-2.5 5.74 5.74-2.5z' },
   { id: 'people', label: 'Explore', icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 0l3 7 7 3-7 3-3 7-3-7-7-3 7-3z' },
   { id: 'images', label: 'Images', icon: 'M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.5 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM21 19l-5-7-4 5-3-3-4 5' },
   { id: 'trailers',  label: 'Trailers',  icon: 'M5 3l14 9-14 9V3z' },
   { id: 'downloads', label: 'Downloads', icon: 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3' },
 ];
-
-
 
 /* ─── Trailer Data ─── */
 const TRAILERS = [
@@ -78,10 +49,11 @@ const TRAILERS = [
 
 const IMAGES = [
   { id: 'img-1', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp', alt: 'Screenshot 1' },
-  { id: 'img-2', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00009.webp', alt: 'Screenshot 2' },
-  { id: 'img-3', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp', alt: 'Screenshot 3' },
-  { id: 'img-4', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00005.webp', alt: 'Screenshot 4' },
-
+  { id: 'img-2', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00013.webp', alt: 'Screenshot 2' },
+  { id: 'img-3', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00003.webp', alt: 'Screenshot 3' },
+  { id: 'img-4', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00009.webp', alt: 'Screenshot 4' },
+  { id: 'img-5', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp', alt: 'Screenshot 5' },
+  { id: 'img-6', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00005.webp', alt: 'Screenshot 6' },
 ];
 
 
@@ -93,6 +65,7 @@ const Navbar = ({ visible = true }) => {
   const [activeTab, setActiveTab] = useState('people');
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const sidebarRef = useRef(null);
+  const [lightboxImg, setLightboxImg] = useState(null);
 
   /* ─── Toggle sidebar ─── */
   const toggleSidebar = useCallback(() => {
@@ -189,22 +162,10 @@ const Navbar = ({ visible = true }) => {
   return (
     <>
     <div style={{ 
-    opacity: visible ? 1 : 0, 
-    pointerEvents: visible ? 'auto' : 'none', 
-    transition: 'opacity 0.6s ease' 
-  }}>
-      {/* ─── Scroll Progress ─── */}
-      {/* <div className="nav__progress-track">
-        <div
-          className={`nav__progress${scrollProgress > 0.5 ? ' nav__progress--vis' : ''}`}
-          style={{ width: `${scrollProgress}%` }}
-        />
-        <div
-          className={`nav__progress-glow${scrollProgress > 0.5 ? ' nav__progress-glow--vis' : ''}`}
-          style={{ width: `${scrollProgress}%` }}
-        />
-      </div> */}
-
+      opacity: visible ? 1 : 0, 
+      pointerEvents: visible ? 'auto' : 'none', 
+      transition: 'opacity 0.6s ease' 
+    }}>
       {/* ─── Top Bar ─── */}
       <nav className={`nav${isOpen ? ' nav--open' : ''}`}>
         {/* Logo */}
@@ -220,14 +181,6 @@ const Navbar = ({ visible = true }) => {
           />
           <span className="nav__logo-glow" />
         </a>
-
-        {/* Section indicator pill */}
-        {/* <div className={`nav__indicator${showIndicator ? ' nav__indicator--vis' : ''}`}>
-          <span className="nav__indicator-idx">{activeSectionIndex}</span>
-          <span className="nav__indicator-sep" />
-          <span className="nav__indicator-name">{activeSectionLabel}</span>
-          <span className="nav__indicator-ring" />
-        </div> */}
 
         {/* Hamburger */}
         <button
@@ -253,41 +206,20 @@ const Navbar = ({ visible = true }) => {
         ref={sidebarRef}
         className={`nav__sidebar${isOpen ? ' nav__sidebar--open' : ''}`}
       >
-        {/* Cursor glow */}
-        <div
-          className="nav__sidebar-cursor-glow"
-          style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
-        />
+        {/* Floating particles */}
+        <div className="nav__sidebar-particles">
+          <div className="nav__sidebar-particle" />
+          <div className="nav__sidebar-particle" />
+          <div className="nav__sidebar-particle" />
+          <div className="nav__sidebar-particle" />
+          <div className="nav__sidebar-particle" />
+          <div className="nav__sidebar-particle" />
+        </div>
 
         {/* Edge accent */}
         <div className="nav__sidebar-edge" />
 
-        {/* Decorative grid */}
-        <div className="nav__sidebar-grid" />
-
         {/* ─── Header ─── */}
-        {/* <div className="nav__sidebar-header">
-          <div className="nav__sidebar-brand">
-            <img
-              src={process.env.PUBLIC_URL + '/img/GOC_logo.webp'}
-              alt="GOC"
-              className="nav__sidebar-logo"
-            />
-            <div>
-              <div className="nav__sidebar-title">Gods of Cricket</div>
-            </div>
-          </div>
-          <div className="nav__sidebar-counter">
-            <span className="nav__sidebar-counter-big">{activeSectionIndex}</span>
-            <span className="nav__sidebar-counter-of">/</span>
-            <span className="nav__sidebar-counter-max">
-              {String(NAV_SECTIONS.length).padStart(2, '0')}
-            </span>
-          </div>
-        </div> */}
-
-        {/* ─── Header ─── */}
-
         <div className="nav__sidebar-header">
           <div className="nav__sidebar-brand">
             <img
@@ -297,7 +229,6 @@ const Navbar = ({ visible = true }) => {
             />
             <div>
               <div className="nav__sidebar-title">Gods of Cricket</div>
-              {/* <div className="nav__sidebar-tagline">Three Worlds · One Legacy</div> */}
             </div>
           </div>
         </div>
@@ -310,7 +241,6 @@ const Navbar = ({ visible = true }) => {
               <button
                 key={tab.id}
                 className={`nav__tab${activeTab === tab.id ? ' nav__tab--active' : ''}`}
-                // onClick={() => setActiveTab(activeTab === tab.id ? null : tab.id)}
                 onClick={() => setActiveTab(tab.id)}
                 style={{ '--tab-i': i }}
               >
@@ -333,128 +263,108 @@ const Navbar = ({ visible = true }) => {
         </div>
 
         {/* Tab content */}
-        {/* <div className={`nav__tab-panel${activeTab ? ' nav__tab-panel--open' : ''}`}>
-          {activeTab && (
-            <div className="nav__tab-panel-inner">
-              <div className="nav__tab-panel-title">
-                {EXPLORE_TABS.find((t) => t.id === activeTab)?.label}
+        {activeTab && (
+          <div className="nav__tab-content" key={activeTab}>
+            {/* People — section links */}
+            {activeTab === 'people' && (
+              <div className="nav__tc-people">
+                {NAV_SECTIONS.map((section, i) => (
+                  <a
+                    key={section.id}
+                    href={`#${section.id}`}
+                    className={`nav__tc-player${activeSection === section.id ? ' nav__tc-player--active' : ''}`}
+                    style={{ '--tc-i': i }}
+                    onClick={(e) => { e.preventDefault(); scrollToSection(section.id); }}
+                  >
+                    {section.label}
+                  </a>
+                ))}
               </div>
-              <div className="nav__tab-panel-body">Coming Soon</div>
-            </div>
-          )}
-        </div> */}
+            )}
 
-{/* Tab content */}
-{activeTab && (
-  <div className="nav__tab-content" key={activeTab}>
-    {/* People — section links */}
-    {activeTab === 'people' && (
-      <div className="nav__tc-people">
-        {NAV_SECTIONS.map((section, i) => (
-          <a
-            key={section.id}
-            href={`#${section.id}`}
-            className={`nav__tc-player${activeSection === section.id ? ' nav__tc-player--active' : ''}`}
-            style={{ '--tc-i': i }}
-            onClick={(e) => { e.preventDefault(); scrollToSection(section.id); }}
-          >
-            {section.label}
-          </a>
-        ))}
-      </div>
-    )}
+            {/* Images — grid */}
+            {activeTab === 'images' && (
+              <div className="nav__tc-images">
+                {IMAGES.map((img, i) => (
+                  <div key={img.id} className="nav__tc-img" style={{ '--tc-i': i }} 
+                  onClick={() => setLightboxImg(img.src)}>
+                    <img src={img.src} alt={img.alt} />
+                  </div>
+                ))}
+              </div>
+            )}
 
-    {/* Images — grid */}
-    {activeTab === 'images' && (
-      <div className="nav__tc-images">
-        {IMAGES.map((img, i) => (
-          <div key={img.id} className="nav__tc-img" style={{ '--tc-i': i }}>
-            <img src={img.src} alt={img.alt} />
+            {/* Trailers — video cards */}
+            {activeTab === 'trailers' && (
+              <div className="nav__tc-trailers">
+                {TRAILERS.map((t, i) => (
+                  <a key={t.id} href={t.url} target="_blank" rel="noopener noreferrer"
+                    className="nav__tc-trailer" style={{ '--tc-i': i }}>
+                    <div className="nav__tc-trailer-thumb">
+                      <img src={t.thumbnail} alt={t.title} />
+                      <div className="nav__tc-trailer-play">▶</div>
+                      <span className="nav__tc-trailer-dur">{t.duration}</span>
+                      {t.isNew && <span className="nav__tc-trailer-new">NEW</span>}
+                    </div>
+                    <div className="nav__tc-trailer-info">
+                      <span className="nav__tc-trailer-title">{t.title}</span>
+                      <span className="nav__tc-trailer-date">{t.date}</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            )}
+
+            {/* Downloads — coming soon */}
+            {activeTab === 'downloads' && (
+              <div className="nav__tc-coming">
+                <span className="nav__tc-coming-title">Downloads</span>
+                <span className="nav__tc-coming-sub">Wallpapers, screenshots & more coming soon</span>
+              </div>
+            )}
           </div>
-        ))}
-      </div>
-    )}
+        )}
 
-    {/* Trailers — video cards */}
-    {activeTab === 'trailers' && (
-      <div className="nav__tc-trailers">
-        {TRAILERS.map((t, i) => (
-          <a key={t.id} href={t.url} target="_blank" rel="noopener noreferrer"
-            className="nav__tc-trailer" style={{ '--tc-i': i }}>
-            <div className="nav__tc-trailer-thumb">
-              <img src={t.thumbnail} alt={t.title} />
-              <div className="nav__tc-trailer-play">▶</div>
-              <span className="nav__tc-trailer-dur">{t.duration}</span>
-              {t.isNew && <span className="nav__tc-trailer-new">NEW</span>}
-            </div>
-            <div className="nav__tc-trailer-info">
-              <span className="nav__tc-trailer-title">{t.title}</span>
-              <span className="nav__tc-trailer-date">{t.date}</span>
-            </div>
-          </a>
-        ))}
-      </div>
-    )}
-
-    {/* Downloads — coming soon */}
-    {activeTab === 'downloads' && (
-      <div className="nav__tc-coming">
-        <span className="nav__tc-coming-title">Downloads</span>
-        <span className="nav__tc-coming-sub">Wallpapers, screenshots & more coming soon</span>
-      </div>
-    )}
-  </div>
-)}
-        {/* ─── Section divider ─── */}
-        {/* <div className="nav__sidebar-divider">
-          <span className="nav__sidebar-divider-line" />
-          <span className="nav__sidebar-divider-text">Navigate</span>
-          <span className="nav__sidebar-divider-line" />
-        </div> */}
-
-
-    {!activeTab && (
-      <>
-        <div className="nav__sidebar-divider">
-          <span className="nav__sidebar-divider-line" />
-          <span className="nav__sidebar-divider-text">
-            Navigate
-            <span className="nav__sidebar-divider-counter">
-              {activeSectionIndex}/{String(NAV_SECTIONS.length).padStart(2, '0')}
-            </span>
-          </span>
-          <span className="nav__sidebar-divider-line" />
-        </div>
-
-        {/* ─── Navigation Links ─── */}
-        <div className="nav__sidebar-links">
-          {NAV_SECTIONS.map((section, i) => (
-            <a
-              key={section.id}
-              href={`#${section.id}`}
-              className={`nav__link${activeSection === section.id ? ' nav__link--active' : ''}`}
-              style={{ '--link-i': i }}
-              onClick={(e) => { e.preventDefault(); scrollToSection(section.id); }}
-            >
-              <span className="nav__link-idx">{section.index}</span>
-              <span className="nav__link-body">
-                <span className="nav__link-name">{section.label}</span>
-                <span className="nav__link-sub">{section.desc}</span>
-              </span>
-              {activeSection === section.id && (
-                <span className="nav__link-badge">
-                  <span className="nav__link-badge-dot" />
+        {!activeTab && (
+          <>
+            <div className="nav__sidebar-divider">
+              <span className="nav__sidebar-divider-line" />
+              <span className="nav__sidebar-divider-text">
+                Navigate
+                <span className="nav__sidebar-divider-counter">
+                  {activeSectionIndex}/{String(NAV_SECTIONS.length).padStart(2, '0')}
                 </span>
-              )}
-              <span className="nav__link-bar" />
-              <span className="nav__link-fill" />
-            </a>
-          ))}
-        
-        </div>
-  </>
-    )}
+              </span>
+              <span className="nav__sidebar-divider-line" />
+            </div>
 
+            {/* ─── Navigation Links ─── */}
+            <div className="nav__sidebar-links">
+              {NAV_SECTIONS.map((section, i) => (
+                <a
+                  key={section.id}
+                  href={`#${section.id}`}
+                  className={`nav__link${activeSection === section.id ? ' nav__link--active' : ''}`}
+                  style={{ '--link-i': i }}
+                  onClick={(e) => { e.preventDefault(); scrollToSection(section.id); }}
+                >
+                  <span className="nav__link-idx">{section.index}</span>
+                  <span className="nav__link-body">
+                    <span className="nav__link-name">{section.label}</span>
+                    <span className="nav__link-sub">{section.desc}</span>
+                  </span>
+                  {activeSection === section.id && (
+                    <span className="nav__link-badge">
+                      <span className="nav__link-badge-dot" />
+                    </span>
+                  )}
+                  <span className="nav__link-bar" />
+                  <span className="nav__link-fill" />
+                </a>
+              ))}
+            </div>
+          </>
+        )}
 
         {/* ─── Footer ─── */}
         <div className="nav__sidebar-footer">
@@ -464,38 +374,33 @@ const Navbar = ({ visible = true }) => {
               <span className="nav__footer-release-val">February, 2026</span>
             </div>
             <div className="nav__footer-chips">
-              {/* <span className="nav__chip">PS5</span>
-              <span className="nav__chip">Xbox</span>
-              <span className="nav__chip">PC</span> */}
-                <span className="nav__chip">
-                  <img src={process.env.PUBLIC_URL + '/img/platforms/playstation.svg'} alt="PS5" className="nav__chip-icon" />
-                  PS5
-                </span>
-                <span className="nav__chip">
-                  <img src={process.env.PUBLIC_URL + '/img/platforms/xbox.svg'} alt="Xbox" className="nav__chip-icon" />
-                  Xbox
-                </span>
-                <span className="nav__chip">
-                  <img src={process.env.PUBLIC_URL + '/img/platforms/steam.svg'} alt="PC" className="nav__chip-icon" />
-                  PC
-                </span>
+              <span className="nav__chip">
+                <img src={process.env.PUBLIC_URL + '/img/platforms/playstation.svg'} alt="PS5" className="nav__chip-icon" />
+                PS5
+              </span>
+              <span className="nav__chip">
+                <img src={process.env.PUBLIC_URL + '/img/platforms/xbox.svg'} alt="Xbox" className="nav__chip-icon" />
+                Xbox
+              </span>
+              <span className="nav__chip">
+                <img src={process.env.PUBLIC_URL + '/img/platforms/steam.svg'} alt="PC" className="nav__chip-icon" />
+                PC
+              </span>
             </div>
           </div>
-          {/* <button className="nav__cta" onClick={closeSidebar}>
-            <span className="nav__cta-text">Wishlist Now</span>
-            <svg className="nav__cta-arrow" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-            </svg>
-            <span className="nav__cta-shimmer" />
-          </button> */}
         </div>
       </aside>
-      </div>
+      {lightboxImg && (
+  <div className="nav__lightbox" onClick={() => setLightboxImg(null)}>
+    <div className="nav__lightbox-inner">
+      <img src={lightboxImg} alt="Preview" />
+      <button className="nav__lightbox-close" onClick={() => setLightboxImg(null)}>✕</button>
+    </div>
+  </div>
+)}
+    </div>
     </>
   );
 };
 
 export default Navbar;
-
-// navbar design5 for checking design 4 is  better 

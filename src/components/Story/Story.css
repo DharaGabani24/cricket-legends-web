@@ -88,7 +88,9 @@
 }
 
 .story__text-wrapper {
-  position: relative;
+  /* position: relative; */
+   position: absolute; 
+
   max-width: 900px;
   width: 90%;
   /* padding: 50px; */
@@ -516,7 +518,7 @@
 .lucia__desc {
   position: absolute;
   right: 20vw;
-  top: 52vh;
+  top: 45vh;
   max-width: 300px;
   font-family: 'Rajdhani', sans-serif;
   /* font-size: clamp(1rem, 1.2vw, 1.3rem); */
@@ -947,7 +949,7 @@
     position: absolute;
     right: auto;
     left: 55vw;
-    top: 12vh;
+    top: 10vh;
     max-width: 260px;
     letter-spacing: 0.02em;
     font-family: 'Rajdhani', sans-serif;
@@ -965,8 +967,8 @@
   .lucia-char__desc2 {
     position: absolute;
     right: auto;
-    left: 55vw;
-    top: 115vh;
+    left: 54vw;
+    top: 110vh;
     max-width: 250px;
     font-family: 'Rajdhani', sans-serif;
     /* font-size: clamp(0.95rem, 1vw, 1.2rem); */
@@ -2852,22 +2854,8 @@
     z-index: 2;
     opacity: 0;
     will-change: opacity;
-    /* background: 
-      radial-gradient(ellipse 90% 80% at 20% 85%, rgba(180, 120, 150, 0.35) 0%, transparent 55%),
-      radial-gradient(ellipse 80% 60% at 85% 20%, rgba(140, 120, 180, 0.3) 0%, transparent 50%),
-      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(160, 130, 170, 0.12) 0%, transparent 45%),
-      radial-gradient(ellipse 120% 100% at 70% 60%, rgba(100, 80, 130, 0.2) 0%, transparent 50%),
-      linear-gradient(140deg, 
-        #1a1225 0%, 
-        #221830 15%, 
-        #2a1e38 30%, 
-        #2e2040 45%, 
-        #2a1e3a 60%, 
-        #221830 75%, 
-        #1a1228 90%, 
-        #120e1e 100%
-      ); */
-      background:
+    
+      /* background:
       radial-gradient(ellipse 90% 80% at 20% 85%, rgba(0, 120, 70, 0.25) 0%, transparent 55%),
       radial-gradient(ellipse 80% 60% at 85% 20%, rgba(0, 100, 60, 0.2) 0%, transparent 50%),
       radial-gradient(ellipse 50% 40% at 50% 50%, rgba(0, 80, 50, 0.1) 0%, transparent 45%),
@@ -2881,6 +2869,21 @@
         #0d2018 75%,
         #0a1a14 90%,
         #08140e 100%
+      ); */
+      background:
+      radial-gradient(ellipse 90% 80% at 20% 85%, rgba(0, 0, 0, 0.6) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 60% at 85% 20%, rgba(0, 0, 0, 0.5) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(0, 0, 0, 0.3) 0%, transparent 45%),
+      radial-gradient(ellipse 120% 100% at 70% 60%, rgba(0, 0, 0, 0.4) 0%, transparent 50%),
+      linear-gradient(140deg,
+        #000000 0%,
+        #0a0a0a 15%,
+        #080808 30%,
+        #050505 45%,
+        #080808 60%,
+        #0a0a0a 75%,
+        #000000 90%,
+        #000000 100%
       );
   }
   
@@ -2896,7 +2899,7 @@
   .world__name {
     position: absolute;
     left: 65vw;
-    top: 22%;
+    top: 10%;
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(3.5rem, 7vw, 6.5rem);
     /* font-size: clamp(2.5rem, 5vw, 5rem); */
@@ -2916,7 +2919,7 @@
   .world__quote {
     position: absolute;
     left: 65vw;
-    top: 52%;
+    top: 43%;
     max-width: 380px;
     /* font-family: 'Cormorant Garamond', Georgia, serif; */
     font-size: clamp(1.8rem, 2.8vw, 2.5rem);
@@ -2932,12 +2935,12 @@
   .world__desc {
     position: absolute;
     left: 65vw;
-    top: 70%;
+    top: 60%;
     max-width: 300px;
     font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1rem, 1.4vw, 1.25rem);
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 255);
     line-height: 1.65;
     margin: 0;
     text-align: left;

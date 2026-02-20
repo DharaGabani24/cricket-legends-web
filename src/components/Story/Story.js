@@ -3,7 +3,6 @@
 // ////
 
 
-//new jason +  lucia d5  + lucia char + leonida
 
 //new modified D5 - With Lucia Section
 import React, { useRef, useLayoutEffect , useState, useEffect, useCallback} from 'react';
@@ -208,7 +207,22 @@ const discoverHscrollHeightRef = useRef(null);
 const discoverGalleryTrackRef = useRef(null);
 const discoverScrollHandlerRef = useRef(null);
 
+
+
+
 const [discoverDetailOpen, setDiscoverDetailOpen] = useState(false);
+
+
+
+// Hide navbar when overlays are open
+useEffect(() => {
+  if (viceCityOpen || discoverDetailOpen) {
+    document.body.classList.add('overlay-open');
+  } else {
+    document.body.classList.remove('overlay-open');
+  }
+}, [viceCityOpen, discoverDetailOpen]);
+
 
   // Lightbox handlers
 const openLightbox = (imageSrc) => {
@@ -248,7 +262,17 @@ const closeLightbox = () => {
       // ========================================
       
       gsap.set(bgImage, { opacity: 0, scale: 1.1 });
-      gsap.set(storyText, { opacity: 1 });
+      // gsap.set(storyText, { opacity: 1 });
+      gsap.set(storyText, { 
+        opacity: 1,
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        xPercent: -50,
+        yPercent: -50,
+        scale: 1,
+        y: 0
+      });
       gsap.set(exitContainer, { scale: 1 });
       
       // Jason - ALL start below viewport (100vh = bottom of screen)
@@ -2583,6 +2607,7 @@ ScrollTrigger.create({
             <p ref={luciaDescRef} className="lucia__desc">
               Step up from the streets. Ranked matches, real strategy,
               real pressure. Every over matters. Every wicket counts.
+              Climb the ladder or get left behind.
             </p>
             
             {/* Image 1 - Left side, large */}
@@ -2652,12 +2677,14 @@ ScrollTrigger.create({
       <p ref={luciaCharDescRef} className="lucia-char__desc">
         Full ODI rules. Voice comms. AI backfill.
         12-minute matches that feel like a World Cup final.
+        Every position — bat, bowl, field, keep — controlled.
       </p>
       
       {/* Second Description */}
       <p ref={luciaCharDesc2Ref} className="lucia-char__desc2">
         Every position — bat, bowl, keep — played by a real human.
-        No more solo cricket. This is the real thing.
+        No more solo cricket. This is the real thing. Set your field.<br/> 
+        Trust your bowler. Win as a unit or lose as individuals.  The pitch doesn't care about your stats — only your decisions."
       </p>
       
       {/* Image 1 - Left side, large (boxing) */}
@@ -3252,9 +3279,10 @@ ScrollTrigger.create({
       
       {/* Description */}
       <p ref={worldDescRef} className="world__desc">
-      A universe of cricket built for those
+      {/* A universe of cricket built for those
         who live and breathe the sport. Every format.
-        Every feeling. Every moment of glory.
+        Every feeling. Every moment of glory. */}
+        A universe of cricket built for those who live and breathe the sport. Every format. Every feeling. Every moment of glory — from the nervous first ball to the final-over six that seals the championship
       </p>
       
     </div>
