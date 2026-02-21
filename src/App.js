@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   Preloader,
   Navbar,
+  // Navbar2,
   Hero,
   Story,
   Features,
@@ -24,7 +25,10 @@ function App() {
       {loading && <Preloader onComplete={handleLoadingComplete} />}
 
       {/* Navigation */}
+      {/* <Navbar visible={!loading } /> */}
+
       <Navbar visible={!loading } />
+
 
       {/* Main Content */}
       <main>
