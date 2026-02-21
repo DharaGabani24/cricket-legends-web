@@ -4955,5 +4955,90 @@ will-change: opacity;
     }
   }
 
+
+  /* ==========================================
+   SCROLL DOWN INDICATOR - STYLE 3
+   Modern Mouse Wheel with Chevron
+   ========================================== */
+
+@keyframes chevron-bounce {
+  0%, 100% {
+    transform: translateY(-4px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes fade-in-out {
+  0%, 10% {
+    opacity: 1;
+  }
+  40%, 60% {
+    opacity: 1;
+  }
+  90%, 100% {
+    opacity: 0.5;
+  }
+}
+
+.scroll-indicator {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  animation: fade-in-out 3s ease-in-out infinite;
+  opacity: 0;
+}
+
+/* Mouse Wheel Container */
+.mouse-wheel {
+  width: 40px;
+  height: 54px;
+  border: 2.5px solid;
+  border-radius: 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.scroll-indicator.vice-city .mouse-wheel {
+  border-color: #FF6B9D;
+}
+
+.scroll-indicator.discover .mouse-wheel {
+  border-color: #00FF88;
+}
+
+/* Chevron Icon Inside */
+.chevron {
+  font-size: 20px;
+  font-weight: bold;
+  animation: chevron-bounce 1.8s ease-in-out infinite;
+  line-height: 1;
+}
+
+.scroll-indicator.vice-city .chevron {
+  color: #FF6B9D;
+}
+
+.scroll-indicator.discover .chevron {
+  color: #00FF88;
+}
+
+/* Responsive - Hide on mobile */
+@media (max-width: 768px) {
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+
   /* ////// */
   /* /////// */
+
+
+  

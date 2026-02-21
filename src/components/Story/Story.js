@@ -54,6 +54,11 @@ const Story = () => {
     const vcDetailHeadingRef = useRef(null);
     const vcDetailSubheadingRef = useRef(null);
     const vcDetailDescRef = useRef(null);
+    const vcScrollIndicatorRef = useRef(null);
+
+
+
+
     // Horizontal scroll refs
     const vcHscrollRef = useRef(null);
     const vcHscrollHeightRef = useRef(null);
@@ -207,6 +212,7 @@ const discoverHscrollHeightRef = useRef(null);
 const discoverGalleryTrackRef = useRef(null);
 const discoverScrollHandlerRef = useRef(null);
 
+const discoverScrollIndicatorRef = useRef(null);
 
 
 
@@ -283,6 +289,11 @@ const closeLightbox = () => {
       gsap.set(jasonImg1, { opacity: 0 });
       gsap.set(jasonImg2, { opacity: 0 });
       gsap.set(jasonImg3, { opacity: 0 });
+
+       // Scroll indicators - start hidden
+    gsap.set(vcScrollIndicatorRef.current, { opacity: 0 });
+    gsap.set(discoverScrollIndicatorRef.current, { opacity: 0 });
+
       
       // ========================================
       // RADIAL MASK FUNCTION
@@ -2234,6 +2245,13 @@ ScrollTrigger.create({
       duration: 0.8,
       ease: 'power2.out',
     }, 0);
+
+    // Show scroll indicator
+    tl.to(vcScrollIndicatorRef.current, {
+      opacity: 1,
+      duration: 0.6,
+      ease: 'power2.out',
+    }, 0.4);
   
     // Back button slides in
     tl.to(vcDetailBackRef.current, {
@@ -2292,6 +2310,10 @@ ScrollTrigger.create({
         document.body.style.overflow = '';
       }
     });
+        // Hide scroll indicator
+        tl.to(vcScrollIndicatorRef.current, { opacity: 0, duration: 0.3 }, 0);
+
+
   
     // Text fades out quickly
     tl.to(vcDetailDescRef.current, { opacity: 0, y: 15, duration: 0.25 }, 0);
@@ -2329,6 +2351,13 @@ ScrollTrigger.create({
       duration: 0.8,
       ease: 'power2.out',
     }, 0);
+
+     // Show scroll indicator
+     tl.to(discoverScrollIndicatorRef.current, {
+      opacity: 1,
+      duration: 0.6,
+      ease: 'power2.out',
+    }, 0.4);
   
     // Back button slides in
     tl.to(discoverDetailBackRef.current, {
@@ -2386,6 +2415,10 @@ ScrollTrigger.create({
       }
     });
   
+     // Hide scroll indicator
+     tl.to(discoverScrollIndicatorRef.current, { opacity: 0, duration: 0.3 }, 0);
+
+
     // Text fades out quickly
     tl.to(discoverDetailDescRef.current, { opacity: 0, y: 15, duration: 0.25 }, 0);
     tl.to(discoverDetailSubheadingRef.current, { opacity: 0, y: 15, duration: 0.25 }, 0.05);
@@ -2419,6 +2452,8 @@ ScrollTrigger.create({
       gsap.set(discoverDetailHeadingRef.current, { opacity: 0, y: 60 });
       gsap.set(discoverDetailSubheadingRef.current, { opacity: 0, y: 40 });
       gsap.set(discoverDetailDescRef.current, { opacity: 0, y: 30 });
+      gsap.set(discoverScrollIndicatorRef.current, { opacity: 0 });  // ← ADD THIS
+
     }
   }, [discoverDetailOpen]);
 
@@ -2442,6 +2477,8 @@ ScrollTrigger.create({
       gsap.set(vcDetailHeadingRef.current, { opacity: 0, y: 60 });
       gsap.set(vcDetailSubheadingRef.current, { opacity: 0, y: 40 });
       gsap.set(vcDetailDescRef.current, { opacity: 0, y: 30 });
+      gsap.set(vcScrollIndicatorRef.current, { opacity: 0 });  // 
+
     }
   }, [viceCityOpen]);
 
@@ -2934,6 +2971,13 @@ ScrollTrigger.create({
           Back
         </button>
 
+         {/* Scroll Indicator */}
+    <div ref={vcScrollIndicatorRef} className="scroll-indicator vice-city">
+      <div className="mouse-wheel">
+        <div className="chevron">∨</div>
+      </div>
+    </div>
+
         {/* SCROLLABLE WRAPPER — this div scrolls vertically */}
         <div ref={vcHscrollRef} className="vc-hscroll">
           <div ref={vcHscrollHeightRef} className="vc-hscroll__height"></div>
@@ -3125,7 +3169,11 @@ ScrollTrigger.create({
     </svg>
     Back
   </button>
-
+  <div ref={discoverScrollIndicatorRef} className="scroll-indicator discover">
+      <div className="mouse-wheel">
+        <div className="chevron">∨</div>
+      </div>
+    </div>
   {/* SCROLLABLE WRAPPER */}
   <div ref={discoverHscrollRef} className="discover-hscroll">
     <div ref={discoverHscrollHeightRef} className="discover-hscroll__height"></div>
