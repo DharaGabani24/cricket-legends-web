@@ -297,7 +297,11 @@ case 'images':
 
         {/* Content area */}
         <div className="nm__ov-content" key={activeTab}>
-          {renderContent()}
+
+          {/* {renderContent()} */}
+          <div className="nm__ov-content-inner">
+            {renderContent()}
+            </div>
 
         {/* Footer */}
         <div className="nm__ov-footer">
