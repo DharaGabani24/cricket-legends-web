@@ -2143,6 +2143,8 @@ ScrollTrigger.create({
     const track = vcGalleryTrackRef.current;
     const hscroll = vcHscrollRef.current;
     const heightEl = vcHscrollHeightRef.current;
+    const indicator = vcScrollIndicatorRef.current;  // ← ADD THIS
+
   
     if (!track || !hscroll || !heightEl) return;
   
@@ -2175,6 +2177,15 @@ ScrollTrigger.create({
       
       const progress = Math.min(hscroll.scrollTop / scrollDistance, 1);
       gsap.set(track, { x: -(progress * scrollDistance) });
+
+       // ← ADD THIS: Hide indicator when scrolling starts
+       if (indicator) {
+        if (hscroll.scrollTop > 50) {  // After scrolling 50px down
+          gsap.to(indicator, { opacity: 0, duration: 0.3 });
+        } else {
+          gsap.to(indicator, { opacity: 1, duration: 0.3 });
+        }
+      }
     };
   
     detail.addEventListener('wheel', onWheel, { passive: false });
@@ -2190,7 +2201,8 @@ ScrollTrigger.create({
     const track = discoverGalleryTrackRef.current;
     const hscroll = discoverHscrollRef.current;
     const heightEl = discoverHscrollHeightRef.current;
-  
+    const indicator = discoverScrollIndicatorRef.current;  // ← ADD THIS
+
     if (!track || !hscroll || !heightEl) return;
   
     // Remove old listener
@@ -2222,6 +2234,15 @@ ScrollTrigger.create({
       
       const progress = Math.min(hscroll.scrollTop / scrollDistance, 1);
       gsap.set(track, { x: -(progress * scrollDistance) });
+
+         // ← ADD THIS: Hide indicator when scrolling starts
+         if (indicator) {
+          if (hscroll.scrollTop > 50) {  // After scrolling 50px down
+            gsap.to(indicator, { opacity: 0, duration: 0.3 });
+          } else {
+            gsap.to(indicator, { opacity: 1, duration: 0.3 });
+          }
+        }
     };
   
     detail.addEventListener('wheel', onWheel, { passive: false });
@@ -2972,10 +2993,18 @@ ScrollTrigger.create({
         </button>
 
          {/* Scroll Indicator */}
-    <div ref={vcScrollIndicatorRef} className="scroll-indicator vice-city">
+    {/* <div ref={vcScrollIndicatorRef} className="scroll-indicator vice-city">
       <div className="mouse-wheel">
         <div className="chevron">∨</div>
       </div>
+    </div> */}
+
+        <div ref={vcScrollIndicatorRef} className="scroll-indicator vice-city">
+        <div className="double-chevron-wrapper">
+          <div className="double-chevron">∨</div>
+          <div className="double-chevron">∨</div>
+        </div>
+     
     </div>
 
         {/* SCROLLABLE WRAPPER — this div scrolls vertically */}
@@ -3169,10 +3198,18 @@ ScrollTrigger.create({
     </svg>
     Back
   </button>
-  <div ref={discoverScrollIndicatorRef} className="scroll-indicator discover">
+  {/* <div ref={discoverScrollIndicatorRef} className="scroll-indicator discover">
       <div className="mouse-wheel">
         <div className="chevron">∨</div>
       </div>
+    </div> */}
+
+<div ref={discoverScrollIndicatorRef} className="scroll-indicator discover">
+        <div className="double-chevron-wrapper">
+          <div className="double-chevron">∨</div>
+          <div className="double-chevron">∨</div>
+        </div>
+      
     </div>
   {/* SCROLLABLE WRAPPER */}
   <div ref={discoverHscrollRef} className="discover-hscroll">
