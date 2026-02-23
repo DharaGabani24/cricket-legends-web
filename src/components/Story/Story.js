@@ -3009,10 +3009,12 @@ ScrollTrigger.create({
         </button>
  {/* Scroll Indicator */}
  <div ref={vcScrollIndicatorRef} className="scroll-indicator vice-city">
-      <div className="double-chevron-wrapper">
+      {/* <div className="double-chevron-wrapper">
         <div className="double-chevron">∨</div>
         <div className="double-chevron">∨</div>
-      </div>
+      </div> */}
+        <div className="single-arrow">∨</div>
+
     </div>
 
         {/* SCROLLABLE WRAPPER — this div scrolls vertically */}
@@ -3208,10 +3210,12 @@ ScrollTrigger.create({
   </button>
       {/* Scroll Indicator */}
       <div ref={discoverScrollIndicatorRef} className="scroll-indicator discover">
-      <div className="double-chevron-wrapper">
+      {/* <div className="double-chevron-wrapper">
         <div className="double-chevron">∨</div>
         <div className="double-chevron">∨</div>
-      </div>
+      </div> */}
+        <div className="single-arrow">∨</div>
+
     </div>
 
   {/* SCROLLABLE WRAPPER */}

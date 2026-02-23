@@ -4926,17 +4926,16 @@ will-change: opacity;
    SCROLL DOWN INDICATOR - COMPLETELY STATIC
    No Animation, No Fade, Just Static Arrows
    ========================================== */
-
+/* 
    .scroll-indicator {
     position: fixed;
-    bottom: 40px;
+    bottom: 35px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
     opacity: 1;
   }
   
-  /* Double Chevron Wrapper - NO CIRCLE */
   .double-chevron-wrapper {
     display: flex;
     flex-direction: column;
@@ -4945,15 +4944,14 @@ will-change: opacity;
     justify-content: center;
   }
   
-  /* Chevron Icons - COMPLETELY STATIC */
   .double-chevron {
     font-size: 24px;
     font-weight: bold;
     line-height: 0.5;
     letter-spacing: -2px;
+    
   }
   
-  /* Colors */
   .scroll-indicator.vice-city .double-chevron {
     color: #FF6B9D;
   }
@@ -4962,14 +4960,50 @@ will-change: opacity;
     color: #00FF88;
   }
   
-  /* Responsive - Hide on mobile */
+  @media (max-width: 768px) {
+    .scroll-indicator {
+      display: none;
+    }
+  } */
+
+
+  /* /with animation/ */
+
+  @keyframes simple-bounce {
+    0%, 100% { transform: translateY(-5px); }
+    50% { transform: translateY(5px); }
+  }
+  
+  .scroll-indicator {
+    position: fixed;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    opacity: 1;
+  }
+  
+  .single-arrow {
+    font-size: 25px;
+    font-weight: bold;
+    animation: simple-bounce 3s ease-in-out infinite;
+  }
+  
+  .scroll-indicator.vice-city .single-arrow {
+    color: #FF6B9D;
+  }
+  
+  .scroll-indicator.discover .single-arrow {
+    color: #00FF88;
+  }
+  
   @media (max-width: 768px) {
     .scroll-indicator {
       display: none;
     }
   }
 
-/* ========================================
+/* ==========================================
    PERFORMANCE
    ======================================== */
 
