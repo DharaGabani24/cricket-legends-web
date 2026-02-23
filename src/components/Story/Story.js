@@ -2091,6 +2091,14 @@ else {
     // AFTER — matches img4's exit exactly
     gsap.set(worldQuote2, { opacity:1 , y: `${-(exitT * 100)}vh` });
     gsap.set(worldDesc2, { opacity:0.9, y: `${-(exitT * 100)}vh` });
+
+     // Fade sticky container to transparent so Discover shows through
+     const fadeOut = Math.min(1, Math.max(0, (exitT - 0.4) / 0.6));
+     if (worldSticky) {
+       worldSticky.style.background = fadeOut > 0 ? 'transparent' : '#0a0a0a';
+     }
+     // Also fade the overlay
+     gsap.set(worldBgOverlay, { opacity: 1 - fadeOut });
   }
 }
 
