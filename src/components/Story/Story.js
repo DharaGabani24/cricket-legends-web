@@ -345,141 +345,579 @@ ScrollTrigger.create({
     const p = self.progress;
 
    
-    if (p < 0.20) {
-      const revealProgress = p / 0.20;
-      const fadeIn = Math.min(1, revealProgress * 2);  // Fades in during first half
+    // if (p < 0.20) {
+    //   const revealProgress = p / 0.20;
+    //   const fadeIn = Math.min(1, revealProgress * 2);  // Fades in during first half
       
-      // No radial mask — just fade in all layers together
-      if (textDim) textDim.style.opacity = String(fadeIn * 0.35);
-      if (textBright) {
-        textBright.style.webkitMaskImage = 'none';
-        textBright.style.maskImage = 'none';
-        textBright.style.opacity = String(fadeIn);
-      }
-      if (textGlow) {
-        textGlow.style.webkitMaskImage = 'none';
-        textGlow.style.maskImage = 'none';
-        textGlow.style.opacity = '0';
-      }
+    //   // No radial mask — just fade in all layers together
+    //   if (textDim) textDim.style.opacity = String(fadeIn * 0.35);
+    //   if (textBright) {
+    //     textBright.style.webkitMaskImage = 'none';
+    //     textBright.style.maskImage = 'none';
+    //     textBright.style.opacity = String(fadeIn);
+    //   }
+    //   if (textGlow) {
+    //     textGlow.style.webkitMaskImage = 'none';
+    //     textGlow.style.maskImage = 'none';
+    //     textGlow.style.opacity = '0';
+    //   }
       
-      gsap.set(storyText, { 
-        opacity: 1, 
-        scale: 1, 
-        y: 0,
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        xPercent: -50,
-        yPercent: -50
-      });
+    //   gsap.set(storyText, { 
+    //     opacity: 1, 
+    //     scale: 1, 
+    //     y: 0,
+    //     position: 'absolute',
+    //     top: '50%',
+    //     left: '50%',
+    //     xPercent: -50,
+    //     yPercent: -50
+    //   });
       
-      gsap.set(bgImage, { opacity: 0, scale: 1.1 });
-      gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh', opacity: 0 });
-    }
+    //   gsap.set(bgImage, { opacity: 0, scale: 1.1 });
+    //   gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh', opacity: 0 });
+    // }
 
-    // ========================================
-    // PHASE 2: TEXT EXIT (0.20 - 0.35)
-    // Shifted start to 0.20 to match Phase 1's new end
-    // ========================================
-    else if (p >= 0.20 && p < 0.35) {
-      const exitProgress = (p - 0.20) / 0.15; // Still takes 15% of scroll
-      const eased = gsap.parseEase("power2.inOut")(exitProgress);
+    // // ========================================
+    // // PHASE 2: TEXT EXIT (0.20 - 0.35)
+    // // Shifted start to 0.20 to match Phase 1's new end
+    // // ========================================
+    // else if (p >= 0.20 && p < 0.35) {
+    //   const exitProgress = (p - 0.20) / 0.15; // Still takes 15% of scroll
+    //   const eased = gsap.parseEase("power2.inOut")(exitProgress);
 
-      updateRadialMasks(eased < 0.2 ? 0.5 + (eased / 0.2 * 0.5) : 1);
+    //   updateRadialMasks(eased < 0.2 ? 0.5 + (eased / 0.2 * 0.5) : 1);
       
-      const scale = 1 - (eased * 0.45);
-      const yMove = -(eased * 200);
-      const textOpacity = 1 - (eased * 1.2);
+    //   const scale = 1 - (eased * 0.45);
+    //   const yMove = -(eased * 200);
+    //   const textOpacity = 1 - (eased * 1.2);
 
-      gsap.set(storyText, { 
-        top: '50%',
-        left: '50%',
-        xPercent: -50,
-        yPercent: -50,
-        y: yMove, 
-        scale: Math.max(0.3, scale),
-        opacity: Math.max(0, textOpacity) 
-      });
+    //   gsap.set(storyText, { 
+    //     top: '50%',
+    //     left: '50%',
+    //     xPercent: -50,
+    //     yPercent: -50,
+    //     y: yMove, 
+    //     scale: Math.max(0.3, scale),
+    //     opacity: Math.max(0, textOpacity) 
+    //   });
 
-      const bgDelay = 0.4;
-      const bgProg = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
-      const bgEased = gsap.parseEase("power2.out")(bgProg);
+    //   const bgDelay = 0.4;
+    //   const bgProg = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
+    //   const bgEased = gsap.parseEase("power2.out")(bgProg);
       
-      gsap.set(bgImage, { opacity: bgEased, scale: 1.1 - (bgEased * 0.05) });
-      gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh' });
-    }
+    //   gsap.set(bgImage, { opacity: bgEased, scale: 1.1 - (bgEased * 0.05) });
+    //   gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh' });
+    // }
 
-    // PHASE 3 - 9: JASON CONTENT (0.25 - 1.0)
-    // We use a unified calculation for all Jason phases to prevent "jumping"
-    else if (p >= 0.35) {
-      // Clear Phase 2 artifacts
-      gsap.set(storyText, { opacity: 0 });
-      if (exitContainer) exitContainer.style.webkitMaskImage = 'none';
+    // // PHASE 3 - 9: JASON CONTENT (0.25 - 1.0)
+    // // We use a unified calculation for all Jason phases to prevent "jumping"
+    // else if (p >= 0.35) {
+    //   // Clear Phase 2 artifacts
+    //   gsap.set(storyText, { opacity: 0 });
+    //   if (exitContainer) exitContainer.style.webkitMaskImage = 'none';
 
-      // Unified Scroll Logic
-      let baseScroll = 0;
-      let bgOpacity = 0;
-      let textOpacity = 1;
-      let imagesOpacity = 1;
-      let luciaOpacity = 0;
+    //   // Unified Scroll Logic
+    //   let baseScroll = 0;
+    //   let bgOpacity = 0;
+    //   let textOpacity = 1;
+    //   let imagesOpacity = 1;
+    //   let luciaOpacity = 0;
 
-      if (p < 0.45) { // Phase 3
-        const ph = (p - 0.35) / 0.10;
-        baseScroll = ph * 600;
-        bgOpacity = 1 - (ph * 0.7);
-      } 
-      else if (p < 0.55) { // Phase 4
-        const ph = (p - 0.45) / 0.10;
-        baseScroll = 600 + (ph * 400);
-        bgOpacity = 0.3 - (ph * 0.3);
-      }
-      else if (p < 0.55) { // Phase 5
-        const ph = (p - 0.45) / 0.10;
-        baseScroll = 1000 + (ph * 300);
-        bgOpacity = 0;
-      }
-      else if (p < 0.65) { // Phase 6
-        const ph = (p - 0.55) / 0.10;
-        baseScroll = 1300 + (ph * 250);
-        bgOpacity = 0;
-      }
-      else if (p < 0.75) { // Phase 7
-        const ph = (p - 0.65) / 0.10;
-        baseScroll = 1550 + (ph * 200);
-        textOpacity = 1 - ph;
-        bgOpacity = 0;
-      }
-      else if (p < 0.85) { // Phase 8
-        const ph = (p - 0.75) / 0.10;
-        baseScroll = 1750 + (ph * 200);
-        textOpacity = 0;
-        luciaOpacity = ph * 0.4;
-      }
-      else { // Phase 9
-        const ph = (p - 0.85) / 0.15;
-        baseScroll = 1950 + (ph * 400);
-        imagesOpacity = 1 - ph;
-        textOpacity = 0;
-        luciaOpacity = 0.4 + (ph * 0.4);
-      }
+    //   if (p < 0.45) { // Phase 3
+    //     const ph = (p - 0.35) / 0.10;
+    //     baseScroll = ph * 600;
+    //     bgOpacity = 1 - (ph * 0.7);
+    //   } 
+    //   else if (p < 0.55) { // Phase 4
+    //     const ph = (p - 0.45) / 0.10;
+    //     baseScroll = 600 + (ph * 400);
+    //     bgOpacity = 0.3 - (ph * 0.3);
+    //   }
+    //   else if (p < 0.55) { // Phase 5
+    //     const ph = (p - 0.45) / 0.10;
+    //     baseScroll = 1000 + (ph * 300);
+    //     bgOpacity = 0;
+    //   }
+    //   else if (p < 0.65) { // Phase 6
+    //     const ph = (p - 0.55) / 0.10;
+    //     baseScroll = 1300 + (ph * 250);
+    //     bgOpacity = 0;
+    //   }
+    //   else if (p < 0.75) { // Phase 7
+    //     const ph = (p - 0.65) / 0.10;
+    //     baseScroll = 1550 + (ph * 200);
+    //     textOpacity = 1 - ph;
+    //     bgOpacity = 0;
+    //   }
+    //   else if (p < 0.85) { // Phase 8
+    //     const ph = (p - 0.75) / 0.10;
+    //     baseScroll = 1750 + (ph * 200);
+    //     textOpacity = 0;
+    //     luciaOpacity = ph * 0.4;
+    //   }
+    //   else { // Phase 9
+    //     const ph = (p - 0.85) / 0.15;
+    //     baseScroll = 1950 + (ph * 400);
+    //     imagesOpacity = 1 - ph;
+    //     textOpacity = 0;
+    //     luciaOpacity = 0.4 + (ph * 0.4);
+    //   }
 
       
 
-      // Apply all values via GSAP set (much smoother than .style)
-      gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
-      gsap.set(luciaBgImageRef.current, { opacity: luciaOpacity });
+    //   // Apply all values via GSAP set (much smoother than .style)
+    //   gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
+    //   gsap.set(luciaBgImageRef.current, { opacity: luciaOpacity });
 
-      // Jason Text
-      gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
-      gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
-      gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
+    //   // Jason Text
+    //   gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
+    //   gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
+    //   gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
 
-      // Jason Images
-      gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: imagesOpacity });
-      gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: imagesOpacity });
-      gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: imagesOpacity });
-    }
+    //   // Jason Images
+    //   gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: imagesOpacity });
+    //   gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: imagesOpacity });
+    //   gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: imagesOpacity });
+    // }
+
+    ////new change1
+    // PHASE 1: DIM TO BRIGHT (0 - 0.03)
+// if (p < 0.03) {
+//   const revealProgress = p / 0.03;
+  
+//   // Dim appears immediately
+//   if (textDim) textDim.style.opacity = String(Math.min(1, revealProgress * 3) * 0.5);
+  
+//   // Bright fades in after dim
+//   const brightProgress = Math.max(0, (revealProgress - 0.5) / 0.5);
+//   if (textBright) {
+//     textBright.style.webkitMaskImage = 'none';
+//     textBright.style.maskImage = 'none';
+//     textBright.style.opacity = String(brightProgress);
+//   }
+//   if (textGlow) {
+//     textGlow.style.webkitMaskImage = 'none';
+//     textGlow.style.maskImage = 'none';
+//     textGlow.style.opacity = '0';
+//   }
+  
+//   gsap.set(storyText, { 
+//     opacity: 1, scale: 1, y: 0,
+//     position: 'absolute', top: '50%', left: '50%',
+//     xPercent: -50, yPercent: -50
+//   });
+  
+//   gsap.set(bgImage, { opacity: 0, scale: 1.1 });
+//   gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh', opacity: 0 });
+// }
+
+// // PHASE 1.5: BRIGHT TEXT HOLDS (0.03 - 0.08)
+// else if (p >= 0.03 && p < 0.08) {
+//   if (textDim) textDim.style.opacity = '0.5';
+//   if (textBright) {
+//     textBright.style.webkitMaskImage = 'none';
+//     textBright.style.maskImage = 'none';
+//     textBright.style.opacity = '1';
+//   }
+//   if (textGlow) {
+//     textGlow.style.webkitMaskImage = 'none';
+//     textGlow.style.maskImage = 'none';
+//     textGlow.style.opacity = '0';
+//   }
+  
+//   gsap.set(storyText, { 
+//     opacity: 1, scale: 1, y: 0,
+//     position: 'absolute', top: '50%', left: '50%',
+//     xPercent: -50, yPercent: -50
+//   });
+  
+//   gsap.set(bgImage, { opacity: 0, scale: 1.1 });
+//   gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh', opacity: 0 });
+// }
+
+// // PHASE 2: TEXT EXIT (0.08 - 0.20)
+// else if (p >= 0.08 && p < 0.20) {
+//   const exitProgress = (p - 0.08) / 0.12;
+//   const eased = gsap.parseEase("power2.inOut")(exitProgress);
+
+//   updateRadialMasks(eased < 0.2 ? 0.5 + (eased / 0.2 * 0.5) : 1);
+  
+//   const scale = 1 - (eased * 0.45);
+//   const yMove = -(eased * 200);
+//   const textOpacity = 1 - (eased * 1.2);
+
+//   gsap.set(storyText, { 
+//     top: '50%', left: '50%',
+//     xPercent: -50, yPercent: -50,
+//     y: yMove, 
+//     scale: Math.max(0.3, scale),
+//     opacity: Math.max(0, textOpacity) 
+//   });
+
+//   const bgDelay = 0.4;
+//   const bgProg = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
+//   const bgEased = gsap.parseEase("power2.out")(bgProg);
+  
+//   gsap.set(bgImage, { opacity: bgEased, scale: 1.1 - (bgEased * 0.05) });
+//   gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh' });
+// }
+
+// // PHASE 3+: JASON CONTENT (0.20 - 1.0)
+// else if (p >= 0.20) {
+//   gsap.set(storyText, { opacity: 0 });
+//   if (exitContainer) exitContainer.style.webkitMaskImage = 'none';
+
+//   let baseScroll = 0;
+//   let bgOpacity = 0;
+//   let textOpacity = 1;
+//   let imagesOpacity = 1;
+//   let luciaOpacity = 0;
+
+//   if (p < 0.30) {
+//     const ph = (p - 0.20) / 0.10;
+//     baseScroll = ph * 600;
+//     bgOpacity = 1 - (ph * 0.7);
+//   } 
+//   else if (p < 0.40) {
+//     const ph = (p - 0.30) / 0.10;
+//     baseScroll = 600 + (ph * 400);
+//     bgOpacity = 0.3 - (ph * 0.3);
+//   }
+//   else if (p < 0.50) {
+//     const ph = (p - 0.40) / 0.10;
+//     baseScroll = 1000 + (ph * 300);
+//     bgOpacity = 0;
+//   }
+//   else if (p < 0.60) {
+//     const ph = (p - 0.50) / 0.10;
+//     baseScroll = 1300 + (ph * 250);
+//     bgOpacity = 0;
+//   }
+//   else if (p < 0.70) {
+//     const ph = (p - 0.60) / 0.10;
+//     baseScroll = 1550 + (ph * 200);
+//     textOpacity = 1 - ph;
+//     bgOpacity = 0;
+//   }
+//   else if (p < 0.80) {
+//     const ph = (p - 0.70) / 0.10;
+//     baseScroll = 1750 + (ph * 200);
+//     textOpacity = 0;
+//     luciaOpacity = ph * 0.4;
+//   }
+//   else {
+//     const ph = (p - 0.80) / 0.20;
+//     baseScroll = 1950 + (ph * 400);
+//     imagesOpacity = 1 - ph;
+//     textOpacity = 0;
+//     luciaOpacity = 0.4 + (ph * 0.4);
+//   }
+
+//   gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
+//   gsap.set(luciaBgImageRef.current, { opacity: luciaOpacity });
+
+//   gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
+//   gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
+//   gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
+
+//   gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: imagesOpacity });
+//   gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: imagesOpacity });
+//   gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: imagesOpacity });
+// }
+
+
+// new change 2
+
+// // PHASE 1: DIM TO BRIGHT (0 - 0.02)
+// if (p < 0.02) {
+//   const revealProgress = p / 0.02;
+  
+//   // Dim appears instantly
+//   if (textDim) textDim.style.opacity = String(Math.min(1, revealProgress * 5) * 0.5);
+  
+//   // Bright fades in after dim
+//   const brightProgress = Math.max(0, (revealProgress - 0.3) / 0.7);
+//   if (textBright) {
+//     textBright.style.webkitMaskImage = 'none';
+//     textBright.style.maskImage = 'none';
+//     textBright.style.opacity = String(brightProgress);
+//   }
+//   if (textGlow) {
+//     textGlow.style.webkitMaskImage = 'none';
+//     textGlow.style.maskImage = 'none';
+//     textGlow.style.opacity = '0';
+//   }
+  
+//   gsap.set(storyText, { 
+//     opacity: 1, scale: 1, y: 0,
+//     position: 'absolute', top: '50%', left: '50%',
+//     xPercent: -50, yPercent: -50
+//   });
+  
+//   gsap.set(bgImage, { opacity: 0, scale: 1.1 });
+//   gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh', opacity: 0 });
+// }
+
+// // PHASE 1.5: BRIGHT TEXT HOLDS (0.02 - 0.05)
+// else if (p >= 0.02 && p < 0.05) {
+//   if (textDim) textDim.style.opacity = '0.5';
+//   if (textBright) {
+//     textBright.style.webkitMaskImage = 'none';
+//     textBright.style.maskImage = 'none';
+//     textBright.style.opacity = '1';
+//   }
+//   if (textGlow) {
+//     textGlow.style.webkitMaskImage = 'none';
+//     textGlow.style.maskImage = 'none';
+//     textGlow.style.opacity = '0';
+//   }
+  
+//   gsap.set(storyText, { 
+//     opacity: 1, scale: 1, y: 0,
+//     position: 'absolute', top: '50%', left: '50%',
+//     xPercent: -50, yPercent: -50
+//   });
+  
+//   gsap.set(bgImage, { opacity: 0, scale: 1.1 });
+//   gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh', opacity: 0 });
+// }
+
+// // PHASE 2: TEXT EXIT (0.05 - 0.15)
+// else if (p >= 0.05 && p < 0.15) {
+//   const exitProgress = (p - 0.05) / 0.10;
+//   const eased = gsap.parseEase("power2.inOut")(exitProgress);
+
+//   updateRadialMasks(eased < 0.2 ? 0.5 + (eased / 0.2 * 0.5) : 1);
+  
+//   const scale = 1 - (eased * 0.45);
+//   const yMove = -(eased * 200);
+//   const textOpacity = 1 - (eased * 1.2);
+
+//   gsap.set(storyText, { 
+//     top: '50%', left: '50%',
+//     xPercent: -50, yPercent: -50,
+//     y: yMove, 
+//     scale: Math.max(0.3, scale),
+//     opacity: Math.max(0, textOpacity) 
+//   });
+
+//   const bgDelay = 0.4;
+//   const bgProg = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
+//   const bgEased = gsap.parseEase("power2.out")(bgProg);
+  
+//   gsap.set(bgImage, { opacity: bgEased, scale: 1.1 - (bgEased * 0.05) });
+//   gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh' });
+// }
+
+// // PHASE 3+: JASON CONTENT (0.15 - 1.0)
+// else if (p >= 0.15) {
+//   gsap.set(storyText, { opacity: 0 });
+//   if (exitContainer) exitContainer.style.webkitMaskImage = 'none';
+
+//   let baseScroll = 0;
+//   let bgOpacity = 0;
+//   let textOpacity = 1;
+//   let imagesOpacity = 1;
+//   let luciaOpacity = 0;
+
+//   if (p < 0.25) {
+//     const ph = (p - 0.15) / 0.10;
+//     baseScroll = ph * 600;
+//     bgOpacity = 1 - (ph * 0.7);
+//   } 
+//   else if (p < 0.35) {
+//     const ph = (p - 0.25) / 0.10;
+//     baseScroll = 600 + (ph * 400);
+//     bgOpacity = 0.3 - (ph * 0.3);
+//   }
+//   else if (p < 0.45) {
+//     const ph = (p - 0.35) / 0.10;
+//     baseScroll = 1000 + (ph * 300);
+//     bgOpacity = 0;
+//   }
+//   else if (p < 0.55) {
+//     const ph = (p - 0.45) / 0.10;
+//     baseScroll = 1300 + (ph * 250);
+//     bgOpacity = 0;
+//   }
+//   else if (p < 0.65) {
+//     const ph = (p - 0.55) / 0.10;
+//     baseScroll = 1550 + (ph * 200);
+//     textOpacity = 1 - ph;
+//     bgOpacity = 0;
+//   }
+//   else if (p < 0.75) {
+//     const ph = (p - 0.65) / 0.10;
+//     baseScroll = 1750 + (ph * 200);
+//     textOpacity = 0;
+//     luciaOpacity = ph * 0.4;
+//   }
+//   else {
+//     const ph = (p - 0.75) / 0.25;
+//     baseScroll = 1950 + (ph * 400);
+//     imagesOpacity = 1 - ph;
+//     textOpacity = 0;
+//     luciaOpacity = 0.4 + (ph * 0.4);
+//   }
+
+//   gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
+//   gsap.set(luciaBgImageRef.current, { opacity: luciaOpacity });
+
+//   gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
+//   gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
+//   gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
+
+//   gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: imagesOpacity });
+//   gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: imagesOpacity });
+//   gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: imagesOpacity });
+// }
+
+
+// PHASE 1: DIM TO BRIGHT (0 - 0.02)
+if (p < 0.02) {
+  const revealProgress = p / 0.02;
+  
+  // Dim already partially visible from Hero crossfade, complete it
+  if (textDim) textDim.style.opacity = String(Math.max(0.5, Math.min(1, revealProgress * 5) * 0.5));
+  
+  // Bright fades in
+  const brightProgress = Math.max(0, (revealProgress - 0.3) / 0.7);
+  if (textBright) {
+    textBright.style.webkitMaskImage = 'none';
+    textBright.style.maskImage = 'none';
+    textBright.style.opacity = String(brightProgress);
   }
+  if (textGlow) {
+    textGlow.style.webkitMaskImage = 'none';
+    textGlow.style.maskImage = 'none';
+    textGlow.style.opacity = '0';
+  }
+  
+  gsap.set(storyText, { 
+    opacity: 1, scale: 1, y: 0,
+    position: 'absolute', top: '50%', left: '50%',
+    xPercent: -50, yPercent: -50
+  });
+  
+  gsap.set(bgImage, { opacity: 0, scale: 1.1 });
+  gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh', opacity: 0 });
+}
+
+// PHASE 1.5: BRIGHT TEXT HOLDS (0.02 - 0.05)
+else if (p >= 0.02 && p < 0.05) {
+  if (textDim) textDim.style.opacity = '0.5';
+  if (textBright) {
+    textBright.style.webkitMaskImage = 'none';
+    textBright.style.maskImage = 'none';
+    textBright.style.opacity = '1';
+  }
+  if (textGlow) {
+    textGlow.style.webkitMaskImage = 'none';
+    textGlow.style.maskImage = 'none';
+    textGlow.style.opacity = '0';
+  }
+  
+  gsap.set(storyText, { 
+    opacity: 1, scale: 1, y: 0,
+    position: 'absolute', top: '50%', left: '50%',
+    xPercent: -50, yPercent: -50
+  });
+  
+  gsap.set(bgImage, { opacity: 0, scale: 1.1 });
+  gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh', opacity: 0 });
+}
+
+// PHASE 2: TEXT EXIT (0.05 - 0.15)
+else if (p >= 0.05 && p < 0.15) {
+  const exitProgress = (p - 0.05) / 0.10;
+  const eased = gsap.parseEase("power2.inOut")(exitProgress);
+
+  updateRadialMasks(eased < 0.2 ? 0.5 + (eased / 0.2 * 0.5) : 1);
+  
+  const scale = 1 - (eased * 0.45);
+  const yMove = -(eased * 200);
+  const textOpacity = 1 - (eased * 1.2);
+
+  gsap.set(storyText, { 
+    top: '50%', left: '50%',
+    xPercent: -50, yPercent: -50,
+    y: yMove, 
+    scale: Math.max(0.3, scale),
+    opacity: Math.max(0, textOpacity) 
+  });
+
+  const bgDelay = 0.4;
+  const bgProg = Math.max(0, (exitProgress - bgDelay) / (1 - bgDelay));
+  const bgEased = gsap.parseEase("power2.out")(bgProg);
+  
+  gsap.set(bgImage, { opacity: bgEased, scale: 1.1 - (bgEased * 0.05) });
+  gsap.set([jasonName, jasonQuote, jasonDesc, jasonImg1, jasonImg2, jasonImg3], { y: '100vh' });
+}
+
+// PHASE 3+: JASON CONTENT (0.15 - 1.0)
+else if (p >= 0.15) {
+  gsap.set(storyText, { opacity: 0 });
+  if (exitContainer) exitContainer.style.webkitMaskImage = 'none';
+
+  let baseScroll = 0;
+  let bgOpacity = 0;
+  let textOpacity = 1;
+  let imagesOpacity = 1;
+  let luciaOpacity = 0;
+
+  if (p < 0.25) {
+    const ph = (p - 0.15) / 0.10;
+    baseScroll = ph * 600;
+    bgOpacity = 1 - (ph * 0.7);
+  } 
+  else if (p < 0.35) {
+    const ph = (p - 0.25) / 0.10;
+    baseScroll = 600 + (ph * 400);
+    bgOpacity = 0.3 - (ph * 0.3);
+  }
+  else if (p < 0.45) {
+    const ph = (p - 0.35) / 0.10;
+    baseScroll = 1000 + (ph * 300);
+    bgOpacity = 0;
+  }
+  else if (p < 0.55) {
+    const ph = (p - 0.45) / 0.10;
+    baseScroll = 1300 + (ph * 250);
+    bgOpacity = 0;
+  }
+  else if (p < 0.65) {
+    const ph = (p - 0.55) / 0.10;
+    baseScroll = 1550 + (ph * 200);
+    textOpacity = 1 - ph;
+    bgOpacity = 0;
+  }
+  else if (p < 0.75) {
+    const ph = (p - 0.65) / 0.10;
+    baseScroll = 1750 + (ph * 200);
+    textOpacity = 0;
+    luciaOpacity = ph * 0.4;
+  }
+  else {
+    const ph = (p - 0.75) / 0.25;
+    baseScroll = 1950 + (ph * 400);
+    imagesOpacity = 1 - ph;
+    textOpacity = 0;
+    luciaOpacity = 0.4 + (ph * 0.4);
+  }
+
+  gsap.set(bgImage, { opacity: bgOpacity, scale: 1.05 });
+  gsap.set(luciaBgImageRef.current, { opacity: luciaOpacity });
+
+  gsap.set(jasonName, { y: 800 - baseScroll, opacity: textOpacity });
+  gsap.set(jasonQuote, { y: 900 - baseScroll, opacity: textOpacity });
+  gsap.set(jasonDesc, { y: 1050 - baseScroll, opacity: textOpacity });
+
+  gsap.set(jasonImg1, { y: 800 - baseScroll, opacity: imagesOpacity });
+  gsap.set(jasonImg2, { y: 1000 - baseScroll, opacity: imagesOpacity });
+  gsap.set(jasonImg3, { y: 1100 - baseScroll, opacity: imagesOpacity });
+}
+
+}
 });
       
 

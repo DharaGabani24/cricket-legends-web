@@ -210,7 +210,7 @@ const Hero = () => {
     tl.to(releaseInfo, { opacity: 1, duration: 0.01, ease: 'none' }, 0.42);
 
     // Background image fades out SLOWLY - starts at 0.45 (when logo is already small)
-    tl.to(imageWrapper, { opacity: 0, duration: 0.25, ease: 'power1.inOut' }, 0.45);
+    tl.to(imageWrapper, { opacity: 0, duration: 0.15, ease: 'power1.inOut' }, 0.45);
 
    
     
@@ -337,7 +337,7 @@ else if (scrollProgress >= 0.75) {
   gsap.set(platforms, { opacity: 0 });
   if (dimLayer) dimLayer.style.opacity = '0';
   
-  const exitProgress = Math.min(1, (scrollProgress - 0.75) / 0.15); //was 0.15 instead of 0.25
+  const exitProgress = Math.min(1, (scrollProgress - 0.75) / 0.08); //was 0.15 instead of 0.25
   
   if (exitContainer) {
     exitContainer.style.webkitMaskImage = 'none';
