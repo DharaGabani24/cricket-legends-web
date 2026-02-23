@@ -4922,6 +4922,53 @@ will-change: opacity;
   }
 }
 
+/* ==========================================
+   SCROLL DOWN INDICATOR - COMPLETELY STATIC
+   No Animation, No Fade, Just Static Arrows
+   ========================================== */
+
+   .scroll-indicator {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    opacity: 1;
+  }
+  
+  /* Double Chevron Wrapper - NO CIRCLE */
+  .double-chevron-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Chevron Icons - COMPLETELY STATIC */
+  .double-chevron {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 0.5;
+    letter-spacing: -2px;
+  }
+  
+  /* Colors */
+  .scroll-indicator.vice-city .double-chevron {
+    color: #FF6B9D;
+  }
+  
+  .scroll-indicator.discover .double-chevron {
+    color: #00FF88;
+  }
+  
+  /* Responsive - Hide on mobile */
+  @media (max-width: 768px) {
+    .scroll-indicator {
+      display: none;
+    }
+  }
+
 /* ========================================
    PERFORMANCE
    ======================================== */

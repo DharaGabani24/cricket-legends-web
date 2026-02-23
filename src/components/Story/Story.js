@@ -59,6 +59,8 @@ const Story = () => {
     const vcHscrollHeightRef = useRef(null);
     const vcGalleryTrackRef = useRef(null);
     const vcScrollHandlerRef = useRef(null);
+    const vcScrollIndicatorRef = useRef(null);  // ← ADD THIS NEW LINE
+
   
     const [viceCityOpen, setViceCityOpen] = useState(false);
 
@@ -208,6 +210,7 @@ const discoverGalleryTrackRef = useRef(null);
 const discoverScrollHandlerRef = useRef(null);
 
 
+const discoverScrollIndicatorRef = useRef(null);  // ← ADD THIS NEW LINE
 
 
 const [discoverDetailOpen, setDiscoverDetailOpen] = useState(false);
@@ -274,6 +277,9 @@ const closeLightbox = () => {
         y: 0
       });
       gsap.set(exitContainer, { scale: 1 });
+          // Scroll indicators - start hidden
+    gsap.set(vcScrollIndicatorRef.current, { opacity: 0 });
+    gsap.set(discoverScrollIndicatorRef.current, { opacity: 0 });
       
       // Jason - ALL start below viewport (100vh = bottom of screen)
       gsap.set(jasonWrapper, { opacity: 1 });
@@ -2132,6 +2138,8 @@ ScrollTrigger.create({
     const track = vcGalleryTrackRef.current;
     const hscroll = vcHscrollRef.current;
     const heightEl = vcHscrollHeightRef.current;
+    const indicator = vcScrollIndicatorRef.current;  // ← ADD THIS
+
   
     if (!track || !hscroll || !heightEl) return;
   
@@ -2164,6 +2172,13 @@ ScrollTrigger.create({
       
       const progress = Math.min(hscroll.scrollTop / scrollDistance, 1);
       gsap.set(track, { x: -(progress * scrollDistance) });
+      if (indicator) {
+        if (hscroll.scrollTop > 50) {  // After scrolling 50px down
+          gsap.to(indicator, { opacity: 0, duration: 0.3 });
+        } else {
+          gsap.to(indicator, { opacity: 1, duration: 0.3 });
+        }
+      }
     };
   
     detail.addEventListener('wheel', onWheel, { passive: false });
@@ -2179,6 +2194,8 @@ ScrollTrigger.create({
     const track = discoverGalleryTrackRef.current;
     const hscroll = discoverHscrollRef.current;
     const heightEl = discoverHscrollHeightRef.current;
+    const indicator = discoverScrollIndicatorRef.current;  // ← ADD THIS
+
   
     if (!track || !hscroll || !heightEl) return;
   
@@ -2211,6 +2228,16 @@ ScrollTrigger.create({
       
       const progress = Math.min(hscroll.scrollTop / scrollDistance, 1);
       gsap.set(track, { x: -(progress * scrollDistance) });
+
+        
+        // ← ADD THIS: Hide indicator when scrolling starts
+        if (indicator) {
+          if (hscroll.scrollTop > 50) {  // After scrolling 50px down
+            gsap.to(indicator, { opacity: 0, duration: 0.3 });
+          } else {
+            gsap.to(indicator, { opacity: 1, duration: 0.3 });
+          }
+        }
     };
   
     detail.addEventListener('wheel', onWheel, { passive: false });
@@ -2234,6 +2261,15 @@ ScrollTrigger.create({
       duration: 0.8,
       ease: 'power2.out',
     }, 0);
+
+
+
+      // Show scroll indicator ← ADD THIS SECTION
+      tl.to(vcScrollIndicatorRef.current, {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out',
+      }, 0.4);
   
     // Back button slides in
     tl.to(vcDetailBackRef.current, {
@@ -2292,6 +2328,10 @@ ScrollTrigger.create({
         document.body.style.overflow = '';
       }
     });
+
+
+      // Hide scroll indicator ← ADD THIS
+      tl.to(vcScrollIndicatorRef.current, { opacity: 0, duration: 0.3 }, 0);
   
     // Text fades out quickly
     tl.to(vcDetailDescRef.current, { opacity: 0, y: 15, duration: 0.25 }, 0);
@@ -2329,6 +2369,13 @@ ScrollTrigger.create({
       duration: 0.8,
       ease: 'power2.out',
     }, 0);
+
+       // Show scroll indicator ← ADD THIS SECTION
+       tl.to(discoverScrollIndicatorRef.current, {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out',
+      }, 0.4);
   
     // Back button slides in
     tl.to(discoverDetailBackRef.current, {
@@ -2385,6 +2432,8 @@ ScrollTrigger.create({
         document.body.style.overflow = '';
       }
     });
+          // Hide scroll indicator ← ADD THIS
+          tl.to(discoverScrollIndicatorRef.current, { opacity: 0, duration: 0.3 }, 0);
   
     // Text fades out quickly
     tl.to(discoverDetailDescRef.current, { opacity: 0, y: 15, duration: 0.25 }, 0);
@@ -2419,6 +2468,8 @@ ScrollTrigger.create({
       gsap.set(discoverDetailHeadingRef.current, { opacity: 0, y: 60 });
       gsap.set(discoverDetailSubheadingRef.current, { opacity: 0, y: 40 });
       gsap.set(discoverDetailDescRef.current, { opacity: 0, y: 30 });
+      gsap.set(discoverScrollIndicatorRef.current, { opacity: 0 });  // ← ADD THIS
+
     }
   }, [discoverDetailOpen]);
 
@@ -2442,6 +2493,8 @@ ScrollTrigger.create({
       gsap.set(vcDetailHeadingRef.current, { opacity: 0, y: 60 });
       gsap.set(vcDetailSubheadingRef.current, { opacity: 0, y: 40 });
       gsap.set(vcDetailDescRef.current, { opacity: 0, y: 30 });
+      gsap.set(vcScrollIndicatorRef.current, { opacity: 0 });  // ← ADD THIS
+
     }
   }, [viceCityOpen]);
 
@@ -2933,6 +2986,13 @@ ScrollTrigger.create({
           </svg>
           Back
         </button>
+ {/* Scroll Indicator */}
+ <div ref={vcScrollIndicatorRef} className="scroll-indicator vice-city">
+      <div className="double-chevron-wrapper">
+        <div className="double-chevron">∨</div>
+        <div className="double-chevron">∨</div>
+      </div>
+    </div>
 
         {/* SCROLLABLE WRAPPER — this div scrolls vertically */}
         <div ref={vcHscrollRef} className="vc-hscroll">
@@ -3125,6 +3185,13 @@ ScrollTrigger.create({
     </svg>
     Back
   </button>
+      {/* Scroll Indicator */}
+      <div ref={discoverScrollIndicatorRef} className="scroll-indicator discover">
+      <div className="double-chevron-wrapper">
+        <div className="double-chevron">∨</div>
+        <div className="double-chevron">∨</div>
+      </div>
+    </div>
 
   {/* SCROLLABLE WRAPPER */}
   <div ref={discoverHscrollRef} className="discover-hscroll">
