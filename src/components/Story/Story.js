@@ -215,6 +215,7 @@ const discoverScrollIndicatorRef = useRef(null);  // ← ADD THIS NEW LINE
 
 const [discoverDetailOpen, setDiscoverDetailOpen] = useState(false);
 
+const navbarRef = useRef(null);
 
 
 // Hide navbar when overlays are open
@@ -2252,6 +2253,11 @@ ScrollTrigger.create({
   const openViceCityDetail = useCallback(() => {
     setViceCityOpen(true);
     document.body.style.overflow = 'hidden';
+
+    const navbar = document.querySelector('header.nm__bar');
+    if (navbar) {
+      gsap.to(navbar, { opacity: 0, y: -100, duration: 0.4, pointerEvents: 'none' });
+    }
   
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
   
@@ -2329,6 +2335,12 @@ ScrollTrigger.create({
       }
     });
 
+      // ← ADD THIS: Show navbar
+      const navbar = document.querySelector('header.nm__bar');
+      if (navbar) {
+        gsap.to(navbar, { opacity: 1, y: 0, duration: 0.4, pointerEvents: 'auto' });
+      }
+
 
       // Hide scroll indicator ← ADD THIS
       tl.to(vcScrollIndicatorRef.current, { opacity: 0, duration: 0.3 }, 0);
@@ -2360,6 +2372,10 @@ ScrollTrigger.create({
   const openDiscoverDetail = useCallback(() => {
     setDiscoverDetailOpen(true);
     document.body.style.overflow = 'hidden';
+    const navbar = document.querySelector('header.nm__bar');
+    if (navbar) {
+      gsap.to(navbar, { opacity: 0, y: -100, duration: 0.4, pointerEvents: 'none' });
+    }
   
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
   
@@ -2432,6 +2448,11 @@ ScrollTrigger.create({
         document.body.style.overflow = '';
       }
     });
+
+    const navbar = document.querySelector('header.nm__bar');
+    if (navbar) {
+      gsap.to(navbar, { opacity: 1, y: 0, duration: 0.4, pointerEvents: 'auto' });
+    }
           // Hide scroll indicator ← ADD THIS
           tl.to(discoverScrollIndicatorRef.current, { opacity: 0, duration: 0.3 }, 0);
   
