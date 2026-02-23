@@ -2070,6 +2070,23 @@ gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})`
             gsap.set(vlPostcard, { opacity: 0 });
             gsap.set([vlOrb1, vlOrb2, vlOrb3], { opacity: 0 });
           }
+
+
+          // VL PHASE 7: EXIT TO BLACK (0.88 - 1.0)
+// else if (p >= 0.88) {
+//   const phase7 = (p - 0.88) / 0.12;
+
+//   gsap.set(vlBg, { opacity: 0.5 - (phase7 * 0.5) });
+//   gsap.set(vlHeader, { opacity: 0 });
+//   gsap.set(vlPostcardWrapper, { opacity: 0 });
+//   gsap.set(vlPostcard, { opacity: 0 });
+//   gsap.set([vlOrb1, vlOrb2, vlOrb3], { opacity: 0 });
+
+//   // Crossfade: Start showing World BG during exit
+//   if (worldBgRef.current) {
+//     gsap.set(worldBgRef.current, { opacity: phase7 * 0.6, scale: 1.15 - (phase7 * 0.05) });
+//   }
+// }
         }
       });
 
@@ -2204,6 +2221,21 @@ ScrollTrigger.create({
       gsap.set(worldQuote2, { opacity: 0});
       gsap.set(worldDesc2, { opacity: 0 });
     }
+    // PHASE 1: BG ARTWORK REVEALS (0 - 0.08)
+// if (p < 0.08) {
+//   const t = p / 0.08;
+//   const e = 1 - Math.pow(1 - t, 3);
+//   gsap.set(worldBg, { opacity: 0.6 + (e * 0.4), scale: 1.10 - (e * 0.05) });
+//   gsap.set(worldBgOverlay, { opacity: 0 });
+//   gsap.set(worldName, { opacity: 0, y: 80 });
+//   gsap.set(worldQuote, { opacity: 0 });
+//   gsap.set(worldDesc, { opacity: 0 });
+//   gsap.set([worldImg1, worldImg2, worldImg3, worldImg4, worldImg5], { opacity: 0, y: '100vh' });
+//   gsap.set(worldBigQuote, { opacity: 0 });
+//   gsap.set(worldBigQuoteBg, { opacity: 0 });
+//   gsap.set(worldQuote2, { opacity: 0 });
+//   gsap.set(worldDesc2, { opacity: 0 });
+// }
     // /
 
     // PHASE 2: NAME + QUOTE ENTER OVER ARTWORK (0.08 - 0.18)
@@ -2438,6 +2470,15 @@ else {
     // AFTER — matches img4's exit exactly
     gsap.set(worldQuote2, { opacity:1 , y: `${-(exitT * 100)}vh` });
     gsap.set(worldDesc2, { opacity:0.9, y: `${-(exitT * 100)}vh` });
+
+
+    // Fade sticky container to transparent so Discover shows through
+    const fadeOut = Math.min(1, Math.max(0, (exitT - 0.4) / 0.6));
+    if (worldSticky) {
+      worldSticky.style.background = fadeOut > 0 ? 'transparent' : '#0a0a0a';
+    }
+     // Also fade the overlay
+     gsap.set(worldBgOverlay, { opacity: 1 - fadeOut });
   }
 }
 
@@ -3604,16 +3645,11 @@ ScrollTrigger.create({
         </button>
 
          {/* Scroll Indicator */}
-    {/* <div ref={vcScrollIndicatorRef} className="scroll-indicator vice-city">
-      <div className="mouse-wheel">
-        <div className="chevron">∨</div>
-      </div>
-    </div> */}
+   
 
         <div ref={vcScrollIndicatorRef} className="scroll-indicator vice-city">
         <div className="double-chevron-wrapper">
           <div className="double-chevron">∨</div>
-          {/* <div className="double-chevron">∨</div> */}
         </div>
      
     </div>
