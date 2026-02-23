@@ -2240,6 +2240,8 @@ ScrollTrigger.create({
       gsap.set(discoverPostcardWrapper, { opacity: 0 });
       gsap.set(discoverPostcard, { opacity: 0 });
       gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: 0 });
+      
+   
     }
   }
 });
@@ -2304,7 +2306,7 @@ ScrollTrigger.create({
   trigger: finaleSection,
   start: 'top top',
   end: '70% top',
-  scrub: 2,
+  scrub: 1.5,
   pin: finaleSticky,
   pinSpacing: false,
   onUpdate: (self) => {
@@ -2315,6 +2317,9 @@ ScrollTrigger.create({
       const t = p / 0.15;
       const e = 1 - Math.pow(1 - t, 3);
       gsap.set(finaleBg, { opacity: e, scale: 1.15 - (e * 0.1) });
+
+      // gsap.set(finaleBg, { opacity: 0.5 + (e * 0.5), scale: 1.10 - (e * 0.05) });
+
       gsap.set(finaleBgOverlay, { opacity: 0 });
       gsap.set(finaleLogo, { opacity: 0, scale: 0.6 });
       gsap.set(finaleDim, { opacity: 0 });
@@ -2360,26 +2365,71 @@ ScrollTrigger.create({
       gsap.set(finalePlatforms, { opacity: 0 });
     }
 
-    // PHASE 5: RADIAL LUMINANCE WIPE (0.55 - 0.90)
-    else if (p < 0.90) {
-      const t = (p - 0.55) / 0.35;
-      gsap.set(finaleBg, { opacity: 1, scale: 1.02 });
-      gsap.set(finaleBgOverlay, { opacity: 1 });
-      gsap.set(finaleLogo, { opacity: 1, scale: 1 });
+    // // PHASE 5: RADIAL LUMINANCE WIPE (0.55 - 0.90)
+    // else if (p < 0.90) {
+    //   const t = (p - 0.55) / 0.35;
+    //   gsap.set(finaleBg, { opacity: 1, scale: 1.02 });
+    //   gsap.set(finaleBgOverlay, { opacity: 1 });
+    //   gsap.set(finaleLogo, { opacity: 1, scale: 1 });
       
-      const dimOpacity = t > 0.6 ? 0.5 * (1 - ((t - 0.6) / 0.4)) : 0.5;
-      gsap.set(finaleDim, { opacity: dimOpacity });
+    //   const dimOpacity = t > 0.6 ? 0.5 * (1 - ((t - 0.6) / 0.4)) : 0.5;
+    //   gsap.set(finaleDim, { opacity: dimOpacity });
       
-      gsap.set(finaleBright, { opacity: 1 });
-      gsap.set(finaleGlow, { opacity: 1 });
-      updateFinaleRadialMasks(t);
+    //   gsap.set(finaleBright, { opacity: 1 });
+    //   gsap.set(finaleGlow, { opacity: 1 });
+    //   updateFinaleRadialMasks(t);
       
-      gsap.set(finalePlatforms, { opacity: 1});
-    }
+    //   gsap.set(finalePlatforms, { opacity: 1});
+    // }
+
+    // PHASE 5: TEXT BRIGHTENS (0.55 - 0.90)
+else if (p < 0.90) {
+  const t = (p - 0.55) / 0.35;
+  gsap.set(finaleBg, { opacity: 1, scale: 1.02 });
+  gsap.set(finaleBgOverlay, { opacity: 1 });
+  gsap.set(finaleLogo, { opacity: 1, scale: 1 });
+  
+  // Dim fades out, bright fades in — no radial mask
+  gsap.set(finaleDim, { opacity: 0.5 * (1 - t) });
+  gsap.set(finaleBright, { opacity: t });
+  gsap.set(finaleGlow, { opacity: 0 });
+  
+  // Remove any masks
+  if (finaleBright) {
+    finaleBright.style.webkitMaskImage = 'none';
+    finaleBright.style.maskImage = 'none';
+  }
+  if (finaleGlow) {
+    finaleGlow.style.webkitMaskImage = 'none';
+    finaleGlow.style.maskImage = 'none';
+  }
+  
+  gsap.set(finalePlatforms, { opacity: t });
+}
 //
     // PHASE 6: HOLD — NO TRANSFORMS, CLEAN STATE (0.90 - 1.0)
     // CRITICAL: No y, no scale transforms — everything at natural CSS position
     // When pin releases at progress=1, content is already at its natural position
+    // else {
+    //   gsap.set(finaleBg, { opacity: 1, scale: 1 });
+    //   gsap.set(finaleBgOverlay, { opacity: 1 });
+    //   gsap.set(finaleLogo, { opacity: 1, scale: 1, y: 0 });
+    //   gsap.set(finaleDim, { opacity: 0 });
+    //   gsap.set(finaleBright, { opacity: 1 });
+    //   gsap.set(finaleGlow, { opacity: 0 });
+
+    //   const fullMask = 'radial-gradient(circle at 50% 50%, black 0%, black 100%)';
+    //   if (finaleBright) {
+    //     finaleBright.style.webkitMaskImage = fullMask;
+    //     finaleBright.style.maskImage = fullMask;
+    //   }
+    //   if (finaleGlow) {
+    //     finaleGlow.style.webkitMaskImage = fullMask;
+    //     finaleGlow.style.maskImage = fullMask;
+    //   }
+
+    //   gsap.set(finalePlatforms, { opacity: 1, y: 0 });
+    // }
     else {
       gsap.set(finaleBg, { opacity: 1, scale: 1 });
       gsap.set(finaleBgOverlay, { opacity: 1 });
@@ -2387,17 +2437,12 @@ ScrollTrigger.create({
       gsap.set(finaleDim, { opacity: 0 });
       gsap.set(finaleBright, { opacity: 1 });
       gsap.set(finaleGlow, { opacity: 0 });
-
-      const fullMask = 'radial-gradient(circle at 50% 50%, black 0%, black 100%)';
+    
       if (finaleBright) {
-        finaleBright.style.webkitMaskImage = fullMask;
-        finaleBright.style.maskImage = fullMask;
+        finaleBright.style.webkitMaskImage = 'none';
+        finaleBright.style.maskImage = 'none';
       }
-      if (finaleGlow) {
-        finaleGlow.style.webkitMaskImage = fullMask;
-        finaleGlow.style.maskImage = fullMask;
-      }
-
+    
       gsap.set(finalePlatforms, { opacity: 1, y: 0 });
     }
   }

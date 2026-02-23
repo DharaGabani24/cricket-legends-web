@@ -3255,6 +3255,7 @@
     width: 100%;
     height: 1000vh;
     background: transparent;
+    /* margin-bottom: -100vh; */
   }
   
   .discover__sticky {
@@ -4382,7 +4383,8 @@ will-change: opacity;
     position: relative;
     width: 100%;
     height: 370vh;
-    background: #0a0a0a;
+    /* background: #0a0a0a; */
+    background: transparent;
   }
   
   .finale-section__sticky {
@@ -4391,7 +4393,8 @@ will-change: opacity;
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background: #0a0a0a;
+    /* background: #0a0a0a; */
+    background: transparent;
     z-index: 2;
   }
   
