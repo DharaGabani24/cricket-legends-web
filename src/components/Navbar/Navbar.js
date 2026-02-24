@@ -42,6 +42,7 @@ const TRAILERS = [
  { id: 't2', title: 'Real Cricket 26 — Official Trailer', date: 'March 2025', duration: '1:12',
    thumbnail: 'https://img.youtube.com/vi/twUqbrowu94/maxresdefault.jpg',
    url: 'https://www.youtube.com/watch?v=twUqbrowu94', isNew: false },
+   
 ];
 
 
@@ -51,8 +52,8 @@ const IMAGES = [
  { id: 'i3', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00008.webp', alt: 'Screenshot 3' },
  { id: 'i4', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00005.webp', alt: 'Screenshot 4' },
  { id: 'i5', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00006.webp', alt: 'Screenshot 5' },
- { id: 'i6', src: process.env.PUBLIC_URL + '/img/player4.webp', alt: 'Screenshot 6' },
- { id: 'i7', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00010.webp', alt: 'Screenshot 7' },
+ { id: 'i6', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00010.webp', alt: 'Screenshot 6' },
+ { id: 'i7', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00002.webp', alt: 'Screenshot 7' },
  { id: 'i8', src: process.env.PUBLIC_URL + '/img/HighresScreenshot00013.webp', alt: 'Screenshot 8' },
 
 

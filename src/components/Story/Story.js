@@ -845,133 +845,259 @@ else if (p >= 0.15) {
       //   }
       // });
 
-    //more shrinking 
-    ScrollTrigger.create({
-      trigger: luciaSection,
-      start: 'top top',
-      end: '100% top',
-      scrub: 1.5,
-      pin: luciaSticky,
-      pinSpacing: false,
-      onUpdate: (self) => {
-        const p = self.progress;
+    // //more shrinking 
+    // ScrollTrigger.create({
+    //   trigger: luciaSection,
+    //   start: 'top top',
+    //   end: '100% top',
+    //   scrub: 1.5,
+    //   pin: luciaSticky,
+    //   pinSpacing: false,
+    //   onUpdate: (self) => {
+    //     const p = self.progress;
         
-        // LUCIA PHASE 1: BG FADES IN (0 - 0.01)
-        if (p < 0.01) {
-          const bgProgress = p / 0.01;
-          gsap.set(luciaBgImage, { opacity: 0.8 + (bgProgress * 0.2) });
-          gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
-          gsap.set(luciaMainQuote, { y: '100vh', opacity: 0 });
-          gsap.set(luciaSubQuote, { y: '100vh', opacity: 0 });
-          gsap.set(luciaDesc, { y: '100vh', opacity: 0 });
-          gsap.set(luciaImg1, { y: '100vh', opacity: 0 });
-          gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
-          gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
-        }
+    //     // LUCIA PHASE 1: BG FADES IN (0 - 0.01)
+    //     if (p < 0.01) {
+    //       const bgProgress = p / 0.01;
+    //       gsap.set(luciaBgImage, { opacity: 0.8 + (bgProgress * 0.2) });
+    //       gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+    //       gsap.set(luciaMainQuote, { y: '100vh', opacity: 0 });
+    //       gsap.set(luciaSubQuote, { y: '100vh', opacity: 0 });
+    //       gsap.set(luciaDesc, { y: '100vh', opacity: 0 });
+    //       gsap.set(luciaImg1, { y: '100vh', opacity: 0 });
+    //       gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
+    //       gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
+    //     }
         
-        // LUCIA PHASE 2: MAIN QUOTE FADES IN (0.01 - 0.15)
-        else if (p >= 0.01 && p < 0.15) {
-          const phase2 = (p - 0.01) / 0.14;
-          gsap.set(luciaBgImage, { opacity: 1, scale: 1.05 });
-          const quoteOpacity = phase2;
-          const baseScroll = phase2 * 400;
-          gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: quoteOpacity });
-          gsap.set(luciaSubQuote, { y: '100vh', opacity: 0 });
-          gsap.set(luciaDesc, { y: '100vh', opacity: 0 });
-          gsap.set(luciaImg1, { y: '100vh', opacity: 0 });
-          gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
-          gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
-        }
+    //     // LUCIA PHASE 2: MAIN QUOTE FADES IN (0.01 - 0.15)
+    //     else if (p >= 0.01 && p < 0.15) {
+    //       const phase2 = (p - 0.01) / 0.14;
+    //       gsap.set(luciaBgImage, { opacity: 1, scale: 1.05 });
+    //       const quoteOpacity = phase2;
+    //       const baseScroll = phase2 * 400;
+    //       gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: quoteOpacity });
+    //       gsap.set(luciaSubQuote, { y: '100vh', opacity: 0 });
+    //       gsap.set(luciaDesc, { y: '100vh', opacity: 0 });
+    //       gsap.set(luciaImg1, { y: '100vh', opacity: 0 });
+    //       gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
+    //       gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
+    //     }
         
-        // LUCIA PHASE 3: SUB-QUOTE + DESC ENTER (0.15 - 0.29)
-        else if (p >= 0.15 && p < 0.29) {
-          const phase3 = (p - 0.15) / 0.14;
-          const bgOpacity = 1 - (phase3 * 0.4);
-          gsap.set(luciaBgImage, { opacity: bgOpacity });
-          gsap.set(luciaBgOverlay, { background: `rgba(10, 10, 10, ${0.4 + (phase3 * 0.4)})` });
-          const baseScroll = 400 + (phase3 * 350);
-          gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
-          gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: phase3 });
-          gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: phase3 });
-          gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: phase3 });
-          gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
-          gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
-        }
+    //     // LUCIA PHASE 3: SUB-QUOTE + DESC ENTER (0.15 - 0.29)
+    //     else if (p >= 0.15 && p < 0.29) {
+    //       const phase3 = (p - 0.15) / 0.14;
+    //       const bgOpacity = 1 - (phase3 * 0.4);
+    //       gsap.set(luciaBgImage, { opacity: bgOpacity });
+    //       gsap.set(luciaBgOverlay, { background: `rgba(10, 10, 10, ${0.4 + (phase3 * 0.4)})` });
+    //       const baseScroll = 400 + (phase3 * 350);
+    //       gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: phase3 });
+    //       gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: phase3 });
+    //       gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: phase3 });
+    //       gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
+    //       gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
+    //     }
         
-        // LUCIA PHASE 4: IMAGES ENTER (0.29 - 0.43)
-        else if (p >= 0.29 && p < 0.43) {
-          const phase4 = (p - 0.29) / 0.14;
-          gsap.set(luciaBgImage, { opacity: 0 });
-          gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
-          const baseScroll = 750 + (phase4 * 300);
-          gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
-          gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: 1 });
-          gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: 1 });
-          gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
-          gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: phase4 });
-          gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: phase4 });
-        }
+    //     // LUCIA PHASE 4: IMAGES ENTER (0.29 - 0.43)
+    //     else if (p >= 0.29 && p < 0.43) {
+    //       const phase4 = (p - 0.29) / 0.14;
+    //       gsap.set(luciaBgImage, { opacity: 0 });
+    //       gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+    //       const baseScroll = 750 + (phase4 * 300);
+    //       gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: phase4 });
+    //       gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: phase4 });
+    //     }
         
-        // LUCIA PHASE 5: CONTINUE SCROLLING (0.43 - 0.56)
-        else if (p >= 0.43 && p < 0.56) {
-          const phase5 = (p - 0.43) / 0.13;
-          gsap.set(luciaBgImage, { opacity: 0 });
-          gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
-          const baseScroll = 1050 + (phase5 * 250);
-          gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
-          gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: 1 });
-          gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: 1 });
-          gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
-          gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
-          gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
-        }
+    //     // LUCIA PHASE 5: CONTINUE SCROLLING (0.43 - 0.56)
+    //     else if (p >= 0.43 && p < 0.56) {
+    //       const phase5 = (p - 0.43) / 0.13;
+    //       gsap.set(luciaBgImage, { opacity: 0 });
+    //       gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+    //       const baseScroll = 1050 + (phase5 * 250);
+    //       gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
+    //     }
         
-        // LUCIA PHASE 6: TEXT FADES (0.56 - 0.69)
-        else if (p >= 0.56 && p < 0.69) {
-          const phase6 = (p - 0.56) / 0.13;
-          gsap.set(luciaBgImage, { opacity: 0 });
-          gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
-          const baseScroll = 1300 + (phase6 * 200);
-          const textOpacity = 1 - phase6;
-          gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: textOpacity });
-          gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: textOpacity });
-          gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: textOpacity });
-          gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
-          gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
-          gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
-        }
+    //     // LUCIA PHASE 6: TEXT FADES (0.56 - 0.69)
+    //     else if (p >= 0.56 && p < 0.69) {
+    //       const phase6 = (p - 0.56) / 0.13;
+    //       gsap.set(luciaBgImage, { opacity: 0 });
+    //       gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+    //       const baseScroll = 1300 + (phase6 * 200);
+    //       const textOpacity = 1 - phase6;
+    //       gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: textOpacity });
+    //       gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: textOpacity });
+    //       gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: textOpacity });
+    //       gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
+    //     }
         
-        // LUCIA PHASE 7: IMAGES ONLY (0.69 - 0.82)
-        else if (p >= 0.69 && p < 0.82) {
-          const phase7 = (p - 0.69) / 0.13;
-          gsap.set(luciaBgImage, { opacity: 0 });
-          gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
-          const baseScroll = 1500 + (phase7 * 500);
-          gsap.set(luciaMainQuote, { opacity: 0 });
-          gsap.set(luciaSubQuote, { opacity: 0 });
-          gsap.set(luciaDesc, { opacity: 0 });
-          gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
-          gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
-          gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
-        }
+    //     // LUCIA PHASE 7: IMAGES ONLY (0.69 - 0.82)
+    //     else if (p >= 0.69 && p < 0.82) {
+    //       const phase7 = (p - 0.69) / 0.13;
+    //       gsap.set(luciaBgImage, { opacity: 0 });
+    //       gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+    //       const baseScroll = 1500 + (phase7 * 500);
+    //       gsap.set(luciaMainQuote, { opacity: 0 });
+    //       gsap.set(luciaSubQuote, { opacity: 0 });
+    //       gsap.set(luciaDesc, { opacity: 0 });
+    //       gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
+    //     }
         
-        // LUCIA PHASE 8: EXIT (0.82 - 1.0)
-        else if (p >= 0.82) {
-          const phase8 = (p - 0.82) / 0.18;
-          gsap.set(luciaBgImage, { opacity: 0 });
-          gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
-          const baseScroll = 2000 + (phase8 * 1000);
-          gsap.set(luciaMainQuote, { opacity: 0 });
-          gsap.set(luciaSubQuote, { opacity: 0 });
-          gsap.set(luciaDesc, { opacity: 0 });
-          gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
-          gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
-          gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
-        }
-      }
-    });
+    //     // LUCIA PHASE 8: EXIT (0.82 - 1.0)
+    //     else if (p >= 0.82) {
+    //       const phase8 = (p - 0.82) / 0.18;
+    //       gsap.set(luciaBgImage, { opacity: 0 });
+    //       gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+    //       const baseScroll = 2000 + (phase8 * 1000);
+    //       gsap.set(luciaMainQuote, { opacity: 0 });
+    //       gsap.set(luciaSubQuote, { opacity: 0 });
+    //       gsap.set(luciaDesc, { opacity: 0 });
+    //       gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
+    //       gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
+    //     }
+    //   }
+    // });
 
-      
+      //for overall same scrolling earlier it was fast at some place and slow at some place  
+
+
+      ScrollTrigger.create({
+        trigger: luciaSection,
+        start: 'top top',
+        end: '100% top',
+        scrub: 1.5,
+        pin: luciaSticky,
+        pinSpacing: false,
+        onUpdate: (self) => {
+          const p = self.progress;
+          
+          // LUCIA PHASE 1: BG FADES IN (0 - 0.01)
+          if (p < 0.01) {
+            const bgProgress = p / 0.01;
+            gsap.set(luciaBgImage, { opacity: 0.8 + (bgProgress * 0.2) });
+            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+            gsap.set(luciaMainQuote, { y: '100vh', opacity: 0 });
+            gsap.set(luciaSubQuote, { y: '100vh', opacity: 0 });
+            gsap.set(luciaDesc, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg1, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
+          }
+          
+          // LUCIA PHASE 2: MAIN QUOTE FADES IN (0.01 - 0.15)
+          else if (p >= 0.01 && p < 0.15) {
+            const phase2 = (p - 0.01) / 0.14;
+            gsap.set(luciaBgImage, { opacity: 1, scale: 1.05 });
+            const quoteOpacity = phase2;
+            const baseScroll = phase2 * 350;
+            gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: quoteOpacity });
+            gsap.set(luciaSubQuote, { y: '100vh', opacity: 0 });
+            gsap.set(luciaDesc, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg1, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
+          }
+          
+          // LUCIA PHASE 3: SUB-QUOTE + DESC ENTER (0.15 - 0.29)
+          else if (p >= 0.15 && p < 0.29) {
+            const phase3 = (p - 0.15) / 0.14;
+            const bgOpacity = 1 - (phase3 * 0.4);
+            gsap.set(luciaBgImage, { opacity: bgOpacity });
+            gsap.set(luciaBgOverlay, { background: `rgba(10, 10, 10, ${0.4 + (phase3 * 0.4)})` });
+            const baseScroll = 350 + (phase3 * 350);
+            gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
+            gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: phase3 });
+            gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: phase3 });
+            gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: phase3 });
+            gsap.set(luciaImg2, { y: '100vh', opacity: 0 });
+            gsap.set(luciaImg3, { y: '100vh', opacity: 0 });
+          }
+          
+          // LUCIA PHASE 4: IMAGES ENTER (0.29 - 0.43)
+          else if (p >= 0.29 && p < 0.43) {
+            const phase4 = (p - 0.29) / 0.14;
+            gsap.set(luciaBgImage, { opacity: 0 });
+            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+            const baseScroll = 700 + (phase4 * 350);
+            gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
+            gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: 1 });
+            gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: phase4 });
+            gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: phase4 });
+          }
+          
+          // LUCIA PHASE 5: CONTINUE SCROLLING (0.43 - 0.56)
+          else if (p >= 0.43 && p < 0.56) {
+            const phase5 = (p - 0.43) / 0.13;
+            gsap.set(luciaBgImage, { opacity: 0 });
+            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+            const baseScroll = 1050 + (phase5 * 325);
+            gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
+            gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: 1 });
+            gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
+          }
+          
+          // LUCIA PHASE 6: TEXT FADES (0.56 - 0.69)
+          else if (p >= 0.56 && p < 0.69) {
+            const phase6 = (p - 0.56) / 0.13;
+            gsap.set(luciaBgImage, { opacity: 0 });
+            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+            const baseScroll = 1375 + (phase6 * 325);
+            const textOpacity = 1 - phase6;
+            gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: textOpacity });
+            gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: textOpacity });
+            gsap.set(luciaDesc, { y: 900 - baseScroll, opacity: textOpacity });
+            gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
+          }
+          
+          // LUCIA PHASE 7: IMAGES ONLY (0.69 - 0.82)
+          else if (p >= 0.69 && p < 0.82) {
+            const phase7 = (p - 0.69) / 0.13;
+            gsap.set(luciaBgImage, { opacity: 0 });
+            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+            const baseScroll = 1700 + (phase7 * 325);
+            gsap.set(luciaMainQuote, { opacity: 0 });
+            gsap.set(luciaSubQuote, { opacity: 0 });
+            gsap.set(luciaDesc, { opacity: 0 });
+            gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
+          }
+          
+          // LUCIA PHASE 8: EXIT (0.82 - 1.0)
+          else if (p >= 0.82) {
+            const phase8 = (p - 0.82) / 0.18;
+            gsap.set(luciaBgImage, { opacity: 0 });
+            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+            const baseScroll = 2025 + (phase8 * 450);
+            gsap.set(luciaMainQuote, { opacity: 0 });
+            gsap.set(luciaSubQuote, { opacity: 0 });
+            gsap.set(luciaDesc, { opacity: 0 });
+            gsap.set(luciaImg1, { y: 700 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg2, { y: 950 - baseScroll, opacity: 1 });
+            gsap.set(luciaImg3, { y: 850 - baseScroll, opacity: 1 });
+          }
+        }
+      });
 
 /////////
           // ========================================
@@ -1003,7 +1129,7 @@ else if (p >= 0.15) {
 
 
 
-
+//original
           // ScrollTrigger.create({
           //   trigger: luciaCharSection,
           //   start: 'top top',
@@ -1217,6 +1343,7 @@ else if (p >= 0.15) {
           //   }
           // });
 
+//this was working 
           ScrollTrigger.create({
             trigger: luciaCharSection,
             start: 'top top',
@@ -1357,7 +1484,7 @@ else if (p >= 0.15) {
             }
           });
           
-
+// //
 
 // ========================================
 // LEONIDA TEXT COLOR SCROLL ANIMATION
@@ -4147,3 +4274,5 @@ export default Story;
 
 // ////////////
 // // ///
+
+
