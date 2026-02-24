@@ -216,19 +216,155 @@ const Hero = () => {
     
 
 
-////////
+////////////
 
 //4 // original and currently this is working on 13feb
+
+// ScrollTrigger.create({
+//   trigger: hero,
+//   start: 'top top',
+//   end: '100% top',
+//   scrub: 0.8,//was 0.5, 2.5 , 0.8
+//   onUpdate: (self) => {
+//     const scrollProgress = self.progress;
+//     const dimLayer = document.querySelector('.hero__text-dim');
+//     const exitContainer = exitContainerRef.current;
+    
+//     // BEFORE RELEASE TEXT APPEARS (< 0.42)
+//     if (scrollProgress < 0.42) {
+//       updateRadialMasks(0);
+//       gsap.set(platforms, { opacity: 0 });
+//       if (dimLayer) dimLayer.style.opacity = '1';
+//       releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+      
+//       // Reset exit mask
+//       if (exitContainer) {
+//         exitContainer.style.webkitMaskImage = 'none';
+//         exitContainer.style.maskImage = 'none';
+//         exitContainer.style.opacity = '1'; //this is added 
+
+//       }
+//     }
+// /////
+    
+//     // // GLOW PHASE (0.42 - 0.67) - Original text reveal animation
+//     // else if (scrollProgress >= 0.42 && scrollProgress < 0.67) {
+//     //   const wipeProgress = (scrollProgress - 0.42) / 0.25; // Adjusted range
+//     //   updateRadialMasks(wipeProgress);
+      
+//     //   if (dimLayer) dimLayer.style.opacity = String(1 - (wipeProgress * 0.5));
+//     //   releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+      
+//     //   if (wipeProgress > 0.35 && wipeProgress < 0.85) {
+//     //     gsap.to(platforms, { opacity: 1, duration: 0.2, overwrite: true });
+//     //   } else {
+//     //     gsap.to(platforms, { opacity: 0, duration: 0.2, overwrite: true });
+//     //   }
+      
+//     //   // Reset exit mask
+//     //   if (exitContainer) {
+//     //     exitContainer.style.webkitMaskImage = 'none';
+//     //     exitContainer.style.maskImage = 'none';
+//     //   }
+//     // }
+   
+
+    
+//     // //new exit phase 
+//     // else if (scrollProgress >= 0.67) {
+//     //         // 1. Keep the previous reveal mask fully open
+//     //         updateRadialMasks(1);
+//     //         gsap.set(platforms, { opacity: 0 });
+//     //         if (dimLayer) dimLayer.style.opacity = '0';
+            
+//     //         // 2. Calculate exit progress (0 to 1)
+//     //         const exitProgress = Math.min(1, (scrollProgress - 0.67) / 0.18);
+            
+//     //         // 3. REMOVE MASK: Reset the mask so it stays fully visible
+//     //         if (exitContainer) {
+//     //           exitContainer.style.webkitMaskImage = 'none';
+//     //           exitContainer.style.maskImage = 'none';
+              
+//     //           // 4. ADD SIMPLE FADE: Instead of shrinking, just lower the opacity
+//     //           exitContainer.style.opacity = String(1 - exitProgress);
+//     //         }
+          
+//     //         // 5. OPTIONAL: Keep the logo position steady (No scaling down)
+//     //         releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+//     //       }
+
+
+//     ///////
+
+// // NEW: HOLD — release text visible, no glow yet (0.42 - 0.55)
+// else if (scrollProgress < 0.55) {
+//   updateRadialMasks(0);
+//   gsap.set(platforms, { opacity: 1 });
+//   if (dimLayer) dimLayer.style.opacity = '1';
+//   releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+  
+//   if (exitContainer) {
+//     exitContainer.style.webkitMaskImage = 'none';
+//     exitContainer.style.maskImage = 'none';
+//     exitContainer.style.opacity = '1';
+//   }
+// }
+
+// // GLOW PHASE — pushed from 0.42 to 0.55 (0.55 - 0.75)
+// else if (scrollProgress < 0.75) {
+//   const wipeProgress = (scrollProgress - 0.55) / 0.20;
+//   updateRadialMasks(wipeProgress);
+  
+//   if (dimLayer) dimLayer.style.opacity = String(1 - (wipeProgress * 0.5));
+//   releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+  
+//   if (wipeProgress > 0.35 && wipeProgress < 0.85) {
+//     gsap.to(platforms, { opacity: 1, duration: 0.2, overwrite: true });
+//   } else {
+//     gsap.to(platforms, { opacity: 0, duration: 0.2, overwrite: true });
+//   }
+  
+//   if (exitContainer) {
+//     exitContainer.style.webkitMaskImage = 'none';
+//     exitContainer.style.maskImage = 'none';
+//     exitContainer.style.opacity = '1';
+//   }
+// }
+
+// // EXIT — starts at 0.75 instead of 0.67
+// else if (scrollProgress >= 0.75) {
+//   updateRadialMasks(1);
+//   gsap.set(platforms, { opacity: 0 });
+//   if (dimLayer) dimLayer.style.opacity = '0';
+  
+//   const exitProgress = Math.min(1, (scrollProgress - 0.75) / 0.08); //was 0.15 instead of 0.25
+  
+//   if (exitContainer) {
+//     exitContainer.style.webkitMaskImage = 'none';
+//     exitContainer.style.maskImage = 'none';
+//     exitContainer.style.opacity = String(1 - exitProgress);
+//   }
+  
+//   releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+// }
+        
+//   }
+// });
+
+
+
+//change2
 
 ScrollTrigger.create({
   trigger: hero,
   start: 'top top',
   end: '100% top',
-  scrub: 0.8,//was 0.5, 2.5 , 0.8
+  scrub: 0.8,
   onUpdate: (self) => {
     const scrollProgress = self.progress;
     const dimLayer = document.querySelector('.hero__text-dim');
     const exitContainer = exitContainerRef.current;
+    const maskContainer = document.querySelector('.hero__mask-container');
     
     // BEFORE RELEASE TEXT APPEARS (< 0.42)
     if (scrollProgress < 0.42) {
@@ -236,121 +372,82 @@ ScrollTrigger.create({
       gsap.set(platforms, { opacity: 0 });
       if (dimLayer) dimLayer.style.opacity = '1';
       releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+      if (maskContainer) maskContainer.style.opacity = '1';
       
-      // Reset exit mask
       if (exitContainer) {
         exitContainer.style.webkitMaskImage = 'none';
         exitContainer.style.maskImage = 'none';
-        exitContainer.style.opacity = '1'; //this is added 
-
+        exitContainer.style.opacity = '1';
       }
     }
-/////
-    
-    // // GLOW PHASE (0.42 - 0.67) - Original text reveal animation
-    // else if (scrollProgress >= 0.42 && scrollProgress < 0.67) {
-    //   const wipeProgress = (scrollProgress - 0.42) / 0.25; // Adjusted range
-    //   updateRadialMasks(wipeProgress);
+
+    // HOLD DIM — release text + platforms visible (0.42 - 0.62)
+    else if (scrollProgress < 0.62) {
+      updateRadialMasks(0);
+      gsap.set(platforms, { opacity: 1 });
+      if (dimLayer) dimLayer.style.opacity = '1';
+      releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+      if (maskContainer) maskContainer.style.opacity = '1';
       
-    //   if (dimLayer) dimLayer.style.opacity = String(1 - (wipeProgress * 0.5));
-    //   releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+      if (exitContainer) {
+        exitContainer.style.webkitMaskImage = 'none';
+        exitContainer.style.maskImage = 'none';
+        exitContainer.style.opacity = '1';
+      }
+    }
+
+    // GLOW PHASE — radial mask sweep (0.62 - 0.82)
+    else if (scrollProgress < 0.82) {
+      const wipeProgress = (scrollProgress - 0.62) / 0.20;
+      updateRadialMasks(wipeProgress);
       
-    //   if (wipeProgress > 0.35 && wipeProgress < 0.85) {
-    //     gsap.to(platforms, { opacity: 1, duration: 0.2, overwrite: true });
-    //   } else {
-    //     gsap.to(platforms, { opacity: 0, duration: 0.2, overwrite: true });
-    //   }
+      if (dimLayer) dimLayer.style.opacity = String(1 - (wipeProgress * 0.5));
+      releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+      if (maskContainer) maskContainer.style.opacity = '1';
       
-    //   // Reset exit mask
-    //   if (exitContainer) {
-    //     exitContainer.style.webkitMaskImage = 'none';
-    //     exitContainer.style.maskImage = 'none';
-    //   }
-    // }
-   
+      gsap.set(platforms, { opacity: 1 });
+      
+      if (exitContainer) {
+        exitContainer.style.webkitMaskImage = 'none';
+        exitContainer.style.maskImage = 'none';
+        exitContainer.style.opacity = '1';
+      }
+    }
 
-    
-    // //new exit phase 
-    // else if (scrollProgress >= 0.67) {
-    //         // 1. Keep the previous reveal mask fully open
-    //         updateRadialMasks(1);
-    //         gsap.set(platforms, { opacity: 0 });
-    //         if (dimLayer) dimLayer.style.opacity = '0';
-            
-    //         // 2. Calculate exit progress (0 to 1)
-    //         const exitProgress = Math.min(1, (scrollProgress - 0.67) / 0.18);
-            
-    //         // 3. REMOVE MASK: Reset the mask so it stays fully visible
-    //         if (exitContainer) {
-    //           exitContainer.style.webkitMaskImage = 'none';
-    //           exitContainer.style.maskImage = 'none';
-              
-    //           // 4. ADD SIMPLE FADE: Instead of shrinking, just lower the opacity
-    //           exitContainer.style.opacity = String(1 - exitProgress);
-    //         }
-          
-    //         // 5. OPTIONAL: Keep the logo position steady (No scaling down)
-    //         releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
-    //       }
+    // HOLD BRIGHT — glowed text stays, logo hidden (0.82 - 0.98)
+    else if (scrollProgress < 0.98) {
+      updateRadialMasks(1);
+      gsap.set(platforms, { opacity: 0 });
+      if (dimLayer) dimLayer.style.opacity = '0';
+      releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+      if (maskContainer) maskContainer.style.opacity = '0';
+      
+      if (exitContainer) {
+        exitContainer.style.webkitMaskImage = 'none';
+        exitContainer.style.maskImage = 'none';
+        exitContainer.style.opacity = '1';
+      }
+    }
 
-
-    ///////
-
-// NEW: HOLD — release text visible, no glow yet (0.42 - 0.55)
-else if (scrollProgress < 0.55) {
-  updateRadialMasks(0);
-  gsap.set(platforms, { opacity: 1 });
-  if (dimLayer) dimLayer.style.opacity = '1';
-  releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
-  
-  if (exitContainer) {
-    exitContainer.style.webkitMaskImage = 'none';
-    exitContainer.style.maskImage = 'none';
-    exitContainer.style.opacity = '1';
-  }
-}
-
-// GLOW PHASE — pushed from 0.42 to 0.55 (0.55 - 0.75)
-else if (scrollProgress < 0.75) {
-  const wipeProgress = (scrollProgress - 0.55) / 0.20;
-  updateRadialMasks(wipeProgress);
-  
-  if (dimLayer) dimLayer.style.opacity = String(1 - (wipeProgress * 0.5));
-  releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
-  
-  if (wipeProgress > 0.35 && wipeProgress < 0.85) {
-    gsap.to(platforms, { opacity: 1, duration: 0.2, overwrite: true });
-  } else {
-    gsap.to(platforms, { opacity: 0, duration: 0.2, overwrite: true });
-  }
-  
-  if (exitContainer) {
-    exitContainer.style.webkitMaskImage = 'none';
-    exitContainer.style.maskImage = 'none';
-    exitContainer.style.opacity = '1';
-  }
-}
-
-// EXIT — starts at 0.75 instead of 0.67
-else if (scrollProgress >= 0.75) {
-  updateRadialMasks(1);
-  gsap.set(platforms, { opacity: 0 });
-  if (dimLayer) dimLayer.style.opacity = '0';
-  
-  const exitProgress = Math.min(1, (scrollProgress - 0.75) / 0.08); //was 0.15 instead of 0.25
-  
-  if (exitContainer) {
-    exitContainer.style.webkitMaskImage = 'none';
-    exitContainer.style.maskImage = 'none';
-    exitContainer.style.opacity = String(1 - exitProgress);
-  }
-  
-  releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
-}
-        
+    // EXIT — fade at the very end (0.98 - 1.0)
+    else {
+      updateRadialMasks(1);
+      gsap.set(platforms, { opacity: 0 });
+      if (dimLayer) dimLayer.style.opacity = '0';
+      if (maskContainer) maskContainer.style.opacity = '0';
+      
+      const exitProgress = Math.min(1, (scrollProgress - 0.98) / 0.02);
+      
+      if (exitContainer) {
+        exitContainer.style.webkitMaskImage = 'none';
+        exitContainer.style.maskImage = 'none';
+        exitContainer.style.opacity = String(1 - exitProgress);
+      }
+      
+      releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+    }
   }
 });
-
       // tl.to(releaseInfo, { opacity: 0, duration: 0.04, ease: 'none' }, 0.92);
       // tl.to(textGroup, { y: -500, opacity: 0, duration: 0.05, ease: 'none' }, 0.93);
 

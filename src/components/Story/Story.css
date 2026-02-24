@@ -139,7 +139,9 @@ opacity:0;
   letter-spacing: 0.06em;
   margin: 0 0 2rem 0;
   text-transform: uppercase;
-  color: rgba(0, 60, 35, 0.4);
+  /* color: rgba(0, 60, 35, 0.4); */
+  color: rgba(27, 133, 89, 0.4);
+
 }
 /* 
 .story__text-dim .story__paragraph {
@@ -160,7 +162,9 @@ opacity:0;
   letter-spacing: 0.03em;
   margin: 0;
   max-width: 600px;
-  color: rgba(0, 60, 35, 0.35);
+  /* color: rgba(0, 60, 35, 0.35); */
+  color: rgba(27, 133, 89, 0.4);
+
 }
 
 /* .story__text-bright {
@@ -2799,8 +2803,8 @@ opacity:0;
     position: relative;
     width: 100%;
     height: 1700vh;
-    background: #0a0a0a;
-    /* background: transparent;   */
+    /* background: #0a0a0a; */
+    background: transparent;  
   }
   
   .world-section__sticky {
