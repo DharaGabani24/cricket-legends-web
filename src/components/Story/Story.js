@@ -3532,7 +3532,7 @@ else if (p < 0.90) {
           <div ref={vlOrb3Ref} className="visit-leonida__orb visit-leonida__orb--3"></div>
 
           {/* Header: Logo + Divider + Tagline */}
-          <div ref={vlHeaderRef} className="visit-leonida__header">
+          <div ref={vlHeaderRef} className="visit-leonida__header" >
             <div className="visit-leonida__logo-group">
               <div ref={vlIconRef} className="visit-leonida__icon">
                 <img src={process.env.PUBLIC_URL + '/img/GOC_logo.webp'} alt="GOC" />
@@ -3554,7 +3554,7 @@ else if (p < 0.90) {
           <div ref={vlPostcardWrapperRef} className="visit-leonida__postcard-wrapper">
            
 
-<div ref={vlPostcardRef} className="visit-leonida__postcard">
+<div ref={vlPostcardRef} className="visit-leonida__postcard" >
   <div className="visit-leonida__postcard-image">
     <img
       src={process.env.PUBLIC_URL + '/img/HighresScreenshot00004.webp'}

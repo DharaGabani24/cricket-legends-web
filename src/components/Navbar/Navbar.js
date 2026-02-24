@@ -8,8 +8,8 @@ const NAV_SECTIONS = [
  { id: 'story',      label: 'Streetz',          index: '02', desc: 'Street Cricket' },
  { id: 'ranked',     label: 'Ranked',           index: '03', desc: 'Tactical Play' },
  { id: 'the-pitch',  label: 'The Pitch',        index: '04', desc: 'Full ODI' },
- { id: 'leonida',    label: 'Gods of Cricket',  index: '05', desc: 'The Journey' },
  { id: 'pro-teams',  label: 'Pro Teams',        index: '06', desc: 'Clubs & Leagues' },
+ { id: 'leonida',    label: 'Gods of Cricket',  index: '05', desc: 'The Journey' },
  { id: 'the-game',   label: 'The Game',         index: '07', desc: 'World of Cricket' },
  { id: 'the-arena',  label: 'The Arena',        index: '08', desc: 'Competitive' },
 ];
@@ -87,37 +87,78 @@ const Navbar = ({ visible = true }) => {
  }, []);
 
 
- const scrollToSection = useCallback((id) => {
-   closeMenu();
-   setTimeout(() => {
-     if (id === 'home') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
-     const el = document.getElementById(id);
-     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-   }, 250);
- }, [closeMenu]);
-
+//  const scrollToSection = useCallback((id) => {
+//    closeMenu();
+//    setTimeout(() => {
+//      if (id === 'home') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+//      const el = document.getElementById(id);
+//      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+//    }, 250);
+//  }, [closeMenu]);
+const scrollToSection = useCallback((id) => {
+  closeMenu();
+  setTimeout(() => {
+    if (id === 'home') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    const el = document.getElementById(id);
+    if (el) {
+      // Add offset to land in the middle of pinned sections
+      const rect = el.getBoundingClientRect();
+      const offset = window.scrollY + rect.top + (rect.height * 0.15);
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  }, 250);
+}, [closeMenu]);
 
  // Scroll spy
- useEffect(() => {
-   let ticking = false;
-   const onScroll = () => {
-     if (!ticking) {
-       requestAnimationFrame(() => {
-         let cur = 'home';
-         NAV_SECTIONS.forEach(({ id }) => {
-           const el = document.getElementById(id);
-           if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.4) cur = id;
-         });
-         setActiveSection(cur);
-         ticking = false;
-       });
-       ticking = true;
-     }
-   };
-   window.addEventListener('scroll', onScroll, { passive: true });
-   return () => window.removeEventListener('scroll', onScroll);
- }, []);
+//  useEffect(() => {
+//    let ticking = false;
+//    const onScroll = () => {
+//      if (!ticking) {
+//        requestAnimationFrame(() => {
+//          let cur = 'home';
+//          NAV_SECTIONS.forEach(({ id }) => {
+//            const el = document.getElementById(id);
+//            if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.4) cur = id;
+//          });
+//          setActiveSection(cur);
+//          ticking = false;
+//        });
+//        ticking = true;
+//      }
+//    };
+//    window.addEventListener('scroll', onScroll, { passive: true });
+//    return () => window.removeEventListener('scroll', onScroll);
+//  }, []);
 
+
+
+useEffect(() => {
+  let ticking = false;
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        let cur = 'home';
+        let closestDist = Infinity;
+        NAV_SECTIONS.forEach(({ id }) => {
+          const el = document.getElementById(id);
+          if (el) {
+            const top = el.getBoundingClientRect().top;
+            const dist = Math.abs(top);
+            if (top <= window.innerHeight * 0.5 && dist < closestDist) {
+              closestDist = dist;
+              cur = id;
+            }
+          }
+        });
+        setActiveSection(cur);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  return () => window.removeEventListener('scroll', onScroll);
+}, []);
 
  // Escape key
  useEffect(() => {
