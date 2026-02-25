@@ -24,6 +24,7 @@
   width: 100%;
   height: 700vh;
   background: #0a0a0a;
+  
 }
 
 .story__sticky {
@@ -118,7 +119,7 @@ opacity:0;
 
 .story__text-dim {
   z-index: 1;
-  opacity:0;
+  /* opacity:0; */
 }
 
 /* .story__text-dim .story__title {
@@ -237,7 +238,7 @@ opacity:0;
 
 .story__text-bright {
   z-index: 2;
-  opacity: 0;;
+  /* opacity: 0;; */
   /* This ensures the mask starts from the bottom center */
   /* -webkit-mask-image: radial-gradient(circle at 50% 100%, black 0%, transparent 0%);
   mask-image: radial-gradient(circle at 50% 100%, black 0%, transparent 0%); */
@@ -249,7 +250,7 @@ opacity:0;
 
 .story__text-glow {
   z-index: 3;
-  opacity: 0;
+  /* opacity: 0;// */
   pointer-events: none;
    -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 0%, black 0%, transparent 0%);
    mask-image: radial-gradient(circle at 50% 50%, transparent 0%, black 0%, transparent 0%);

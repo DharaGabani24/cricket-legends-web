@@ -414,6 +414,50 @@ ScrollTrigger.create({
       }
     }
 
+
+
+//     // HOLD BRIGHT (0.90 - 0.93) — shorter hold
+// else if (scrollProgress < 0.93) {
+//   updateRadialMasks(1);
+//   gsap.set(platforms, { opacity: 0 });
+//   if (dimLayer) dimLayer.style.opacity = '0';
+//   releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+//   if (maskContainer) maskContainer.style.opacity = '0';
+  
+//   if (exitContainer) {
+//     exitContainer.style.webkitMaskImage = 'none';
+//     exitContainer.style.maskImage = 'none';
+//     exitContainer.style.opacity = '1';
+//   }
+// }
+
+// // EXIT (0.93 - 1.0) — longer fade, finishes well before unpin
+// else {
+//   updateRadialMasks(1);
+//   gsap.set(platforms, { opacity: 0 });
+//   if (dimLayer) dimLayer.style.opacity = '0';
+//   if (maskContainer) maskContainer.style.opacity = '0';
+  
+//   const exitProgress = Math.min(1, (scrollProgress - 0.93) / 0.04);  
+
+  
+//                                               //    0.95 / 0.02
+//                                               //    0.93 / 0.04
+//                                               //    0.94 / 0.01
+//                                               //    0.97 / 0.04
+
+
+
+
+//   if (exitContainer) {
+//     exitContainer.style.webkitMaskImage = 'none';
+//     exitContainer.style.maskImage = 'none';
+//     exitContainer.style.opacity = String(1 - exitProgress);
+//   }
+  
+//   releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
+// }
+
     // HOLD BRIGHT — glowed text stays, logo hidden (0.82 - 0.98)
     else if (scrollProgress < 0.98) {
       updateRadialMasks(1);
