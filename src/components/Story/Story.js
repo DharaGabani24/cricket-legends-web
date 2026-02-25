@@ -1344,6 +1344,330 @@ else if (p >= 0.15) {
           // });
 
 //this was working 
+          // ScrollTrigger.create({
+          //   trigger: luciaCharSection,
+          //   start: 'top top',
+          //   end: '100% top',
+          //   scrub: 1.5,
+          //   pin: luciaCharSticky,
+          //   pinSpacing: false,
+          //   invalidateOnRefresh: true,
+
+          //   onUpdate: (self) => {
+          //     const p = self.progress;
+              
+          //     // LUCIA CHAR PHASE 1: BG FADES IN (0 - 0.01)
+          //     if (p < 0.01) {
+          //       const phase1 = p / 0.01;
+          //       gsap.set(luciaCharBgImage, { opacity: phase1 });
+          //       gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+          //       gsap.set(luciaCharName, { y: '100vh' });
+          //       gsap.set(luciaCharQuote, { y: '100vh' });
+          //       gsap.set(luciaCharDesc, { y: '100vh' });
+          //       gsap.set(luciaCharDesc2, { y: '100vh' });
+          //       gsap.set(luciaCharImg1, { y: '100vh', opacity: 0 });
+          //       gsap.set(luciaCharImg2, { y: '100vh', opacity: 0 });
+          //       gsap.set(luciaCharImg3, { y: '100vh', opacity: 0 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 2: NAME SCROLLS UP (0.01 - 0.11)
+          //     else if (p >= 0.01 && p < 0.11) {
+          //       const phase2 = (p - 0.01) / 0.10;
+          //       gsap.set(luciaCharBgImage, { opacity: 1 });
+          //       gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${phase2 * 0.75})` });
+          //       const baseScroll = phase2 * 600;
+          //       gsap.set(luciaCharName, { y: 800 - baseScroll });
+          //       gsap.set(luciaCharQuote, { y: 900 - baseScroll });
+          //       gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
+          //       gsap.set(luciaCharDesc2, { y: '100vh' });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 3: QUOTE ENTERS (0.11 - 0.21)
+          //     else if (p >= 0.11 && p < 0.21) {
+          //       const phase3 = (p - 0.11) / 0.10;
+          //       gsap.set(luciaCharBgImage, { opacity: 1 });
+          //       gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.75 + (phase3 * 0.2)})` });
+          //       const baseScroll = 600 + (phase3 * 400);
+          //       gsap.set(luciaCharName, { y: 800 - baseScroll });
+          //       gsap.set(luciaCharQuote, { y: 900 - baseScroll });
+          //       gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
+          //       gsap.set(luciaCharDesc2, { y: 1200 - baseScroll });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 4: DESC + IMAGES VISIBLE (0.21 - 0.33)
+          //     else if (p >= 0.21 && p < 0.33) {
+          //       const phase4 = (p - 0.21) / 0.12;
+          //       gsap.set(luciaCharBgImage, { opacity: 1 });
+          //       gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.9 + (phase4 * 0.15)})` });
+          //       const baseScroll = 1000 + (phase4 * 300);
+          //       gsap.set(luciaCharName, { y: 800 - baseScroll });
+          //       gsap.set(luciaCharQuote, { y: 900 - baseScroll });
+          //       gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
+          //       gsap.set(luciaCharDesc2, { y: 1200 - baseScroll });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 5: BG FADES (0.33 - 0.46)
+          //     else if (p >= 0.33 && p < 0.46) {
+          //       const phase5 = (p - 0.33) / 0.13;
+          //       gsap.set(luciaCharBgImage, { opacity: 1 });
+          //       gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.95 + (phase5 * 0.1)})` });
+          //       const baseScroll = 1300 + (phase5 * 250);
+          //       gsap.set(luciaCharName, { y: 800 - baseScroll });
+          //       gsap.set(luciaCharQuote, { y: 900 - baseScroll });
+          //       gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
+          //       gsap.set(luciaCharDesc2, { y: 1200 - baseScroll });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 6: BG BLACK, TEXT FADES (0.46 - 0.59)
+          //     else if (p >= 0.46 && p < 0.59) {
+          //       const phase6 = (p - 0.46) / 0.13;
+          //       gsap.set(luciaCharBgImage, { opacity: 0 });
+          //       gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+          //       const baseScroll = 1550 + (phase6 * 200);
+          //       const textOpacity = 1 - phase6;
+          //       gsap.set(luciaCharName, { y: 800 - baseScroll, opacity: textOpacity });
+          //       gsap.set(luciaCharQuote, { y: 900 - baseScroll, opacity: textOpacity });
+          //       gsap.set(luciaCharDesc, { y: 1050 - baseScroll, opacity: textOpacity });
+          //       gsap.set(luciaCharDesc2, { y: 1200 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 7: IMAGES ONLY (0.59 - 0.74)
+          //     else if (p >= 0.59 && p < 0.74) {
+          //       const phase7 = (p - 0.59) / 0.15;
+          //       gsap.set(luciaCharBgImage, { opacity: 0 });
+          //       gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+          //       const baseScroll = 1750 + (phase7 * 200);
+          //       gsap.set(luciaCharName, { opacity: 0 });
+          //       gsap.set(luciaCharQuote, { opacity: 0 });
+          //       gsap.set(luciaCharDesc, { opacity: 0 });
+          //       gsap.set(luciaCharDesc2, { y: 1200 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 8: EXIT (0.74 - 1.0)
+          //     else if (p >= 0.74) {
+          //       const phase8 = Math.min(1, (p - 0.74) / 0.16);
+          //       const fadeOut = Math.min(1, Math.max(0, (p - 0.88) / 0.12));
+                
+          //       gsap.set(luciaCharBgImage, { opacity: 1 });
+          //       gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+                
+          //       const baseScroll = 1950 + (phase8 * 1500);
+                
+          //       gsap.set(luciaCharName, { opacity: 0 });
+          //       gsap.set(luciaCharQuote, { opacity: 0 });
+          //       gsap.set(luciaCharDesc, { opacity: 0 });
+          //       gsap.set(luciaCharDesc2, { y: 1200 - baseScroll, opacity: 1 - fadeOut });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 - fadeOut });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 - fadeOut });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 - fadeOut });
+                
+          //       if (luciaCharSticky) {
+          //         luciaCharSticky.style.background = fadeOut > 0 ? 'transparent' : '#0a0a0a';
+          //       }
+          //     }
+          //   },
+          //   onLeave: () => {
+          //     // Hide everything when scrolled past
+          //     gsap.set(luciaCharBgImage, { opacity: 0 });
+          //     gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+          //     gsap.set(luciaCharName, { opacity: 0 });
+          //     gsap.set(luciaCharQuote, { opacity: 0 });
+          //     gsap.set(luciaCharDesc, { opacity: 0 });
+          //     gsap.set(luciaCharDesc2, { opacity: 0 });
+          //     gsap.set(luciaCharImg1, { opacity: 0 });
+          //     gsap.set(luciaCharImg2, { opacity: 0 });
+          //     gsap.set(luciaCharImg3, { opacity: 0 });
+          //     if (luciaCharSticky) luciaCharSticky.style.background = 'transparent';
+          //   },
+          //   onEnterBack: () => {
+          //     // Restore when scrolling back
+          //     if (luciaCharSticky) luciaCharSticky.style.background = '#0a0a0a';
+          //   }
+
+          // });
+
+
+          //uniform scrollling 
+
+          // ScrollTrigger.create({
+          //   trigger: luciaCharSection,
+          //   start: 'top top',
+          //   end: '100% top',
+          //   scrub: 1.5,
+          //   pin: luciaCharSticky,
+          //   pinSpacing: false,
+          //   invalidateOnRefresh: true,
+
+          //   onUpdate: (self) => {
+          //     const p = self.progress;
+
+          //     // ── UNIFORM SCROLL ──
+          //     // Single linear formula: 0 → 3450 across p = 0.01 → 1.0
+          //     // Gives a constant ~3485 px per unit of progress in every phase
+          //     const baseScroll = p >= 0.01 ? ((p - 0.01) / 0.99) * 3450 : 0;
+              
+          //     // LUCIA CHAR PHASE 1: BG FADES IN (0 - 0.01)
+          //     if (p < 0.01) {
+          //       const phase1 = p / 0.01;
+          //       gsap.set(luciaCharBgImage, { opacity: phase1 });
+          //       gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+          //       gsap.set(luciaCharName, { y: '100vh' });
+          //       gsap.set(luciaCharQuote, { y: '100vh' });
+          //       gsap.set(luciaCharDesc, { y: '100vh' });
+          //       gsap.set(luciaCharDesc2, { y: '100vh' });
+          //       gsap.set(luciaCharImg1, { y: '100vh', opacity: 0 });
+          //       gsap.set(luciaCharImg2, { y: '100vh', opacity: 0 });
+          //       gsap.set(luciaCharImg3, { y: '100vh', opacity: 0 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 2: NAME SCROLLS UP (0.01 - 0.11)
+          //     else if (p >= 0.01 && p < 0.11) {
+          //       const phase2 = (p - 0.01) / 0.10;
+          //       gsap.set(luciaCharBgImage, { opacity: 1 });
+          //       gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${phase2 * 0.75})` });
+          //       gsap.set(luciaCharName, { y: 800 - baseScroll });
+          //       gsap.set(luciaCharQuote, { y: 900 - baseScroll });
+          //       gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
+          //       gsap.set(luciaCharDesc2, { y: '100vh' });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 3: QUOTE ENTERS (0.11 - 0.21)
+          //     else if (p >= 0.11 && p < 0.21) {
+          //       const phase3 = (p - 0.11) / 0.10;
+          //       gsap.set(luciaCharBgImage, { opacity: 1 });
+          //       gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.75 + (phase3 * 0.2)})` });
+          //       gsap.set(luciaCharName, { y: 800 - baseScroll });
+          //       gsap.set(luciaCharQuote, { y: 900 - baseScroll });
+          //       gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
+          //       gsap.set(luciaCharDesc2, { y: 1200 - baseScroll });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 4: DESC + IMAGES VISIBLE (0.21 - 0.33)
+          //     else if (p >= 0.21 && p < 0.33) {
+          //       const phase4 = (p - 0.21) / 0.12;
+          //       gsap.set(luciaCharBgImage, { opacity: 1 });
+          //       gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.9 + (phase4 * 0.15)})` });
+          //       gsap.set(luciaCharName, { y: 800 - baseScroll });
+          //       gsap.set(luciaCharQuote, { y: 900 - baseScroll });
+          //       gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
+          //       gsap.set(luciaCharDesc2, { y: 1200 - baseScroll });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 5: BG FADES (0.33 - 0.46)
+          //     else if (p >= 0.33 && p < 0.46) {
+          //       const phase5 = (p - 0.33) / 0.13;
+          //       gsap.set(luciaCharBgImage, { opacity: 1 });
+          //       gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.95 + (phase5 * 0.1)})` });
+          //       gsap.set(luciaCharName, { y: 800 - baseScroll });
+          //       gsap.set(luciaCharQuote, { y: 900 - baseScroll });
+          //       gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
+          //       gsap.set(luciaCharDesc2, { y: 1200 - baseScroll });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 6: BG BLACK, TEXT FADES (0.46 - 0.59)
+          //     else if (p >= 0.46 && p < 0.59) {
+          //       const phase6 = (p - 0.46) / 0.13;
+          //       gsap.set(luciaCharBgImage, { opacity: 0 });
+          //       gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+          //       const textOpacity = 1 - phase6;
+          //       gsap.set(luciaCharName, { y: 800 - baseScroll, opacity: textOpacity });
+          //       gsap.set(luciaCharQuote, { y: 900 - baseScroll, opacity: textOpacity });
+          //       gsap.set(luciaCharDesc, { y: 1050 - baseScroll, opacity: textOpacity });
+          //       gsap.set(luciaCharDesc2, { y: 1200 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 7: IMAGES ONLY (0.59 - 0.74)
+          //     else if (p >= 0.59 && p < 0.74) {
+          //       const phase7 = (p - 0.59) / 0.15;
+          //       gsap.set(luciaCharBgImage, { opacity: 0 });
+          //       gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+          //       gsap.set(luciaCharName, { opacity: 0 });
+          //       gsap.set(luciaCharQuote, { opacity: 0 });
+          //       gsap.set(luciaCharDesc, { opacity: 0 });
+          //       gsap.set(luciaCharDesc2, { y: 1200 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
+          //     }
+              
+          //     // LUCIA CHAR PHASE 8: EXIT (0.74 - 1.0)
+          //     else if (p >= 0.74) {
+          //       const phase8 = Math.min(1, (p - 0.74) / 0.16);
+          //       const fadeOut = Math.min(1, Math.max(0, (p - 0.88) / 0.12));
+                
+          //       gsap.set(luciaCharBgImage, { opacity: 1 });
+          //       gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+                
+          //       gsap.set(luciaCharName, { opacity: 0 });
+          //       gsap.set(luciaCharQuote, { opacity: 0 });
+          //       gsap.set(luciaCharDesc, { opacity: 0 });
+          //       gsap.set(luciaCharDesc2, { y: 1200 - baseScroll, opacity: 1 - fadeOut });
+          //       gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 - fadeOut });
+          //       gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 - fadeOut });
+          //       gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 - fadeOut });
+                
+          //       if (luciaCharSticky) {
+          //         luciaCharSticky.style.background = fadeOut > 0 ? 'transparent' : '#0a0a0a';
+          //       }
+          //     }
+          //   },
+          //   onLeave: () => {
+          //     // Hide everything when scrolled past
+          //     gsap.set(luciaCharBgImage, { opacity: 0 });
+          //     gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+          //     gsap.set(luciaCharName, { opacity: 0 });
+          //     gsap.set(luciaCharQuote, { opacity: 0 });
+          //     gsap.set(luciaCharDesc, { opacity: 0 });
+          //     gsap.set(luciaCharDesc2, { opacity: 0 });
+          //     gsap.set(luciaCharImg1, { opacity: 0 });
+          //     gsap.set(luciaCharImg2, { opacity: 0 });
+          //     gsap.set(luciaCharImg3, { opacity: 0 });
+          //     if (luciaCharSticky) luciaCharSticky.style.background = 'transparent';
+          //   },
+          //   onEnterBack: () => {
+          //     // Restore when scrolling back
+          //     if (luciaCharSticky) luciaCharSticky.style.background = '#0a0a0a';
+          //   }
+
+          // });
+
+
+          //new uniform for checking 
+          //uniform scrollling 
+
           ScrollTrigger.create({
             trigger: luciaCharSection,
             start: 'top top',
@@ -1351,8 +1675,13 @@ else if (p >= 0.15) {
             scrub: 1.5,
             pin: luciaCharSticky,
             pinSpacing: false,
+            invalidateOnRefresh: true,
+
             onUpdate: (self) => {
               const p = self.progress;
+
+              // ── UNIFORM SCROLL ──
+              const baseScroll = p >= 0.01 ? ((p - 0.01) / 0.99) * 3450 : 0;
               
               // LUCIA CHAR PHASE 1: BG FADES IN (0 - 0.01)
               if (p < 0.01) {
@@ -1373,7 +1702,6 @@ else if (p >= 0.15) {
                 const phase2 = (p - 0.01) / 0.10;
                 gsap.set(luciaCharBgImage, { opacity: 1 });
                 gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${phase2 * 0.75})` });
-                const baseScroll = phase2 * 600;
                 gsap.set(luciaCharName, { y: 800 - baseScroll });
                 gsap.set(luciaCharQuote, { y: 900 - baseScroll });
                 gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
@@ -1388,7 +1716,6 @@ else if (p >= 0.15) {
                 const phase3 = (p - 0.11) / 0.10;
                 gsap.set(luciaCharBgImage, { opacity: 1 });
                 gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.75 + (phase3 * 0.2)})` });
-                const baseScroll = 600 + (phase3 * 400);
                 gsap.set(luciaCharName, { y: 800 - baseScroll });
                 gsap.set(luciaCharQuote, { y: 900 - baseScroll });
                 gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
@@ -1403,7 +1730,6 @@ else if (p >= 0.15) {
                 const phase4 = (p - 0.21) / 0.12;
                 gsap.set(luciaCharBgImage, { opacity: 1 });
                 gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.9 + (phase4 * 0.15)})` });
-                const baseScroll = 1000 + (phase4 * 300);
                 gsap.set(luciaCharName, { y: 800 - baseScroll });
                 gsap.set(luciaCharQuote, { y: 900 - baseScroll });
                 gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
@@ -1418,7 +1744,6 @@ else if (p >= 0.15) {
                 const phase5 = (p - 0.33) / 0.13;
                 gsap.set(luciaCharBgImage, { opacity: 1 });
                 gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.95 + (phase5 * 0.1)})` });
-                const baseScroll = 1300 + (phase5 * 250);
                 gsap.set(luciaCharName, { y: 800 - baseScroll });
                 gsap.set(luciaCharQuote, { y: 900 - baseScroll });
                 gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
@@ -1429,11 +1754,10 @@ else if (p >= 0.15) {
               }
               
               // LUCIA CHAR PHASE 6: BG BLACK, TEXT FADES (0.46 - 0.59)
-              else if (p >= 0.46 && p < 0.59) {
-                const phase6 = (p - 0.46) / 0.13;
+              else if (p >= 0.46 && p < 0.55) {
+                const phase6 = (p - 0.46) / 0.9;
                 gsap.set(luciaCharBgImage, { opacity: 0 });
                 gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
-                const baseScroll = 1550 + (phase6 * 200);
                 const textOpacity = 1 - phase6;
                 gsap.set(luciaCharName, { y: 800 - baseScroll, opacity: textOpacity });
                 gsap.set(luciaCharQuote, { y: 900 - baseScroll, opacity: textOpacity });
@@ -1444,31 +1768,16 @@ else if (p >= 0.15) {
                 gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
               }
               
-              // LUCIA CHAR PHASE 7: IMAGES ONLY (0.59 - 0.74)
-              else if (p >= 0.59 && p < 0.74) {
-                const phase7 = (p - 0.59) / 0.15;
-                gsap.set(luciaCharBgImage, { opacity: 0 });
-                gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
-                const baseScroll = 1750 + (phase7 * 200);
-                gsap.set(luciaCharName, { opacity: 0 });
-                gsap.set(luciaCharQuote, { opacity: 0 });
-                gsap.set(luciaCharDesc, { opacity: 0 });
-                gsap.set(luciaCharDesc2, { y: 1200 - baseScroll, opacity: 1 });
-                gsap.set(luciaCharImg1, { y: 800 - baseScroll, opacity: 1 });
-                gsap.set(luciaCharImg2, { y: 1000 - baseScroll, opacity: 1 });
-                gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
-              }
+              // ── PHASES 7-8: FADE OUT + REVEAL LEONIDA ──
               
-              // LUCIA CHAR PHASE 8: EXIT (0.74 - 1.0)
-              else if (p >= 0.74) {
-                const phase8 = Math.min(1, (p - 0.74) / 0.16);
-                const fadeOut = Math.min(1, Math.max(0, (p - 0.88) / 0.12));
-                
-                gsap.set(luciaCharBgImage, { opacity: 1 });
-                gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
-                
-                const baseScroll = 1950 + (phase8 * 1500);
-                
+              // LUCIA CHAR PHASE 7: CONTENT FADES, STICKY GOES TRANSPARENT (0.59 - 0.72)
+              else if (p >= 0.55 && p < 0.72) {
+                // Content is off-screen, start fading immediately
+                //  const fadeOut = Math.min(1, Math.max(0, (p - 0.88) / 0.12));
+                const fadeOut = Math.min(1, (p - 0.55) / 0.10);
+
+                gsap.set(luciaCharBgImage, { opacity: 0 });
+                gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${1 - fadeOut})` });
                 gsap.set(luciaCharName, { opacity: 0 });
                 gsap.set(luciaCharQuote, { opacity: 0 });
                 gsap.set(luciaCharDesc, { opacity: 0 });
@@ -1478,10 +1787,43 @@ else if (p >= 0.15) {
                 gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 - fadeOut });
                 
                 if (luciaCharSticky) {
-                  luciaCharSticky.style.background = fadeOut > 0 ? 'transparent' : '#0a0a0a';
+                  luciaCharSticky.style.background = fadeOut > 0.1 ? 'transparent' : '#0a0a0a';
                 }
               }
+              
+              // LUCIA CHAR PHASE 8: FULLY TRANSPARENT — LEONIDA VISIBLE (0.72 - 1.0)
+              else if (p >= 0.72) {
+                gsap.set(luciaCharBgImage, { opacity: 0 });
+                gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+                gsap.set(luciaCharName, { opacity: 0 });
+                gsap.set(luciaCharQuote, { opacity: 0 });
+                gsap.set(luciaCharDesc, { opacity: 0 });
+                gsap.set(luciaCharDesc2, { opacity: 0 });
+                gsap.set(luciaCharImg1, { opacity: 0 });
+                gsap.set(luciaCharImg2, { opacity: 0 });
+                gsap.set(luciaCharImg3, { opacity: 0 });
+                
+                if (luciaCharSticky) {
+                  luciaCharSticky.style.background = 'transparent';
+                }
+              }
+            },
+            onLeave: () => {
+              gsap.set(luciaCharBgImage, { opacity: 0 });
+              gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+              gsap.set(luciaCharName, { opacity: 0 });
+              gsap.set(luciaCharQuote, { opacity: 0 });
+              gsap.set(luciaCharDesc, { opacity: 0 });
+              gsap.set(luciaCharDesc2, { opacity: 0 });
+              gsap.set(luciaCharImg1, { opacity: 0 });
+              gsap.set(luciaCharImg2, { opacity: 0 });
+              gsap.set(luciaCharImg3, { opacity: 0 });
+              if (luciaCharSticky) luciaCharSticky.style.background = 'transparent';
+            },
+            onEnterBack: () => {
+              if (luciaCharSticky) luciaCharSticky.style.background = '#0a0a0a';
             }
+
           });
           
 // //
