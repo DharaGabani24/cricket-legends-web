@@ -2448,6 +2448,282 @@ gsap.set(worldBigQuoteBg, { opacity: 0 });
 const worldQuote2 = worldQuote2Ref.current;
 const worldDesc2 = worldDesc2Ref.current;
 
+// ScrollTrigger.create({
+//   trigger: worldSection,
+//   start: 'top top',
+//   end: '100% top',
+//   scrub: 1.5,
+//   pin: worldSticky,
+//   pinSpacing: false,
+//   onUpdate: (self) => {
+//     const p = self.progress;
+
+//     // PHASE 1: BG ARTWORK REVEALS (0 - 0.08)
+//     if (p < 0.08) {
+//       const t = p / 0.08;
+//       const e = 1 - Math.pow(1 - t, 3);
+//       gsap.set(worldBg, { opacity: e, scale: 1.15 - (e * 0.05) });
+//       gsap.set(worldBgOverlay, { opacity: 0 });
+//       gsap.set(worldName, { opacity: 0, y: 80 });
+//       gsap.set(worldQuote, { opacity: 0 });
+//       gsap.set(worldDesc, { opacity: 0 });
+//       gsap.set([worldImg1, worldImg2, worldImg3, worldImg4, worldImg5], { opacity: 0, y: '100vh' });
+//       gsap.set(worldBigQuote, { opacity: 0 });
+//       gsap.set(worldBigQuoteBg, { opacity: 0 });
+//       gsap.set(worldQuote2, { opacity: 0});
+//       gsap.set(worldDesc2, { opacity: 0 });
+//     }
+//     // /
+
+//     // PHASE 2: NAME + QUOTE ENTER OVER ARTWORK (0.08 - 0.18)
+//     else if (p < 0.18) {
+//       const t = (p - 0.08) / 0.10;
+//       const e = 1 - Math.pow(1 - t, 2);
+//       gsap.set(worldBg, { opacity: 1, scale: 1.10 - (t * 0.02) });
+//       gsap.set(worldBgOverlay, { opacity: t * 0.35 });
+//       gsap.set(worldName, { opacity: e, y: 80 - (e * 80) });
+//       gsap.set(worldQuote, { opacity: Math.max(0, (t - 0.3) / 0.7), y: 60 - (e * 60) });
+//       gsap.set(worldDesc, { opacity: 0 });
+//       gsap.set([worldImg1, worldImg2, worldImg3, worldImg4, worldImg5], { opacity: 0, y: '100vh' });
+//       gsap.set(worldBigQuote, { opacity: 0 });
+//       gsap.set(worldBigQuoteBg, { opacity: 0 });
+//       gsap.set(worldQuote2, { opacity: 0});
+//       gsap.set(worldDesc2, { opacity: 0 });
+//     }
+
+//     // PHASE 3: DESC APPEARS + HOLD (0.18 - 0.26)
+//     else if (p < 0.26) {
+//       const t = (p - 0.18) / 0.08;
+//       gsap.set(worldBg, { opacity: 1, scale: 1.08 - (t * 0.02) });
+//       gsap.set(worldBgOverlay, { opacity: 0.35 + (t * 0.15) });
+//       gsap.set(worldName, { opacity: 1, y: 0 });
+//       gsap.set(worldQuote, { opacity: 1, y: 0 });
+//       gsap.set(worldDesc, { opacity: t, y: 50 - (t * 50) });
+//       gsap.set([worldImg1, worldImg2, worldImg3, worldImg4, worldImg5], { opacity: 0, y: '100vh' });
+//       gsap.set(worldBigQuote, { opacity: 0 });
+//       gsap.set(worldBigQuoteBg, { opacity: 0 });
+//       gsap.set(worldQuote2, { opacity: 0 });
+//       gsap.set(worldDesc2, { opacity: 0 });
+//     }
+
+// // PHASE 4: TEXT FADES + FIRST TWO IMAGES ENTER (0.26 - 0.40)
+// else if (p < 0.40) {
+//   const t = (p - 0.26) / 0.14;
+  
+//   const textFade = t < 0.6 ? 1 - (t / 0.6) : 0;
+//   const textUp = t < 0.6 ? -(t / 0.6) * 60 : -60;
+// // to fade out text early and completely/////
+// //   const textFade = t < 0.25 ? 1 - (t / 0.25) : 0;
+// // const textUp = t < 0.25 ? -(t / 0.25) * 60 : -60;
+  
+//   gsap.set(worldBg, { opacity: textFade, scale: 1.06 });
+//   gsap.set(worldBgOverlay, { opacity: 0.5 + (t * 0.5) });
+//   gsap.set(worldName, { opacity: textFade, y: textUp });
+//   gsap.set(worldQuote, { opacity: textFade, y: textUp * 0.7 });
+//   gsap.set(worldDesc, { opacity: textFade, y: textUp * 0.5 });
+
+//   // Only img1 + img2 enter here
+//   const imgStart = 0.3;
+//   if (t > imgStart) {
+//     const imgT = (t - imgStart) / (1 - imgStart);
+//     const imgE = 1 - Math.pow(1 - imgT, 2);
+//     gsap.set(worldImg1, { opacity: imgE, y: `${(1 - imgE) * 110}vh` });
+//     gsap.set(worldImg2, { opacity: imgE, y: `${(1 - imgE) * 95}vh` });
+//   } else {
+//     gsap.set(worldImg1, { opacity: 0, y: '100vh' });
+//     gsap.set(worldImg2, { opacity: 0, y: '100vh' });
+//   }
+  
+//   gsap.set(worldImg3, { opacity: 0, y: '100vh' });
+//   gsap.set(worldImg4, { opacity: 0, y: '100vh' });
+//   gsap.set(worldImg5, { opacity: 0, y: '100vh' });
+//   gsap.set(worldBigQuote, { opacity: 0 });
+//   gsap.set(worldBigQuoteBg, { opacity: 0 });
+//   gsap.set(worldQuote2, { opacity: 0});
+//   gsap.set(worldDesc2, { opacity: 0 });
+// }
+
+
+
+// // PHASE 5: IMAGES 1+2 HOLD (0.40 - 0.50)
+// else if (p < 0.50) {
+//   gsap.set(worldBg, { opacity: 0 });
+//   gsap.set(worldBgOverlay, { opacity: 1 });
+//   gsap.set(worldName, { opacity: 0 });
+//   gsap.set(worldQuote, { opacity: 0 });
+//   gsap.set(worldDesc, { opacity: 0 });
+//   gsap.set(worldImg1, { opacity: 1, y: 0 });
+//   gsap.set(worldImg2, { opacity: 1, y: 0 });
+//   gsap.set(worldImg3, { opacity: 0, y: '100vh' });
+//   gsap.set(worldImg4, { opacity: 0, y: '100vh' });
+//   gsap.set(worldImg5, { opacity: 0, y: '100vh' });
+//   gsap.set(worldBigQuote, { opacity: 0 });
+//   gsap.set(worldBigQuoteBg, { opacity: 0 });
+//   gsap.set(worldQuote2, { opacity: 0 });
+//   gsap.set(worldDesc2, { opacity: 0 });
+// }
+
+
+
+// // PHASE 6: ALL THREE SCROLL UP TOGETHER (0.50 - 0.62)
+// else if (p < 0.62) {
+//   const t = (p - 0.50) / 0.12;
+  
+//   gsap.set(worldBg, { opacity: 0 });
+//   gsap.set(worldBgOverlay, { opacity: 1 });
+//   gsap.set(worldName, { opacity: 0 });
+  
+//   // Img 1+2 scroll up and fade out
+//   gsap.set(worldImg1, { y: `${-(t * 120)}vh`, opacity: Math.max(0, 1 - (t * 1.5)) });
+//   gsap.set(worldImg2, { y: `${-(t * 110)}vh`, opacity: Math.max(0, 1 - (t * 1.5)) });
+  
+//   // Img 3 goes from 100vh → 0vh (not beyond)
+//   gsap.set(worldImg3, { y: `${100 - (t * 100)}vh`, opacity: Math.min(1, t * 2) });
+  
+//   gsap.set(worldImg4, { opacity: 0, y: '100vh' });
+//   gsap.set(worldImg5, { opacity: 0, y: '100vh' });
+//   gsap.set(worldBigQuoteBg, { opacity: Math.min(0.3, t * 0.5) });
+//   gsap.set(worldBigQuote, { opacity: 0 });
+//   gsap.set(worldQuote2, { opacity: 0});
+//   gsap.set(worldDesc2, { opacity: 0});
+// }
+
+
+
+// // PHASE 7: IMG3 STAYS + QUOTE SCROLLS UP FROM BOTTOM (0.62 - 0.76)
+// else if (p < 0.76) {
+//   const t = (p - 0.62) / 0.14;
+  
+//   gsap.set(worldBg, { opacity: 0 });
+//   gsap.set(worldBgOverlay, { opacity: 1 });
+//   gsap.set(worldImg1, { opacity: 0 });
+//   gsap.set(worldImg2, { opacity: 0 });
+  
+//   // Img3 stays but slowly zooms
+//   // gsap.set(worldImg3, { y: 0, opacity: 1, scale: 1 + (t * 0.08) });
+  
+//   gsap.set(worldImg3, { y: 0, opacity: 1 });
+//   gsap.set(worldImg3.querySelector('img'), { scale: 1 + (t * 0.08) });
+//   gsap.set(worldImg4, { opacity: 0, y: '100vh' });
+//   gsap.set(worldImg5, { opacity: 0, y: '100vh' });
+//   gsap.set(worldQuote2, { opacity: 0, y: 40 });
+//   gsap.set(worldDesc2, { opacity: 0, y: 30 });
+//   // Quote starts at 800px below and scrolls up via baseScroll
+//   const baseScroll = t * 800;
+  
+//   gsap.set(worldBigQuoteBg, { opacity: Math.min(0.9, t * 1.2) });
+  
+//   const colorR = Math.round(255 - (t * 23));   // 255 → 232
+//   const colorG = Math.round(235 - (t * 35));   // 235 → 200
+//   const colorB = Math.round(150 - (t * 74));   // 150 → 76
+
+//   gsap.set(worldBigQuote, { 
+//     y: 800 - baseScroll,
+//     opacity: 1,
+//     // color: `rgba(232, 200, 76, ${Math.min(1, t * 1.5)})`,
+//     color: `rgb(${colorR}, ${colorG}, ${colorB})`,
+
+//   });
+// }
+
+// // PHASE 7.5: HOLD — IMG3 ZOOMED + QUOTE VISIBLE (0.76 - 0.80)
+// else if (p < 0.80) {
+//   gsap.set(worldBg, { opacity: 0 });
+//   gsap.set(worldBgOverlay, { opacity: 1 });
+//   gsap.set(worldImg1, { opacity: 0 });
+//   gsap.set(worldImg2, { opacity: 0 });
+//   // gsap.set(worldImg3, { y: 0, opacity: 1, scale: 1.08 });
+//   gsap.set(worldImg3, { y: 0, opacity: 1 });
+//   gsap.set(worldImg3.querySelector('img'), { scale: 1.08 });
+//   gsap.set(worldImg4, { opacity: 0, y: '100vh' });
+//   gsap.set(worldImg5, { opacity: 0, y: '100vh' });
+//   gsap.set(worldBigQuoteBg, { opacity: 0.9 });
+//   gsap.set(worldBigQuote, { opacity: 1, y: 0, color: '#e8c84c' });
+//   gsap.set(worldQuote2, { opacity: 0, y: 40 });
+//   gsap.set(worldDesc2, { opacity: 0, y: 30 });
+// }
+
+
+// // PHASE 8: EVERYTHING SCROLLS UP + IMG 4+5 ENTER (0.80 - 0.90)
+// else if (p < 0.90) {
+//   const t = (p - 0.80) / 0.10;
+  
+//   gsap.set(worldBg, { opacity: 0 });
+//   gsap.set(worldBgOverlay, { opacity: 1 });
+//   gsap.set(worldImg1, { opacity: 0 });
+//   gsap.set(worldImg2, { opacity: 0 });
+  
+ 
+//   gsap.set(worldImg3, { 
+//     y: `${-(t * 120)}vh`, 
+//     opacity: Math.max(0, 1 - (t * 1.5))
+//   });
+//   gsap.set(worldImg3.querySelector('img'), { scale: 1.08 });
+  
+//   // Quote starts at y:0 — scrolls up
+//   gsap.set(worldBigQuoteBg, { opacity: Math.max(0, 0.9 - (t * 1.4)) });
+//   gsap.set(worldBigQuote, { 
+//     y: `${-(t * 100)}vh`, 
+//     opacity: Math.max(0, 1 - (t * 1.5)),
+//     color: '#e8c84c'
+//   });
+  
+//   // Img 4+5 enter from below
+//   gsap.set(worldImg4, { y: `${100 - (t * 100)}vh`, opacity: Math.min(1, t * 2) });
+//   gsap.set(worldImg5, { y: `${80 - (t * 80)}vh`, opacity: Math.min(1, t * 2) });
+
+//   // Second quote + desc fade in after images are halfway in
+//   // const textDelay = Math.max(0, (t - 0.5) / 0.5);
+//   // const textEase = 1 - Math.pow(1 - textDelay, 2);
+//   // gsap.set(worldQuote2, { opacity: textEase, y: 40 - (textEase * 40) });
+//   // gsap.set(worldDesc2, { opacity: textEase * 0.9, y: 30 - (textEase * 30) });
+// // AFTER — text moves with img4 (same vh units)
+// gsap.set(worldQuote2, { opacity: Math.min(1, t * 2), y: `${100 - (t * 100)}vh` });
+// gsap.set(worldDesc2, { opacity: Math.min(0.9, t * 1.8), y: `${100 - (t * 100)}vh` });
+// }
+
+// // PHASE 9: IMG 4+5 HOLD BRIEFLY + SCROLL UP + EXIT (0.86 - 1.0)
+// else {
+//   const t = (p - 0.86) / 0.14;
+  
+//   gsap.set(worldBg, { opacity: 0 });
+//   gsap.set(worldBgOverlay, { opacity: 1 });
+//   gsap.set(worldImg1, { opacity: 0 });
+//   gsap.set(worldImg2, { opacity: 0 });
+//   gsap.set(worldImg3, { opacity: 0 });
+//   gsap.set(worldBigQuoteBg, { opacity: 0 });
+//   gsap.set(worldBigQuote, { opacity: 0 });
+
+//   if (t < 0.35) {
+//     // Hold
+//     gsap.set(worldImg4, { y: 0, opacity: 1 });
+//     gsap.set(worldImg5, { y: 0, opacity: 1 });
+//     gsap.set(worldQuote2, { opacity: 1, y: 0 });
+//     gsap.set(worldDesc2, { opacity: 1, y: 0 });
+//   } else {
+//     // Scroll up and fade out
+//     const exitT = (t - 0.35) / 0.65;
+//     gsap.set(worldImg4, { y: `${-(exitT * 100)}vh`, opacity: 1 });
+//     gsap.set(worldImg5, { y: `${-(exitT * 90)}vh`, opacity: 1 });
+//     // gsap.set(worldQuote2, { opacity: Math.max(0, 1 - (exitT * 1.5)), y: -(exitT * 60) });
+//     // gsap.set(worldDesc2, { opacity: Math.max(0, 0.9 - (exitT * 1.4)), y: -(exitT * 40) });
+//     // AFTER — matches img4's exit exactly
+//     gsap.set(worldQuote2, { opacity:1 , y: `${-(exitT * 100)}vh` });
+//     gsap.set(worldDesc2, { opacity:0.9, y: `${-(exitT * 100)}vh` });
+
+//      // Fade sticky container to transparent so Discover shows through
+//      const fadeOut = Math.min(1, Math.max(0, (exitT - 0.4) / 0.6));
+//      if (worldSticky) {
+//        worldSticky.style.background = fadeOut > 0 ? 'transparent' : '#0a0a0a';
+//      }
+//      // Also fade the overlay
+//      gsap.set(worldBgOverlay, { opacity: 1 - fadeOut });
+//   }
+// }
+
+//   }
+// });
+//updated with uniform scrolling 
 ScrollTrigger.create({
   trigger: worldSection,
   start: 'top top',
@@ -2458,7 +2734,10 @@ ScrollTrigger.create({
   onUpdate: (self) => {
     const p = self.progress;
 
+    // ========================================
     // PHASE 1: BG ARTWORK REVEALS (0 - 0.08)
+    // ── UNCHANGED ──
+    // ========================================
     if (p < 0.08) {
       const t = p / 0.08;
       const e = 1 - Math.pow(1 - t, 3);
@@ -2470,12 +2749,14 @@ ScrollTrigger.create({
       gsap.set([worldImg1, worldImg2, worldImg3, worldImg4, worldImg5], { opacity: 0, y: '100vh' });
       gsap.set(worldBigQuote, { opacity: 0 });
       gsap.set(worldBigQuoteBg, { opacity: 0 });
-      gsap.set(worldQuote2, { opacity: 0});
+      gsap.set(worldQuote2, { opacity: 0 });
       gsap.set(worldDesc2, { opacity: 0 });
     }
-    // /
 
+    // ========================================
     // PHASE 2: NAME + QUOTE ENTER OVER ARTWORK (0.08 - 0.18)
+    // ── UNCHANGED ──
+    // ========================================
     else if (p < 0.18) {
       const t = (p - 0.08) / 0.10;
       const e = 1 - Math.pow(1 - t, 2);
@@ -2487,11 +2768,14 @@ ScrollTrigger.create({
       gsap.set([worldImg1, worldImg2, worldImg3, worldImg4, worldImg5], { opacity: 0, y: '100vh' });
       gsap.set(worldBigQuote, { opacity: 0 });
       gsap.set(worldBigQuoteBg, { opacity: 0 });
-      gsap.set(worldQuote2, { opacity: 0});
+      gsap.set(worldQuote2, { opacity: 0 });
       gsap.set(worldDesc2, { opacity: 0 });
     }
 
+    // ========================================
     // PHASE 3: DESC APPEARS + HOLD (0.18 - 0.26)
+    // ── UNCHANGED ──
+    // ========================================
     else if (p < 0.26) {
       const t = (p - 0.18) / 0.08;
       gsap.set(worldBg, { opacity: 1, scale: 1.08 - (t * 0.02) });
@@ -2506,220 +2790,231 @@ ScrollTrigger.create({
       gsap.set(worldDesc2, { opacity: 0 });
     }
 
-// PHASE 4: TEXT FADES + FIRST TWO IMAGES ENTER (0.26 - 0.40)
-else if (p < 0.40) {
-  const t = (p - 0.26) / 0.14;
-  
-  const textFade = t < 0.6 ? 1 - (t / 0.6) : 0;
-  const textUp = t < 0.6 ? -(t / 0.6) * 60 : -60;
-  
-  gsap.set(worldBg, { opacity: textFade, scale: 1.06 });
-  gsap.set(worldBgOverlay, { opacity: 0.5 + (t * 0.5) });
-  gsap.set(worldName, { opacity: textFade, y: textUp });
-  gsap.set(worldQuote, { opacity: textFade, y: textUp * 0.7 });
-  gsap.set(worldDesc, { opacity: textFade, y: textUp * 0.5 });
+    // ========================================
+    // PHASE 4: TEXT FADES + FIRST TWO IMAGES ENTER (0.26 - 0.40)
+    // ── UNCHANGED ──
+    // ========================================
+    else if (p < 0.40) {
+      const t = (p - 0.26) / 0.14;
+      
+      const textFade = t < 0.6 ? 1 - (t / 0.6) : 0;
+      const textUp = t < 0.6 ? -(t / 0.6) * 60 : -60;
+      
+      gsap.set(worldBg, { opacity: textFade, scale: 1.06 });
+      gsap.set(worldBgOverlay, { opacity: 0.5 + (t * 0.5) });
+      gsap.set(worldName, { opacity: textFade, y: textUp });
+      gsap.set(worldQuote, { opacity: textFade, y: textUp * 0.7 });
+      gsap.set(worldDesc, { opacity: textFade, y: textUp * 0.5 });
 
-  // Only img1 + img2 enter here
-  const imgStart = 0.3;
-  if (t > imgStart) {
-    const imgT = (t - imgStart) / (1 - imgStart);
-    const imgE = 1 - Math.pow(1 - imgT, 2);
-    gsap.set(worldImg1, { opacity: imgE, y: `${(1 - imgE) * 110}vh` });
-    gsap.set(worldImg2, { opacity: imgE, y: `${(1 - imgE) * 95}vh` });
-  } else {
-    gsap.set(worldImg1, { opacity: 0, y: '100vh' });
-    gsap.set(worldImg2, { opacity: 0, y: '100vh' });
-  }
-  
-  gsap.set(worldImg3, { opacity: 0, y: '100vh' });
-  gsap.set(worldImg4, { opacity: 0, y: '100vh' });
-  gsap.set(worldImg5, { opacity: 0, y: '100vh' });
-  gsap.set(worldBigQuote, { opacity: 0 });
-  gsap.set(worldBigQuoteBg, { opacity: 0 });
-  gsap.set(worldQuote2, { opacity: 0});
-  gsap.set(worldDesc2, { opacity: 0 });
-}
+      const imgStart = 0.3;
+      if (t > imgStart) {
+        const imgT = (t - imgStart) / (1 - imgStart);
+        const imgE = 1 - Math.pow(1 - imgT, 2);
+        gsap.set(worldImg1, { opacity: imgE, y: `${(1 - imgE) * 110}vh` });
+        gsap.set(worldImg2, { opacity: imgE, y: `${(1 - imgE) * 95}vh` });
+      } else {
+        gsap.set(worldImg1, { opacity: 0, y: '100vh' });
+        gsap.set(worldImg2, { opacity: 0, y: '100vh' });
+      }
+      
+      gsap.set(worldImg3, { opacity: 0, y: '100vh' });
+      gsap.set(worldImg4, { opacity: 0, y: '100vh' });
+      gsap.set(worldImg5, { opacity: 0, y: '100vh' });
+      gsap.set(worldBigQuote, { opacity: 0 });
+      gsap.set(worldBigQuoteBg, { opacity: 0 });
+      gsap.set(worldQuote2, { opacity: 0 });
+      gsap.set(worldDesc2, { opacity: 0 });
+    }
 
+    // ========================================
+    // PHASE 5: IMAGES 1+2 HOLD (0.40 - 0.44)
+    // was 0.40-0.50 — shortened to reduce "stuck" feeling
+    // ========================================
+    else if (p < 0.44) {
+      gsap.set(worldBg, { opacity: 0 });
+      gsap.set(worldBgOverlay, { opacity: 1 });
+      gsap.set(worldName, { opacity: 0 });
+      gsap.set(worldQuote, { opacity: 0 });
+      gsap.set(worldDesc, { opacity: 0 });
+      gsap.set(worldImg1, { opacity: 1, y: 0 });
+      gsap.set(worldImg2, { opacity: 1, y: 0 });
+      gsap.set(worldImg3, { opacity: 0, y: '100vh' });
+      gsap.set(worldImg4, { opacity: 0, y: '100vh' });
+      gsap.set(worldImg5, { opacity: 0, y: '100vh' });
+      gsap.set(worldBigQuote, { opacity: 0 });
+      gsap.set(worldBigQuoteBg, { opacity: 0 });
+      gsap.set(worldQuote2, { opacity: 0 });
+      gsap.set(worldDesc2, { opacity: 0 });
+    }
 
+    // ========================================
+    // PHASE 6: TWO PHOTOS EXIT, PORTRAIT ENTERS (0.44 - 0.56)
+    // was 0.50-0.62 — shifted back by 0.06
+    // ========================================
+    else if (p < 0.56) {
+      const t = (p - 0.44) / 0.12;
+      
+      gsap.set(worldBg, { opacity: 0 });
+      gsap.set(worldBgOverlay, { opacity: 1 });
+      gsap.set(worldName, { opacity: 0 });
+      
+      gsap.set(worldImg1, { y: `${-(t * 120)}vh`, opacity: Math.max(0, 1 - (t * 1.5)) });
+      gsap.set(worldImg2, { y: `${-(t * 110)}vh`, opacity: Math.max(0, 1 - (t * 1.5)) });
+      
+      gsap.set(worldImg3, { y: `${100 - (t * 100)}vh`, opacity: Math.min(1, t * 2) });
+      
+      gsap.set(worldImg4, { opacity: 0, y: '100vh' });
+      gsap.set(worldImg5, { opacity: 0, y: '100vh' });
+      gsap.set(worldBigQuoteBg, { opacity: Math.min(0.3, t * 0.5) });
+      gsap.set(worldBigQuote, { opacity: 0 });
+      gsap.set(worldQuote2, { opacity: 0 });
+      gsap.set(worldDesc2, { opacity: 0 });
+    }
 
-// PHASE 5: IMAGES 1+2 HOLD (0.40 - 0.50)
-else if (p < 0.50) {
-  gsap.set(worldBg, { opacity: 0 });
-  gsap.set(worldBgOverlay, { opacity: 1 });
-  gsap.set(worldName, { opacity: 0 });
-  gsap.set(worldQuote, { opacity: 0 });
-  gsap.set(worldDesc, { opacity: 0 });
-  gsap.set(worldImg1, { opacity: 1, y: 0 });
-  gsap.set(worldImg2, { opacity: 1, y: 0 });
-  gsap.set(worldImg3, { opacity: 0, y: '100vh' });
-  gsap.set(worldImg4, { opacity: 0, y: '100vh' });
-  gsap.set(worldImg5, { opacity: 0, y: '100vh' });
-  gsap.set(worldBigQuote, { opacity: 0 });
-  gsap.set(worldBigQuoteBg, { opacity: 0 });
-  gsap.set(worldQuote2, { opacity: 0 });
-  gsap.set(worldDesc2, { opacity: 0 });
-}
+    // ========================================
+    // PHASE 7: IMG3 STAYS + QUOTE SCROLLS UP (0.56 - 0.70)
+    // was 0.62-0.76 — shifted back by 0.06
+    // ========================================
+    else if (p < 0.70) {
+      const t = (p - 0.56) / 0.14;
+      
+      gsap.set(worldBg, { opacity: 0 });
+      gsap.set(worldBgOverlay, { opacity: 1 });
+      gsap.set(worldImg1, { opacity: 0 });
+      gsap.set(worldImg2, { opacity: 0 });
+      
+      gsap.set(worldImg3, { y: 0, opacity: 1 });
+      gsap.set(worldImg3.querySelector('img'), { scale: 1 + (t * 0.08) });
+      gsap.set(worldImg4, { opacity: 0, y: '100vh' });
+      gsap.set(worldImg5, { opacity: 0, y: '100vh' });
+      gsap.set(worldQuote2, { opacity: 0, y: 40 });
+      gsap.set(worldDesc2, { opacity: 0, y: 30 });
+      
+      const baseScroll = t * 800;
+      
+      gsap.set(worldBigQuoteBg, { opacity: Math.min(0.9, t * 1.2) });
+      
+      const colorR = Math.round(255 - (t * 23));
+      const colorG = Math.round(235 - (t * 35));
+      const colorB = Math.round(150 - (t * 74));
 
+      gsap.set(worldBigQuote, { 
+        y: 800 - baseScroll,
+        opacity: 1,
+        color: `rgb(${colorR}, ${colorG}, ${colorB})`,
+      });
+    }
 
+    // ========================================
+    // PHASE 7.5: HOLD — IMG3 ZOOMED + QUOTE VISIBLE (0.70 - 0.74)
+    // was 0.76-0.80 — shifted back by 0.06
+    // ========================================
+    else if (p < 0.74) {
+      gsap.set(worldBg, { opacity: 0 });
+      gsap.set(worldBgOverlay, { opacity: 1 });
+      gsap.set(worldImg1, { opacity: 0 });
+      gsap.set(worldImg2, { opacity: 0 });
+      gsap.set(worldImg3, { y: 0, opacity: 1 });
+      gsap.set(worldImg3.querySelector('img'), { scale: 1.08 });
+      gsap.set(worldImg4, { opacity: 0, y: '100vh' });
+      gsap.set(worldImg5, { opacity: 0, y: '100vh' });
+      gsap.set(worldBigQuoteBg, { opacity: 0.9 });
+      gsap.set(worldBigQuote, { opacity: 1, y: 0, color: '#e8c84c' });
+      gsap.set(worldQuote2, { opacity: 0, y: 40 });
+      gsap.set(worldDesc2, { opacity: 0, y: 30 });
+    }
 
-// PHASE 6: ALL THREE SCROLL UP TOGETHER (0.50 - 0.62)
-else if (p < 0.62) {
-  const t = (p - 0.50) / 0.12;
-  
-  gsap.set(worldBg, { opacity: 0 });
-  gsap.set(worldBgOverlay, { opacity: 1 });
-  gsap.set(worldName, { opacity: 0 });
-  
-  // Img 1+2 scroll up and fade out
-  gsap.set(worldImg1, { y: `${-(t * 120)}vh`, opacity: Math.max(0, 1 - (t * 1.5)) });
-  gsap.set(worldImg2, { y: `${-(t * 110)}vh`, opacity: Math.max(0, 1 - (t * 1.5)) });
-  
-  // Img 3 goes from 100vh → 0vh (not beyond)
-  gsap.set(worldImg3, { y: `${100 - (t * 100)}vh`, opacity: Math.min(1, t * 2) });
-  
-  gsap.set(worldImg4, { opacity: 0, y: '100vh' });
-  gsap.set(worldImg5, { opacity: 0, y: '100vh' });
-  gsap.set(worldBigQuoteBg, { opacity: Math.min(0.3, t * 0.5) });
-  gsap.set(worldBigQuote, { opacity: 0 });
-  gsap.set(worldQuote2, { opacity: 0});
-  gsap.set(worldDesc2, { opacity: 0});
-}
+    // ========================================
+    // PHASE 8: EVERYTHING SCROLLS UP + IMG 4+5 ENTER (0.74 - 0.84)
+    // was 0.80-0.90 — shifted back by 0.06
+    // ========================================
+    else if (p < 0.84) {
+      const t = (p - 0.74) / 0.10;
+      
+      gsap.set(worldBg, { opacity: 0 });
+      gsap.set(worldBgOverlay, { opacity: 1 });
+      gsap.set(worldImg1, { opacity: 0 });
+      gsap.set(worldImg2, { opacity: 0 });
+      
+      gsap.set(worldImg3, { 
+        y: `${-(t * 120)}vh`, 
+        opacity: Math.max(0, 1 - (t * 1.5))
+      });
+      gsap.set(worldImg3.querySelector('img'), { scale: 1.08 });
+      
+      gsap.set(worldBigQuoteBg, { opacity: Math.max(0, 0.9 - (t * 1.4)) });
+      gsap.set(worldBigQuote, { 
+        y: `${-(t * 100)}vh`, 
+        opacity: Math.max(0, 1 - (t * 1.5)),
+        color: '#e8c84c'
+      });
+      
+      gsap.set(worldImg4, { y: `${100 - (t * 100)}vh`, opacity: Math.min(1, t * 2) });
+      gsap.set(worldImg5, { y: `${80 - (t * 80)}vh`, opacity: Math.min(1, t * 2) });
 
+      gsap.set(worldQuote2, { opacity: Math.min(1, t * 2), y: `${100 - (t * 100)}vh` });
+      gsap.set(worldDesc2, { opacity: Math.min(0.9, t * 1.8), y: `${100 - (t * 100)}vh` });
+    }
 
+    // ========================================
+    // PHASE 9: IMG 4+5 HOLD BRIEFLY + SCROLL UP + EXIT (0.84 - 1.0)
+    // was 0.86-1.0 — shifted back by 0.02, longer duration for smooth exit
+    // ========================================
+    else {
+      const t = (p - 0.84) / 0.16;
+      
+      gsap.set(worldBg, { opacity: 0 });
+      gsap.set(worldBgOverlay, { opacity: 1 });
+      gsap.set(worldImg1, { opacity: 0 });
+      gsap.set(worldImg2, { opacity: 0 });
+      gsap.set(worldImg3, { opacity: 0 });
+      gsap.set(worldBigQuoteBg, { opacity: 0 });
+      gsap.set(worldBigQuote, { opacity: 0 });
 
-// PHASE 7: IMG3 STAYS + QUOTE SCROLLS UP FROM BOTTOM (0.62 - 0.76)
-else if (p < 0.76) {
-  const t = (p - 0.62) / 0.14;
-  
-  gsap.set(worldBg, { opacity: 0 });
-  gsap.set(worldBgOverlay, { opacity: 1 });
-  gsap.set(worldImg1, { opacity: 0 });
-  gsap.set(worldImg2, { opacity: 0 });
-  
-  // Img3 stays but slowly zooms
-  // gsap.set(worldImg3, { y: 0, opacity: 1, scale: 1 + (t * 0.08) });
-  
-  gsap.set(worldImg3, { y: 0, opacity: 1 });
-  gsap.set(worldImg3.querySelector('img'), { scale: 1 + (t * 0.08) });
-  gsap.set(worldImg4, { opacity: 0, y: '100vh' });
-  gsap.set(worldImg5, { opacity: 0, y: '100vh' });
-  gsap.set(worldQuote2, { opacity: 0, y: 40 });
-  gsap.set(worldDesc2, { opacity: 0, y: 30 });
-  // Quote starts at 800px below and scrolls up via baseScroll
-  const baseScroll = t * 800;
-  
-  gsap.set(worldBigQuoteBg, { opacity: Math.min(0.9, t * 1.2) });
-  
-  const colorR = Math.round(255 - (t * 23));   // 255 → 232
-  const colorG = Math.round(235 - (t * 35));   // 235 → 200
-  const colorB = Math.round(150 - (t * 74));   // 150 → 76
+      if (t < 0.35) {
+        // Hold
+        gsap.set(worldImg4, { y: 0, opacity: 1 });
+        gsap.set(worldImg5, { y: 0, opacity: 1 });
+        gsap.set(worldQuote2, { opacity: 1, y: 0 });
+        gsap.set(worldDesc2, { opacity: 1, y: 0 });
+      } else {
+        // Scroll up and fade out
+        const exitT = (t - 0.35) / 0.65;
+        gsap.set(worldImg4, { y: `${-(exitT * 100)}vh`, opacity: 1 });
+        gsap.set(worldImg5, { y: `${-(exitT * 90)}vh`, opacity: 1 });
+        gsap.set(worldQuote2, { opacity: 1, y: `${-(exitT * 100)}vh` });
+        gsap.set(worldDesc2, { opacity: 0.9, y: `${-(exitT * 100)}vh` });
 
-  gsap.set(worldBigQuote, { 
-    y: 800 - baseScroll,
-    opacity: 1,
-    // color: `rgba(232, 200, 76, ${Math.min(1, t * 1.5)})`,
-    color: `rgb(${colorR}, ${colorG}, ${colorB})`,
-
-  });
-}
-
-// PHASE 7.5: HOLD — IMG3 ZOOMED + QUOTE VISIBLE (0.76 - 0.80)
-else if (p < 0.80) {
-  gsap.set(worldBg, { opacity: 0 });
-  gsap.set(worldBgOverlay, { opacity: 1 });
-  gsap.set(worldImg1, { opacity: 0 });
-  gsap.set(worldImg2, { opacity: 0 });
-  // gsap.set(worldImg3, { y: 0, opacity: 1, scale: 1.08 });
-  gsap.set(worldImg3, { y: 0, opacity: 1 });
-  gsap.set(worldImg3.querySelector('img'), { scale: 1.08 });
-  gsap.set(worldImg4, { opacity: 0, y: '100vh' });
-  gsap.set(worldImg5, { opacity: 0, y: '100vh' });
-  gsap.set(worldBigQuoteBg, { opacity: 0.9 });
-  gsap.set(worldBigQuote, { opacity: 1, y: 0, color: '#e8c84c' });
-  gsap.set(worldQuote2, { opacity: 0, y: 40 });
-  gsap.set(worldDesc2, { opacity: 0, y: 30 });
-}
-
-
-// PHASE 8: EVERYTHING SCROLLS UP + IMG 4+5 ENTER (0.80 - 0.90)
-else if (p < 0.90) {
-  const t = (p - 0.80) / 0.10;
-  
-  gsap.set(worldBg, { opacity: 0 });
-  gsap.set(worldBgOverlay, { opacity: 1 });
-  gsap.set(worldImg1, { opacity: 0 });
-  gsap.set(worldImg2, { opacity: 0 });
-  
- 
-  gsap.set(worldImg3, { 
-    y: `${-(t * 120)}vh`, 
-    opacity: Math.max(0, 1 - (t * 1.5))
-  });
-  gsap.set(worldImg3.querySelector('img'), { scale: 1.08 });
-  
-  // Quote starts at y:0 — scrolls up
-  gsap.set(worldBigQuoteBg, { opacity: Math.max(0, 0.9 - (t * 1.4)) });
-  gsap.set(worldBigQuote, { 
-    y: `${-(t * 100)}vh`, 
-    opacity: Math.max(0, 1 - (t * 1.5)),
-    color: '#e8c84c'
-  });
-  
-  // Img 4+5 enter from below
-  gsap.set(worldImg4, { y: `${100 - (t * 100)}vh`, opacity: Math.min(1, t * 2) });
-  gsap.set(worldImg5, { y: `${80 - (t * 80)}vh`, opacity: Math.min(1, t * 2) });
-
-  // Second quote + desc fade in after images are halfway in
-  // const textDelay = Math.max(0, (t - 0.5) / 0.5);
-  // const textEase = 1 - Math.pow(1 - textDelay, 2);
-  // gsap.set(worldQuote2, { opacity: textEase, y: 40 - (textEase * 40) });
-  // gsap.set(worldDesc2, { opacity: textEase * 0.9, y: 30 - (textEase * 30) });
-// AFTER — text moves with img4 (same vh units)
-gsap.set(worldQuote2, { opacity: Math.min(1, t * 2), y: `${100 - (t * 100)}vh` });
-gsap.set(worldDesc2, { opacity: Math.min(0.9, t * 1.8), y: `${100 - (t * 100)}vh` });
-}
-
-// PHASE 9: IMG 4+5 HOLD BRIEFLY + SCROLL UP + EXIT (0.86 - 1.0)
-else {
-  const t = (p - 0.86) / 0.14;
-  
-  gsap.set(worldBg, { opacity: 0 });
-  gsap.set(worldBgOverlay, { opacity: 1 });
-  gsap.set(worldImg1, { opacity: 0 });
-  gsap.set(worldImg2, { opacity: 0 });
-  gsap.set(worldImg3, { opacity: 0 });
-  gsap.set(worldBigQuoteBg, { opacity: 0 });
-  gsap.set(worldBigQuote, { opacity: 0 });
-
-  if (t < 0.35) {
-    // Hold
-    gsap.set(worldImg4, { y: 0, opacity: 1 });
-    gsap.set(worldImg5, { y: 0, opacity: 1 });
-    gsap.set(worldQuote2, { opacity: 1, y: 0 });
-    gsap.set(worldDesc2, { opacity: 1, y: 0 });
-  } else {
-    // Scroll up and fade out
-    const exitT = (t - 0.35) / 0.65;
-    gsap.set(worldImg4, { y: `${-(exitT * 100)}vh`, opacity: 1 });
-    gsap.set(worldImg5, { y: `${-(exitT * 90)}vh`, opacity: 1 });
-    // gsap.set(worldQuote2, { opacity: Math.max(0, 1 - (exitT * 1.5)), y: -(exitT * 60) });
-    // gsap.set(worldDesc2, { opacity: Math.max(0, 0.9 - (exitT * 1.4)), y: -(exitT * 40) });
-    // AFTER — matches img4's exit exactly
-    gsap.set(worldQuote2, { opacity:1 , y: `${-(exitT * 100)}vh` });
-    gsap.set(worldDesc2, { opacity:0.9, y: `${-(exitT * 100)}vh` });
-
-     // Fade sticky container to transparent so Discover shows through
-     const fadeOut = Math.min(1, Math.max(0, (exitT - 0.4) / 0.6));
-     if (worldSticky) {
-       worldSticky.style.background = fadeOut > 0 ? 'transparent' : '#0a0a0a';
-     }
-     // Also fade the overlay
-     gsap.set(worldBgOverlay, { opacity: 1 - fadeOut });
-  }
-}
+        // Fade sticky container to transparent so Discover shows through
+        const fadeOut = Math.min(1, Math.max(0, (exitT - 0.4) / 0.6));
+        if (worldSticky) {
+          worldSticky.style.background = fadeOut > 0 ? 'transparent' : '#0a0a0a';
+        }
+        gsap.set(worldBgOverlay, { opacity: 1 - fadeOut });
+      }
+    }
 
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ========================================
 // DISCOVER SECTION ANIMATION
@@ -2807,9 +3102,10 @@ ScrollTrigger.create({
     }
 
     // PHASE 3: POSTCARD FULLY VISIBLE (0.30 - 0.55)
-    else if (p >= 0.30 && p < 0.55) {
-      const phase3 = (p - 0.30) / 0.25;
-
+    // else if (p >= 0.30 && p < 0.55) {
+    //   const phase3 = (p - 0.30) / 0.25;
+    else if (p >= 0.30 && p < 0.42) {      // was 0.55
+      const phase3 = (p - 0.30) / 0.12; 
       gsap.set(discoverBg, { opacity: 1 });
       gsap.set(discoverHeader, { opacity: 0 }); // ALWAYS HIDDEN
 
@@ -2828,8 +3124,10 @@ ScrollTrigger.create({
     }
 
     // PHASE 4: POSTCARD SCALING DOWN (0.55 - 0.80)
-    else if (p >= 0.55 && p < 0.80) {
-      const phase4 = (p - 0.55) / 0.25;
+    // else if (p >= 0.55 && p < 0.80) {
+    //   const phase4 = (p - 0.55) / 0.25;
+    else if (p >= 0.42 && p < 0.67) {       // was 0.55-0.80
+      const phase4 = (p - 0.42) / 0.25;    
 
       gsap.set(discoverBg, { opacity: 1 - (phase4 * 0.5) });
       gsap.set(discoverHeader, { opacity: 0 });
@@ -2848,8 +3146,10 @@ ScrollTrigger.create({
     }
 
     // PHASE 5: EXIT TO BLACK (0.80 - 1.0)
-    else if (p >= 0.80) {
-      const phase5 = (p - 0.80) / 0.20;
+    // else if (p >= 0.80) {
+    //   const phase5 = (p - 0.80) / 0.20;
+    else if (p >= 0.67) {                    // was 0.80
+      const phase5 = (p - 0.67) / 0.33;
 
       gsap.set(discoverBg, { opacity: 0.5 - (phase5 * 0.5) });
       gsap.set(discoverHeader, { opacity: 0 });
