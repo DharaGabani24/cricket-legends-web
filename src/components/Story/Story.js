@@ -3157,6 +3157,11 @@ ScrollTrigger.create({
       gsap.set(discoverPostcard, { opacity: 0 });
       gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: 0 });
       
+
+  // NEW: make sticky transparent after postcard is gone
+  if (discoverSticky) {
+    discoverSticky.style.background = phase5 > 0.3 ? 'transparent' : '';
+  }
    
     }
   }
