@@ -3278,7 +3278,8 @@ ScrollTrigger.create({
       const e = 1 - Math.pow(1 - t, 3);
       gsap.set(finaleBg, { opacity: 1, scale: 1.02 });
       gsap.set(finaleBgOverlay, { opacity: 1 });
-      gsap.set(finaleLogo, { opacity: e, scale: 0.6 + (e * 0.4) });
+      // gsap.set(finaleLogo, { opacity: e, scale: 0.6 + (e * 0.4) });
+      gsap.set(finaleLogo, { opacity: e, scale: 0.6 + (e * 0.4), y: 40 - (e * 40) });
       gsap.set(finaleDim, { opacity: e * 0.5 });
       gsap.set(finaleBright, { opacity: 0 });
       gsap.set(finaleGlow, { opacity: 0 });
@@ -3308,8 +3309,8 @@ else if (p < 0.90) {
   const t = (p - 0.55) / 0.35;
   gsap.set(finaleBg, { opacity: 1, scale: 1.02 });
   gsap.set(finaleBgOverlay, { opacity: 1 });
-  gsap.set(finaleLogo, { opacity: 1, scale: 1 });
-  
+  // gsap.set(finaleLogo, { opacity: 1, scale: 1 });
+  gsap.set(finaleLogo, { opacity: 1, scale: 1, y: 0 });
   // Dim fades out, bright fades in — no radial mask
   gsap.set(finaleDim, { opacity: 0.5 * (1 - t) });
   gsap.set(finaleBright, { opacity: t });
@@ -3364,7 +3365,7 @@ else if (p < 0.90) {
         finaleBright.style.maskImage = 'none';
       }
     
-      gsap.set(finalePlatforms, { opacity: 1, y: 0 });
+      gsap.set(finalePlatforms, { opacity: 1});
     }
   }
 });
@@ -3415,6 +3416,7 @@ else if (p < 0.90) {
       
       const progress = Math.min(hscroll.scrollTop / scrollDistance, 1);
       gsap.set(track, { x: -(progress * scrollDistance) });
+      // gsap.to(track, { x: -(progress * scrollDistance), duration: 0.4, ease: 'power2.out', overwrite: true });
       if (indicator) {
         if (hscroll.scrollTop > 50) {  // After scrolling 50px down
           gsap.to(indicator, { opacity: 0, duration: 0.3 });

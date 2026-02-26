@@ -1,4 +1,4 @@
-// Navbar — Design 4 Stacked Cards///
+// Navbar — Design 4 Stacked Cards/////
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import './Navbar.css';
 
@@ -35,14 +35,32 @@ const EXPLORE_TABS = [
 ];
 
 
+// const TRAILERS = [
+//  { id: 't1', title: 'Cricket 26 — Official Trailer', date: 'Nov 13, 2025', duration: '0:30',
+//    thumbnail: 'https://img.youtube.com/vi/eM_w6yMpZiM/maxresdefault.jpg',
+//    url: 'https://www.youtube.com/watch?v=eM_w6yMpZiM', isNew: true },
+//  { id: 't2', title: 'Real Cricket 26 — Official Trailer', date: 'March 2025', duration: '1:12',
+//    thumbnail: 'https://img.youtube.com/vi/twUqbrowu94/maxresdefault.jpg',
+//    url: 'https://www.youtube.com/watch?v=twUqbrowu94', isNew: false },
+   
+// ];
+
 const TRAILERS = [
- { id: 't1', title: 'Cricket 26 — Official Trailer', date: 'Nov 13, 2025', duration: '0:30',
+  
+
+  { id: 't1', title: 'Cricket 26 — Gameplay Trailer', date: 'Nov 13, 2025', duration: '1:45',
+    thumbnail: 'https://img.youtube.com/vi/gLf3RNhPZf8/maxresdefault.jpg',
+    url: 'https://www.youtube.com/watch?v=gLf3RNhPZf8', isNew: true },
+
+ 
+
+  { id: 't2', title: 'ICC Cricket 26 — Mobile Trailer', date: 'Sep 2025', duration: '2:05',
+    thumbnail: 'https://img.youtube.com/vi/0Osdvte0EUE/maxresdefault.jpg',
+    url: 'https://www.youtube.com/watch?v=0Osdvte0EUE', isNew: false },
+
+     { id: 't3', title: 'Cricket — Official Trailer', date: 'Nov 13, 2025', duration: '0:30',
    thumbnail: 'https://img.youtube.com/vi/eM_w6yMpZiM/maxresdefault.jpg',
    url: 'https://www.youtube.com/watch?v=eM_w6yMpZiM', isNew: true },
- { id: 't2', title: 'Real Cricket 26 — Official Trailer', date: 'March 2025', duration: '1:12',
-   thumbnail: 'https://img.youtube.com/vi/twUqbrowu94/maxresdefault.jpg',
-   url: 'https://www.youtube.com/watch?v=twUqbrowu94', isNew: false },
-   
 ];
 
 
@@ -66,7 +84,9 @@ const Navbar = ({ visible = true }) => {
  const [activeTab, setActiveTab] = useState('explore');
  const cursorRef = useRef(null);
 
-
+ const [hoveredTrailer, setHoveredTrailer] = useState(null);
+ const trailerCardRefs = useRef([]);
+ 
  const [lightboxImg, setLightboxImg] = useState(null);
 
 
@@ -130,7 +150,17 @@ const scrollToSection = useCallback((id) => {
 //    return () => window.removeEventListener('scroll', onScroll);
 //  }, []);
 
-
+useEffect(() => {
+  if (!isOpen || activeTab !== 'trailers') return;
+  const cards = trailerCardRefs.current;
+  const timers = cards.map((card, i) => {
+    if (!card) return null;
+    return setTimeout(() => {
+      card.classList.add('nm__cine-card--ready');
+    }, 150 + i * 120 + 550); // matches animation delay + duration
+  });
+  return () => timers.forEach((t) => t && clearTimeout(t));
+}, [isOpen, activeTab]);
 
 useEffect(() => {
   let ticking = false;
@@ -182,6 +212,29 @@ useEffect(() => {
  }, [isOpen]);
 
 
+ const handleTrailerMouseMove = useCallback((e, idx) => {
+  const card = trailerCardRefs.current[idx];
+  if (!card) return;
+  const rect = card.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width - 0.5) * 18;
+  const y = ((e.clientY - rect.top) / rect.height - 0.5) * -18;
+  card.style.transform = `perspective(800px) rotateY(${x}deg) rotateX(${y}deg) scale(1.02)`;
+  const shine = card.querySelector('.nm__cine-shine');
+  if (shine) {
+    shine.style.background = `radial-gradient(circle at ${e.clientX - rect.left}px ${e.clientY - rect.top}px, rgba(0,255,136,0.12), transparent 60%)`;
+  }
+}, []);
+
+const handleTrailerMouseLeave = useCallback((idx) => {
+  setHoveredTrailer(null);
+  const card = trailerCardRefs.current[idx];
+  if (card) {
+    card.style.transform = 'perspective(800px) rotateY(0) rotateX(0) scale(1)';
+    const shine = card.querySelector('.nm__cine-shine');
+    if (shine) shine.style.background = 'transparent';
+  }
+}, []);
+
  const renderContent = () => {
    switch (activeTab) {
      case 'explore':
@@ -208,26 +261,87 @@ useEffect(() => {
            ))}
          </div>
        );
-     case 'trailers':
-       return (
-         <div className="nm__trailers-grid">
-           {TRAILERS.map((t, i) => (
-             <a key={t.id} href={t.url} target="_blank" rel="noopener noreferrer"
-               className="nm__trailer" style={{ '--i': i }}>
-               <div className="nm__trailer-thumb">
-                 <img src={t.thumbnail} alt={t.title} />
-                 <div className="nm__trailer-play">▶</div>
-                 <span className="nm__trailer-dur">{t.duration}</span>
-                 {t.isNew && <span className="nm__trailer-badge">NEW</span>}
-               </div>
-               <div className="nm__trailer-info">
-                 <span className="nm__trailer-title">{t.title}</span>
-                 <span className="nm__trailer-date">{t.date}</span>
-               </div>
-             </a>
-           ))}
-         </div>
-       );
+    //  case 'trailers':
+    //    return (
+    //      <div className="nm__trailers-grid">
+    //        {TRAILERS.map((t, i) => (
+    //          <a key={t.id} href={t.url} target="_blank" rel="noopener noreferrer"
+    //            className="nm__trailer" style={{ '--i': i }}>
+    //            <div className="nm__trailer-thumb">
+    //              <img src={t.thumbnail} alt={t.title} />
+    //              <div className="nm__trailer-play">▶</div>
+    //              <span className="nm__trailer-dur">{t.duration}</span>
+    //              {t.isNew && <span className="nm__trailer-badge">NEW</span>}
+    //            </div>
+    //            <div className="nm__trailer-info">
+    //              <span className="nm__trailer-title">{t.title}</span>
+    //              <span className="nm__trailer-date">{t.date}</span>
+    //            </div>
+    //          </a>
+    //        ))}
+    //      </div>
+    //    );
+
+    case 'trailers':
+  return (
+    <div className="nm__cine-grid">
+      {TRAILERS.map((t, i) => (
+   
+        <div
+  key={t.id}
+  ref={(el) => (trailerCardRefs.current[i] = el)}
+  className={`nm__cine-card ${hoveredTrailer === i ? 'nm__cine-card--hovered' : ''}`}
+  style={{ '--i': i }}
+  onMouseMove={(e) => handleTrailerMouseMove(e, i)}
+  onMouseEnter={() => setHoveredTrailer(i)}
+  onMouseLeave={() => handleTrailerMouseLeave(i)}
+  onAnimationEnd={(e) => {
+    e.currentTarget.style.animation = 'none';
+    e.currentTarget.style.opacity = '1';
+  }}
+>
+          <div className="nm__cine-shine" />
+
+          <a href={t.url} target="_blank" rel="noopener noreferrer" className="nm__cine-link">
+            <div className="nm__cine-visual">
+              <img src={t.thumbnail} alt={t.title} className="nm__cine-img" />
+
+              {/* Vignette */}
+              <div className="nm__cine-vignette" />
+              {/* Bottom gradient */}
+              <div className="nm__cine-gradient" />
+
+              {/* Play button */}
+              <div className="nm__cine-play-wrap">
+                <div className="nm__cine-play">
+                  <div className="nm__cine-play-tri" />
+                </div>
+                {hoveredTrailer === i && (
+                  <>
+                    <div className="nm__cine-play-ring nm__cine-play-ring--1" />
+                    <div className="nm__cine-play-ring nm__cine-play-ring--2" />
+                  </>
+                )}
+              </div>
+
+              {/* Duration chip */}
+              <span className="nm__cine-dur-chip">{t.duration}</span>
+
+              {/* Info */}
+              <div className="nm__cine-info">
+                <div className="nm__cine-badges">
+                  {t.isNew && <span className="nm__cine-badge-new">NEW</span>}
+                  <span className="nm__cine-badge-dur">{t.duration}</span>
+                </div>
+                <h3 className="nm__cine-title">{t.title}</h3>
+                <p className="nm__cine-date">{t.date}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+  );
 
 
  case 'images':
