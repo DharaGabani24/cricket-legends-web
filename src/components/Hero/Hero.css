@@ -1,4 +1,4 @@
-/* hero.css */
+/* hero.css //*/
 
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   /* 1200vh */
-  height: 800vh; 
+  height: 1400vh; 
   background: #0a0a0a;
 }
 
@@ -308,7 +308,7 @@
    ======================================== */
 
 @media (max-width: 768px) {
-  .hero { height: 700vh; }
+  .hero { height: 1200vh; }
   .hero__release-info { transform: translate(-50%, -20%); }
   .hero__text-dim .hero__coming,
   .hero__text-bright .hero__coming,
@@ -324,7 +324,7 @@
 }
 
 @media (max-width: 480px) {
-  .hero { height: 600vh; }
+  .hero { height: 1000vh; }
   .hero__release-info { transform: translate(-50%, -15%); }
   .hero__text-dim .hero__coming,
   .hero__text-bright .hero__coming,
