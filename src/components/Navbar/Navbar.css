@@ -401,8 +401,6 @@
     height: 1px;
     background: linear-gradient(90deg, var(--card-color, rgba(255,255,255,0.1)), transparent);
     box-shadow: 0 0 12px var(--card-glow);
-
-
     opacity: 0.3;
   }
  
@@ -1366,7 +1364,9 @@
     font-size: 0.6rem;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.15);
+    /* color: rgba(255,255,255,0.15); */
+        color: rgba(255, 255, 255, 0.35);
+
   }
  
   .nm__ov-footer-val {
@@ -1953,3 +1953,342 @@
    background: rgba(255, 255, 255, 0.2);
    transform: scale(1.1);
  }
+/* //testing for glass morphism design */
+
+/* =============================================
+   TRAILERS — Glass Morphism
+   ============================================= */
+
+.nm__glass-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 88vw;
+  max-width: 800px;
+}
+
+/* ── Card ── */
+
+.nm__glass-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: nm-glassIn 0.5s var(--nm-ease) calc(0.15s + var(--i) * 0.1s) forwards;
+}
+
+@keyframes nm-glassIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nm__glass-card--hovered {
+  transform: scale(1.01);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Mouse-follow light */
+.nm__glass-light {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  border-radius: 16px;
+}
+
+/* ── Inner Layout ── */
+
+.nm__glass-inner {
+  display: flex;
+  align-items: stretch;
+  min-height: 120px;
+}
+
+/* ── Thumbnail ── */
+
+.nm__glass-thumb {
+  position: relative;
+  width: 220px;
+  min-width: 220px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.nm__glass-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+  transition: filter 0.5s ease, transform 0.8s var(--nm-ease);
+}
+
+.nm__glass-card--hovered .nm__glass-thumb img {
+  filter: brightness(0.75) saturate(1.2);
+  transform: scale(1.08);
+}
+
+/* Glass tint overlay */
+.nm__glass-thumb-tint {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  transition: background 0.5s ease;
+}
+
+.nm__glass-card--hovered .nm__glass-thumb-tint {
+  background: rgba(0, 255, 136, 0.04);
+}
+
+/* ── Play Button ── */
+
+.nm__glass-play-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.nm__glass-play {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0.5;
+}
+
+.nm__glass-card--hovered .nm__glass-play {
+  opacity: 1;
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+.nm__glass-play-tri {
+  width: 0;
+  height: 0;
+  border-left: 14px solid #fff;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  margin-left: 2px;
+}
+
+/* ── Info ── */
+
+.nm__glass-info {
+  flex: 1;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Tag: Latest / Previous */
+.nm__glass-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nm__glass-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--nm-green);
+  box-shadow: 0 0 8px var(--nm-green);
+  animation: nm-glassDot 2s ease-in-out infinite;
+}
+
+@keyframes nm-glassDot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.nm__glass-tag-text {
+  font-family: var(--nm-font-sub);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Title */
+.nm__glass-title {
+  margin: 0;
+  font-family: var(--nm-font-display);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.1;
+  transition: color 0.3s ease;
+}
+
+.nm__glass-card--hovered .nm__glass-title {
+  color: #fff;
+}
+
+/* Meta row */
+.nm__glass-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nm__glass-date {
+  font-family: var(--nm-font-body);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.nm__glass-dur {
+  font-family: var(--nm-font-body);
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+}
+
+/* ── Arrow ── */
+
+.nm__glass-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.1);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nm__glass-card--hovered .nm__glass-arrow {
+  color: var(--nm-green);
+  transform: translateX(4px);
+}
+
+/* =============================================
+   TRAILERS — Glass Morphism Responsive
+   ============================================= */
+
+@media (max-width: 1000px) {
+  .nm__glass-grid {
+    width: 92vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .nm__glass-grid {
+    gap: 12px;
+  }
+
+  .nm__glass-card {
+    border-radius: 12px;
+  }
+
+  .nm__glass-thumb {
+    width: 180px;
+    min-width: 180px;
+  }
+
+  .nm__glass-title {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+  }
+
+  .nm__glass-info {
+    padding: 16px 18px;
+  }
+
+  .nm__glass-play {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nm__glass-play-tri {
+    border-left-width: 12px;
+    border-top-width: 7px;
+    border-bottom-width: 7px;
+  }
+
+  .nm__glass-arrow {
+    padding: 0 16px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nm__glass-grid {
+    width: 96vw;
+    gap: 10px;
+  }
+
+  .nm__glass-inner {
+    flex-direction: column;
+  }
+
+  .nm__glass-thumb {
+    width: 100%;
+    min-width: 100%;
+    height: 170px;
+  }
+
+  .nm__glass-info {
+    padding: 14px 16px;
+    gap: 6px;
+  }
+
+  .nm__glass-title {
+    font-size: 1.05rem;
+  }
+
+  .nm__glass-date {
+    font-size: 0.68rem;
+  }
+
+  .nm__glass-arrow {
+    display: none;
+  }
+
+  .nm__glass-card {
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .nm__glass-thumb {
+    height: 140px;
+  }
+
+  .nm__glass-title {
+    font-size: 0.95rem;
+  }
+
+  .nm__glass-info {
+    padding: 12px 14px;
+  }
+}

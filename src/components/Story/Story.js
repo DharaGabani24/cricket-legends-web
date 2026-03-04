@@ -4884,7 +4884,7 @@ else if (p < 0.90) {
     <div className="footer__rating">
       <div className="footer__rating-badge">RP</div>
       <p className="footer__rating-text">
-        May contain content inappropriate for children.<br />
+        {/* May contain content inappropriate for children.<br /> */}
         Visit <a href="/">esrb.org</a> for rating information.
       </p>
     </div>

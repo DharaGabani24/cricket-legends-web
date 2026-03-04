@@ -86,6 +86,10 @@ const Navbar = ({ visible = true }) => {
 
  const [hoveredTrailer, setHoveredTrailer] = useState(null);
  const trailerCardRefs = useRef([]);
+
+ //for glass style 
+//  const [trailerMousePos, setTrailerMousePos] = useState({ x: 50, y: 50 });
+
  
  const [lightboxImg, setLightboxImg] = useState(null);
 
@@ -281,7 +285,7 @@ const handleTrailerMouseLeave = useCallback((idx) => {
     //        ))}
     //      </div>
     //    );
-
+//3d cinematic design
     case 'trailers':
   return (
     <div className="nm__cine-grid">
@@ -343,6 +347,78 @@ const handleTrailerMouseLeave = useCallback((idx) => {
     </div>
   );
 
+
+//for glass design
+// case 'trailers':
+//   return (
+//     <div className="nm__glass-grid">
+//       {TRAILERS.map((t, i) => {
+//         const isH = hoveredTrailer === i;
+//         return (
+//           <a
+//             key={t.id}
+//             href={t.url}
+//             target="_blank"
+//             rel="noopener noreferrer"
+//             className={`nm__glass-card ${isH ? 'nm__glass-card--hovered' : ''}`}
+//             style={{ '--i': i }}
+//             onMouseEnter={() => setHoveredTrailer(i)}
+//             onMouseLeave={() => setHoveredTrailer(null)}
+//             onMouseMove={(e) => {
+//               const rect = e.currentTarget.getBoundingClientRect();
+//               setTrailerMousePos({
+//                 x: ((e.clientX - rect.left) / rect.width) * 100,
+//                 y: ((e.clientY - rect.top) / rect.height) * 100,
+//               });
+//             }}
+//           >
+//             {/* Mouse-follow light */}
+//             {isH && (
+//               <div
+//                 className="nm__glass-light"
+//                 style={{
+//                   background: `radial-gradient(circle at ${trailerMousePos.x}% ${trailerMousePos.y}%, rgba(255,255,255,0.06), transparent 50%)`,
+//                 }}
+//               />
+//             )}
+
+//             <div className="nm__glass-inner">
+//               {/* Thumbnail */}
+//               <div className="nm__glass-thumb">
+//                 <img src={t.thumbnail} alt={t.title} />
+//                 {/* Glass tint */}
+//                 <div className="nm__glass-thumb-tint" />
+//                 {/* Play button */}
+//                 <div className="nm__glass-play-wrap">
+//                   <div className="nm__glass-play">
+//                     <div className="nm__glass-play-tri" />
+//                   </div>
+//                 </div>
+//               </div>
+
+//               {/* Content */}
+//               <div className="nm__glass-info">
+//                 <div className="nm__glass-tag">
+//                   {t.isNew && <span className="nm__glass-dot" />}
+//                   <span className="nm__glass-tag-text">
+//                     {t.isNew ? 'Latest' : 'Previous'}
+//                   </span>
+//                 </div>
+//                 <h3 className="nm__glass-title">{t.title}</h3>
+//                 <div className="nm__glass-meta">
+//                   <span className="nm__glass-date">{t.date}</span>
+//                   <span className="nm__glass-dur">{t.duration}</span>
+//                 </div>
+//               </div>
+
+//               {/* Arrow */}
+//               <div className="nm__glass-arrow">→</div>
+//             </div>
+//           </a>
+//         );
+//       })}
+//     </div>
+//   );
 
  case 'images':
  const IMG_META = [
