@@ -7,6 +7,7 @@
 import React, { useRef, useLayoutEffect , useState, useEffect, useCallback} from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 import './Story.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -377,7 +378,9 @@ if (p < 0.02) {
 
 // PHASE 1.5: BRIGHT TEXT HOLDS (0.02 - 0.05)
 // else if (p >= 0.02 && p < 0.05) {
-else if (p >= 0.02 && p < 0.12) {
+// else if (p >= 0.02 && p < 0.12) {
+else if (p >= 0.02 && p < 0.25) {
+
   if (textDim) textDim.style.opacity = '0.5';
   if (textBright) {
     textBright.style.webkitMaskImage = 'none';
@@ -403,8 +406,11 @@ else if (p >= 0.02 && p < 0.12) {
 // PHASE 2: TEXT EXIT (0.05 - 0.15)
 // else if (p >= 0.05 && p < 0.15) {
 //   const exitProgress = (p - 0.05) / 0.10;
-else if (p >= 0.12 && p < 0.22) {
-  const exitProgress = (p - 0.12) / 0.10;
+// else if (p >= 0.12 && p < 0.22) {
+//   const exitProgress = (p - 0.12) / 0.10;
+
+else if (p >= 0.25 && p < 0.35) {
+  const exitProgress = (p - 0.25) / 0.10;
   const eased = gsap.parseEase("power2.inOut")(exitProgress);
 
   updateRadialMasks(eased < 0.2 ? 0.5 + (eased / 0.2 * 0.5) : 1);
@@ -431,7 +437,8 @@ else if (p >= 0.12 && p < 0.22) {
 
 // PHASE 3+: JASON CONTENT (0.15 - 1.0)
 // else if (p >= 0.15) {
-else if (p >= 0.22) {
+// else if (p >= 0.22) {
+else if (p >= 0.35) {
 
   gsap.set(storyText, { opacity: 0 });
   if (exitContainer) exitContainer.style.webkitMaskImage = 'none';
@@ -442,40 +449,53 @@ else if (p >= 0.22) {
   let imagesOpacity = 1;
   let luciaOpacity = 0;
 
-  if (p < 0.32) {
-    const ph = (p - 0.22) / 0.10;
+  // if (p < 0.32) {
+  //   const ph = (p - 0.22) / 0.10;
+  if (p < 0.45) {
+    const ph = (p - 0.35) / 0.10;
     baseScroll = ph * 600;
     bgOpacity = 1 - (ph * 0.7);
   } 
-  else if (p < 0.42) {
-    const ph = (p - 0.32) / 0.10;
+  // else if (p < 0.42) {
+  //   const ph = (p - 0.32) / 0.10;
+  else if (p < 0.55) {
+    const ph = (p - 0.45) / 0.10;
     baseScroll = 600 + (ph * 400);
     bgOpacity = 0.3 - (ph * 0.3);
   }
-  else if (p < 0.52) {
-    const ph = (p - 0.42) / 0.10;
+  // else if (p < 0.52) {
+  //   const ph = (p - 0.42) / 0.10;
+  else if (p < 0.65) {
+    const ph = (p - 0.55) / 0.10;
     baseScroll = 1000 + (ph * 300);
     bgOpacity = 0;
   }
-  else if (p < 0.62) {
-    const ph = (p - 0.52) / 0.10;
+  // else if (p < 0.62) {
+  //   const ph = (p - 0.52) / 0.10;
+  else if (p < 0.75) {
+    const ph = (p - 0.65) / 0.10;
     baseScroll = 1300 + (ph * 250);
     bgOpacity = 0;
   }
-  else if (p < 0.72) {
-    const ph = (p - 0.62) / 0.10;
+  // else if (p < 0.72) {
+  //   const ph = (p - 0.62) / 0.10;
+  else if (p < 0.85) {
+    const ph = (p - 0.75) / 0.10;
     baseScroll = 1550 + (ph * 200);
     textOpacity = 1 - ph;
     bgOpacity = 0;
   }
-  else if (p < 0.82) {
-    const ph = (p - 0.72) / 0.10;
+  /// else if (p < 0.82) {
+  //   const ph = (p - 0.72) / 0.10;
+  else if (p < 0.93) {
+    const ph = (p - 0.85) / 0.08;
     baseScroll = 1750 + (ph * 200);
     textOpacity = 0;
     luciaOpacity = ph * 0.4;
   }
   else {
-    const ph = (p - 0.82) / 0.18;
+    // const ph = (p - 0.82) / 0.18;
+    const ph = (p - 0.93) / 0.07;
     baseScroll = 1950 + (ph * 400);
     imagesOpacity = 1 - ph;
     textOpacity = 0;
@@ -3576,22 +3596,21 @@ else if (p < 0.90) {
     
     {/* Footer Links */}
     <div className="footer__links">
-      <a href="/">Corporate</a>
-      <a href="/">Privacy</a>
-      <a href="/">Cookie Settings</a>
-      <a href="/">Cookie Policy</a>
-      <a href="/">Legal</a>
+      <Link to="/corporate">Corporate</Link>
+      <Link to="/privacy">Privacy</Link>
+      <Link to="/cookie-settings">Cookie Settings</Link>
+      <Link to="/cookie-policy">Cookie Policy</Link>
+      <Link to="/legal">Legal</Link>
       <a href="/">Do Not Sell or Share My Personal Information</a>
     </div>
     
     {/* Rating */}
-    <div className="footer__rating">
+    {/* <div className="footer__rating">
       <div className="footer__rating-badge">RP</div>
       <p className="footer__rating-text">
-        {/* May contain content inappropriate for children.<br /> */}
         Visit <a href="/">esrb.org</a> for rating information.
       </p>
-    </div>
+    </div> */}
     
   </div>
 </section>

@@ -1,0 +1,110 @@
+.privacy-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #e0e0e0;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.privacy-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.privacy-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #00FF88;
+  text-decoration: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+}
+
+.privacy-back:hover {
+  opacity: 0.7;
+}
+
+.privacy-back svg {
+  stroke: #00FF88;
+}
+
+.privacy-logo img {
+  height: 45px;
+  width: auto;
+}
+
+.privacy-container {
+  padding: 120px 5vw 80px;
+  /* max-width: 1000px; */
+}
+
+.privacy-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #00FF88;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  padding-left: 20%;
+
+}
+
+.privacy-updated {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.privacy-content {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  padding-left: 20%;
+  max-width: 700vh;
+  padding-right: 20%;
+}
+
+.privacy-content h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  color: #00CC6A;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+}
+
+.privacy-content p {
+  margin-bottom: 20px;
+  color: #b0b0b0;
+}
+
+.privacy-content a {
+  color: #00FF88;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.privacy-content a:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .privacy-header {
+    padding: 16px 20px;
+  }
+
+  .privacy-logo img {
+    height: 28px;
+  }
+}
