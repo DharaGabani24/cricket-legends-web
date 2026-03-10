@@ -4472,9 +4472,9 @@ will-change: opacity;
   
   .finale__text-layer {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -25%);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -4497,8 +4497,8 @@ will-change: opacity;
 
   letter-spacing: 0.45em;
   text-transform: uppercase;
-  /* line-height: 1.5; */
-  padding-bottom: 0.5rem;
+  line-height: 1;
+  padding-bottom: 0.8rem;
   color: rgb(0, 40, 25);
   margin-bottom: 8px;
   }
@@ -4516,7 +4516,7 @@ will-change: opacity;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
      background-clip: text;
-    margin-bottom: 4px;
+    margin-bottom: 0;
   }
   
   .finale__text-dim .finale__year {
@@ -4544,14 +4544,16 @@ will-change: opacity;
    
     font-family: 'Barlow Condensed', sans-serif;
     /* font-size: clamp(1.2rem, 2.5vw, 1.8rem); */
+    line-height: 1;
     font-size: clamp(1.4rem, 2.5vw, 2.2rem);
     font-weight: 600;
+    padding-bottom: 0.8rem;
     letter-spacing: 0.45em;
     background: linear-gradient(180deg, rgb(0, 190, 110) 0%, rgb(0, 160, 90) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    margin-bottom: 8px;
+    margin-bottom: 0;
   }
   
   .finale__text-bright .finale__date {
@@ -4566,7 +4568,7 @@ will-change: opacity;
     background-clip: text;
     color: transparent;
     line-height: 0.95;
-    margin-bottom: 4px;
+    margin-bottom: 0;
   }
   
   .finale__text-bright .finale__year {
@@ -4594,12 +4596,14 @@ will-change: opacity;
    
     font-family: 'Barlow Condensed', sans-serif;
     /* font-size: clamp(1.2rem, 2.5vw, 1.8rem); */
+    line-height: 1;
+    padding-bottom: 0.8rem;
     font-size: clamp(1.4rem, 2.5vw, 2.2rem);
     font-weight: 600;
     letter-spacing: 0.45em;
     color: rgb(0, 255, 136);
     text-shadow: 0 0 40px rgba(0, 255, 136, 0.9), 0 0 80px rgba(0, 200, 100, 0.5);
-    margin-bottom: 8px;
+    margin-bottom: 0px;
 
   }
   
@@ -4613,7 +4617,7 @@ will-change: opacity;
     color: rgb(0, 255, 136);
     text-shadow: 0 0 50px rgba(0, 255, 136, 0.9), 0 0 100px rgba(0, 200, 100, 0.5);
     line-height: 0.95;
-    margin-bottom: 4px;
+    margin-bottom: 0;
   }
   
   .finale__text-glow .finale__year {
@@ -4631,12 +4635,12 @@ will-change: opacity;
   .finale__platforms {
     position: absolute;
     bottom: 5vh;
-    top:90vh;
+    top:87vh;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 1rem;
     will-change: transform, opacity;
     pointer-events: auto;
   }
@@ -4706,7 +4710,7 @@ will-change: opacity;
       justify-content: center;
     }
   }
-  /* ========================================
+  /* ==============================================
    FOOTER SECTION
    ======================================== */
 

@@ -807,7 +807,7 @@ else if (p >= 0.35) {
                 gsap.set(luciaCharImg3, { y: 1100 - baseScroll, opacity: 1 });
               }
               
-              // ── PHASES 7-8: FADE OUT + REVEAL LEONIDA ──
+              ////// ── PHASES 7-8: FADE OUT + REVEAL LEONIDA ──
               
               // LUCIA CHAR PHASE 7: CONTENT FADES, STICKY GOES TRANSPARENT (0.59 - 0.72)
               else if (p >= 0.55 && p < 0.72) {
@@ -3196,7 +3196,7 @@ else if (p < 0.90) {
     </svg>
     Back
   </button>
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator////// */}
       <div ref={discoverScrollIndicatorRef} className="scroll-indicator discover">
       {/* <div className="double-chevron-wrapper">
         <div className="double-chevron">∨</div>
