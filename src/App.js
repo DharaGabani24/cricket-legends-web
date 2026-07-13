@@ -9,7 +9,6 @@ import {
   Navbar,
   Hero,
   Story,
-  Features,
 } from './components';
 
 import Privacy from './pages/Privacy';

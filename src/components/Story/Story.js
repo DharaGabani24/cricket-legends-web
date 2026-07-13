@@ -25,9 +25,6 @@ const Story = () => {
 
   const containerRef = useRef(null);
 
-  // const [viceCityOpen, setViceCityOpen] = useState(false);
-  const [lightboxImage, setLightboxImage] = useState(null);
-
 
     // Visit Leonida section refs
     const vlSectionRef = useRef(null);
@@ -172,7 +169,6 @@ const worldBigQuoteRef = useRef(null);
 const worldBigQuoteBgRef = useRef(null);
 const worldImg4Ref = useRef(null);
 const worldImg5Ref = useRef(null);
-const worldContentRef = useRef(null);
 const worldQuote2Ref = useRef(null);
 const worldDesc2Ref = useRef(null);
 
@@ -213,8 +209,6 @@ const discoverScrollIndicatorRef = useRef(null);  // ← ADD THIS NEW LINE
 
 const [discoverDetailOpen, setDiscoverDetailOpen] = useState(false);
 
-const navbarRef = useRef(null);
-
 
 // Hide navbar when overlays are open
 useEffect(() => {
@@ -226,18 +220,9 @@ useEffect(() => {
 }, [viceCityOpen, discoverDetailOpen]);
 
 
-  // Lightbox handlers
-const openLightbox = (imageSrc) => {
-  setLightboxImage(imageSrc);
-  document.body.style.overflow = 'hidden';
-};
-
-const closeLightbox = () => {
-  setLightboxImage(null);
-  document.body.style.overflow = '';
-};
   useLayoutEffect(() => {
     let animFrameId;
+    let particlesResizeHandler = null;
 
     const ctx = gsap.context(() => {
       
@@ -536,7 +521,7 @@ else if (p >= 0.35) {
       
       // Initial states for Lucia
       gsap.set(luciaBgImage, { opacity: 0, scale: 1.1 });
-      gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+      gsap.set(luciaBgOverlay, { opacity: 0 });
       gsap.set(luciaMainQuote, { y: '100vh', opacity: 0 });
       gsap.set(luciaSubQuote, { y: '100vh', opacity: 0 });
       gsap.set(luciaDesc, { y: '100vh', opacity: 0 });
@@ -561,8 +546,9 @@ else if (p >= 0.35) {
           // LUCIA PHASE 1: BG FADES IN (0 - 0.01)
           if (p < 0.01) {
             const bgProgress = p / 0.01;
-            gsap.set(luciaBgImage, { opacity: 0.8 + (bgProgress * 0.2) });
-            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+            // scale pinned at 1.05 to match phase 2 (was snapping 1.1 -> 1.05)
+            gsap.set(luciaBgImage, { opacity: 0.8 + (bgProgress * 0.2), scale: 1.05 });
+            gsap.set(luciaBgOverlay, { opacity: 0 });
             gsap.set(luciaMainQuote, { y: '100vh', opacity: 0 });
             gsap.set(luciaSubQuote, { y: '100vh', opacity: 0 });
             gsap.set(luciaDesc, { y: '100vh', opacity: 0 });
@@ -590,7 +576,8 @@ else if (p >= 0.35) {
             const phase3 = (p - 0.15) / 0.14;
             const bgOpacity = 1 - (phase3 * 0.4);
             gsap.set(luciaBgImage, { opacity: bgOpacity });
-            gsap.set(luciaBgOverlay, { background: `rgba(10, 10, 10, ${0.4 + (phase3 * 0.4)})` });
+            // ramps 0 -> 1 (was jumping to 0.4 at entry, then 0.8 -> 1 at exit)
+            gsap.set(luciaBgOverlay, { opacity: phase3 });
             const baseScroll = 350 + (phase3 * 350);
             gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
             gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: phase3 });
@@ -604,7 +591,7 @@ else if (p >= 0.35) {
           else if (p >= 0.29 && p < 0.43) {
             const phase4 = (p - 0.29) / 0.14;
             gsap.set(luciaBgImage, { opacity: 0 });
-            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+            gsap.set(luciaBgOverlay, { opacity: 1 });
             const baseScroll = 700 + (phase4 * 350);
             gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
             gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: 1 });
@@ -618,7 +605,7 @@ else if (p >= 0.35) {
           else if (p >= 0.43 && p < 0.56) {
             const phase5 = (p - 0.43) / 0.13;
             gsap.set(luciaBgImage, { opacity: 0 });
-            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+            gsap.set(luciaBgOverlay, { opacity: 1 });
             const baseScroll = 1050 + (phase5 * 325);
             gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: 1 });
             gsap.set(luciaSubQuote, { y: 750 - baseScroll, opacity: 1 });
@@ -632,7 +619,7 @@ else if (p >= 0.35) {
           else if (p >= 0.56 && p < 0.69) {
             const phase6 = (p - 0.56) / 0.13;
             gsap.set(luciaBgImage, { opacity: 0 });
-            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+            gsap.set(luciaBgOverlay, { opacity: 1 });
             const baseScroll = 1375 + (phase6 * 325);
             const textOpacity = 1 - phase6;
             gsap.set(luciaMainQuote, { y: 600 - baseScroll, opacity: textOpacity });
@@ -647,7 +634,7 @@ else if (p >= 0.35) {
           else if (p >= 0.69 && p < 0.82) {
             const phase7 = (p - 0.69) / 0.13;
             gsap.set(luciaBgImage, { opacity: 0 });
-            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+            gsap.set(luciaBgOverlay, { opacity: 1 });
             const baseScroll = 1700 + (phase7 * 325);
             gsap.set(luciaMainQuote, { opacity: 0 });
             gsap.set(luciaSubQuote, { opacity: 0 });
@@ -661,7 +648,7 @@ else if (p >= 0.35) {
           else if (p >= 0.82) {
             const phase8 = (p - 0.82) / 0.18;
             gsap.set(luciaBgImage, { opacity: 0 });
-            gsap.set(luciaBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+            gsap.set(luciaBgOverlay, { opacity: 1 });
             const baseScroll = 2025 + (phase8 * 450);
             gsap.set(luciaMainQuote, { opacity: 0 });
             gsap.set(luciaSubQuote, { opacity: 0 });
@@ -692,7 +679,7 @@ else if (p >= 0.35) {
 
           // Initial states - ALL start below viewport
           gsap.set(luciaCharBgImage, { opacity: 0 });
-          gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+          gsap.set(luciaCharBgOverlay, { opacity: 0 });
           gsap.set(luciaCharName, { y: '100vh' });
           gsap.set(luciaCharQuote, { y: '100vh' });
           gsap.set(luciaCharDesc, { y: '100vh' });
@@ -726,7 +713,7 @@ else if (p >= 0.35) {
               if (p < 0.01) {
                 const phase1 = p / 0.01;
                 gsap.set(luciaCharBgImage, { opacity: phase1 });
-                gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+                gsap.set(luciaCharBgOverlay, { opacity: 0 });
                 gsap.set(luciaCharName, { y: '100vh' });
                 gsap.set(luciaCharQuote, { y: '100vh' });
                 gsap.set(luciaCharDesc, { y: '100vh' });
@@ -740,7 +727,7 @@ else if (p >= 0.35) {
               else if (p >= 0.01 && p < 0.11) {
                 const phase2 = (p - 0.01) / 0.10;
                 gsap.set(luciaCharBgImage, { opacity: 1 });
-                gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${phase2 * 0.75})` });
+                gsap.set(luciaCharBgOverlay, { opacity: phase2 * 0.75 });
                 gsap.set(luciaCharName, { y: 800 - baseScroll });
                 gsap.set(luciaCharQuote, { y: 900 - baseScroll });
                 gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
@@ -754,7 +741,7 @@ else if (p >= 0.35) {
               else if (p >= 0.11 && p < 0.21) {
                 const phase3 = (p - 0.11) / 0.10;
                 gsap.set(luciaCharBgImage, { opacity: 1 });
-                gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.75 + (phase3 * 0.2)})` });
+                gsap.set(luciaCharBgOverlay, { opacity: 0.75 + (phase3 * 0.2) });
                 gsap.set(luciaCharName, { y: 800 - baseScroll });
                 gsap.set(luciaCharQuote, { y: 900 - baseScroll });
                 gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
@@ -768,7 +755,7 @@ else if (p >= 0.35) {
               else if (p >= 0.21 && p < 0.33) {
                 const phase4 = (p - 0.21) / 0.12;
                 gsap.set(luciaCharBgImage, { opacity: 1 });
-                gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.9 + (phase4 * 0.15)})` });
+                gsap.set(luciaCharBgOverlay, { opacity: 0.9 + (phase4 * 0.15) });
                 gsap.set(luciaCharName, { y: 800 - baseScroll });
                 gsap.set(luciaCharQuote, { y: 900 - baseScroll });
                 gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
@@ -782,7 +769,7 @@ else if (p >= 0.35) {
               else if (p >= 0.33 && p < 0.46) {
                 const phase5 = (p - 0.33) / 0.13;
                 gsap.set(luciaCharBgImage, { opacity: 1 });
-                gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${0.95 + (phase5 * 0.1)})` });
+                gsap.set(luciaCharBgOverlay, { opacity: 0.95 + (phase5 * 0.1) });
                 gsap.set(luciaCharName, { y: 800 - baseScroll });
                 gsap.set(luciaCharQuote, { y: 900 - baseScroll });
                 gsap.set(luciaCharDesc, { y: 1050 - baseScroll });
@@ -794,9 +781,9 @@ else if (p >= 0.35) {
               
               // LUCIA CHAR PHASE 6: BG BLACK, TEXT FADES (0.46 - 0.59)
               else if (p >= 0.46 && p < 0.55) {
-                const phase6 = (p - 0.46) / 0.9;
+                const phase6 = (p - 0.46) / 0.09; // was /0.9 — text only faded to 90% then snapped to 0
                 gsap.set(luciaCharBgImage, { opacity: 0 });
-                gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+                gsap.set(luciaCharBgOverlay, { opacity: 1 });
                 const textOpacity = 1 - phase6;
                 gsap.set(luciaCharName, { y: 800 - baseScroll, opacity: textOpacity });
                 gsap.set(luciaCharQuote, { y: 900 - baseScroll, opacity: textOpacity });
@@ -816,7 +803,7 @@ else if (p >= 0.35) {
                 const fadeOut = Math.min(1, (p - 0.55) / 0.10);
 
                 gsap.set(luciaCharBgImage, { opacity: 0 });
-                gsap.set(luciaCharBgOverlay, { background: `rgba(10, 10, 10, ${1 - fadeOut})` });
+                gsap.set(luciaCharBgOverlay, { opacity: 1 - fadeOut });
                 gsap.set(luciaCharName, { opacity: 0 });
                 gsap.set(luciaCharQuote, { opacity: 0 });
                 gsap.set(luciaCharDesc, { opacity: 0 });
@@ -833,7 +820,7 @@ else if (p >= 0.35) {
               // LUCIA CHAR PHASE 8: FULLY TRANSPARENT — LEONIDA VISIBLE (0.72 - 1.0)
               else if (p >= 0.72) {
                 gsap.set(luciaCharBgImage, { opacity: 0 });
-                gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+                gsap.set(luciaCharBgOverlay, { opacity: 0 });
                 gsap.set(luciaCharName, { opacity: 0 });
                 gsap.set(luciaCharQuote, { opacity: 0 });
                 gsap.set(luciaCharDesc, { opacity: 0 });
@@ -849,7 +836,7 @@ else if (p >= 0.35) {
             },
             onLeave: () => {
               gsap.set(luciaCharBgImage, { opacity: 0 });
-              gsap.set(luciaCharBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+              gsap.set(luciaCharBgOverlay, { opacity: 0 });
               gsap.set(luciaCharName, { opacity: 0 });
               gsap.set(luciaCharQuote, { opacity: 0 });
               gsap.set(luciaCharDesc, { opacity: 0 });
@@ -930,7 +917,7 @@ const calBigQuote = calBigQuoteRef.current;
 
 // Initial states - TEXT is visible on BG, IMAGES are hidden
 gsap.set(calBgImage, { opacity: 1 });
-gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 0)' });
+gsap.set(calBgOverlay, { opacity: 0 });
 gsap.set(calName, { opacity: 0 });
 gsap.set(calQuote, { opacity: 0 });
 gsap.set(calDesc, { opacity: 0 });
@@ -957,7 +944,8 @@ ScrollTrigger.create({
       const phase1 = p / 0.12;
 
       gsap.set(calBgImage, { opacity: 1 });
-      gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 0.3)' });
+      // ramps 0 -> 0.3 (was jumping straight to 0.3 on the first scrolled pixel)
+      gsap.set(calBgOverlay, { opacity: phase1 * 0.3 });
 
       // Text fades in (static position, no y movement)
       gsap.set(calName, { opacity: phase1 });
@@ -979,9 +967,9 @@ ScrollTrigger.create({
       // const phase2 = (p - 0.12) / 0.16;
 
       gsap.set(calBgImage, { opacity: 1 });
-      // gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 0.5)' });
+      // gsap.set(calBgOverlay, { opacity: 0.5 });
       const phase2 = (p - 0.12) / 0.16;
-gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})` });
+gsap.set(calBgOverlay, { opacity: 0.3 + (phase2 * 0.2) });
 
       // Text fully visible, static
       gsap.set(calName, { opacity: 1 });
@@ -1003,9 +991,9 @@ gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})`
       const phase3 = (p - 0.28) / 0.10;
 
       gsap.set(calBgImage, { opacity: 1 });
-      // gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${phase3 * 0.5})` });
-      // gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.5 + (phase3 * 0.5)})` });
-      gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 0.5)' });
+      // gsap.set(calBgOverlay, { opacity: phase3 * 0.5 });
+      // gsap.set(calBgOverlay, { opacity: 0.5 + (phase3 * 0.5) });
+      gsap.set(calBgOverlay, { opacity: 0.5 });
       // Text fades out
       const textOpacity = 1 - phase3;
       gsap.set(calName, { opacity: textOpacity });
@@ -1028,9 +1016,9 @@ gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})`
       const phase4 = (p - 0.38) / 0.14;
 
       gsap.set(calBgImage, { opacity: 1 });
-      // gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.5 + (phase4 * 0.3)})` });
-      gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.5 + (phase4 * 0.5)})` });
-      // gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 1)' });    
+      // gsap.set(calBgOverlay, { opacity: 0.5 + (phase4 * 0.3) });
+      gsap.set(calBgOverlay, { opacity: 0.5 + (phase4 * 0.5) });
+      // gsap.set(calBgOverlay, { opacity: 1 });    
 
       // Text hidden
       gsap.set(calName, { opacity: 0 });
@@ -1055,7 +1043,7 @@ gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})`
       // const phase5 = (p - 0.52) / 0.08;
 
       gsap.set(calBgImage, { opacity: 0 });
-      gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+      gsap.set(calBgOverlay, { opacity: 1 });
 
       gsap.set(calName, { opacity: 0 });
       gsap.set(calQuote, { opacity: 0 });
@@ -1077,7 +1065,7 @@ gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})`
       const phase6 = (p - 0.60) / 0.12;
 
       gsap.set(calBgImage, { opacity: 0 });
-      gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+      gsap.set(calBgOverlay, { opacity: 1 });
 
       gsap.set(calName, { opacity: 0 });
       gsap.set(calQuote, { opacity: 0 });
@@ -1103,7 +1091,7 @@ gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})`
       const phase7 = (p - 0.72) / 0.13;
 
       gsap.set(calBgImage, { opacity: 0 });
-      gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+      gsap.set(calBgOverlay, { opacity: 1 });
 
       gsap.set(calName, { opacity: 0 });
       gsap.set(calQuote, { opacity: 0 });
@@ -1125,7 +1113,7 @@ gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})`
     // ========================================
     else if (p >= 0.85 && p < 0.92) {
       gsap.set(calBgImage, { opacity: 0 });
-      gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+      gsap.set(calBgOverlay, { opacity: 1 });
 
       gsap.set(calName, { opacity: 0 });
       gsap.set(calQuote, { opacity: 0 });
@@ -1145,7 +1133,7 @@ gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})`
       const phase9 = (p - 0.92) / 0.08;
 
       gsap.set(calBgImage, { opacity: 0 });
-      gsap.set(calBgOverlay, { background: 'rgba(10, 10, 10, 1)' });
+      gsap.set(calBgOverlay, { opacity: 1 });
 
       gsap.set(calName, { opacity: 0 });
       gsap.set(calQuote, { opacity: 0 });
@@ -1374,8 +1362,9 @@ gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})`
 
             gsap.set(vlBg, { opacity: 0.5 - (phase7 * 0.5) });
             gsap.set(vlHeader, { opacity: 0 });
-            gsap.set(vlPostcardWrapper, { opacity: 0 });
-            gsap.set(vlPostcard, { opacity: 0 });
+            // continue the card's fade from 0.5 (was snapping the wrapper to 0)
+            gsap.set(vlPostcardWrapper, { opacity: 1 });
+            gsap.set(vlPostcard, { opacity: Math.max(0, 0.5 - (phase7 * 1.5)) });
             gsap.set([vlOrb1, vlOrb2, vlOrb3], { opacity: 0 });
           }
         }
@@ -1398,6 +1387,7 @@ gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})`
         };
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
+        particlesResizeHandler = resizeCanvas;
 
         // Create particles
         for (let i = 0; i < PARTICLE_COUNT; i++) {
@@ -1444,15 +1434,26 @@ gsap.set(calBgOverlay, { background: `rgba(10, 10, 10, ${0.3 + (phase2 * 0.2)})`
             }
           });
 
-          animFrameId = requestAnimationFrame(drawParticles);
+          if (particlesRunning) animFrameId = requestAnimationFrame(drawParticles);
         };
 
-        animFrameId = requestAnimationFrame(drawParticles);
-
-        // // Cleanup
-        // // (handled by gsap.context revert, but also cancel frame)
-        // const origRevert = ctx.revert.bind(ctx);
-        // // We'll just let the return cleanup handle it
+        // Only run the particle loop while the section is on screen —
+        // a permanent rAF loop steals main-thread time from every scroll frame
+        let particlesRunning = false;
+        ScrollTrigger.create({
+          trigger: vlSectionRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          onToggle: (self) => {
+            if (self.isActive && !particlesRunning) {
+              particlesRunning = true;
+              animFrameId = requestAnimationFrame(drawParticles);
+            } else if (!self.isActive) {
+              particlesRunning = false;
+              cancelAnimationFrame(animFrameId);
+            }
+          }
+        });
       }
 
 // ========================================
@@ -1920,8 +1921,9 @@ ScrollTrigger.create({
 
       gsap.set(discoverBg, { opacity: 0.5 - (phase5 * 0.5) });
       gsap.set(discoverHeader, { opacity: 0 });
-      gsap.set(discoverPostcardWrapper, { opacity: 0 });
-      gsap.set(discoverPostcard, { opacity: 0 });
+      // continue the card's fade from 0.5 (was snapping the wrapper to 0)
+      gsap.set(discoverPostcardWrapper, { opacity: 1 });
+      gsap.set(discoverPostcard, { opacity: Math.max(0, 0.5 - (phase5 * 1.5)) });
       gsap.set([discoverOrb1, discoverOrb2, discoverOrb3], { opacity: 0 });
       
 
@@ -2117,7 +2119,11 @@ else if (p < 0.90) {
      
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => {
+      cancelAnimationFrame(animFrameId);
+      if (particlesResizeHandler) window.removeEventListener('resize', particlesResizeHandler);
+      ctx.revert();
+    };
   }, []);
 
 
@@ -3511,21 +3517,21 @@ else if (p < 0.90) {
       {/* DIM layer */}
       <div ref={finaleDimRef} className="finale__text-layer finale__text-dim">
         <div ref={finaleComingRef} className="finale__coming">COMING</div>
-        <div ref={finaleDateRef} className="finale__date">FEBRUARY</div>
+        <div ref={finaleDateRef} className="finale__date">AUGUST</div>
         <div ref={finaleYearRef} className="finale__year">2026</div>
       </div>
       
       {/* BRIGHT layer — revealed by radial mask */}
       <div ref={finaleBrightRef} className="finale__text-layer finale__text-bright">
         <div className="finale__coming">COMING</div>
-        <div className="finale__date">FEBRUARY</div>
+        <div className="finale__date">AUGUST</div>
         <div className="finale__year">2026</div>
       </div>
       
       {/* GLOW layer — warm edge during wipe */}
       <div ref={finaleGlowRef} className="finale__text-layer finale__text-glow">
         <div className="finale__coming">COMING</div>
-        <div className="finale__date">FEBRUARY</div>
+        <div className="finale__date">AUGUST</div>
         <div className="finale__year">2026</div>
       </div>
       
@@ -3564,18 +3570,18 @@ else if (p < 0.90) {
      <div className="footer__wishlist">
       <h3 className="footer__wishlist-title">Wishlist Now</h3>
       <div className="footer__wishlist-buttons">
-        <a href="#" className="footer__platform-btn">
+        <button type="button" className="footer__platform-btn">
           <img src="/img/platforms/playstation.svg" alt="PlayStation" className="footer__platform-svg" />
           PS5
-        </a>
-        <a href="#" className="footer__platform-btn">
+        </button>
+        <button type="button" className="footer__platform-btn">
           <img src="/img/platforms/xbox.svg" alt="Xbox" className="footer__platform-svg" />
           XBOX SERIES X|S
-        </a>
-        <a href="#" className="footer__platform-btn">
+        </button>
+        <button type="button" className="footer__platform-btn">
           <img src="/img/platforms/steam.svg" alt="Steam" className="footer__platform-svg" />
           PC
-        </a>
+        </button>
       </div>
     </div>
     

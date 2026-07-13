@@ -46,21 +46,9 @@ const EXPLORE_TABS = [
 // ];
 
 const TRAILERS = [
-  
-
-  { id: 't1', title: 'Cricket 26 — Gameplay Trailer', date: 'Nov 13, 2025', duration: '1:45',
-    thumbnail: 'https://img.youtube.com/vi/gLf3RNhPZf8/maxresdefault.jpg',
-    url: 'https://www.youtube.com/watch?v=gLf3RNhPZf8', isNew: true },
-
- 
-
-  { id: 't2', title: 'ICC Cricket 26 — Mobile Trailer', date: 'Sep 2025', duration: '2:05',
-    thumbnail: 'https://img.youtube.com/vi/0Osdvte0EUE/maxresdefault.jpg',
-    url: 'https://www.youtube.com/watch?v=0Osdvte0EUE', isNew: false },
-
-     { id: 't3', title: 'Cricket — Official Trailer', date: 'Nov 13, 2025', duration: '0:30',
-   thumbnail: 'https://img.youtube.com/vi/eM_w6yMpZiM/maxresdefault.jpg',
-   url: 'https://www.youtube.com/watch?v=eM_w6yMpZiM', isNew: true },
+  { id: 't1', title: 'Gods of Cricket — Official Cinematic Trailer', date: '2025', duration: '1:04',
+    thumbnail: 'https://img.youtube.com/vi/Oj623A71okc/maxresdefault.jpg',
+    url: 'https://www.youtube.com/watch?v=Oj623A71okc', isNew: true },
 ];
 
 
@@ -524,7 +512,7 @@ const handleTrailerMouseLeave = useCallback((idx) => {
        <div className="nm__ov-footer">
          <div className="nm__ov-footer-release">
            <span className="nm__ov-footer-lbl">Release</span>
-           <span className="nm__ov-footer-val">February, 2026</span>
+           <span className="nm__ov-footer-val">August, 2026</span>
          </div>
          <div className="nm__ov-footer-platforms">
            <span className="nm__chip">

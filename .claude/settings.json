@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk '{printf \"%8.0f KB  %s\\\\n\", $5/1024, $NF}')",
+      "Bash(node -e \"try{require.resolve\\('sharp'\\);console.log\\('sharp: yes'\\)}catch\\(e\\){console.log\\('sharp: no'\\)}\")",
+      "Bash(sips -s format webp /dev/null)",
+      "Bash(sips -g pixelWidth -g pixelHeight HighresScreenshot00014.webp)",
+      "Bash(magick HighresScreenshot00014.webp -resize 800x /private/tmp/claude-501/-Users-pravanparikh-cricket-legends-web/3e4d2c4f-92dd-493a-b727-520ccd634ffd/scratchpad/quality_check.png)",
+      "Bash(sed -i '' 's/February, 2026/August, 2026/' src/components/Navbar/Navbar.js)",
+      "Bash(sed -i '' 's/>FEBRUARY</>AUGUST</g' src/components/Hero/Hero.js src/components/Story/Story.js)",
+      "Bash(grep -c \"BgOverlay, { background\" src/components/Story/Story.js)",
+      "Bash(perl -i -pe ' *)",
+      "Bash(grep -n \"BgOverlay, { opacity\" src/components/Story/Story.js)",
+      "Bash(curl -s \"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=Oj623A71okc&format=json\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(npx react-scripts *)",
+      "Bash(node -e \"try{require.resolve\\('playwright'\\);console.log\\('playwright yes'\\)}catch\\(e\\){console.log\\('no pw'\\)}\")",
+      "Read(//Users/pravanparikh/Library/Caches/**)",
+      "Bash(npm init *)",
+      "Bash(npm i *)",
+      "Read(//Applications/**)",
+      "Bash(npx serve *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{size_download}b\\\\n\" http://localhost:4173/)",
+      "Bash(node drive.js)"
+    ]
+  }
+}

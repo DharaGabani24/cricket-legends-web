@@ -36,9 +36,42 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import './Preloader.css';
 
+// All images the home page animates in — fetched AND decoded during the
+// preloader so nothing pops in or stalls the scroll later.
+const PRELOAD_IMAGES = [
+  '/img/HighresScreenshot00014.webp', // hero bg — first visible
+  '/img/HighresScreenshot00002.webp',
+  '/img/HighresScreenshot00003.webp',
+  '/img/HighresScreenshot00004.webp',
+  '/img/HighresScreenshot00005.webp',
+  '/img/HighresScreenshot00006.webp',
+  '/img/HighresScreenshot00007.webp',
+  '/img/HighresScreenshot00008.webp',
+  '/img/HighresScreenshot00009.webp',
+  '/img/HighresScreenshot00010.webp',
+  '/img/HighresScreenshot00013.webp',
+  '/img/HighresScreenshot00015.webp',
+  '/img/GOC_logo.webp',
+  '/img/player2.webp',
+  '/img/player3.webp',
+  '/img/cric2.jpg',
+  '/img/cric4.webp',
+  '/img/cric6.jpeg',
+  '/img/cric8.webp',
+];
+
 const Preloader = ({ onComplete }) => {
   const containerRef = useRef(null);
-  
+
+  // Warm the cache: fetch + decode every animated image while the logo plays
+  useEffect(() => {
+    PRELOAD_IMAGES.forEach((src) => {
+      const img = new Image();
+      img.src = process.env.PUBLIC_URL + src;
+      if (img.decode) img.decode().catch(() => {});
+    });
+  }, []);
+
   useEffect(() => {
     const initAnimation = () => {
       const strokePaths = containerRef.current?.querySelectorAll('.logo-stroke');

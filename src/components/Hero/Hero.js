@@ -156,23 +156,6 @@ const Hero = () => {
       
       updateRadialMasks(0);
 
-      const updateExitMask = (progress) => {
-        const exitContainer = exitContainerRef.current;
-        if (!exitContainer) return;
-        
-        const size = Math.max(0, 150 - (progress * 180));
-        const yPos = 50 - (progress * 40);
-        
-        if (size <= 5) {
-          exitContainer.style.webkitMaskImage = 'radial-gradient(ellipse 0% 0% at 50% 10%, black 0%, transparent 0%)';
-          exitContainer.style.maskImage = 'radial-gradient(ellipse 0% 0% at 50% 10%, black 0%, transparent 0%)';
-        } else {
-          const mask = `radial-gradient(ellipse ${size}% ${size * 0.8}% at 50% ${yPos}%, black 0%, black 70%, transparent 100%)`;
-          exitContainer.style.webkitMaskImage = mask;
-          exitContainer.style.maskImage = mask;
-        }
-      };
-     
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -230,9 +213,9 @@ tl.to(whiteFade, { opacity: 0, duration: 0.05, ease: 'power1.out' }, 0.12);
 tl.to(textGroup, { scale: 0.5, y: -30, duration: 0.03, ease: 'none' }, 0.12);
 tl.to(textGroup, { scale: 0.20, y: -150, duration: 0.02, ease: 'none' }, 0.15);
 
-// Release info appears at 0.17
+// Release info appears at 0.17 — eased over a wider window so it doesn't pop
 tl.set(releaseInfo, { visibility: 'visible' }, 0.17);
-tl.to(releaseInfo, { opacity: 1, duration: 0.01, ease: 'none' }, 0.17);
+tl.to(releaseInfo, { opacity: 1, duration: 0.05, ease: 'power1.out' }, 0.17);
 
 // Image fades out
 tl.to(imageWrapper, { opacity: 0, duration: 0.08, ease: 'power1.inOut' }, 0.18);
@@ -246,6 +229,10 @@ tl.to(imageWrapper, { opacity: 0, duration: 0.08, ease: 'power1.inOut' }, 0.18);
 
 //change2 //// /// //
 
+// Cache once — querying the DOM on every scroll frame causes jank
+const dimLayer = hero.querySelector('.hero__text-dim');
+const maskContainer = hero.querySelector('.hero__mask-container');
+
 ScrollTrigger.create({
   trigger: hero,
   start: 'top top',
@@ -253,10 +240,8 @@ ScrollTrigger.create({
   scrub: 0.8,
   onUpdate: (self) => {
     const scrollProgress = self.progress;
-    const dimLayer = document.querySelector('.hero__text-dim');
     const exitContainer = exitContainerRef.current;
-    const maskContainer = document.querySelector('.hero__mask-container');
-    
+
     // BEFORE RELEASE TEXT APPEARS (< 0.42)
     if (scrollProgress < 0.17) {
       updateRadialMasks(0);
@@ -275,7 +260,8 @@ ScrollTrigger.create({
     // HOLD DIM — release text + platforms visible (0.42 - 0.62)
     else if (scrollProgress < 0.70) {
       updateRadialMasks(0);
-      gsap.set(platforms, { opacity: 1 });
+      // fade in over a short window (was snapping 0 -> 1 at the boundary)
+      gsap.set(platforms, { opacity: Math.min(1, (scrollProgress - 0.17) / 0.06) });
       if (dimLayer) dimLayer.style.opacity = '1';
       releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
       if (maskContainer) maskContainer.style.opacity = '1';
@@ -313,10 +299,12 @@ ScrollTrigger.create({
     // HOLD BRIGHT — glowed text stays, logo hidden (0.82 - 0.98)
     else if (scrollProgress < 0.96) {
       updateRadialMasks(1);
-      gsap.set(platforms, { opacity: 0 });
-      if (dimLayer) dimLayer.style.opacity = '0';
+      // fade everything over a short window (was snapping to 0 at the boundary)
+      const holdFade = Math.min(1, (scrollProgress - 0.88) / 0.04);
+      gsap.set(platforms, { opacity: 1 - holdFade });
+      if (dimLayer) dimLayer.style.opacity = String(0.5 * (1 - holdFade));
       releaseInfo.style.transform = 'translate(-50%, -25%) scale(1)';
-      if (maskContainer) maskContainer.style.opacity = '0';
+      if (maskContainer) maskContainer.style.opacity = String(1 - holdFade);
       
       if (exitContainer) {
         exitContainer.style.webkitMaskImage = 'none';
@@ -393,17 +381,17 @@ ScrollTrigger.create({
         <div ref={releaseInfoRef} className="hero__release-info">
           <div className="hero__text-dim">
             <div className="hero__coming">COMING</div>
-            <div className="hero__date">FEBRUARY</div>
+            <div className="hero__date">AUGUST</div>
             <div className="hero__year">2026</div>
           </div>
           <div ref={textBrightRef} className="hero__text-bright">
             <div className="hero__coming">COMING</div>
-            <div className="hero__date">FEBRUARY</div>
+            <div className="hero__date">AUGUST</div>
             <div className="hero__year">2026</div>
           </div>
           <div ref={textGlowRef} className="hero__text-glow">
             <div className="hero__coming">COMING</div>
-            <div className="hero__date">FEBRUARY</div>
+            <div className="hero__date">AUGUST</div>
             <div className="hero__year">2026</div>
           </div>
          
